@@ -10,9 +10,23 @@
       "request": "launch",
       "port": 9000,
       "pathMappings": {
-        "/shared/httpd/mapa/htdocs": "${workspaceRoot}/php-site"
+        "/shared/httpd/mapa/htdocs": "${workspaceRoot}"
       }
     },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug 'app' with Chromium",
+      "url": "http://localhost:3000",
+      "runtimeExecutable": "/usr/bin/chromium-browser",
+      "runtimeArgs": [
+        "--incognito"
+      ],
+      "webRoot": "${workspaceRoot}/app/src",
+      "sourceMapPathOverrides": {
+        "webpack:///app/src/*": "${webRoot}/*"
+      }
+    },    
     {
       "name": "Launch currently open script",
       "type": "php",
