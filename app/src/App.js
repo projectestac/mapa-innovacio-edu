@@ -40,11 +40,40 @@ const theme = createMuiTheme({
 class App extends Component {
 
   /**
+   * App main state
+   */
+  state = {
+    projectes: [],
+    loading: true,
+    error: false,
+  };
+
+  loadProjects() {
+    this.setState({ loading: true });
+
+    return fetch(`${API_ROOT}/programes/`, {
+      method: 'GET',
+      credentials: 'same-origin',
+    })
+      .then(Utils.handleFetchErrors)
+      .then(response => response.json())
+      .then(projectes => {
+        this.setState({ projectes, loading: false });
+      })
+      .catch(error => {
+        console.error(error);
+        this.setState({ error: error.toString() });
+      });
+  }
+
+  /**
    * Miscellaneous operations to be performed at startup
    */
   componentDidMount() {
     // Load Google's "Roboto" font
     Utils.loadGFont('Roboto');
+    // Load data
+    this.loadProjects();
   }
 
   seccions = [

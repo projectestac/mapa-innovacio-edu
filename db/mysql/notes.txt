@@ -1,2 +1,2 @@
-Cal treure `ONLY_FULL_GROUP_BY` del paràmetre `sql_mode` al MySQL
+Amb MySQL 5.7 cal treure `ONLY_FULL_GROUP_BY` del paràmetre `sql_mode` al MySQL
 Veure: https://stackoverflow.com/questions/23921117/disable-only-full-group-by
