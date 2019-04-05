@@ -10,9 +10,11 @@ import color_error from '@material-ui/core/colors/red';
 import Utils from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
-import Projectes from './components/Projectes';
+import Programes from './components/Programes';
 import Mapa from './components/Mapa';
 import Centre from './components/Centre';
+import Error from './components/Error';
+import Loading from './components/Loading';
 
 /**
  * Miscellanous values taken from environment variables
@@ -39,26 +41,35 @@ const theme = createMuiTheme({
  */
 class App extends Component {
 
-  /**
-   * App main state
-   */
-  state = {
-    projectes: [],
-    loading: true,
-    error: false,
-  };
+  constructor() {
+    super();
 
-  loadProjects() {
+    // Set initial state
+    this.state = {
+      programes: [],
+      loading: true,
+      error: false,
+    };
+  }
+
+  loadData() {
+    return this.loadProgs();
+  }
+
+  loadProgs() {
     this.setState({ loading: true });
 
-    return fetch(`${API_ROOT}/programes/`, {
+    //const uri = `${API_ROOT}/programes/`;
+    const uri = 'data/programes.json';
+
+    return fetch(uri, {
       method: 'GET',
       credentials: 'same-origin',
     })
       .then(Utils.handleFetchErrors)
       .then(response => response.json())
-      .then(projectes => {
-        this.setState({ projectes, loading: false });
+      .then(programes => {
+        this.setState({ programes, loading: false });
       })
       .catch(error => {
         console.error(error);
@@ -73,26 +84,33 @@ class App extends Component {
     // Load Google's "Roboto" font
     Utils.loadGFont('Roboto');
     // Load data
-    this.loadProjects();
+    this.loadData();
   }
 
   seccions = [
     { id: 'presenta', name: 'Presentació' },
-    { id: 'projectes', name: 'Projectes' },
+    { id: 'programes', name: 'Programes' },
     { id: 'mapa', name: 'Mapa' },
   ];
 
   render() {
+
+    const { error, loading, programes } = this.state;
+
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
           <Header menuItems={this.seccions} />
-          <main>
-            <Presentacio id="presenta" />
-            <Projectes id="projectes" />
-            <Mapa id="mapa" />
-            <Centre id="centre" />
-          </main>
+          {
+            (error && <Error error={error} refetch={this.loadData} />) ||
+            (loading && <Loading />) ||
+            <main>
+              <Presentacio id="presenta" />
+              <Programes {...{ id: 'programes', programes }} />
+              <Mapa id="mapa" />
+              <Centre id="centre" />
+            </main>
+          }
         </MuiThemeProvider>
       </CssBaseline>
     );

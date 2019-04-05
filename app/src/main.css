@@ -16,7 +16,7 @@ header .main-title {
 }
 
 .seccio {
-  height: 100vh;
+  min-height: 10rem;
   background-color: lightgray;
   padding: 3rem;
 }
@@ -31,4 +31,24 @@ header .main-title {
 
 .projectes {
   background-color: lightgreen;
+}
+
+/* === Error === */
+.err-msg {
+  padding: var(--theme-spacing-unit-x2);
+  margin: auto;
+  margin-top: 15rem;
+  max-width: 48rem;
+}
+
+.err-msg .action-btn {
+  margin: 2rem;
+}
+
+/* === Programes === */
+.prog_logo {
+  max-width: 100px;
+  max-height: 100px;
+  float: left;
+  margin-right: 1rem;
 }
