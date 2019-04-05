@@ -20,7 +20,7 @@ import Loading from './components/Loading';
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
  */
-const API_ROOT = process.env.REACT_APP_API_ROOT || '../api';
+//const API_ROOT = process.env.REACT_APP_API_ROOT || '../api';
 
 /**
  * Main Material-UI theme
@@ -46,34 +46,55 @@ class App extends Component {
 
     // Set initial state
     this.state = {
-      programes: [],
+      data: {
+        programes: [],
+        instancies: [],
+        centres: [],
+        centresByK: {},
+        poligons: [],
+      },
       loading: true,
       error: false,
     };
   }
 
   loadData() {
-    return this.loadProgs();
-  }
-
-  loadProgs() {
     this.setState({ loading: true });
+    return Promise.all(
+      [
+        'data/programes.json', // `${API_ROOT}/programes/`
+        'data/instancies.json', // `${API_ROOT}/instancies/`
+        'data/centres.json',
+        'data/poligons.json',
+      ].map(uri => {
+        return fetch(uri, { method: 'GET', credentials: 'same-origin' })
+          .then(Utils.handleFetchErrors)
+          .then(response => response.json());
+      })
+    )
+      .then(([programes, instancies, centres, poligons]) => {
+        
+        // Build an object with centre ids as keys, useful for optimizing searches
+        const centresByK = {};
+        centres.forEach(c => centresByK[c.id] = c);
 
-    //const uri = `${API_ROOT}/programes/`;
-    const uri = 'data/programes.json';
-
-    return fetch(uri, {
-      method: 'GET',
-      credentials: 'same-origin',
-    })
-      .then(Utils.handleFetchErrors)
-      .then(response => response.json())
-      .then(programes => {
-        this.setState({ programes, loading: false });
+        // Update state
+        this.setState({
+          data: {
+            programes,
+            instancies,
+            centres,
+            centresByK,
+            poligons,
+          },
+          loading: false,
+          error: false,
+        });
       })
       .catch(error => {
-        console.error(error);
-        this.setState({ error: error.toString() });
+        // Something wrong happened!
+        console.log(error);
+        this.setState({ error });
       });
   }
 
@@ -95,7 +116,7 @@ class App extends Component {
 
   render() {
 
-    const { error, loading, programes } = this.state;
+    const { error, loading, data } = this.state;
 
     return (
       <CssBaseline>
@@ -106,7 +127,7 @@ class App extends Component {
             (loading && <Loading />) ||
             <main>
               <Presentacio id="presenta" />
-              <Programes {...{ id: 'programes', programes }} />
+              <Programes {...{ id: 'programes', data }} />
               <Mapa id="mapa" />
               <Centre id="centre" />
             </main>
