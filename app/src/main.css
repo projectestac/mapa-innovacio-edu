@@ -2,6 +2,7 @@
 :root {
   --theme-spacing-unit: 10pt;
   --theme-spacing-unit-x2: 20pt;
+  --theme-palette-background-paper:#fff;
 }
 
 body {
@@ -15,22 +16,13 @@ header .main-title {
   margin-left: 1rem;
 }
 
+
+.filler {
+  height: 3rem;
+}
+
 .seccio {
-  min-height: 10rem;
-  background-color: lightgray;
-  padding: 3rem;
-}
-
-.mapa {
-  background-color: lightskyblue;
-}
-
-.centre {
-  background-color: lightcoral;
-}
-
-.projectes {
-  background-color: lightgreen;
+  padding: 1rem;
 }
 
 /* === Error === */
@@ -46,11 +38,21 @@ header .main-title {
 }
 
 /* === Programes === */
+.prog_list {
+  width: 100%;
+  max-width: 50rem;
+  background-color: var(--theme-palette-background-paper);
+}
+
 .prog_logo {
   max-width: 100px;
   max-height: 100px;
   float: left;
   margin-right: 1rem;
+}
+
+.leftIcon {
+  margin-right: 0.5rem;
 }
 
 /* === Mapa === */

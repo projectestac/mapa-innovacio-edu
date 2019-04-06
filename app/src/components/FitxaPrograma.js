@@ -1,20 +1,23 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
-function FitxaPrograma({ programa, data: { programes, instancies, centresByK } }) {
+function FitxaPrograma({ programa, data: { programes, instancies, centresByK }, closeProg }) {
 
   // Els camps id, nomCurt i color no s'utilitzen
-  const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus } = programa;
-  const centresPerCurs = {};
-  instancies
-    .filter(ins => ins.programa === programa.id)
-    .forEach(ins => (centresPerCurs[ins.curs] = centresPerCurs[ins.curs] || []).push(centresByK[ins.centre]));
+  const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus, centres } = programa;
 
   return (
     <div>
-      <h3>{nom}</h3>
+      <Button aria-label="Torna" onClick={closeProg}>
+        <ArrowBack className="leftIcon" />
+        Tots els programes
+      </Button>
+      <br clear="all" />
       {simbol &&
         <img className="prog_logo" src={`logos/${simbol}`} alt={nom}></img>
       }
+      <h3>{nom}</h3>
       <p>{descripcio}</p>
       {ambInn.length > 0 &&
         <div className="prog_ambits">
@@ -44,18 +47,18 @@ function FitxaPrograma({ programa, data: { programes, instancies, centresByK } }
         <p><a href={link} target="_blank" rel="noopener noreferrer">Més informació sobre el programa</a></p>
       }
       <h4>Centres participants</h4>
-      {Object.keys(centresPerCurs).map((curs, n) => (
+      {Object.keys(centres).map((curs, n) => (
         <div key={n}>
           <h5>Curs {curs}</h5>
           <ul>
-            {centresPerCurs[curs].map((centre, c) => (
-              <li key={c}>{centre.nom} ({centre.municipi})</li>
-            ))}
+            {centres[curs].map((id, c) => {
+              const centre = centresByK[id];
+              return <li key={c}>{centre.nom} ({centre.municipi})</li>
+            })}
           </ul>
         </div>
       ))}
     </div>
-    // TODO: Cursos escolars, centres en cada curs
   );
 }
 

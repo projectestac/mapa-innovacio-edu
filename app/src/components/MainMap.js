@@ -36,8 +36,9 @@ export default class MainMap extends Component {
           id='mapbox.streets'
           accessToken="pk.eyJ1IjoiZnJuY2VzYyIsImEiOiJjanU1b3BkZ2owYThsNDR0M3A2MzBjczg2In0.5zKGaoSJeQOeiWZyOj8ByQ"
         />
-        {currentPolygons.map(p => (
+        {currentPolygons.map((p, n) => (
           <Polygon
+            key={n}
             positions={p.poligons}
             weight={2}
             fillOpacity={0.1}

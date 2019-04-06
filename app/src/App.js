@@ -55,12 +55,16 @@ class App extends Component {
       },
       currentPoints: [],
       currentPolygons: [],
+      currentPrograms: [],
       polygonMode: 'ST',
       loading: true,
       error: false,
     };
   }
 
+  /**
+   * Load datasets from API or JSON files
+   */
   loadData() {
     this.setState({ loading: true });
     return Promise.all(
@@ -86,6 +90,43 @@ class App extends Component {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
         });
 
+        const currentPrograms = [];
+
+        // Guess missing fields in `programes`
+        // (to be supressed!)
+        programes.forEach(p => {
+
+          // Set all programs initially selected
+          currentPrograms.push(p.id);
+
+          // Initialize `centres` (to be filled later)
+          p.centres = {};
+
+          // Empty `tipus`? then try to guess them from title and description
+          if (p.tipus.length === 0) {
+            const str = `${p.nom} ${p.nomCurt} ${p.descripcio}`;
+            if (/(FP|fp|[pP]rofessio)/.test(str))
+              p.tipus = ['CFPM', 'CFPS'];
+            else if (/(infantil|primària|escola)/.test(str))
+              p.tipus = ['EINF2C', 'EPRI'];
+            else
+              p.tipus = ['EINF2C', 'EPRI', 'ESO'];
+          }
+        });
+
+        // Initialize total number of `centres` for each program
+        instancies.forEach(ins => {
+          const programa = programes.find(p => p.id === ins.programa);
+          if (programa) {
+            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(ins.centre);
+          }
+          else
+            console.log(`WARNING: Instància amb programa desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
+        });
+
+        // Get current polygon mode
+        const { polygonMode } = this.state;
+
         // Update state
         this.setState({
           data: {
@@ -96,8 +137,8 @@ class App extends Component {
             poligons,
           },
           currentPoints: centres,
-          currentPolygons: poligons.filter(p => p.tipus === 'SEZ'),
-          polygonMode: 'SEZ',
+          currentPolygons: poligons.filter(p => p.tipus === polygonMode),
+          currentPrograms,
           loading: false,
           error: false,
         });
@@ -109,6 +150,10 @@ class App extends Component {
       });
   }
 
+  /**
+   * Set the polygon mode.
+   * @param {string} mode - Possible values are 'ST', 'SEZ' and 'NONE' 
+   */
   setPolygonMode(mode) {
     const polygons = mode === 'NONE' ? [] : this.state.data.poligons.filter(p => p.tipus === mode);
     this.setState({
@@ -123,31 +168,38 @@ class App extends Component {
   componentDidMount() {
     // Load Google's "Roboto" font
     Utils.loadGFont('Roboto');
-    // Load data
+    // Load datasets
     this.loadData();
   }
 
+  // Main app sections
   seccions = [
     { id: 'presenta', name: 'Presentació' },
     { id: 'programes', name: 'Programes' },
     { id: 'mapa', name: 'Mapa' },
   ];
 
+  /**
+   * Builds the App main component
+   */
   render() {
 
-    const { error, loading, data, currentPoints, currentPolygons } = this.state;
+    // Retrieve values from state
+    const { error, loading, data, currentPoints, currentPolygons, currentPrograms } = this.state;
+    const updateGlobalState = (state) => this.setState(state);
 
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
           <Header menuItems={this.seccions} />
+          <div className='filler' />
           {
             (error && <Error error={error} refetch={this.loadData} />) ||
             (loading && <Loading />) ||
             <main>
+              <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
               <MapSection {...{ id: 'mapa', data, currentPoints, currentPolygons }} />
               <Presentacio id="presenta" />
-              <Programes {...{ id: 'programes', data }} />
               <Centre id="centre" />
             </main>
           }
