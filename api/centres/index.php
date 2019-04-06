@@ -59,7 +59,12 @@ if (!empty($_REQUEST['min'])) {
 }
 
 // Build and launch query statement
-$sql = 'SELECT * FROM innova_centres WHERE Codi IN (SELECT Codi_centre FROM `innova_programes_centres`)';
+
+// Get only centres with innova_programes:
+// $sql = 'SELECT * FROM innova_centres WHERE Codi IN (SELECT Codi_centre FROM `innova_programes_centres`)';
+
+// Get all centres:
+$sql = 'SELECT * FROM innova_centres';
 
 if ($conditions) {
     $sql .= ' AND '.implode(' AND ', $conditions);

@@ -54,6 +54,8 @@ class App extends Component {
         poligons: [],
       },
       currentPoints: [],
+      currentPolygons: [],
+      polygonMode: 'ST',
       loading: true,
       error: false,
     };
@@ -79,6 +81,11 @@ class App extends Component {
         const centresByK = {};
         centres.forEach(c => centresByK[c.id] = c);
 
+        // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
+        poligons.forEach(p => {
+          p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
+        });
+
         // Update state
         this.setState({
           data: {
@@ -89,6 +96,8 @@ class App extends Component {
             poligons,
           },
           currentPoints: centres,
+          currentPolygons: poligons.filter(p => p.tipus === 'SEZ'),
+          polygonMode: 'SEZ',
           loading: false,
           error: false,
         });
@@ -98,6 +107,14 @@ class App extends Component {
         console.log(error);
         this.setState({ error });
       });
+  }
+
+  setPolygonMode(mode) {
+    const polygons = mode === 'NONE' ? [] : this.state.data.poligons.filter(p => p.tipus === mode);
+    this.setState({
+      currentPolygons: polygons,
+      polygonMode: mode,
+    });
   }
 
   /**
@@ -118,7 +135,7 @@ class App extends Component {
 
   render() {
 
-    const { error, loading, data, currentPoints } = this.state;
+    const { error, loading, data, currentPoints, currentPolygons } = this.state;
 
     return (
       <CssBaseline>
@@ -128,9 +145,9 @@ class App extends Component {
             (error && <Error error={error} refetch={this.loadData} />) ||
             (loading && <Loading />) ||
             <main>
+              <MapSection {...{ id: 'mapa', data, currentPoints, currentPolygons }} />
               <Presentacio id="presenta" />
               <Programes {...{ id: 'programes', data }} />
-              <MapSection {...{ id: 'mapa', data, currentPoints }} />
               <Centre id="centre" />
             </main>
           }
