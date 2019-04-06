@@ -11,7 +11,7 @@ import Utils from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
-import Mapa from './components/Mapa';
+import MapSection from './components/MapSection';
 import Centre from './components/Centre';
 import Error from './components/Error';
 import Loading from './components/Loading';
@@ -53,6 +53,7 @@ class App extends Component {
         centresByK: {},
         poligons: [],
       },
+      currentPoints: [],
       loading: true,
       error: false,
     };
@@ -73,7 +74,7 @@ class App extends Component {
       })
     )
       .then(([programes, instancies, centres, poligons]) => {
-        
+
         // Build an object with centre ids as keys, useful for optimizing searches
         const centresByK = {};
         centres.forEach(c => centresByK[c.id] = c);
@@ -87,6 +88,7 @@ class App extends Component {
             centresByK,
             poligons,
           },
+          currentPoints: centres,
           loading: false,
           error: false,
         });
@@ -116,7 +118,7 @@ class App extends Component {
 
   render() {
 
-    const { error, loading, data } = this.state;
+    const { error, loading, data, currentPoints } = this.state;
 
     return (
       <CssBaseline>
@@ -128,7 +130,7 @@ class App extends Component {
             <main>
               <Presentacio id="presenta" />
               <Programes {...{ id: 'programes', data }} />
-              <Mapa id="mapa" />
+              <MapSection {...{ id: 'mapa', data, currentPoints }} />
               <Centre id="centre" />
             </main>
           }
