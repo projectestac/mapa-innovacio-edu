@@ -11,8 +11,9 @@ import Utils from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
+import FitxaPrograma from './components/FitxaPrograma';
+import FitxaCentre from './components/FitxaCentre';
 import MapSection from './components/MapSection';
-import Centre from './components/Centre';
 import Error from './components/Error';
 import Loading from './components/Loading';
 
@@ -44,18 +45,23 @@ class App extends Component {
   constructor() {
     super();
 
+    // Container for immutable data
+    this.data = {
+      programes: [],
+      instancies: [],
+      centres: [],
+      centresByK: {},
+      poligons: [],
+    }
+
     // Set initial state
     this.state = {
-      data: {
-        programes: [],
-        instancies: [],
-        centres: [],
-        centresByK: {},
-        poligons: [],
-      },
+      dataLoaded: false,
       currentPoints: [],
       currentPolygons: [],
       currentPrograms: [],
+      program: null,
+      centre: null,
       polygonMode: 'ST',
       loading: true,
       error: false,
@@ -66,6 +72,9 @@ class App extends Component {
    * Load datasets from API or JSON files
    */
   loadData() {
+
+    console.log('Loading data!');
+
     this.setState({ loading: true });
     return Promise.all(
       [
@@ -127,15 +136,18 @@ class App extends Component {
         // Get current polygon mode
         const { polygonMode } = this.state;
 
+        // Update main data object
+        this.data = {
+          programes,
+          instancies,
+          centres,
+          centresByK,
+          poligons,
+        };
+
         // Update state
         this.setState({
-          data: {
-            programes,
-            instancies,
-            centres,
-            centresByK,
-            poligons,
-          },
+          dataLoaded: true,
           currentPoints: centres,
           currentPolygons: poligons.filter(p => p.tipus === polygonMode),
           currentPrograms,
@@ -155,7 +167,7 @@ class App extends Component {
    * @param {string} mode - Possible values are 'ST', 'SEZ' and 'NONE' 
    */
   setPolygonMode(mode) {
-    const polygons = mode === 'NONE' ? [] : this.state.data.poligons.filter(p => p.tipus === mode);
+    const polygons = mode === 'NONE' ? [] : this.data.poligons.filter(p => p.tipus === mode);
     this.setState({
       currentPolygons: polygons,
       polygonMode: mode,
@@ -185,7 +197,8 @@ class App extends Component {
   render() {
 
     // Retrieve values from state
-    const { error, loading, data, currentPoints, currentPolygons, currentPrograms } = this.state;
+    const data = this.data;
+    const { error, loading, currentPoints, currentPolygons, currentPrograms, programa, centre } = this.state;
     const updateGlobalState = (state) => this.setState(state);
 
     return (
@@ -197,10 +210,13 @@ class App extends Component {
             (error && <Error error={error} refetch={this.loadData} />) ||
             (loading && <Loading />) ||
             <main>
-              <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
-              <MapSection {...{ id: 'mapa', data, currentPoints, currentPolygons }} />
               <Presentacio id="presenta" />
-              <Centre id="centre" />
+              {
+                (centre && <FitxaCentre {...{ id: 'centre', centre, data, updateGlobalState }} />) ||
+                (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateGlobalState }} />) ||
+                <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
+              }
+              {!centre && <MapSection {...{ id: 'mapa', data, currentPoints, currentPolygons }} />}
             </main>
           }
         </MuiThemeProvider>

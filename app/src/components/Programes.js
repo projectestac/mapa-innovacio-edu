@@ -1,4 +1,5 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -6,20 +7,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
-import FitxaPrograma from './FitxaPrograma';
 
-function Programes({ id, data, currentPrograms, updateGlobalState, programa }) {
+function Programes({ id, data: { programes }, currentPrograms, updateGlobalState, programa }) {
 
-  const { programes } = data;
+  // Click on program name
+  const handleProgClick = id => ev => updateGlobalState({ programa: id });
 
-  const [prog, setProg] = React.useState(programa);
-
-  const handleProgClick = id => ev => setProg(id);
-
-  const closeProg = () => setProg(null);
-
+  // Select / Unselect program
   const handleProgSelect = id => ev => {
-    console.log(programes[id])
     const cp = currentPrograms.map(p => p);
     const p = cp.indexOf(id);
     if (p >= 0)
@@ -30,10 +25,9 @@ function Programes({ id, data, currentPrograms, updateGlobalState, programa }) {
   };
 
   return (
-    <section id={id} className="seccio projectes">
-      <h2>Programes</h2>
-      {
-        (prog && <FitxaPrograma {...{ data, programa: programes.find(p => p.id === prog), closeProg }} />) ||
+    <section id={id} className="seccio programes">
+      <Paper className="paper">
+        <h2>Programes</h2>
         <List dense className="prog_list">
           {programes.map(({ id, nom, simbol, centres }, n) => (
             <ListItem key={n} button>
@@ -42,7 +36,7 @@ function Programes({ id, data, currentPrograms, updateGlobalState, programa }) {
               </ListItemAvatar>
               <ListItemText
                 primary={nom}
-                secondary={Object.keys(centres).sort().map(k => `${k}: ${centres[k].length} centres`).join(' | ')}
+                secondary={'Centres participants: ' + Object.keys(centres).sort().map(k => `${k}: ${centres[k].length}`).join(', ')}
                 onClick={handleProgClick(id)} />
               <ListItemSecondaryAction>
                 <Checkbox onChange={handleProgSelect(id)} checked={currentPrograms.includes(id)} />
@@ -50,7 +44,7 @@ function Programes({ id, data, currentPrograms, updateGlobalState, programa }) {
             </ListItem>
           ))}
         </List>
-      }
+      </Paper>
     </section>
   );
 }
