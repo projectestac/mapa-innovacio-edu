@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
-import color_primary from '@material-ui/core/colors/red';  // was indigo (teal)
-import color_secondary from '@material-ui/core/colors/teal';  // was pink (green)
+import color_primary from '@material-ui/core/colors/teal';  // was indigo (teal)
+import color_secondary from '@material-ui/core/colors/green';  // was pink (green)
 import color_error from '@material-ui/core/colors/red';
 
 import Utils from './utils/Utils';
@@ -57,7 +57,6 @@ class App extends Component {
     // Set initial state
     this.state = {
       dataLoaded: false,
-      currentPoints: [],
       currentPolygons: [],
       currentPrograms: [],
       program: null,
@@ -92,7 +91,10 @@ class App extends Component {
 
         // Build an object with centre ids as keys, useful for optimizing searches
         const centresByK = {};
-        centres.forEach(c => centresByK[c.id] = c);
+        centres.forEach(c => {
+          c.programes = [];
+          centresByK[c.id] = c;
+        });
 
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
         poligons.forEach(p => {
@@ -123,14 +125,16 @@ class App extends Component {
           }
         });
 
-        // Initialize total number of `centres` for each program
         instancies.forEach(ins => {
+          // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
           const programa = programes.find(p => p.id === ins.programa);
-          if (programa) {
-            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(ins.centre);
+          const centre = centresByK[ins.centre];
+          if (programa && centre) {
+            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
+            (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
           }
           else
-            console.log(`WARNING: Instància amb programa desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
+            console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
         });
 
         // Get current polygon mode
@@ -148,7 +152,6 @@ class App extends Component {
         // Update state
         this.setState({
           dataLoaded: true,
-          currentPoints: centres,
           currentPolygons: poligons.filter(p => p.tipus === polygonMode),
           currentPrograms,
           loading: false,
@@ -184,12 +187,6 @@ class App extends Component {
     this.loadData();
   }
 
-  // Main app sections
-  seccions = [
-    { id: 'presenta', name: 'Presentació' },
-    { id: 'programes', name: 'Programes' },
-    { id: 'mapa', name: 'Mapa' },
-  ];
 
   /**
    * Builds the App main component
@@ -198,13 +195,21 @@ class App extends Component {
 
     // Retrieve values from state
     const data = this.data;
-    const { error, loading, currentPoints, currentPolygons, currentPrograms, programa, centre } = this.state;
+    const { error, loading, currentPolygons, currentPrograms, programa, centre } = this.state;
     const updateGlobalState = (state) => this.setState(state);
+
+    // Current app sections
+    const seccions = [
+      { id: 'presenta', name: 'Presentació' },
+      centre ? { id: 'centre', name: 'Centre' } : programa ? { id: 'programa', name: 'Programa' } : { id: 'programes', name: 'Programes' },
+    ];
+    if (!centre)
+      seccions.push({ id: 'mapa', name: 'Mapa' })
 
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
-          <Header menuItems={this.seccions} />
+          <Header menuItems={seccions} />
           <div className='filler' />
           {
             (error && <Error error={error} refetch={this.loadData} />) ||
@@ -216,7 +221,7 @@ class App extends Component {
                 (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateGlobalState }} />) ||
                 <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
               }
-              {!centre && <MapSection {...{ id: 'mapa', data, currentPoints, currentPolygons }} />}
+              {!centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, updateGlobalState }} />}
             </main>
           }
         </MuiThemeProvider>

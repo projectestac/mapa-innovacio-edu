@@ -8,20 +8,20 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 
-function Programes({ id, data: { programes }, currentPrograms, updateGlobalState, programa }) {
+function Programes({ id, data: { programes, centres }, currentPrograms, updateGlobalState, programa }) {
 
   // Click on program name
   const handleProgClick = id => ev => updateGlobalState({ programa: id });
 
   // Select / Unselect program
   const handleProgSelect = id => ev => {
-    const cp = currentPrograms.map(p => p);
-    const p = cp.indexOf(id);
-    if (p >= 0)
-      cp.splice(p, 1);
+    const prog = currentPrograms.indexOf(id);
+    if (prog >= 0)
+      currentPrograms.splice(prog, 1);
     else
-      cp.push(id);
-    updateGlobalState({ currentPrograms: cp });
+      currentPrograms.push(id);
+
+    updateGlobalState({ currentPrograms });
   };
 
   return (

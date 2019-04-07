@@ -3,9 +3,14 @@ import { Map, Marker } from 'react-leaflet';
 import TileLayer from '../utils/TileLayer';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 
-function FitxaCentre({ id, centre, data: { programes, centresByK }, updateGlobalState }) {
+function FitxaCentre({ id, centre, data: { centresByK }, updateGlobalState }) {
 
   // Find the specified program
   const thisCentre = centresByK[centre];
@@ -15,10 +20,11 @@ function FitxaCentre({ id, centre, data: { programes, centresByK }, updateGlobal
   }
 
   // Els camps tipus, sstt, se també estan disponibles
-  const { nom, municipi, comarca, lat, lng, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter } = thisCentre;
+  const { nom, municipi, comarca, lat, lng, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, programes } = thisCentre;
   const coords = [lat, lng];
   const url = nodes || web || web_propi;
   const tancaFitxa = () => updateGlobalState({ centre: null });
+  const obrePrograma = id => () => updateGlobalState({ centre: null, programa: id });
 
   return (
     <section id={id} className="seccio centre">
@@ -27,14 +33,15 @@ function FitxaCentre({ id, centre, data: { programes, centresByK }, updateGlobal
           <ArrowBack className="leftIcon" />
           Torna
          </Button>
-        {logo && <div id="logo"><img src={logo} alt={nom}></img></div>}
+        {logo && <><br clear="all" /><img className="cent_logo" src={logo} alt={nom}></img></>}
         <h3>{nom}</h3>
+        <br clear="all" />
         <div id="adreca">
           <p>
             {adreca}<br />
             {municipi} ({comarca})<br />
             {tel && <>{`Tel. ${tel}`}<br /></>}
-            {mail && <>{mail}<br /></>}
+            {mail && <><a href={`mailto:${mail}`}>{mail}</a><br /></>}
             {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
           </p>
         </div>
@@ -44,13 +51,34 @@ function FitxaCentre({ id, centre, data: { programes, centresByK }, updateGlobal
           <Marker position={coords} />
         </Map>
 
-        {url && <div id="link"><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></div>}
+        {url && (
+          <div id="link">
+            <h4>Portal web del centre</h4>
+            <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
+          </div>)}
         <div id="estudis">
-          <p>ESTUDIS: {estudis.join(', ')}</p>
+          <h4>Estudis impartits</h4>
+          <p>{estudis.join(', ')}</p>
         </div>
-        <div id="projectes">
-          <h4>Projectes...</h4>
-        </div>
+        <h4>Programes d'innovació educativa on participa</h4>
+        {Object.keys(programes).map((curs, n) => (
+          <ExpansionPanel key={n}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography component="h5">CURS {curs}</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <ul>
+                {programes[curs].map(({ id, nom }, c) => {
+                  return (
+                    <li key={c} >
+                      <Button onClick={obrePrograma(id)}><div>{nom}</div></Button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        ))}
       </Paper>
     </section>
   );

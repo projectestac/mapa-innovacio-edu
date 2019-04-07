@@ -33,6 +33,7 @@ function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateGl
         <div id="descripcio">
           {simbol && <img className="prog_logo" src={`logos/${simbol}`} alt={nom}></img>}
           <p>{descripcio}</p>
+          <br clear="all" />
         </div>
         {ambInn.length > 0 &&
           <div className="prog_ambits">
@@ -65,15 +66,14 @@ function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateGl
         {Object.keys(centres).map((curs, n) => (
           <ExpansionPanel key={n}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <h5>CURS {curs}</h5>
+              <Typography component="h5">CURS {curs}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <ul>
-                {centres[curs].map((id, c) => {
-                  const centre = centresByK[id];
+                {centres[curs].map(({ id, nom, municipi }, c) => {
                   return (
                     <li key={c} >
-                      <Button onClick={obreCentre(centre.id)}>{centre.nom} ({centre.municipi})</Button>
+                      <Button onClick={obreCentre(id)}>{nom} ({municipi})</Button>
                     </li>
                   );
                 })}

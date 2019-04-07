@@ -31,6 +31,24 @@ header .main-title {
   max-width: 800px;
 }
 
+.seccio ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.seccio button {
+  max-width: 100%;
+}
+
+.seccio button div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
 /* === Loading === */
 .loading-msg {
   text-align: center;
@@ -76,10 +94,12 @@ header .main-title {
   margin-bottom: 1rem;
 }
 
-/* === Mapa === */
-.mapa {
-  width: 100%;
-  height: 80vh;
+/* === Centres === */
+.cent_logo {
+  max-width: 100px;
+  max-height: 100px;
+  float: left;
+  margin-right: 1rem;
 }
 
 .mapa-centre {
@@ -87,3 +107,10 @@ header .main-title {
   max-width: 400px;
   height: 300px;
 }
+
+/* === Mapa === */
+.mapa {
+  width: 100%;
+  height: 80vh;
+}
+
