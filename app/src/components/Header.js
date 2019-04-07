@@ -58,7 +58,7 @@ class Header extends React.Component {
               </IconButton>
             }
             <Typography className='main-title' variant='h6' color='inherit' noWrap>
-              Mapa de la Innovació Educativa
+              Mapa de la Innovació Educativa (en construcció!)
             </Typography>
           </ToolBar>
         </AppBar>
