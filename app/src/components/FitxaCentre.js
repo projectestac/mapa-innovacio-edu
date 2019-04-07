@@ -27,7 +27,8 @@ function FitxaCentre({ id, centre, data: { centresByK }, updateGlobalState }) {
   const obrePrograma = id => () => updateGlobalState({ centre: null, programa: id });
 
   return (
-    <section id={id} className="seccio centre">
+    <section className="seccio centre">
+      <div id={id} className="filler"/>
       <Paper className="paper">
         <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
           <ArrowBack className="leftIcon" />

@@ -16,9 +16,13 @@ header .main-title {
   margin-left: 1rem;
 }
 
-
 .filler {
-  height: 3rem;
+  position: relative;
+  top: -5rem;
+}
+
+.presenta .filler {
+  height: 4rem;
 }
 
 .paper {
@@ -109,8 +113,28 @@ header .main-title {
 }
 
 /* === Mapa === */
+.smapa h4 {
+  margin-top: 0;
+}
+
 .mapa {
   width: 100%;
   height: 80vh;
 }
 
+/* === Footer === */
+.foot {
+  margin: 3rem auto;
+  text-align: center;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.foot a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.foot a:hover {
+  text-decoration: underline;
+}

@@ -16,6 +16,7 @@ import FitxaCentre from './components/FitxaCentre';
 import MapSection from './components/MapSection';
 import Error from './components/Error';
 import Loading from './components/Loading';
+import Footer from './components/Footer';
 
 /**
  * Miscellanous values taken from environment variables
@@ -196,7 +197,21 @@ class App extends Component {
     // Retrieve values from state
     const data = this.data;
     const { error, loading, currentPolygons, currentPrograms, programa, centre } = this.state;
-    const updateGlobalState = (state) => this.setState(state);
+
+    const updateGlobalState = (state) => {
+
+      const scrollToId = state.centre ? 'centre' : state.programa ? 'programa' : this.state.programa ? 'programes' : null;
+
+      this.setState(state);
+
+      if (scrollToId) {
+        window.requestAnimationFrame(() => {
+          const target = document.getElementById(scrollToId);
+          if (target)
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    };
 
     // Current app sections
     const seccions = [
@@ -210,7 +225,6 @@ class App extends Component {
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
           <Header menuItems={seccions} />
-          <div className='filler' />
           {
             (error && <Error error={error} refetch={this.loadData} />) ||
             (loading && <Loading />) ||
@@ -222,6 +236,7 @@ class App extends Component {
                 <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
               }
               {!centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, updateGlobalState }} />}
+              <Footer />
             </main>
           }
         </MuiThemeProvider>

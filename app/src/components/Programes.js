@@ -25,7 +25,8 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateGl
   };
 
   return (
-    <section id={id} className="seccio programes">
+    <section className="seccio programes">
+      <div id={id} className="filler"/>
       <Paper className="paper">
         <h2>Programes</h2>
         <List dense className="prog_list">

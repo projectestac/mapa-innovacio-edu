@@ -25,7 +25,8 @@ function MapSection({ id, data: { programes }, programa, currentPrograms, curren
     currentPrograms.forEach(prog => addSchoolsOfProgram(prog, points));
 
   return (
-    <section id={id} className="seccio smapa">
+    <section className="seccio smapa">
+      <div id={id} className="filler"/>
       <Paper className="paper">
         <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>
         <MainMap className="mapa" {...{ points, polygons: currentPolygons, updateGlobalState }} />

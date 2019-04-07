@@ -6,7 +6,8 @@ function Presentacio(props) {
   const { id } = props;
 
   return (
-    <section id={id} className="seccio presenta">
+    <section className="seccio presenta">
+      <div id={id} className="filler"/>
       <Paper className="paper">
         <h2>Presentació</h2>
         <p>Espai en construcció!</p>

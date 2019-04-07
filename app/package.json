@@ -1,13 +1,13 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la Innovació Educativa a Catalunya",
-  "version": "0.1.0",
+  "version": "1.0.10-beta",
   "author": "Francesc Busquets <francesc@gmail.com>",
   "private": true,
   "homepage": ".",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frncesc/mapa-innovacio-edu"
+    "url": "https://github.com/projectestac/mapa-innovacio-edu"
   },
   "licenses": [
     {
@@ -26,7 +26,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.2.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "sw-precache": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
