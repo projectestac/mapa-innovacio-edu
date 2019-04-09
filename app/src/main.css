@@ -10,12 +10,24 @@ body {
 }
 
 
-/* === Header app bar === */
+/* === Header === */
 header .main-title {
   flex-grow: 1;
   margin-left: 1rem;
 }
 
+header .search-bar {
+  padding: 1rem;
+  background-color: #4b4b4b;
+}
+
+header .search-text {
+  background-color: #fff;
+}
+
+
+
+/* === Main components === */
 .filler {
   position: relative;
   top: -5rem;

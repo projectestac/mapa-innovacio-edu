@@ -4,7 +4,9 @@ import ToolBar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
+import SearchBar from './SearchBar';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -17,16 +19,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
  */
 class Header extends React.Component {
   state = {
-    open: false
+    drawerOpened: false,
+    searchOpened: false,
   };
 
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
+  openDrawer = (state) => () => this.setState({ drawerOpened: state });
 
-  handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
+  openSearch = (state) => () => this.setState({ searchOpened: state });
 
   handleClickOnItem = (id) => {
     const target = document.getElementById(id);
@@ -34,25 +33,26 @@ class Header extends React.Component {
       console.error(`No hi ha cap secció amb aquest identificador: ${id}`);
     else {
       target.scrollIntoView({ behavior: 'smooth' });
-      this.handleDrawerClose();
+      this.setState({ drawerOpened: false });
     }
   };
 
   render() {
-    const { open } = this.state;
+    const { drawerOpened, searchOpened } = this.state;
+
     const { menuItems } = this.props;
     const hasDrawer = menuItems && menuItems.length > 0;
 
     return (
-      <header>
+      <>
         <AppBar position='fixed'>
-          <ToolBar disableGutters={!open}>
+          <ToolBar>
             {hasDrawer &&
               <IconButton
                 color='inherit'
                 aria-label='Seccions'
                 title='Seccions'
-                onClick={this.handleDrawerOpen}
+                onClick={this.openDrawer(true)}
               >
                 <MenuIcon />
               </IconButton>
@@ -60,16 +60,31 @@ class Header extends React.Component {
             <Typography className='main-title' variant='h6' color='inherit' noWrap>
               Mapa de la Innovació Educativa (en construcció!)
             </Typography>
+            <IconButton
+              color='inherit'
+              aria-label='Cerca'
+              title='Cerca'
+              onClick={this.openSearch(!searchOpened)}
+            >
+              <SearchIcon />
+            </IconButton>
+
           </ToolBar>
+
+          {searchOpened && <SearchBar {...{ closeFn: this.openSearch(false) }} />}
+
         </AppBar>
+
+
+
         {hasDrawer &&
           <Drawer
             variant='persistent'
             anchor='left'
-            open={open}
+            open={drawerOpened}
           >
             <List>
-              <ListItem component='li' divider button onClick={this.handleDrawerClose}>
+              <ListItem component='li' divider button onClick={this.openDrawer(false)}>
                 <ListItemIcon>
                   <ChevronLeftIcon />
                 </ListItemIcon>
@@ -83,7 +98,7 @@ class Header extends React.Component {
             </List>
           </Drawer>
         }
-      </header>
+      </>
     );
   }
 }

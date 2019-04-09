@@ -70,6 +70,6 @@
   ],
   "start_url": "/app/index.html",
   "display": "standalone",
-  "theme_color": "#009688",
+  "theme_color": "#333",
   "background_color": "#ffffff"
 }
