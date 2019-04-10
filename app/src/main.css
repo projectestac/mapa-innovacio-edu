@@ -11,10 +11,6 @@ body {
 
 
 /* === Header === */
-header .main-title {
-  flex-grow: 1;
-  margin-left: 1rem;
-}
 
 header .search-bar {
   padding: 1rem;
@@ -23,6 +19,10 @@ header .search-bar {
 
 header .search-text {
   background-color: #fff;
+}
+
+header .main-title {
+  flex-grow: 1;
 }
 
 
@@ -34,8 +34,8 @@ header .search-text {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1.5rem;
   margin: 1rem;
 }
 
