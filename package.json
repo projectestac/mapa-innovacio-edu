@@ -1,0 +1,48 @@
+{
+  "name": "mapa-innovacio",
+  "title": "Mapa de la Innovació Educativa a Catalunya",
+  "version": "1.0.14-beta",
+  "author": "Francesc Busquets <francesc@gmail.com>",
+  "private": true,
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/projectestac/mapa-innovacio-edu"
+  },
+  "licenses": [
+    {
+      "type": "EUPL-1.2",
+      "url": "https://spdx.org/licenses/EUPL-1.2.html"
+    }
+  ],
+  "license": "EUPL-1.2",
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "fontfaceobserver": "^2.1.0",
+    "leaflet": "^1.4.0",
+    "leaflet.markercluster": "^1.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-leaflet": "^2.2.1",
+    "react-scripts": "2.1.8",
+    "sw-precache": "^5.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js --verbose",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "proxy": "https://innovacio.loc",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

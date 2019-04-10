@@ -1,0 +1,169 @@
+/* === CSS variables === */
+:root {
+  --theme-spacing-unit: 10pt;
+  --theme-spacing-unit-x2: 20pt;
+  --theme-palette-background-paper:#fff;
+}
+
+body {
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+
+/* === Header === */
+
+header .search-bar {
+  padding: 1rem;
+  background-color: #4b4b4b;
+}
+
+header .search-text {
+  background-color: #fff;
+}
+
+header .main-title {
+  flex-grow: 1;
+}
+
+
+
+/* === Main components === */
+#filler {
+  height: 4rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1.5rem;
+  margin: 1rem;
+}
+
+.presenta .filler {
+  height: 4rem;
+}
+
+
+.paper {
+  padding: 1.5rem;
+}
+
+
+.centre {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.seccio ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.seccio button {
+  max-width: 100%;
+}
+
+.seccio button div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+/* === Loading === */
+.loading-msg {
+  text-align: center;
+  padding: var(--theme-spacing-unit-x2);
+  margin: 20vh auto;
+  max-width: 800px;
+}
+
+.progress {
+  margin: 3rem;
+}
+
+/* === Error === */
+.err-msg {
+  padding: var(--theme-spacing-unit-x2);
+  margin: 20vh auto;
+  max-width: 800px;
+}
+
+.err-msg .action-btn {
+  margin: 2rem;
+}
+
+/* === Presentacio === */
+.presenta .close-intro-btn {
+  display: block;
+  margin: 2rem auto;
+}
+
+
+/* === Programes === */
+.prog_list {
+  width: 100%;
+  max-width: 50rem;
+  background-color: var(--theme-palette-background-paper);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.prog_logo {
+  max-width: 100px;
+  max-height: 100px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.leftIcon {
+  margin-right: 0.5rem;
+}
+
+.paper .torna {
+  margin-bottom: 1rem;
+}
+
+/* === Centres === */
+.cent_logo {
+  max-width: 100px;
+  max-height: 100px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.mapa-centre {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+}
+
+/* === Mapa === */
+.smapa h4 {
+  margin-top: 0;
+}
+
+.mapa {
+  width: 100%;
+  height: 80vh;
+}
+
+/* === Footer === */
+.foot {
+  margin: 3rem auto;
+  text-align: center;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.foot a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.foot a:hover {
+  text-decoration: underline;
+}
