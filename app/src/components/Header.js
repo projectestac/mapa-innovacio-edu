@@ -13,94 +13,72 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-/**
- * Builds the app header, including a dynamic drawer containing links to all products
- * of the current order, passed via `menuItems` property.
- */
-class Header extends React.Component {
-  state = {
-    drawerOpened: false,
-    searchOpened: false,
-  };
 
-  openDrawer = (state) => () => this.setState({ drawerOpened: state });
 
-  openSearch = (state) => () => this.setState({ searchOpened: state });
+function Header({ menuItems, updateMainState }) {
 
-  handleClickOnItem = (id) => {
-    const target = document.getElementById(id);
-    if (!target)
-      console.error(`No hi ha cap secció amb aquest identificador: ${id}`);
-    else {
-      target.scrollIntoView({ behavior: 'smooth' });
-      this.setState({ drawerOpened: false });
-    }
-  };
+  const [drawerOpened, setDrawerOpened] = React.useState(false);
+  const [searchOpened, setSearchOpened] = React.useState(false);
+  const hasDrawer = menuItems && menuItems.length > 0;
+  const itemAction = (item) => (ev) => {
+    setDrawerOpened(false);
+    if (item.action)
+      item.action(ev);
+  }
 
-  render() {
-    const { drawerOpened, searchOpened } = this.state;
-
-    const { menuItems } = this.props;
-    const hasDrawer = menuItems && menuItems.length > 0;
-
-    return (
-      <>
-        <AppBar position='fixed'>
-          <ToolBar>
-            {hasDrawer &&
-              <IconButton
-                color='inherit'
-                aria-label='Seccions'
-                title='Seccions'
-                onClick={this.openDrawer(true)}
-              >
-                <MenuIcon />
-              </IconButton>
-            }
-            <Typography className='main-title' variant='h6' color='inherit' noWrap>
-              Mapa de la Innovació Educativa (en construcció!)
-            </Typography>
+  return (
+    <>
+      <AppBar position='fixed'>
+        <ToolBar>
+          {hasDrawer &&
             <IconButton
               color='inherit'
-              aria-label='Cerca'
-              title='Cerca'
-              onClick={this.openSearch(!searchOpened)}
+              aria-label='Seccions'
+              title='Seccions'
+              onClick={() => setDrawerOpened(true)}
             >
-              <SearchIcon />
+              <MenuIcon />
             </IconButton>
-
-          </ToolBar>
-
-          {searchOpened && <SearchBar {...{ closeFn: this.openSearch(false) }} />}
-
-        </AppBar>
-
-
-
-        {hasDrawer &&
-          <Drawer
-            variant='persistent'
-            anchor='left'
-            open={drawerOpened}
+          }
+          <Typography className='main-title' variant='h6' color='inherit' noWrap>
+            Mapa de la Innovació Educativa (en construcció!)
+          </Typography>
+          <IconButton
+            color='inherit'
+            aria-label='Cerca'
+            title='Cerca'
+            onClick={() => setSearchOpened(!searchOpened)}
           >
-            <List>
-              <ListItem component='li' divider button onClick={this.openDrawer(false)}>
-                <ListItemIcon>
-                  <ChevronLeftIcon />
-                </ListItemIcon>
-                <ListItemText primary='Tanca el menú' />
+            <SearchIcon />
+          </IconButton>
+        </ToolBar>
+        {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false) }} />}
+      </AppBar>
+
+      {hasDrawer &&
+        <Drawer
+          variant='persistent'
+          anchor='left'
+          open={drawerOpened}
+        >
+          <List>
+            <ListItem component='li' divider button onClick={() => setDrawerOpened(false)}>
+              <ListItemIcon>
+                <ChevronLeftIcon />
+              </ListItemIcon>
+              <ListItemText primary='Tanca el menú' />
+            </ListItem>
+            {menuItems.map(item => (
+              <ListItem component='li' button key={item.id} onClick={itemAction(item)}>
+                <ListItemText primary={item.name} />
               </ListItem>
-              {menuItems.map(item => (
-                <ListItem component='li' button key={item.id} onClick={() => this.handleClickOnItem(item.id)}>
-                  <ListItemText primary={item.name} />
-                </ListItem>
-              ))}
-            </List>
-          </Drawer>
-        }
-      </>
-    );
-  }
+            ))}
+          </List>
+        </Drawer>
+      }
+    </>
+  );
 }
+
 
 export default Header;

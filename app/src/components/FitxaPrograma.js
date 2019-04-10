@@ -8,23 +8,22 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 
-function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateGlobalState }) {
+function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateMainState }) {
 
   // Find the specified program
   const thisProgram = programes.find(p => p.id === programa);
   if (!thisProgram) {
-    updateGlobalState({ error: `No hi ha cap programa amb el codi: ${programa}` });
+    updateMainState({ error: `No hi ha cap programa amb el codi: ${programa}` });
     return null;
   }
 
   // Els camps id, nomCurt i color no s'utilitzen
   const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus, centres } = thisProgram;
-  const tancaFitxa = () => updateGlobalState({ programa: null });
-  const obreCentre = id => () => updateGlobalState({ centre: id });
+  const tancaFitxa = () => updateMainState({ programa: null });
+  const obreCentre = id => () => updateMainState({ centre: id });
 
   return (
     <section className="seccio programa">
-      <div id={id} className="filler"/>
       <Paper className="paper">
         <Button aria-label="Torna" onClick={tancaFitxa} >
           <ArrowBack className="leftIcon" />

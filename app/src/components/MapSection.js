@@ -2,7 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
 
-function MapSection({ id, data: { programes }, programa, currentPrograms, currentPolygons, updateGlobalState }) {
+function MapSection({ id, data: { programes }, programa, currentPrograms, currentPolygons, updateMainState }) {
 
   const singleProg = programa ? programes.find(p => p.id === programa) : null;
   
@@ -26,10 +26,9 @@ function MapSection({ id, data: { programes }, programa, currentPrograms, curren
 
   return (
     <section className="seccio smapa">
-      <div id={id} className="filler"/>
       <Paper className="paper">
         <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>
-        <MainMap className="mapa" {...{ points, polygons: currentPolygons, updateGlobalState }} />
+        <MainMap className="mapa" {...{ points, polygons: currentPolygons, updateMainState }} />
       </Paper>
     </section>
   );

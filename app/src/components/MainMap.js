@@ -4,7 +4,7 @@ import TileLayer from '../utils/TileLayer';
 import MarkerClusterGroup from '../utils/MarkerClusterGroup';
 
 
-export default function MainMap({ points = [], polygons = [], updateGlobalState }) {
+export default function MainMap({ points = [], polygons = [], updateMainState }) {
 
   const center = [41.7, 1.8];
   const zoom = 8;
@@ -14,7 +14,7 @@ export default function MainMap({ points = [], polygons = [], updateGlobalState 
   const lineWidth = 2;
   const minOpacity = 0.1;
 
-  const obreCentre = (id) => () => updateGlobalState({ centre: id });
+  const obreCentre = (id) => () => updateMainState({ centre: id });
 
   return (
     <Map className="mapa markercluster-map" {...{ center, zoom, maxZoom }}>

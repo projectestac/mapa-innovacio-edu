@@ -28,23 +28,31 @@ header .search-text {
 
 
 /* === Main components === */
-.filler {
-  position: relative;
-  top: -5rem;
+#filler {
+  height: 4rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  grid-gap: 2rem;
+  margin: 1rem;
 }
 
 .presenta .filler {
   height: 4rem;
 }
 
+
 .paper {
-  margin: 1rem;
   padding: 1.5rem;
 }
 
-.seccio {
-  margin: auto;
+
+.centre {
+  width: 100%;
   max-width: 800px;
+  margin: auto;
 }
 
 .seccio ul {
@@ -88,11 +96,20 @@ header .search-text {
   margin: 2rem;
 }
 
+/* === Presentacio === */
+.presenta .close-intro-btn {
+  display: block;
+  margin: 2rem auto;
+}
+
+
 /* === Programes === */
 .prog_list {
   width: 100%;
   max-width: 50rem;
   background-color: var(--theme-palette-background-paper);
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .prog_logo {

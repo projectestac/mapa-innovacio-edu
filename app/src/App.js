@@ -59,14 +59,16 @@ class App extends Component {
 
     // Set initial state
     this.state = {
+      loading: true,
       dataLoaded: false,
+      intro: true,
+      error: false,
       currentPolygons: [],
       currentPrograms: [],
       program: null,
       centre: null,
       polygonMode: 'ST',
-      loading: true,
-      error: false,
+      modeProgCentre: 'perCurs',
     };
   }
 
@@ -190,57 +192,55 @@ class App extends Component {
     this.loadData();
   }
 
+  /**
+   * Update the state of the main component, scrolling to new sections when needed
+   * @param {object} state - The new settings for `state`
+   */
+  updateMainState = (state) => {
+    this.setState(state);
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById('filler');
+      if (target)
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+  };
 
   /**
    * Builds the App main component
    */
   render() {
 
-    // Retrieve values from state
+    // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, currentPolygons, currentPrograms, programa, centre } = this.state;
-
-    const updateGlobalState = (state) => {
-
-      const scrollToId = state.centre ? 'centre' : state.programa ? 'programa' : this.state.programa ? 'programes' : null;
-
-      this.setState(state);
-
-      if (scrollToId) {
-        window.requestAnimationFrame(() => {
-          const target = document.getElementById(scrollToId);
-          if (target)
-            target.scrollIntoView({ behavior: 'smooth' });
-        });
-      }
-    };
+    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre } = this.state;
+    const updateMainState = this.updateMainState;
 
     // Current app sections
-    const seccions = [
-      { id: 'presenta', name: 'Presentació' },
-      centre ? { id: 'centre', name: 'Centre' } : programa ? { id: 'programa', name: 'Programa' } : { id: 'programes', name: 'Programes' },
+    const menuItems = [
+      { id: 'presenta', name: 'Presentació', action: () => this.updateMainState({ intro: true }) },
+      { id: 'programes', name: 'Programes', action: () => this.updateMainState({ intro: false, centre: null, programa: null }) },
     ];
-    if (!centre)
-      seccions.push({ id: 'mapa', name: 'Mapa' })
 
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
-          <Header menuItems={seccions} />
-          {
-            (error && <Error error={error} refetch={this.loadData} />) ||
-            (loading && <Loading />) ||
-            <main>
-              <Presentacio id="presenta" />
-              {
-                (centre && <FitxaCentre {...{ id: 'centre', centre, data, updateGlobalState }} />) ||
-                (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateGlobalState }} />) ||
-                <Programes {...{ id: 'programes', data, currentPrograms, updateGlobalState }} />
-              }
-              {!centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, updateGlobalState }} />}
-              <Footer />
-            </main>
-          }
+          <Header {...{ menuItems, updateMainState }} />
+          <div id="filler" />
+          <main>
+            {
+              (error && <Error error={error} refetch={this.loadData} />) ||
+              (loading && <Loading />) ||
+              [
+                (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
+                (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
+                (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
+                (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />),
+
+                (!intro && !centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, updateMainState }} />)
+              ]
+            }
+          </main>
+          <Footer />
         </MuiThemeProvider>
       </CssBaseline>
     );

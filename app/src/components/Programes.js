@@ -8,10 +8,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 
-function Programes({ id, data: { programes, centres }, currentPrograms, updateGlobalState, programa }) {
+function Programes({ id, data: { programes, centres }, currentPrograms, updateMainState, programa }) {
 
   // Click on program name
-  const handleProgClick = id => ev => updateGlobalState({ programa: id });
+  const handleProgClick = id => ev => updateMainState({ programa: id });
 
   // Select / Unselect program
   const handleProgSelect = id => ev => {
@@ -21,12 +21,11 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateGl
     else
       currentPrograms.push(id);
 
-    updateGlobalState({ currentPrograms });
+    updateMainState({ currentPrograms });
   };
 
   return (
     <section className="seccio programes">
-      <div id={id} className="filler"/>
       <Paper className="paper">
         <h2>Programes</h2>
         <List dense className="prog_list">
