@@ -1,6 +1,4 @@
 import React from 'react';
-import { Map, Marker } from 'react-leaflet';
-import TileLayer from '../utils/TileLayer';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -20,8 +18,7 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
   }
 
   // Els camps tipus, sstt, se també estan disponibles
-  const { nom, municipi, comarca, lat, lng, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, programes } = thisCentre;
-  const coords = [lat, lng];
+  const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, programes } = thisCentre;
   const url = nodes || web || web_propi;
   const tancaFitxa = () => updateMainState({ centre: null });
   const obrePrograma = id => () => updateMainState({ centre: null, programa: id });
@@ -46,11 +43,6 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
             {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
           </p>
         </div>
-
-        <Map className="mapa-centre" {...{ center: coords, zoom: 15, maxZoom: 19 }}>
-          <TileLayer />
-          <Marker position={coords} />
-        </Map>
 
         {url && (
           <div id="link">

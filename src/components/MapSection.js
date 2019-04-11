@@ -2,9 +2,12 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
 
-function MapSection({ id, data: { programes }, programa, currentPrograms, currentPolygons, mapChanged, updateMainState }) {
+function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, currentPolygons, mapChanged, updateMainState }) {
 
   const singleProg = programa ? programes.find(p => p.id === programa) : null;
+  const singleCentre = centre ? centresByK[centre] : null;
+  const w = window.innerWidth;
+  const zoom = w < 600 ? 7 : w < 820 ? 8 : w < 1300 ? 7 : 8;
 
   const addSchoolsOfProgram = (progId, dest) => {
     const prog = programes.find(p => p.id === progId);
@@ -20,7 +23,10 @@ function MapSection({ id, data: { programes }, programa, currentPrograms, curren
 
   const points = [];
   if (!mapChanged) {
-    if (programa)
+    if (singleCentre) {
+      points.push(singleCentre);
+    }
+    else if (programa)
       addSchoolsOfProgram(programa, points);
     else
       currentPrograms.forEach(prog => addSchoolsOfProgram(prog, points));
@@ -29,8 +35,18 @@ function MapSection({ id, data: { programes }, programa, currentPrograms, curren
   return (
     <section className="seccio smapa">
       <Paper className="paper">
-        <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>
-        <MainMap className="mapa" {...{ points, polygons: currentPolygons, updateMainState }} />
+        {(!singleCentre && <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>)}
+        <MainMap
+          {...{
+            points,
+            polygons: currentPolygons,
+            center: singleCentre ? [singleCentre.lat, singleCentre.lng] : [41.7, 1.8],
+            zoom: singleCentre ? 15 : zoom,
+            maxZoom: 19,
+            isCentre: singleCentre !== null,
+            updateMainState
+          }}
+        />
       </Paper>
     </section>
   );

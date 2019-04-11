@@ -240,7 +240,7 @@ class App extends Component {
                 (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
                 (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />),
 
-                (!intro && !centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, mapChanged, updateMainState }} />)
+                (!intro && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, centre, mapChanged, updateMainState }} />)
               ]
             }
           </main>

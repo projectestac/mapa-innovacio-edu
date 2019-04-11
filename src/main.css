@@ -25,8 +25,6 @@ header .main-title {
   flex-grow: 1;
 }
 
-
-
 /* === Main components === */
 #filler {
   height: 4rem;
@@ -36,23 +34,17 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1.5rem;
-  margin: 1rem;
+  align-items: start;
+  max-width: 1600px;
+  margin: 1rem auto;
 }
 
 .presenta .filler {
   height: 4rem;
 }
 
-
 .paper {
   padding: 1.5rem;
-}
-
-
-.centre {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
 }
 
 .seccio ul {
@@ -137,8 +129,8 @@ main {
 
 .mapa-centre {
   width: 100%;
-  max-width: 400px;
-  height: 300px;
+  height: 600px;
+  max-height: 80vh;
 }
 
 /* === Mapa === */
