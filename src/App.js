@@ -69,6 +69,7 @@ class App extends Component {
       centre: null,
       polygonMode: 'ST',
       modeProgCentre: 'perCurs',
+      delayedMapUpdate: true,
     };
   }
 
@@ -195,13 +196,16 @@ class App extends Component {
   /**
    * Update the state of the main component, scrolling to new sections when needed
    * @param {object} state - The new settings for `state`
+   * @param {boolean} mapChanged - `true` when this change involves map points
    */
-  updateMainState = (state) => {
-    this.setState(state);
+  updateMainState = (state, mapChanged = true) => {
+    this.setState({ ...state, mapChanged });
     window.requestAnimationFrame(() => {
       const target = document.getElementById('filler');
       if (target)
         target.scrollIntoView({ behavior: 'smooth' });
+      if (mapChanged)
+        window.setTimeout(() => this.setState({ mapChanged: false }), 0);
     });
   };
 
@@ -212,7 +216,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre } = this.state;
+    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre, mapChanged } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -236,7 +240,7 @@ class App extends Component {
                 (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
                 (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />),
 
-                (!intro && !centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, updateMainState }} />)
+                (!intro && !centre && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, mapChanged, updateMainState }} />)
               ]
             }
           </main>

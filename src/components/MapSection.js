@@ -2,10 +2,10 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
 
-function MapSection({ id, data: { programes }, programa, currentPrograms, currentPolygons, updateMainState }) {
+function MapSection({ id, data: { programes }, programa, currentPrograms, currentPolygons, mapChanged, updateMainState }) {
 
   const singleProg = programa ? programes.find(p => p.id === programa) : null;
-  
+
   const addSchoolsOfProgram = (progId, dest) => {
     const prog = programes.find(p => p.id === progId);
     if (prog)
@@ -19,10 +19,12 @@ function MapSection({ id, data: { programes }, programa, currentPrograms, curren
   };
 
   const points = [];
-  if (programa)
-    addSchoolsOfProgram(programa, points);
-  else
-    currentPrograms.forEach(prog => addSchoolsOfProgram(prog, points));
+  if (!mapChanged) {
+    if (programa)
+      addSchoolsOfProgram(programa, points);
+    else
+      currentPrograms.forEach(prog => addSchoolsOfProgram(prog, points));
+  }
 
   return (
     <section className="seccio smapa">
