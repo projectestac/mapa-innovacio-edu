@@ -5,20 +5,21 @@ import MarkerClusterGroup from '../utils/MarkerClusterGroup';
 
 // See ../utils/TileLayer for all available options
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
+const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 
 export default function MainMap({ points = [], polygons = [], center = [41.7, 1.8], zoom = 8, maxZoom = 19, isCentre = false, updateMainState }) {
 
   // Line width and opacity of polygons
   const lineWidth = 2;
-  const minOpacity = 0.1;
+  const minOpacity = 0;
 
   const obreCentre = (id) => () => isCentre ? null : updateMainState({ centre: id });
 
   return (
     <Map
-      className={`${isCentre ? 'mapa-centre' : 'mapa'} markercluster-map`} {...{ center, zoom, maxZoom }}
-      maxBounds={[[40.50, 0.15], [42.90, 3.34]]}
-      minZoom={zoom}
+      className={`${isCentre ? 'mapa-centre' : 'mapa'} markercluster-map`}
+      {...(isCentre ? { center, zoom } : { bounds: MAP_BOUNDS })}
+      {...{ maxZoom, minZoom: zoom, maxBounds: MAP_BOUNDS }}
     >
       <TileLayer type={TILE_LAYER} />
       {polygons.map((p, n) => (
