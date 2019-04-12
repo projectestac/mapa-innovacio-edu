@@ -26,11 +26,11 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
   return (
     <section className="seccio centre">
       <div id={id} className="filler" />
+      <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
+        <ArrowBack className="leftIcon" />
+        Torna
+      </Button>
       <Paper className="paper">
-        <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
-          <ArrowBack className="leftIcon" />
-          Torna
-         </Button>
         {logo && <><br clear="all" /><img className="cent_logo" src={logo} alt={nom}></img></>}
         <h3>{nom}</h3>
         <br clear="all" />

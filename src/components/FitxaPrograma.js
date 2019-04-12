@@ -24,11 +24,11 @@ function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateMa
 
   return (
     <section className="seccio programa">
+      <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
+        <ArrowBack className="leftIcon" />
+        Tots els programes
+      </Button>
       <Paper className="paper">
-        <Button aria-label="Torna" onClick={tancaFitxa} >
-          <ArrowBack className="leftIcon" />
-          Tots els programes
-         </Button>
         <h3>{nom}</h3>
         <div id="descripcio">
           {simbol && <img className="prog_logo" src={`logos/${simbol}`} alt={nom}></img>}

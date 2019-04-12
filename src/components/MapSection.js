@@ -1,8 +1,9 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
+import MapaCentre from './MapaCentre';
 
-function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, currentPolygons, mapChanged, updateMainState }) {
+function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, polygons, mapChanged, updateMainState }) {
 
   const singleProg = programa ? programes.find(p => p.id === programa) : null;
   const singleCentre = centre ? centresByK[centre] : null;
@@ -35,18 +36,28 @@ function MapSection({ id, data: { programes, centresByK }, programa, centre, cur
   return (
     <section className="seccio smapa">
       <Paper className="paper">
-        {(!singleCentre && <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>)}
-        <MainMap
-          {...{
-            points,
-            polygons: currentPolygons,
-            center: singleCentre ? [singleCentre.lat, singleCentre.lng] : [41.7, 1.8],
-            zoom: singleCentre ? 15 : zoom,
-            maxZoom: 19,
-            isCentre: singleCentre !== null,
-            updateMainState
-          }}
-        />
+        {!singleCentre && <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>}
+
+        {(singleCentre &&
+          <MapaCentre
+            {...{
+              point: singleCentre,
+              center: [singleCentre.lat, singleCentre.lng],
+              zoom: 15,
+              maxZoom: 19,
+            }}
+          />) ||
+          <MainMap
+            {...{
+              points,
+              polygons,
+              center: [41.7, 1.8],
+              zoom,
+              maxZoom: 19,
+              updateMainState
+            }}
+          />
+        }
       </Paper>
     </section>
   );

@@ -64,11 +64,10 @@ class App extends Component {
       dataLoaded: false,
       intro: true,
       error: false,
-      currentPolygons: [],
+      polygons: [],
       currentPrograms: [],
       program: null,
       centre: null,
-      polygonMode: 'ST',
       modeProgCentre: 'perCurs',
       delayedMapUpdate: true,
       query: null,
@@ -79,9 +78,6 @@ class App extends Component {
    * Load datasets from API or JSON files
    */
   loadData() {
-
-    console.log('Loading data!');
-
     this.setState({ loading: true });
     return Promise.all(
       [
@@ -145,9 +141,6 @@ class App extends Component {
             console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
         });
 
-        // Get current polygon mode
-        const { polygonMode } = this.state;
-
         // Update main data object
         this.data = {
           programes,
@@ -160,7 +153,10 @@ class App extends Component {
         // Update state
         this.setState({
           dataLoaded: true,
-          currentPolygons: poligons.filter(p => p.tipus === polygonMode),
+          polygons: [
+            { name: 'Serveis Territorials', shapes: poligons.filter(p => p.tipus === 'ST') },
+            { name: 'Serveis Educatius de Zona', shapes: poligons.filter(p => p.tipus === 'SEZ') },
+          ],
           currentPrograms,
           loading: false,
           error: false,
@@ -171,18 +167,6 @@ class App extends Component {
         console.log(error);
         this.setState({ error });
       });
-  }
-
-  /**
-   * Set the polygon mode.
-   * @param {string} mode - Possible values are 'ST', 'SEZ' and 'NONE' 
-   */
-  setPolygonMode(mode) {
-    const polygons = mode === 'NONE' ? [] : this.data.poligons.filter(p => p.tipus === mode);
-    this.setState({
-      currentPolygons: polygons,
-      polygonMode: mode,
-    });
   }
 
   /**
@@ -223,7 +207,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -241,15 +225,15 @@ class App extends Component {
             {
               (error && <Error error={error} refetch={this.loadData} />) ||
               (loading && <Loading />) ||
-              [
-                (query && <Cerca id="cerca" {...{ query, updateMainState }} />) ||
-                (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
-                (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
-                (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
-                (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />),
-
-                (!intro && !query && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, centre, mapChanged, updateMainState }} />)
-              ]
+              (query && <Cerca id="cerca" {...{ query, updateMainState }} />) ||
+              (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
+              (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
+              (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
+              (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />)
+            }
+            {
+              !error && !loading && !intro && !query &&
+              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, programa, centre, mapChanged, updateMainState }} />
             }
           </main>
           <Footer />
