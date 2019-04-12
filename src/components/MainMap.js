@@ -15,7 +15,11 @@ export default function MainMap({ points = [], polygons = [], center = [41.7, 1.
   const obreCentre = (id) => () => isCentre ? null : updateMainState({ centre: id });
 
   return (
-    <Map className={`${isCentre ? 'mapa-centre' : 'mapa'} markercluster-map`} {...{ center, zoom, maxZoom }}>
+    <Map
+      className={`${isCentre ? 'mapa-centre' : 'mapa'} markercluster-map`} {...{ center, zoom, maxZoom }}
+      maxBounds={[[40.50, 0.15], [42.90, 3.34]]}
+      minZoom={zoom}
+    >
       <TileLayer type={TILE_LAYER} />
       {polygons.map((p, n) => (
         <Polygon
