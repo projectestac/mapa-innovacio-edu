@@ -65,6 +65,7 @@ class App extends Component {
       intro: true,
       error: false,
       polygons: [],
+      currentLayer: 0, // 0: SSTT, 1: SEZ
       currentPrograms: [],
       program: null,
       centre: null,
@@ -207,7 +208,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, currentLayer, programa, centre, modeProgCentre, mapChanged, query } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -233,7 +234,7 @@ class App extends Component {
             }
             {
               !error && !loading && !intro && !query &&
-              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, programa, centre, mapChanged, updateMainState }} />
+              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, currentLayer, programa, centre, mapChanged, updateMainState }} />
             }
           </main>
           <Footer />

@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
 import MapaCentre from './MapaCentre';
 
-function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, polygons, mapChanged, updateMainState }) {
+function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, polygons, currentLayer, mapChanged, updateMainState }) {
 
   const singleProg = programa ? programes.find(p => p.id === programa) : null;
   const singleCentre = centre ? centresByK[centre] : null;
@@ -54,6 +54,7 @@ function MapSection({ id, data: { programes, centresByK }, programa, centre, cur
               center: [41.7, 1.8],
               zoom,
               maxZoom: 19,
+              currentLayer,
               updateMainState
             }}
           />
