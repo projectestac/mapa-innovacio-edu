@@ -15,7 +15,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 
 
 
-function Header({ menuItems, updateMainState }) {
+function Header({ menuItems, searchFn, updateMainState }) {
 
   const [drawerOpened, setDrawerOpened] = React.useState(false);
   const [searchOpened, setSearchOpened] = React.useState(false);
@@ -28,48 +28,53 @@ function Header({ menuItems, updateMainState }) {
 
   return (
     <>
-      <AppBar position='fixed'>
-        <ToolBar>
+      <AppBar
+        className="header"
+        position="fixed"
+      >
+        <ToolBar
+          disableGutters={true}
+        >
           {hasDrawer &&
             <IconButton
-              color='inherit'
-              aria-label='Seccions'
-              title='Seccions'
+              color="inherit"
+              aria-label="Seccions"
+              title="Seccions"
               onClick={() => setDrawerOpened(true)}
             >
               <MenuIcon />
             </IconButton>
           }
-          <Typography className='main-title' variant='h6' color='inherit' noWrap>
+          <Typography className="main-title" variant="h6" color="inherit" noWrap>
             Mapa de la Innovació Educativa (en construcció!)
           </Typography>
           <IconButton
-            color='inherit'
-            aria-label='Cerca'
-            title='Cerca'
+            color="inherit"
+            aria-label="Cerca"
+            title="Cerca"
             onClick={() => setSearchOpened(!searchOpened)}
           >
             <SearchIcon />
           </IconButton>
         </ToolBar>
-        {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false) }} />}
+        {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), searchFn }} />}
       </AppBar>
 
       {hasDrawer &&
         <Drawer
-          variant='persistent'
-          anchor='left'
+          variant="persistent"
+          anchor="left"
           open={drawerOpened}
         >
           <List>
-            <ListItem component='li' divider button onClick={() => setDrawerOpened(false)}>
+            <ListItem component="li" divider button onClick={() => setDrawerOpened(false)}>
               <ListItemIcon>
                 <ChevronLeftIcon />
               </ListItemIcon>
-              <ListItemText primary='Tanca el menú' />
+              <ListItemText primary="Tanca el menú" />
             </ListItem>
             {menuItems.map(item => (
-              <ListItem component='li' button key={item.id} onClick={itemAction(item)}>
+              <ListItem component="li" button key={item.id} onClick={itemAction(item)}>
                 <ListItemText primary={item.name} />
               </ListItem>
             ))}

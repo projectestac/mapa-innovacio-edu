@@ -9,6 +9,26 @@ body {
   font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
+#filler {
+  height: 4rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem;
+  align-items: start;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 80vh;
+}
+
+@media (max-width: 600px){
+  main {
+    padding: 0;
+  }
+}
 
 /* === Header === */
 
@@ -25,19 +45,20 @@ header .main-title {
   flex-grow: 1;
 }
 
-/* === Main components === */
-#filler {
-  height: 4rem;
+/* === Search bar === */
+.search-bar {
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+  align-items: center;
+
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-gap: 1.5rem;
-  align-items: start;
-  max-width: 1600px;
-  margin: 1rem auto;
+.search-bar .search-text {
+  margin: 0 1rem;
 }
+
+
+/* === Main components === */
 
 .presenta .filler {
   height: 4rem;
@@ -131,6 +152,12 @@ main {
   width: 100%;
   height: 600px;
   max-height: 80vh;
+}
+
+/* === Cerca === */
+.cerca .close-query-btn {
+  display: block;
+  margin: 2rem auto;
 }
 
 /* === Mapa === */

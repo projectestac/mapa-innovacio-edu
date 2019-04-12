@@ -17,6 +17,7 @@ import MapSection from './components/MapSection';
 import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
+import Cerca from './components/Cerca';
 
 const color_primary = { 500: '#333' };
 
@@ -70,6 +71,7 @@ class App extends Component {
       polygonMode: 'ST',
       modeProgCentre: 'perCurs',
       delayedMapUpdate: true,
+      query: null,
     };
   }
 
@@ -209,6 +211,11 @@ class App extends Component {
     });
   };
 
+  search = (query) => {
+    console.log(`Searching: "${query}"`);
+    this.setState({ query });
+  }
+
   /**
    * Builds the App main component
    */
@@ -216,7 +223,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre, mapChanged } = this.state;
+    const { error, loading, intro, currentPolygons, currentPrograms, programa, centre, modeProgCentre, mapChanged, query } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -228,19 +235,20 @@ class App extends Component {
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
-          <Header {...{ menuItems, updateMainState }} />
+          <Header {...{ menuItems, searchFn: this.search, updateMainState }} />
           <div id="filler" />
           <main>
             {
               (error && <Error error={error} refetch={this.loadData} />) ||
               (loading && <Loading />) ||
               [
+                (query && <Cerca id="cerca" {...{ query, updateMainState }} />) ||
                 (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
                 (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
                 (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
                 (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />),
 
-                (!intro && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, centre, mapChanged, updateMainState }} />)
+                (!intro && !query && <MapSection {...{ id: 'mapa', data, currentPrograms, currentPolygons, programa, centre, mapChanged, updateMainState }} />)
               ]
             }
           </main>

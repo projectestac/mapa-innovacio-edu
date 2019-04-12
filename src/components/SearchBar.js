@@ -4,30 +4,47 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 
-function SearchBar({ closeFn }) {
+function SearchBar({ closeFn, searchFn }) {
 
   const [searchText, setSearchText] = React.useState('');
+  const search = (ev) => {
+    ev.preventDefault();
+    searchFn(searchText);
+    return closeFn();
+  };
 
   return (
-    <div className="search-bar">
-      <SearchIcon />
-      <TextField
-        label="Cerca"
-        className="search-text"
-        value={searchText}
-        onChange={ev => setSearchText(ev.target.value)}
-      />
-      <IconButton
-        className="search-close"
-        color='inherit'
-        aria-label='Tanca'
-        title='Tanca'
-        onClick={closeFn}
-      >
-        <CloseIcon />
-      </IconButton>
+    <form onSubmit={search}>
+      <div className="search-bar">
+        <IconButton
+          className="search-btn"
+          color="inherit"
+          aria-label="Cerca"
+          title="Cerca"
+          onClick={search}
+        >
+          <SearchIcon />
+        </IconButton>
+        <TextField
+          aria-label="Cerca text..."
+          title="Cerca text..."
+          className="search-text"
+          value={searchText}
+          onChange={ev => setSearchText(ev.target.value)}
 
-    </div>
+        />
+        <IconButton
+          className="search-close"
+          color="inherit"
+          aria-label="Tanca"
+          title="Tanca"
+          onClick={closeFn}
+        >
+          <CloseIcon />
+        </IconButton>
+
+      </div>
+    </form>
   );
 }
 
