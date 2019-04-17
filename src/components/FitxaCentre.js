@@ -19,7 +19,7 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
   }
 
   // Els camps tipus, sstt, se també estan disponibles
-  const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, programes } = thisCentre;
+  const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes } = thisCentre;
   const url = nodes || web || web_propi;
   const tancaFitxa = () => updateMainState({ centre: null });
   const obrePrograma = id => () => updateMainState({ centre: null, programa: id }, true, true);
@@ -34,6 +34,7 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
       <Paper className="paper">
         {logo && <><br clear="all" /><img className="cent_logo" src={logo} alt={nom}></img></>}
         <h3>{nom}</h3>
+        <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
         <br clear="all" />
         <div id="adreca">
           <p>
@@ -44,15 +45,18 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
             {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
           </p>
         </div>
-
         {url && (
           <div id="link">
             <h4>Portal web del centre</h4>
             <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
           </div>)}
         <div id="estudis">
-          <h4>Estudis impartits</h4>
-          <p>{estudis.join(', ')}</p>
+          <h4>Estudis que s'hi imparteixen</h4>
+          {estudis.join(', ')}
+        </div>
+        <div id="zones">
+          <h4>Zona</h4>
+          {sstt}<br/>{se}
         </div>
         <h4>Programes d'innovació educativa on participa</h4>
         {(modeProgCentre === 'perCurs' &&
@@ -75,9 +79,9 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             )))
-          || 
+          ||
           <ul>
-            {Utils.plainArray(programes).map(({id, nom, cursos}, c)=>(
+            {Utils.plainArray(programes).map(({ id, nom, cursos }, c) => (
               <li key={c}>
                 <Button className="progs-centre" onClick={obrePrograma(id)}>{nom} ({cursos.join(', ')})</Button>
               </li>

@@ -157,6 +157,14 @@ section .torna {
   text-align: left;
 }
 
+.centre h4 {
+  margin-bottom: 0.2rem;
+}
+
+.centre h3 {
+  margin-bottom: 0.5rem;
+}
+
 /* === Cerca === */
 .cerca .close-query-btn {
   display: block;
