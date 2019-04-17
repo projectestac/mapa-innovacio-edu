@@ -21,7 +21,7 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
   const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, programes } = thisCentre;
   const url = nodes || web || web_propi;
   const tancaFitxa = () => updateMainState({ centre: null });
-  const obrePrograma = id => () => updateMainState({ centre: null, programa: id });
+  const obrePrograma = id => () => updateMainState({ centre: null, programa: id }, true, true);
 
   return (
     <section className="seccio centre">

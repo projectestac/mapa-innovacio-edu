@@ -26,6 +26,7 @@ const color_primary = { 500: '#333' };
  * and from files: `.env`, `.env.development` and `.env.production`
  */
 //const API_ROOT = process.env.REACT_APP_API_ROOT || '../api';
+const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 
 /**
  * Main Material-UI theme
@@ -65,9 +66,8 @@ class App extends Component {
       intro: true,
       error: false,
       polygons: [],
-      currentLayer: 0, // 0: SSTT, 1: SEZ
       currentPrograms: [],
-      program: null,
+      programa: null,
       centre: null,
       modeProgCentre: 'perCurs',
       delayedMapUpdate: true,
@@ -151,6 +151,8 @@ class App extends Component {
           poligons,
         };
 
+        this.updateLayersDensity(currentPrograms);
+
         // Update state
         this.setState({
           dataLoaded: true,
@@ -166,7 +168,7 @@ class App extends Component {
       .catch(error => {
         // Something wrong happened!
         console.log(error);
-        this.setState({ error });
+        this.setState({ error: error.toString() });
       });
   }
 
@@ -185,9 +187,11 @@ class App extends Component {
    * @param {object} state - The new settings for `state`
    * @param {boolean} mapChanged - `true` when this change involves map points
    */
-  updateMainState = (state, mapChanged = true) => {
+  updateMainState = (state, mapChanged = true, currentProgramsChanged = false) => {
     this.setState({ ...state, mapChanged });
     window.requestAnimationFrame(() => {
+      if (currentProgramsChanged)
+        this.updateLayersDensity(this.state.programa ? [this.state.programa] : this.state.currentPrograms);
       const target = document.getElementById('filler');
       if (target)
         target.scrollIntoView({ behavior: 'smooth' });
@@ -195,6 +199,100 @@ class App extends Component {
         window.setTimeout(() => this.setState({ mapChanged: false }), 0);
     });
   };
+
+  /**
+   * Update the `density` value of each polygon, based on the number of schools enroled to
+   * the current programs among the total number of schools on the polygon having at least
+   * one of the educational levels targeted by at least one of the current programs.
+   * Values can also be filtered by school year.
+   * @param {object} currentPrograms - Array with the `id`s of the programs to be included on the calculation
+   * @param {string=} curs - School year to be used. Defaults to `null`, so including all years.
+   */
+  updateLayersDensity = (currentPrograms, curs = null) => {
+
+    const { poligons, programes } = this.data;
+
+    // Clear base arrays
+    poligons.forEach(poli => {
+      // Clear current density
+      poli.density = 0.000001;
+
+      // `centresBase` will be filled with the total number of centres of each educational level involved in at least one current program
+      // key: educational level (EINF2C, EPRI...)      
+      // value: number of schools having this educational level on this polygon
+      poli.centresBase = {}
+
+      // `centresPart` will be filled with the total number of centres participating in at least one current program.
+      // key: educational level (EINF2C, EPRI...)      
+      // value: number of centers of this type participating in current programs in this polygon
+      poli.centresPart = {}
+    });
+
+    // Object with all `centres` participating in current programs
+    // key: school id
+    // value: school
+    const currentCentres = {};
+
+    // For program, fill `centresBase` and `currentCentres`
+    currentPrograms.forEach(pid => {
+      const program = programes.find(p => p.id === pid);
+      if (program && program.tipus.length && Object.keys(program.centres).length) {
+        program.tipus.forEach(t => {
+          poligons.forEach(poli => {
+            poli.centresBase[t] = poli.centres[t] || 0;
+          });
+        });
+
+        Object.keys(program.centres).forEach(ce => {
+          if (!curs || ce === curs) {
+            program.centres[ce].forEach(centre => {
+              currentCentres[centre.id] = centre;
+            });
+          }
+        });
+      }
+    });
+
+    // For each school, fill `centresPart` on their associated polygons (ST and SZ)
+    Object.values(currentCentres).forEach(centre => {
+      const st = poligons.find(poli => poli.id === centre.sstt);
+      const se = poligons.find(poli => poli.nom === centre.se);
+      centre.estudis.forEach(tipus => {
+        if (st && st.centresBase[tipus])
+          st.centresPart[tipus] = (st.centresPart[tipus] ? st.centresPart[tipus] + 1 : 1);
+        if (se && se.centresBase[tipus])
+          se.centresPart[tipus] = (se.centresPart[tipus] ? se.centresPart[tipus] + 1 : 1);
+      });
+    });
+
+    // Finally, calculate the density of each polygon
+    // (ratio between the summations of `centresPart` and `centresBase`)
+    //let maxDensityST = 0, maxDensitySE = 0;
+    poligons.forEach(poli => {
+      let n = 0, d = 0;
+      Object.keys(poli.centresPart).forEach(tipus => {
+        if (poli.centresBase[tipus]) {
+          n += poli.centresPart[tipus];
+          d += poli.centresBase[tipus];
+        }
+      });
+      if (d > 0) {
+        poli.density = n / d;
+        /*
+        if (poli.tipus === 'ST')
+          maxDensityST = Math.max(maxDensityST, poli.density);
+        else
+          maxDensitySE = Math.max(maxDensitySE, poli.density);
+        */
+      }
+    });
+
+    const maxDensityST = Math.max(...poligons.filter(p => p.tipus === 'ST').map(p => p.density));
+    const factorST = (maxDensityST > 0 && maxDensityST < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensityST : 1;
+    const maxDensitySE = Math.max(...poligons.filter(p => p.tipus !== 'ST').map(p => p.density));
+    const factorSE = (maxDensitySE > 0 && maxDensitySE < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensitySE : 1;
+    poligons.forEach(poli => poli.density *= (poli.tipus === 'ST' ? factorST : factorSE));
+  }
 
   search = (query) => {
     console.log(`Searching: "${query}"`);
@@ -208,7 +306,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, currentLayer, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -234,7 +332,7 @@ class App extends Component {
             }
             {
               !error && !loading && !intro && !query &&
-              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, currentLayer, programa, centre, mapChanged, updateMainState }} />
+              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, programa, centre, mapChanged, updateMainState }} />
             }
           </main>
           <Footer />

@@ -27,4 +27,12 @@ function handleFetchErrors(response) {
   return response;
 }
 
-export default { loadGFont, handleFetchErrors };
+/**
+ * returns the addition of all values in an object of type `{key: value, key: value, ...}` where all values are numbers.
+ * @param {object} obj 
+ */
+function sumAll(obj) {
+  return Object.values(obj).reduce((acc, v) => acc + v, 0);
+}
+
+export default { loadGFont, handleFetchErrors, sumAll };

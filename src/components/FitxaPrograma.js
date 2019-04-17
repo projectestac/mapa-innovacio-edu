@@ -19,7 +19,7 @@ function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateMa
 
   // Els camps id, nomCurt i color no s'utilitzen
   const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus, centres } = thisProgram;
-  const tancaFitxa = () => updateMainState({ programa: null });
+  const tancaFitxa = () => updateMainState({ programa: null }, true, true);
   const obreCentre = id => () => updateMainState({ centre: id });
 
   return (

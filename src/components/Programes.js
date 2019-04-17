@@ -11,7 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 function Programes({ id, data: { programes, centres }, currentPrograms, updateMainState, programa }) {
 
   // Click on program name
-  const handleProgClick = id => ev => updateMainState({ programa: id });
+  const handleProgClick = id => ev => updateMainState({ programa: id }, true, true);
 
   // Select / Unselect program
   const handleProgSelect = id => ev => {
@@ -21,7 +21,7 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateMa
     else
       currentPrograms.push(id);
 
-    updateMainState({ currentPrograms });
+    updateMainState({ currentPrograms }, true, true);
   };
 
   return (

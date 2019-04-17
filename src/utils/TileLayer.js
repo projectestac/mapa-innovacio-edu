@@ -15,7 +15,7 @@ const layers = {
     attribution='Dades del mapa © contribuïdors de <a href="https://www.openstreetmap.org/">OpenStreetMap</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imatges © <a href="https://www.mapbox.com/">Mapbox</a>'
     url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
     id='mapbox.streets'
-    accessToken="pk.eyJ1IjoiZnJuY2VzYyIsImEiOiJjanU1b3BkZ2owYThsNDR0M3A2MzBjczg2In0.5zKGaoSJeQOeiWZyOj8ByQ"
+    accessToken={process.env.REACT_APP_MAPBOX_TOKEN || ''}
   />,
   // Wikimedia
   wikimedia: <TileLayer

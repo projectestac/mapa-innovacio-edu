@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 function Error({ error, refetch }) {
 
   return (
-    <div classname="err-msg">
+    <div className="err-msg">
       <Grid container direction='column' justify='center' alignItems='center'>
         <h3>{error || 'Error desconegut!'}</h3>
         <Button
