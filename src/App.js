@@ -69,7 +69,7 @@ class App extends Component {
       currentPrograms: [],
       programa: null,
       centre: null,
-      modeProgCentre: 'perCurs',
+      modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
       delayedMapUpdate: true,
       query: null,
     };

@@ -7,6 +7,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import Utils from '../utils/Utils';
 
 function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateMainState }) {
 
@@ -54,7 +55,7 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
           <p>{estudis.join(', ')}</p>
         </div>
         <h4>Programes d'innovació educativa on participa</h4>
-        {modeProgCentre === 'perCurs' &&
+        {(modeProgCentre === 'perCurs' &&
           Object.keys(programes)
             .map((curs, n) => (
               <ExpansionPanel key={n}>
@@ -73,8 +74,15 @@ function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateM
                   </ul>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
-            )
-            )
+            )))
+          || 
+          <ul>
+            {Utils.plainArray(programes).map(({id, nom, cursos}, c)=>(
+              <li key={c}>
+                <Button className="progs-centre" onClick={obrePrograma(id)}>{nom} ({cursos.join(', ')})</Button>
+              </li>
+            ))}
+          </ul>
         }
       </Paper>
     </section>

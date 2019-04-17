@@ -153,6 +153,10 @@ section .torna {
   max-height: 80vh;
 }
 
+.progs-centre {
+  text-align: left;
+}
+
 /* === Cerca === */
 .cerca .close-query-btn {
   display: block;

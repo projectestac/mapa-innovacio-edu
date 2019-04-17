@@ -35,4 +35,21 @@ function sumAll(obj) {
   return Object.values(obj).reduce((acc, v) => acc + v, 0);
 }
 
-export default { loadGFont, handleFetchErrors, sumAll };
+function plainArray(obj) {
+  const container={};
+  Object.keys(obj).forEach(curs => {
+    obj[curs].forEach(prog => {
+      if(!container[prog.id]){
+        container[prog.id] = {
+          id: prog.id,
+          nom: prog.nom,
+          cursos: [],
+        };
+      }
+      container[prog.id].cursos.push(curs);
+    });
+  });
+  return Object.values(container);
+}
+
+export default { loadGFont, handleFetchErrors, sumAll, plainArray };
