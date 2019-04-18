@@ -11,7 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-
+import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 
 function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitCurr, ambitInn, nivell, currentPrograms, updateMainState }) {
@@ -19,7 +19,7 @@ function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitC
   // Click on program name
   const handleProgClick = id => ev => updateMainState({ programa: id }, true, true);
 
-  const capAmbit = { ambitCurr: null, ambitInn: null, nivell: null };
+  const capAmbit = { ambitCurr: '', ambitInn: '', nivell: '' };
 
   // Select / Unselect program
   const handleProgSelect = id => ev => {
@@ -85,13 +85,13 @@ function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitC
               value={nivell}
               onChange={handleNivell}
               inputProps={{
-                name: 'Nivell educatiu',
+                name: 'nivell',
                 id: 'select-nivell'
               }}
             >
-              <option value="" />
-              {Array.from(nivells).map(n => (
-                <option value={n}>{n}</option>
+              <MenuItem value=""><em>Tots els nivells</em></MenuItem>
+              {Array.from(nivells).map((n, k) => (
+                <MenuItem key={k} value={n}>{n}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -102,13 +102,13 @@ function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitC
               value={ambitCurr}
               onChange={handleAmbitCurr}
               inputProps={{
-                name: 'Àmbit curricular',
+                name: 'ambitCurr',
                 id: 'select-ambit-curr'
               }}
             >
-              <option value="" />
-              {Array.from(ambitsCurr).map(ambit => (
-                <option value={ambit}>{ambit}</option>
+              <MenuItem value=""><em>Tots</em></MenuItem>
+              {Array.from(ambitsCurr).map((ambit, k) => (
+                <MenuItem key={k} value={ambit}>{ambit}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -119,13 +119,13 @@ function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitC
               value={ambitInn}
               onChange={handleAmbitInn}
               inputProps={{
-                name: 'Àmbit d\'innovació',
+                name: 'ambitInn',
                 id: 'select-ambit-inn'
               }}
             >
-              <option value="" />
-              {Array.from(ambitsInn).map(ambit => (
-                <option value={ambit}>{ambit}</option>
+              <MenuItem value=""><em>Tots</em></MenuItem>
+              {Array.from(ambitsInn).map((ambit, k) => (
+                <MenuItem key={k} value={ambit}>{ambit}</MenuItem>
               ))}
             </Select>
           </FormControl>

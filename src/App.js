@@ -75,9 +75,9 @@ class App extends Component {
       modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
       delayedMapUpdate: true,
       query: null,
-      ambitCurr: null,
-      ambitInn: null,
-      nivell: null,
+      ambitCurr: '',
+      ambitInn: '',
+      nivell: '',
     };
   }
 
