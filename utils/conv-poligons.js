@@ -11,6 +11,7 @@ const result = raw
   .filter(p => p.tipus !== 'CREDA')
   .map(({ tipus, id, nom, poligons }) => {
     return {
+      key: tipus === 'ST' ? id : nom,
       tipus,
       id,
       nom,

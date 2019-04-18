@@ -9,10 +9,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import Utils from '../utils/Utils';
 
-function FitxaCentre({ id, centre, data: { centresByK }, modeProgCentre, updateMainState }) {
+function FitxaCentre({ id, centre, data: { centres }, modeProgCentre, updateMainState }) {
 
   // Find the specified program
-  const thisCentre = centresByK[centre];
+  const thisCentre = centres.get(centre);
   if (!thisCentre) {
     updateMainState({ error: `No hi ha cap centre amb el codi: ${centre}` });
     return null;

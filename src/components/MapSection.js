@@ -3,15 +3,15 @@ import Paper from '@material-ui/core/Paper';
 import MainMap from './MainMap';
 import MapaCentre from './MapaCentre';
 
-function MapSection({ id, data: { programes, centresByK }, programa, centre, currentPrograms, polygons, mapChanged, updateMainState }) {
+function MapSection({ id, data: { programes, centres }, programa, centre, currentPrograms, polygons, mapChanged, updateMainState }) {
 
-  const singleProg = programa ? programes.find(p => p.id === programa) : null;
-  const singleCentre = centre ? centresByK[centre] : null;
+  const singleProg = programa ? programes.get(programa) : null;
+  const singleCentre = centre ? centres.get(centre) : null;
   const w = window.innerWidth;
   const zoom = w < 600 ? 7 : w < 820 ? 8 : w < 1300 ? 7 : 8;
 
   const addSchoolsOfProgram = (progId, dest) => {
-    const prog = programes.find(p => p.id === progId);
+    const prog = programes.get(progId);
     if (prog)
       Object.keys(prog.centres).forEach(curs => {
         prog.centres[curs].forEach(centre => {

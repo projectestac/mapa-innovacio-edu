@@ -54,11 +54,9 @@ class App extends Component {
 
     // Container for immutable data
     this.data = {
-      programes: [],
-      instancies: [],
-      centres: [],
-      centresByK: {},
-      poligons: [],
+      programes: new Map(),
+      centres: new Map(),
+      poligons: new Map(),
       ambitsCurr: new Set(),
       ambitsInn: new Set(),
       nivells: new Set(),
@@ -77,6 +75,9 @@ class App extends Component {
       modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
       delayedMapUpdate: true,
       query: null,
+      ambitCurr: null,
+      ambitInn: null,
+      nivell: null,
     };
   }
 
@@ -97,17 +98,15 @@ class App extends Component {
           .then(response => response.json());
       })
     )
-      .then(([programes, instancies, centres, poligons]) => {
+      .then(([_programes, _instancies, _centres, _poligons]) => {
 
         // Build an object with centre ids as keys, useful for optimizing searches
-        const centresByK = {};
-        centres.forEach(c => {
+        _centres.forEach(c => {
           c.programes = [];
-          centresByK[c.id] = c;
         });
 
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
-        poligons.forEach(p => {
+        _poligons.forEach(p => {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
         });
 
@@ -119,7 +118,7 @@ class App extends Component {
 
         // Guess missing fields in `programes`
         // (to be supressed!)
-        programes.forEach(p => {
+        _programes.forEach(p => {
 
           p.ambCurr.forEach(a => ambitsCurr.add(a));
           p.ambInn.forEach(a => ambitsInn.add(a));
@@ -143,10 +142,14 @@ class App extends Component {
           }
         });
 
-        instancies.forEach(ins => {
+        const centres = new Map(_centres.map(c => [c.id, c]));
+        const programes = new Map(_programes.map(p => [p.id, p]));
+        const poligons = new Map(_poligons.map(p => [p.key, p]));
+
+        _instancies.forEach(ins => {
           // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
-          const programa = programes.find(p => p.id === ins.programa);
-          const centre = centresByK[ins.centre];
+          const programa = programes.get(ins.programa);
+          const centre = centres.get(ins.centre);
           if (programa && centre) {
             (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
             (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
@@ -158,9 +161,7 @@ class App extends Component {
         // Update main data object
         this.data = {
           programes,
-          instancies,
           centres,
-          centresByK,
           poligons,
           ambitsCurr,
           ambitsInn,
@@ -173,8 +174,8 @@ class App extends Component {
         this.setState({
           dataLoaded: true,
           polygons: [
-            { name: 'Serveis Territorials', shapes: poligons.filter(p => p.tipus === 'ST') },
-            { name: 'Serveis Educatius de Zona', shapes: poligons.filter(p => p.tipus === 'SEZ') },
+            { name: 'Serveis Territorials', shapes: _poligons.filter(p => p.tipus === 'ST') },
+            { name: 'Serveis Educatius de Zona', shapes: _poligons.filter(p => p.tipus === 'SEZ') },
           ],
           currentPrograms,
           loading: false,
@@ -251,7 +252,7 @@ class App extends Component {
 
     // For program, fill `estudisBase` and `currentCentres`
     currentPrograms.forEach(pid => {
-      const program = programes.find(p => p.id === pid);
+      const program = programes.get(pid);
       if (program && program.tipus.length && Object.keys(program.centres).length) {
         program.tipus.forEach(t => {
           poligons.forEach(poli => {
@@ -271,8 +272,8 @@ class App extends Component {
 
     // For each school, fill `estudisPart` on their associated polygons (ST and SZ)
     Object.values(currentCentres).forEach(centre => {
-      const st = poligons.find(poli => poli.id === centre.sstt);
-      const se = poligons.find(poli => poli.nom === centre.se);
+      const st = poligons.get(centre.sstt);
+      const se = poligons.get(centre.se);
       centre.estudis.forEach(tipus => {
         if (st && st.estudisBase[tipus])
           st.estudisPart[tipus] = (st.estudisPart[tipus] ? st.estudisPart[tipus] + 1 : 1);
@@ -283,7 +284,7 @@ class App extends Component {
 
     // Finally, calculate the density of each polygon
     // (ratio between the summations of `estudisPart` and `estudisBase`)
-    //let maxDensityST = 0, maxDensitySE = 0;
+    let maxDensityST = 0, maxDensitySE = 0;
     poligons.forEach(poli => {
       let n = 0, d = 0;
       Object.keys(poli.estudisPart).forEach(tipus => {
@@ -292,13 +293,16 @@ class App extends Component {
           d += poli.estudisBase[tipus];
         }
       });
-      if (d > 0)
+      if (d > 0) {
         poli.density = n / d;
+        if (poli.tipus === 'ST')
+          maxDensityST = Math.max(maxDensityST, poli.density);
+        else
+          maxDensitySE = Math.max(maxDensitySE, poli.density);
+      }
     });
 
-    const maxDensityST = Math.max(...poligons.filter(p => p.tipus === 'ST').map(p => p.density));
     const factorST = (maxDensityST > MIN_DENSITY && maxDensityST < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensityST : maxDensityST > MAX_DENSITY ? MAX_DENSITY / maxDensityST : 1;
-    const maxDensitySE = Math.max(...poligons.filter(p => p.tipus !== 'ST').map(p => p.density));
     const factorSE = (maxDensitySE > MIN_DENSITY && maxDensitySE < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensitySE : maxDensitySE > MAX_DENSITY ? MAX_DENSITY / maxDensitySE : 1;
     poligons.forEach(poli => poli.density *= (poli.tipus === 'ST' ? factorST : factorSE));
   }
@@ -315,7 +319,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query, ambitCurr, ambitInn, nivell } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -337,7 +341,7 @@ class App extends Component {
               (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
               (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
               (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
-              (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />)
+              (<Programes {...{ id: 'programes', data, currentPrograms, ambitCurr, ambitInn, nivell, updateMainState }} />)
             }
             {
               !error && !loading && !intro && !query &&

@@ -8,10 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 
-function FitxaPrograma({ id, programa, data: { programes, centresByK }, updateMainState }) {
+function FitxaPrograma({ programa, data: { programes }, updateMainState }) {
 
   // Find the specified program
-  const thisProgram = programes.find(p => p.id === programa);
+  const thisProgram = programes.get(programa);
   if (!thisProgram) {
     updateMainState({ error: `No hi ha cap programa amb el codi: ${programa}` });
     return null;
