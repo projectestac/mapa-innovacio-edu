@@ -7,7 +7,19 @@
 - Exportació de llistes
 - Arranjar polígons SE
 - Arranjar icones de programes
-- Comprovar programes sense centres (incorporar programes en curs?)
-- Evitar les tipologies "Escoles d'art", "Règim Especial" i "Règim especial" (substituir-ho per codis)
-- Recalcular total de centres per estudis als SE Gironès (anava amb l'accent canviat), La Cerdanya ("L" minúscula) i potsre Santa Coloma de Gramenet (Ciutat/no ciutat)
-- Redactar un README.md _comme il faut_!
+- Incorporar programes en curs
+- Comprovar programes sense centres
+- Evitar les tipologies "Escoles d'art", "Règim Especial" i "Règim especial" (substituir-ho pels codis estàndard)
+- Fer que l'aplicació sigui multi-idioma
+- Tractament de les ZER (ara surten els centres duplicats!)
+- Redactar README.md
+
+### Canvis fets per corregir zones:
+
+- A `utils/poligons-raw.json`:
+  - línia 17, canviar "SE Santa Coloma de Gramenet" per "SE Ciutat de Santa Coloma de Gramenet"
+  - línia 43, canviar "SE de La Cerdanya" per "SE de la Cerdanya"
+  - línia 48, canviar "SE del Gironés" pern "SE del Gironès"
+
+- A `utils/centres-total.json`:
+  - línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"

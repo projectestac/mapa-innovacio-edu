@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-// Usage: node conv-poligons.js > ../public/data/poligons.json
+// Usage: ./conv-poligons.js > ../public/data/poligons.json
+// Debug: ./conv-poligons.js debug
 
 const raw = require('./poligons-raw.json');
 const centres = require('./centres-total.json');
+const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 
 const result = raw
   .filter(p => p.tipus !== 'CREDA')
@@ -57,29 +59,41 @@ result.filter(p => p.tipus === 'SEZ')
     sez[p.nom] = p;
   });
 
-const tipus = [];
+const tipus = {};
 
-centres.forEach(c => {
+// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
+const centresValids = centres.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
+
+centresValids.forEach(c => {
+
   const cst = st[c.sstt];
+  if (!cst && DEBUG)
+    console.log(`Warning: El centre ${c.id} ${c.nom} no té indicat el servei territorial!`);
+
   const csez = sez[c.se];
+  if (!csez && DEBUG)
+    console.log(`Warning: El centre ${c.id} ${c.nom} no té indicat el servei educatiu de zona!`);
+
   c.estudis.forEach(e => {
 
-    if (!tipus.includes(e))
-      tipus.push(e);
+    if (!tipus[e])
+      tipus[e] = 1;
+    else
+      tipus[e]++;
 
     if (cst)
       cst.centres[e]++;
-    // else
-    //  console.log(`Warning: El centre ${c.id} ${c.nom} no té indicat el servei territorial!`);
 
     if (csez)
       csez.centres[e]++;
-    // else
-    //  console.log(`Warning: El centre ${c.id} ${c.nom} no té indicat el servei educatiu de zona!`);
   });
 });
 
-//console.log(centres.length)
-//console.log(JSON.stringify(tipus.sort(), 1));
+if (DEBUG) {
+  console.log(`S'han processat ${centresValids.length} centres`);
+  console.log(`\nS'han detectat ${Object.keys(tipus).length} tipus d'estudis:`);
+  Object.keys(tipus).sort().forEach(k => console.log(`${k}: ${tipus[k]}`));
+} else {
+  console.log(JSON.stringify(result, 1));
+}
 
-console.log(JSON.stringify(result, 1));
