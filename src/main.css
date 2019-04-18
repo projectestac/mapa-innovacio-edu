@@ -139,6 +139,11 @@ section .torna {
   margin-bottom: 0.5rem;
 }
 
+.programes #select {
+  text-align: right;
+  margin-right: 2rem;
+}
+
 /* === Centres === */
 .cent_logo {
   max-width: 100px;

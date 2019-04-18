@@ -30,7 +30,7 @@ function MapSection({ id, data: { programes, centresByK }, programa, centre, cur
     else if (programa)
       addSchoolsOfProgram(programa, points);
     else
-      currentPrograms.forEach(prog => addSchoolsOfProgram(prog, points));
+      currentPrograms.forEach(progId => addSchoolsOfProgram(progId, points));
   }
 
   return (

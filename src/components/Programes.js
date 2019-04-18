@@ -6,6 +6,8 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Avatar from '@material-ui/core/Avatar';
 
 function Programes({ id, data: { programes, centres }, currentPrograms, updateMainState, programa }) {
@@ -15,12 +17,17 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateMa
 
   // Select / Unselect program
   const handleProgSelect = id => ev => {
-    const prog = currentPrograms.indexOf(id);
-    if (prog >= 0)
-      currentPrograms.splice(prog, 1);
-    else
-      currentPrograms.push(id);
+    currentPrograms[currentPrograms.has(id) ? 'delete' : 'add'](id);
+    updateMainState({ currentPrograms }, true, true);
+  };
 
+  const allSelected = currentPrograms.size === programes.length;
+
+  const handleSelectAll = ev => {
+    if (ev.target.checked)
+      programes.forEach(p => currentPrograms.add(p.id));
+    else
+      currentPrograms.clear();
     updateMainState({ currentPrograms }, true, true);
   };
 
@@ -28,6 +35,18 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateMa
     <section className="seccio programes">
       <Paper className="paper">
         <h2>Programes</h2>
+        <div id="select">
+          <FormControlLabel
+            id="select-all"
+            control={
+              <Checkbox
+                onChange={handleSelectAll}
+                checked={allSelected}
+              />}
+            label="Selecciona'ls tots"
+            labelPlacement="start"
+          />
+        </div>
         <List dense className="prog_list">
           {programes.map(({ id, nom, simbol, centres }, n) => (
             <ListItem key={n} button>
@@ -39,7 +58,7 @@ function Programes({ id, data: { programes, centres }, currentPrograms, updateMa
                 secondary={'Centres participants: ' + Object.keys(centres).sort().map(k => `${k}: ${centres[k].length}`).join(', ')}
                 onClick={handleProgClick(id)} />
               <ListItemSecondaryAction>
-                <Checkbox onChange={handleProgSelect(id)} checked={currentPrograms.includes(id)} />
+                <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />
               </ListItemSecondaryAction>
             </ListItem>
           ))}
