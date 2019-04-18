@@ -48,7 +48,11 @@ export default function MainMap({ points = [], polygons = [], programa, center =
   }
 
 
-  window.currentLayer = window.currentLayer || 0;
+  // Save `currentLayer`, `showDensity` and `showCentres` as global variables to avoid unnecessary refreshing of the app state
+
+  // Current layer defaults to "SEZ" (índex 1)
+  window.currentLayer = window.currentLayer || 1;
+
   OVERLAYS.forEach(ov => {
     window[ov.flag] = typeof window[ov.flag] === 'undefined' ? ov.default : window[ov.flag];
   });
@@ -67,14 +71,14 @@ export default function MainMap({ points = [], polygons = [], programa, center =
   const obreZona = (nom) => () => console.log(nom);
 
   const popupZona = (zona) => {
-    const centresPart = Utils.sumAll(zona.centresPart);
-    const centresBase = Utils.sumAll(zona.centresBase);
-    const perCent = (centresBase > 0 ? (centresPart / centresBase) * 100 : 0).toFixed();
+    const estudisPart = Utils.sumAll(zona.estudisPart);
+    const estudisBase = Utils.sumAll(zona.estudisBase);
+    const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed();
     return <Popup>
       <h4 style={{ cursor: 'pointer' }} onClick={obreZona(zona.nom)}>{zona.nom}</h4>
       <p>
-        Centres participants {programa ? 'al programa seleccionat' : 'als programes seleccionats'}: {centresPart}<br />
-        Centres potencialment participants: {centresBase}<br />
+        Etapes participants {programa ? 'al programa seleccionat' : 'als programes seleccionats'}: {estudisPart}<br />
+        Etapes potencialment participants: {estudisBase}<br />
         Índex de participació: {perCent}%
       </p>
     </Popup>

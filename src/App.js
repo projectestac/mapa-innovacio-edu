@@ -26,6 +26,7 @@ const color_primary = { 500: '#333' };
  * and from files: `.env`, `.env.development` and `.env.production`
  */
 //const API_ROOT = process.env.REACT_APP_API_ROOT || '../api';
+const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 
 /**
@@ -217,15 +218,15 @@ class App extends Component {
       // Clear current density
       poli.density = 0.000001;
 
-      // `centresBase` will be filled with the total number of centres of each educational level involved in at least one current program
+      // `estudisBase` will be filled with the total number of centres of each educational level involved in at least one current program
       // key: educational level (EINF2C, EPRI...)      
       // value: number of schools having this educational level on this polygon
-      poli.centresBase = {}
+      poli.estudisBase = {}
 
-      // `centresPart` will be filled with the total number of centres participating in at least one current program.
+      // `estudisPart` will be filled with the total number of centres participating in at least one current program.
       // key: educational level (EINF2C, EPRI...)      
       // value: number of centers of this type participating in current programs in this polygon
-      poli.centresPart = {}
+      poli.estudisPart = {}
     });
 
     // Object with all `centres` participating in current programs
@@ -233,13 +234,13 @@ class App extends Component {
     // value: school
     const currentCentres = {};
 
-    // For program, fill `centresBase` and `currentCentres`
+    // For program, fill `estudisBase` and `currentCentres`
     currentPrograms.forEach(pid => {
       const program = programes.find(p => p.id === pid);
       if (program && program.tipus.length && Object.keys(program.centres).length) {
         program.tipus.forEach(t => {
           poligons.forEach(poli => {
-            poli.centresBase[t] = poli.centres[t] || 0;
+            poli.estudisBase[t] = poli.centres[t] || 0;
           });
         });
 
@@ -253,44 +254,37 @@ class App extends Component {
       }
     });
 
-    // For each school, fill `centresPart` on their associated polygons (ST and SZ)
+    // For each school, fill `estudisPart` on their associated polygons (ST and SZ)
     Object.values(currentCentres).forEach(centre => {
       const st = poligons.find(poli => poli.id === centre.sstt);
       const se = poligons.find(poli => poli.nom === centre.se);
       centre.estudis.forEach(tipus => {
-        if (st && st.centresBase[tipus])
-          st.centresPart[tipus] = (st.centresPart[tipus] ? st.centresPart[tipus] + 1 : 1);
-        if (se && se.centresBase[tipus])
-          se.centresPart[tipus] = (se.centresPart[tipus] ? se.centresPart[tipus] + 1 : 1);
+        if (st && st.estudisBase[tipus])
+          st.estudisPart[tipus] = (st.estudisPart[tipus] ? st.estudisPart[tipus] + 1 : 1);
+        if (se && se.estudisBase[tipus])
+          se.estudisPart[tipus] = (se.estudisPart[tipus] ? se.estudisPart[tipus] + 1 : 1);
       });
     });
 
     // Finally, calculate the density of each polygon
-    // (ratio between the summations of `centresPart` and `centresBase`)
+    // (ratio between the summations of `estudisPart` and `estudisBase`)
     //let maxDensityST = 0, maxDensitySE = 0;
     poligons.forEach(poli => {
       let n = 0, d = 0;
-      Object.keys(poli.centresPart).forEach(tipus => {
-        if (poli.centresBase[tipus]) {
-          n += poli.centresPart[tipus];
-          d += poli.centresBase[tipus];
+      Object.keys(poli.estudisPart).forEach(tipus => {
+        if (poli.estudisBase[tipus]) {
+          n += poli.estudisPart[tipus];
+          d += poli.estudisBase[tipus];
         }
       });
-      if (d > 0) {
+      if (d > 0)
         poli.density = n / d;
-        /*
-        if (poli.tipus === 'ST')
-          maxDensityST = Math.max(maxDensityST, poli.density);
-        else
-          maxDensitySE = Math.max(maxDensitySE, poli.density);
-        */
-      }
     });
 
     const maxDensityST = Math.max(...poligons.filter(p => p.tipus === 'ST').map(p => p.density));
-    const factorST = (maxDensityST > 0 && maxDensityST < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensityST : 1;
+    const factorST = (maxDensityST > 0 && maxDensityST < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensityST : maxDensityST > MAX_DENSITY ? MAX_DENSITY / maxDensityST : 1;
     const maxDensitySE = Math.max(...poligons.filter(p => p.tipus !== 'ST').map(p => p.density));
-    const factorSE = (maxDensitySE > 0 && maxDensitySE < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensitySE : 1;
+    const factorSE = (maxDensitySE > 0 && maxDensitySE < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensitySE : maxDensitySE > MAX_DENSITY ? MAX_DENSITY / maxDensitySE : 1;
     poligons.forEach(poli => poli.density *= (poli.tipus === 'ST' ? factorST : factorSE));
   }
 
