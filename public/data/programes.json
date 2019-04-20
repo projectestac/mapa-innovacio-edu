@@ -195,7 +195,7 @@
       "CFPM",
       "CFPS",
       "CFAS",
-      "Règim Especial"
+      "RESP"
     ]
   },
   {
@@ -264,7 +264,7 @@
   },
   {
     "id": "39",
-    "nom": "Programa de Qualitat i Millora contínua ",
+    "nom": "Programa de Qualitat i Millora contínua",
     "nomCurt": "PQMC",
     "descripcio": "El Programa Projecte de Qualitat i Millora Contínua (PQiMC) és una unitat funcional del Servei de Programes i Projectes de Foment dels Ensenyaments Professionals de la DGFPIERE. Te com a missió ajudar i donar suport als centres educatius de Catalunya en la recerca de l’excel·lència educativa a través de la millora del seu sistema de gestió.",
     "link": "http:\/\/xtec.gencat.cat\/ca\/innovacio\/modalitats\/programes_innovacio\/fp\/pqmc\/",
@@ -278,7 +278,7 @@
     "tipus": [
       "CFPM",
       "CFPS",
-      "Règim especial"
+      "RESP"
     ]
   },
   {
@@ -451,8 +451,8 @@
     "simbol": "talent_creatiu.png",
     "color": null,
     "tipus": [
-      "Règim Especial",
-      "Escoles d'art"
+      "RESP",
+      "ART"
     ]
   },
   {

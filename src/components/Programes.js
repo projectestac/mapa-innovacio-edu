@@ -7,17 +7,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Switch from '@material-ui/core/Switch';
 import Avatar from '@material-ui/core/Avatar';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import SelectPrograms from './SelectPrograms';
+import Button from '@material-ui/core/Button';
+import SelectProgramsDlg from './SelectProgramsDlg';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, currentPrograms, updateMainState }) {
 
-function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitCurr, ambitInn, nivell, currentPrograms, updateMainState }) {
-
-  const [expanded, setExpanded] = React.useState(true);
+  const allSelected = currentPrograms.size === programes.size;
 
   // Click on program name
   const handleProgClick = id => ev => updateMainState({ programa: id }, true, true);
@@ -28,17 +25,35 @@ function Programes({ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitC
     updateMainState({ currentPrograms, ambitCurr: '', ambitInn: '', nivell: '' }, true, true);
   };
 
+  // Select / unselect all programs
+  const handleSelectAll = ev => {
+    if (ev.target.checked)
+      programes.forEach((_p, id) => currentPrograms.add(id));
+    else
+      currentPrograms.clear();
+    updateMainState({ currentPrograms }, true, true);
+  };
+
+
+  const [dlgOpen, setDlgOpen] = React.useState(false);
+
   return (
     <section className="seccio programes">
+      <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMainState }} />
       <Paper className="paper">
-        <ExpansionPanel expanded={expanded} onChange={(_ev, isExpanded) => setExpanded(isExpanded)}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h6">Selecció de programes</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <SelectPrograms  {...{ data: { programes, ambitsCurr, ambitsInn, nivells }, ambitCurr, ambitInn, nivell, currentPrograms, updateMainState }} />
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <div className="select-progs">
+          <Button variant="outlined" color="primary" onClick={() => setDlgOpen(true)}>Tipus de programes</Button>
+          <FormControlLabel
+            className="select-all"
+            labelPlacement="start"
+            control={
+              <Checkbox
+                onChange={handleSelectAll}
+                checked={allSelected}
+              />}
+            label="Selecciona'ls tots"
+          />
+        </div>
         <List dense className="prog_list">
           {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
             <ListItem key={n} button>

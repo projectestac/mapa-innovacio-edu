@@ -114,7 +114,6 @@ header .main-title {
   margin: 2rem auto;
 }
 
-
 /* === Programes === */
 .prog_list {
   width: 100%;
@@ -139,6 +138,11 @@ section .torna {
   margin-bottom: 0.5rem;
 }
 
+.select-all {
+  float: right;
+  margin-right: 1.5rem;
+}
+
 /* === Selector de programes === */
 
 .select-lists {
@@ -153,6 +157,22 @@ section .torna {
 
 .select .divider {
   margin: 1rem 0;
+}
+
+.dialog-content {
+  width: 40rem;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+.dialog-content .info {
+  margin-top: 1rem;
+}
+
+.select-list {
+  max-width: 40rem;
 }
 
 /* === Centres === */

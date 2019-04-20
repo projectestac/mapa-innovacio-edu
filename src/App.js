@@ -59,7 +59,19 @@ class App extends Component {
       poligons: new Map(),
       ambitsCurr: new Set(),
       ambitsInn: new Set(),
-      nivells: new Set(),
+      nivells: new Map([
+        // Veure: http://queestudiar.gencat.cat/ca/estudis/
+        ['Educació infantil i primària', ['EINF1C', 'EINF2C', 'EPRI']],
+        ['Educació secundària obligatòria', ['ESO']],
+        ['Programes de formació i inserció', ['PFI']],
+        ['Batxillerat', ['BATX']],
+        ['Formació professional', ['CFPM', 'CFPS', 'RESP']],
+        ['Ensenyaments artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
+        ['Educació d\'adults', ['ADULTS']],
+        ['Educació especial', ['EE']],
+        // TODO: Reassignar aquestes categories:
+        ['Altres estudis', [ 'ESTR', 'IDI', 'PA01', 'PA02']],
+      ]),
     }
 
     // Set initial state
@@ -75,9 +87,6 @@ class App extends Component {
       modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
       delayedMapUpdate: true,
       query: null,
-      ambitCurr: '',
-      ambitInn: '',
-      nivell: '',
     };
   }
 
@@ -113,7 +122,6 @@ class App extends Component {
         const currentPrograms = new Set();
         const ambitsCurr = new Set();
         const ambitsInn = new Set();
-        const nivells = new Set();
 
 
         // Guess missing fields in `programes`
@@ -122,7 +130,6 @@ class App extends Component {
 
           p.ambCurr.forEach(a => ambitsCurr.add(a));
           p.ambInn.forEach(a => ambitsInn.add(a));
-          p.tipus.forEach(t => nivells.add(t));
 
           // Set all programs initially selected
           currentPrograms.add(p.id);
@@ -160,12 +167,12 @@ class App extends Component {
 
         // Update main data object
         this.data = {
+          ...this.data,
           programes,
           centres,
           poligons,
           ambitsCurr,
           ambitsInn,
-          nivells,
         };
 
         this.updateLayersDensity(currentPrograms);
@@ -319,7 +326,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query, ambitCurr, ambitInn, nivell } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
     const updateMainState = this.updateMainState;
 
     // Current app sections
@@ -341,7 +348,7 @@ class App extends Component {
               (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
               (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
               (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
-              (<Programes {...{ id: 'programes', data, currentPrograms, ambitCurr, ambitInn, nivell, updateMainState }} />)
+              (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />)
             }
             {
               !error && !loading && !intro && !query &&

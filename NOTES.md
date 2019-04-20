@@ -13,13 +13,66 @@
 - Fer que l'aplicació sigui multi-idioma
 - Tractament de les ZER (ara surten els centres duplicats!)
 - Redactar README.md
+- Fer ús del hook 'useState' en comptes de passar paràmetres
 
-### Canvis fets per corregir zones:
+### Codis tipus d'estudis
 
-- A `utils/poligons-raw.json`:
-  - línia 17, canviar "SE Santa Coloma de Gramenet" per "SE Ciutat de Santa Coloma de Gramenet"
-  - línia 43, canviar "SE de La Cerdanya" per "SE de la Cerdanya"
-  - línia 48, canviar "SE del Gironés" pern "SE del Gironès"
+Veure: https://analisi.transparenciacatalunya.cat/Educaci-/Directori-de-centres-docents/e2ef-eiqj
 
-- A `utils/centres-total.json`:
-  - línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"
+| CODI   | ESTUDI                                                     |
+| ------ | ---------------------------------------------------------- |
+| EINF1C | Educació infantil 1er cicle                                |
+| EINF2C | Educació infantil 2n cicle                                 |
+| EPRI   | Educació primària                                          |
+| ESO    | Educació secundària obligatòria                            |
+| BATX   | Batxillerat                                                |
+| AA01   | Curs específic d'accés als cicles formatius de grau mitjà  |
+| CFPM   | Cicles formatius de grau mitjà                             |
+| PPAS   | Curs preparació proves accés a FP grau superior            |
+| AA03   | Curs preparació a la incorporació a FP grau superior       |
+| CFPS   | Cicles formatius de grau superior                          |
+| EE     | Educació especial                                          |
+| PFI    | Programa de formació i inserció                            |
+| PA01   | ???                                                        |
+| CFAM   | Cicles d'arts plàstiques i disseny grau mitjà              |
+| PA02   | ???                                                        |
+| CFAS   | Cicles d'arts plàstiques i disseny grau superior           |
+| ESDI   | Ensenyaments superiors de disseny                          |
+| ADR    | Art dramàtic                                               |
+| CRBC   | Conservació i restauració de bens culturals                |
+| IDI    | Idiomes                                                    |
+| DANE   | Escoles de dansa                                           |
+| DANP   | Ensenyaments professionals de dansa                        |
+| DANS   | Ensenyaments superior de dansa                             |
+| MUSE   | Escoles de música                                          |
+| MUSP   | Ensenyaments professionals de música                       |
+| MUSS   | Ensenyaments superior de música                            |
+| TEGM   | Ensenyaments esportius grau mitjà                          |
+| TEGS   | Ensenyaments esportius grau superior                       |
+| ESTR   | Ensenyaments centres estrangers                            |
+| ADULTS | Educació d'adults                                          |
+
+### Codis afegits (provisionalment!)
+
+| CODI   | ESTUDI                                                     |
+| ------ | ---------------------------------------------------------- |
+| RESP   | Règim Especial                                             |
+| ART    | Escoles d'Art                                              |
+
+
+### Canvis fets per corregir zones
+
+#### utils/poligons-raw.json
+- línia 17, canviar "SE Santa Coloma de Gramenet" per "SE Ciutat de Santa Coloma de Gramenet"
+- línia 43, canviar "SE de La Cerdanya" per "SE de la Cerdanya"
+- línia 48, canviar "SE del Gironés" pern "SE del Gironès"
+
+#### utils/centres-total.json
+- línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"
+
+### Canvis fets per corregir codis d'estudis a programes
+
+#### public/data/progranes.json
+- línia 198 (_Programa d'assessorament professional a les persones i a les empreses_), substituir "Règim Especial" per "RESP"
+- línia 281 (_Programa de Qualitat i Millora contínua_), substituir "Règim especial" per "RESP"
+- línies 455 i 455 (_Talent creatiu i empresa_), substituir "Règim Especial" i "Escoles d'art" per "RESP" i "ART"
