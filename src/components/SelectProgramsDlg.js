@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -18,6 +17,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
 
   const [ambitInn, setAmbitInn] = React.useState('');
   const [ambitCurr, setAmbitCurr] = React.useState('');
+  const [nivellsChk, setNivellsChk] = React.useState(Array.from(nivells).reduce((v, [n]) => { v[n] = true; return v; }, {}));
 
   const [currentPrograms, setCurrentPrograms] = React.useState(new Set());
 
@@ -26,22 +26,23 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
     programes.forEach((prog, id) => {
       if (
         (ambitInn === '' || prog.ambInn.includes(ambitInn)) &&
-        (ambitCurr === '' || prog.ambCurr.includes(ambitCurr))
+        (ambitCurr === '' || prog.ambCurr.includes(ambitCurr)) &&
+        Object.keys(nivellsChk).find(nivell => nivellsChk[nivell] && nivells.get(nivell).find(tag => prog.tipus.includes(tag)))
       )
         progs.add(id);
     });
     setCurrentPrograms(progs);
     // TODO: Comptar centres!
-  }
+  };
 
-  React.useMemo(updateCurrentPrograms, [ambitInn, ambitCurr]);
+  React.useMemo(updateCurrentPrograms, [ambitInn, ambitCurr, nivellsChk]);
 
   const listSelection = handle => ev => {
     handle(ev.target.value);
   };
 
-  const handleCheckNivell = ev => {
-    console.log(ev);
+  const handleCheckNivell = n => ev => {
+    setNivellsChk({ ...nivellsChk, [n]: ev.target.checked });
   };
 
   const closeDialog = ok => ev => {
@@ -58,23 +59,21 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
     >
       <DialogTitle id="dialog-title">Tipus de programes</DialogTitle>
       <DialogContent className="dialog-content">
-        <DialogContentText>
-          Seleccioneu els tipus de programes...
-        </DialogContentText>
-        {nivells.forEach((_n, nivell) => {
-          console.log(nivell)
-          return <FormControlLabel
-            key={nivell}
-            className="select-nivell"
-            control={
-              < Checkbox
-                onChange={handleCheckNivell}
-                value={nivell}
-                checked={true}
-              />}
-            label={nivell}
-          />
-        })}
+        <div className="nivells">
+          {Array.from(nivells).map(([nivell]) => (
+            <FormControlLabel
+              key={nivell}
+              className="select-nivell"
+              control={
+                < Checkbox
+                  onChange={handleCheckNivell(nivell)}
+                  value={nivell}
+                  checked={nivellsChk[nivell]}
+                />}
+              label={nivell}
+            />
+          ))}
+        </div>
         <FormControl className="select-list">
           <InputLabel htmlFor="select-ambit-curr">Àmbit curricular</InputLabel>
           <Select

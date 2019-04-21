@@ -63,16 +63,13 @@ class App extends Component {
         // Veure: http://queestudiar.gencat.cat/ca/estudis/
         ['Educació infantil i primària', ['EINF1C', 'EINF2C', 'EPRI']],
         ['Educació secundària obligatòria', ['ESO']],
-        ['Programes de formació i inserció', ['PFI']],
         ['Batxillerat', ['BATX']],
-        ['Formació professional', ['CFPM', 'CFPS', 'RESP']],
-        ['Ensenyaments artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
-        ['Educació d\'adults', ['ADULTS']],
-        ['Educació especial', ['EE']],
+        ['Formació professional', ['PFI', 'CFPM', 'CFPS', 'RESP']],
+        ['Ens. artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
         // TODO: Reassignar aquestes categories:
-        ['Altres estudis', [ 'ESTR', 'IDI', 'PA01', 'PA02']],
+        ['Altres estudis', [ 'EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
       ]),
-    }
+     } 
 
     // Set initial state
     this.state = {

@@ -145,20 +145,6 @@ section .torna {
 
 /* === Selector de programes === */
 
-.select-lists {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));;
-  grid-gap: 1rem;
-
-}
-.select .select-list {
-  width: 100%;
-}
-
-.select .divider {
-  margin: 1rem 0;
-}
-
 .dialog-content {
   width: 40rem;
   max-width: 100%;
@@ -168,7 +154,12 @@ section .torna {
 }
 
 .dialog-content .info {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.nivells {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
 .select-list {
