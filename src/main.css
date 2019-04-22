@@ -85,6 +85,10 @@ header .main-title {
   text-align: left;
 }
 
+.seccio h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
 /* === Loading === */
 .loading-msg {
   text-align: center;
@@ -199,9 +203,6 @@ section .torna {
 }
 
 /* === Mapa === */
-.smapa h4 {
-  margin-top: 0;
-}
 
 .mapa {
   width: 100%;
@@ -209,7 +210,7 @@ section .torna {
 }
 
 /* === Footer === */
-.foot {
+footer .foot {
   margin: 3rem auto;
   text-align: center;
   font-size: 0.8rem;

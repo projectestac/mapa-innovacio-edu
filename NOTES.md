@@ -70,9 +70,11 @@ Veure: https://analisi.transparenciacatalunya.cat/Educaci-/Directori-de-centres-
 #### utils/centres-total.json
 - línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"
 
-### Canvis fets per corregir codis d'estudis a programes
+### Canvis fets per corregir codis d'estudis i nomenclatura als programes
 
 #### public/data/progranes.json
 - línia 198 (_Programa d'assessorament professional a les persones i a les empreses_), substituir "Règim Especial" per "RESP"
 - línia 281 (_Programa de Qualitat i Millora contínua_), substituir "Règim especial" per "RESP"
 - línies 455 i 455 (_Talent creatiu i empresa_), substituir "Règim Especial" i "Escoles d'art" per "RESP" i "ART"
+- línies 552 i 553 (_STEAMcat_) substituir "Àmbit Artístic" per "Àmbit artístic" i "Àmbit Personal i Social" per "Àmbit personal i social"
+

@@ -36,7 +36,7 @@ function MapSection({ id, data: { programes, centres }, programa, centre, curren
   return (
     <section className="seccio smapa">
       <Paper className="paper">
-        {!singleCentre && <h4>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h4>}
+        {!singleCentre && <h3>Centres participants {singleProg ? `al programa "${singleProg.nom}"` : 'als programes seleccionats'}</h3>}
 
         {(singleCentre &&
           <MapaCentre

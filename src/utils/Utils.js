@@ -28,18 +28,21 @@ function handleFetchErrors(response) {
 }
 
 /**
- * returns the addition of all values in an object of type `{key: value, key: value, ...}` where all values are numbers.
+ * Return the addition of all values in an object of type `{key: value, key: value, ...}` where all values are numbers.
  * @param {object} obj 
  */
 function sumAll(obj) {
   return Object.values(obj).reduce((acc, v) => acc + v, 0);
 }
 
+/**
+ * 
+ */
 function plainArray(obj) {
-  const container={};
+  const container = {};
   Object.keys(obj).forEach(curs => {
     obj[curs].forEach(prog => {
-      if(!container[prog.id]){
+      if (!container[prog.id]) {
         container[prog.id] = {
           id: prog.id,
           nom: prog.nom,
@@ -52,4 +55,17 @@ function plainArray(obj) {
   return Object.values(container);
 }
 
-export default { loadGFont, handleFetchErrors, sumAll, plainArray };
+
+/**
+ * Sort an array of objects having the same string property
+ * @param {Array} array - The array to be sorted
+ * @param {string|string[]]} fields - The name or names of the attributes to be compared between array elements
+ * @returns {Array} - The sorted array
+ */
+function sortObjectArrayBy(array, fields) {
+  return typeof fields === 'string'
+    ? array.sort((a, b) => a[fields].localeCompare(b[fields]))
+    : array.sort((a, b) => fields.map(f => a[f]).join(' ').localeCompare(fields.map(f => b[f]).join(' ')));
+}
+
+export default { loadGFont, handleFetchErrors, sumAll, plainArray, sortObjectArrayBy };

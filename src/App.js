@@ -67,11 +67,11 @@ class App extends Component {
         ['Formació professional', ['PFI', 'CFPM', 'CFPS', 'RESP']],
         ['Ens. artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
         // TODO: Reassignar aquestes categories:
-        ['Altres estudis', [ 'EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
+        ['Altres estudis', ['EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
       ]),
-     } 
+    }
 
-    // Set initial state
+    // Set the initial state
     this.state = {
       loading: true,
       dataLoaded: false,
@@ -106,6 +106,11 @@ class App extends Component {
     )
       .then(([_programes, _instancies, _centres, _poligons]) => {
 
+        // Sort data (step to be supressed with well ordered JSON sources!)
+        _centres = Utils.sortObjectArrayBy(_centres, ['sstt', 'municipi', 'nom']);
+        _programes = Utils.sortObjectArrayBy(_programes, 'nom');
+        _poligons = Utils.sortObjectArrayBy(_poligons, ['tipus', 'id', 'key']);
+
         // Build an object with centre ids as keys, useful for optimizing searches
         _centres.forEach(c => {
           c.programes = [];
@@ -116,10 +121,10 @@ class App extends Component {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
         });
 
+        // Prepare sets for auto-detected data
         const currentPrograms = new Set();
         const ambitsCurr = new Set();
         const ambitsInn = new Set();
-
 
         // Guess missing fields in `programes`
         // (to be supressed!)
@@ -146,12 +151,13 @@ class App extends Component {
           }
         });
 
+        // Convert arrays to maps
         const centres = new Map(_centres.map(c => [c.id, c]));
         const programes = new Map(_programes.map(p => [p.id, p]));
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
+        // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
         _instancies.forEach(ins => {
-          // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
           const programa = programes.get(ins.programa);
           const centre = centres.get(ins.centre);
           if (programa && centre) {
@@ -168,13 +174,14 @@ class App extends Component {
           programes,
           centres,
           poligons,
-          ambitsCurr,
-          ambitsInn,
+          // Sort ambits
+          ambitsCurr: new Set(Array.from(ambitsCurr).sort()),
+          ambitsInn: new Set(Array.from(ambitsInn).sort()),
         };
 
         this.updateLayersDensity(currentPrograms);
 
-        // Update state
+        // Update the state
         this.setState({
           dataLoaded: true,
           polygons: [
@@ -306,12 +313,28 @@ class App extends Component {
       }
     });
 
-    const factorST = (maxDensityST > MIN_DENSITY && maxDensityST < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensityST : maxDensityST > MAX_DENSITY ? MAX_DENSITY / maxDensityST : 1;
-    const factorSE = (maxDensitySE > MIN_DENSITY && maxDensitySE < MINMAX_DENSITY) ? MINMAX_DENSITY / maxDensitySE : maxDensitySE > MAX_DENSITY ? MAX_DENSITY / maxDensitySE : 1;
+    // Compute correction factors
+    const factorST = (maxDensityST > MIN_DENSITY && maxDensityST < MINMAX_DENSITY)
+      ? MINMAX_DENSITY / maxDensityST
+      : maxDensityST > MAX_DENSITY
+        ? MAX_DENSITY / maxDensityST
+        : 1;
+    const factorSE = (maxDensitySE > MIN_DENSITY && maxDensitySE < MINMAX_DENSITY)
+      ? MINMAX_DENSITY / maxDensitySE
+      : maxDensitySE > MAX_DENSITY
+        ? MAX_DENSITY / maxDensitySE
+        : 1;
+
+    // Apply correction factors
     poligons.forEach(poli => poli.density *= (poli.tipus === 'ST' ? factorST : factorSE));
   }
 
+  /**
+   * Perform a full text search
+   * @param {string} query - The text to serach for
+   */
   search = (query) => {
+    // TODO: Implement search feature!
     console.log(`Searching: "${query}"`);
     this.setState({ query });
   }
@@ -324,6 +347,8 @@ class App extends Component {
     // Destructure `data` and `state`
     const data = this.data;
     const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    // TODO: Use React context providers and consumers
+    // See: https://reactjs.org/docs/context.html
     const updateMainState = this.updateMainState;
 
     // Current app sections
