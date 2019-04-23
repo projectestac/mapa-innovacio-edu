@@ -39,7 +39,7 @@ function FitxaCentre({ id, centre, data: { centres }, modeProgCentre, updateMain
         <div id="adreca">
           <p>
             {adreca}<br />
-            {municipi} ({comarca})<br />
+            {`${municipi} (${comarca})`}<br />
             {tel && <>{`Tel. ${tel}`}<br /></>}
             {mail && <><a href={`mailto:${mail}`}>{mail}</a><br /></>}
             {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
@@ -56,7 +56,8 @@ function FitxaCentre({ id, centre, data: { centres }, modeProgCentre, updateMain
         </div>
         <div id="zones">
           <h4>Zona</h4>
-          {sstt}<br/>{se}
+          {sstt}<br/>
+          {se}
         </div>
         <h4>Programes d'innovació educativa on participa</h4>
         {(modeProgCentre === 'perCurs' &&
@@ -71,7 +72,7 @@ function FitxaCentre({ id, centre, data: { centres }, modeProgCentre, updateMain
                     {programes[curs].map(({ id, nom }, c) => {
                       return (
                         <li key={c} >
-                          <Button onClick={obrePrograma(id)}><div>{nom}</div></Button>
+                          <Button onClick={obrePrograma(id)}>{nom}</Button>
                         </li>
                       );
                     })}
@@ -83,7 +84,7 @@ function FitxaCentre({ id, centre, data: { centres }, modeProgCentre, updateMain
           <ul>
             {Utils.plainArray(programes).map(({ id, nom, cursos }, c) => (
               <li key={c}>
-                <Button className="progs-centre" onClick={obrePrograma(id)}>{nom} ({cursos.join(', ')})</Button>
+                <Button className="progs-centre" onClick={obrePrograma(id)}>{`${nom} (${cursos.join(', ')})`}</Button>
               </li>
             ))}
           </ul>

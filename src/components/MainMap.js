@@ -8,7 +8,7 @@ import Utils from '../utils/Utils';
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
 const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 
-export default function MainMap({ points = [], polygons = [], programa, center = [41.7, 1.8], zoom = 8, maxZoom = 19, updateMainState }) {
+export default function MainMap({ points = [], polygons = [], programa, center = [41.7, 1.8], zoom = 8, maxZoom = 13, updateMainState }) {
 
   // Optional overlays
   const OVERLAYS = [

@@ -66,14 +66,14 @@ function FitxaPrograma({ programa, data: { programes }, updateMainState }) {
         {Object.keys(centres).map((curs, n) => (
           <ExpansionPanel key={n}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography component="h5">CURS {curs}</Typography>
+              <Typography component="h5">{`CURS ${curs}`}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <ul>
                 {centres[curs].map(({ id, nom, municipi }, c) => {
                   return (
                     <li key={c} >
-                      <Button onClick={obreCentre(id)}>{nom} ({municipi})</Button>
+                      <Button onClick={obreCentre(id)}>{`${nom} (${municipi})`}</Button>
                     </li>
                   );
                 })}
