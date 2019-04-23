@@ -1,6 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -37,6 +38,7 @@ function Header({ menuItems, searchFn, updateMainState }) {
         >
           {hasDrawer &&
             <IconButton
+              className="main-menu-button"
               color="inherit"
               aria-label="Seccions"
               title="Seccions"
@@ -46,6 +48,9 @@ function Header({ menuItems, searchFn, updateMainState }) {
             </IconButton>
           }
           <Typography className="main-title" variant="h6" color="inherit" noWrap>
+            <div className="top-bar">
+              <Button className="logo-gencat"> </Button>
+            </div>
             Mapa de la Innovació Educativa (en construcció!)
           </Typography>
           <IconButton
