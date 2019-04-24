@@ -14,38 +14,37 @@ function SearchBar({ closeFn = () => null, searchFn, mini = false }) {
   };
 
   return (
-    <form onSubmit={search}>
-      <div className="search-bar">
+    <form
+      className="search-bar"
+      onSubmit={search}>
+      <IconButton
+        className="search-btn"
+        color="inherit"
+        aria-label="Cerca"
+        title="Cerca"
+        onClick={search}
+      >
+        <SearchIcon />
+      </IconButton>
+      <TextField
+        aria-label="Cerca text..."
+        title="Cerca text..."
+        className="search-text"
+        value={searchText}
+        InputProps={{ disableUnderline: true }}
+        onChange={ev => setSearchText(ev.target.value)}
+      />
+      {!mini &&
         <IconButton
-          className="search-btn"
+          className="search-close"
           color="inherit"
-          aria-label="Cerca"
-          title="Cerca"
-          onClick={search}
+          aria-label="Tanca"
+          title="Tanca"
+          onClick={closeFn}
         >
-          <SearchIcon />
+          <CloseIcon />
         </IconButton>
-        <TextField
-          aria-label="Cerca text..."
-          title="Cerca text..."
-          className="search-text"
-          value={searchText}
-          onChange={ev => setSearchText(ev.target.value)}
-
-        />
-        {!mini &&
-          <IconButton
-            className="search-close"
-            color="inherit"
-            aria-label="Tanca"
-            title="Tanca"
-            onClick={closeFn}
-          >
-            <CloseIcon />
-          </IconButton>
-        }
-
-      </div>
+      }
     </form>
   );
 }

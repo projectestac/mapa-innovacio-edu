@@ -361,8 +361,8 @@ class App extends Component {
 
     // Current app sections
     const menuItems = [
-      { id: 'presenta', name: 'Presentació', action: () => this.updateMainState({ intro: true }) },
-      { id: 'programes', name: 'Programes', action: () => this.updateMainState({ intro: false, centre: null, programa: null }) },
+      { id: 'presenta', name: 'Presentació', action: () => this.updateMainState({ intro: true }), current: intro === true },
+      { id: 'programes', name: 'Programes', action: () => this.updateMainState({ intro: false, centre: null, programa: null }), current: intro === false },
     ];
 
     return (

@@ -55,8 +55,11 @@ function Header({ menuItems, searchFn, updateMainState }) {
               Mapa de la Innovació Educativa (en construcció!)
             </Typography>
             <ul className="nav-bar">
-              <li><div role="button" current="true">Presentació</div></li>
-              <li><div role="button" current="false">Programes</div></li>
+              {menuItems.map(item => (
+                <li key={item.id}>
+                  <div className="nav-label" role="button" current={item.current ? 'true' : 'false'} onClick={itemAction(item)}>{item.name}</div>
+                </li>
+              ))}
             </ul>
           </div>
           <IconButton

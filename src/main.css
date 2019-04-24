@@ -7,7 +7,9 @@
 }
 
 body {
-  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: 'Open Sans';
+  height: 100%;
+  min-height: 100%;
 }
 
 #filler {
@@ -30,6 +32,18 @@ main {
   }
 }
 
+/* === Search bar === */
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+  align-items: center;
+}
+
+.search-bar .search-text {
+  margin: 0 1rem;
+}
+
 /* === Header === */
 
 header .search-bar {
@@ -37,7 +51,7 @@ header .search-bar {
   background-color: #4b4b4b;
 }
 
-header .search-text {
+.search-bar .search-text {
   background-color: #fff;
 }
 
@@ -53,40 +67,56 @@ header .top-bar, .nav-bar {
 }
 
 @media (min-width: 1000px) {
-
   header .top-bar {
     margin: 0.7rem 2rem;
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1fr;
   }
-
   header .search-bar {
-    float: right;
+    padding: 0;
+    background-color: inherit;
+    grid-template-columns: 1fr 3rem;
   }
-
+  .search-bar .search-text {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    max-width: 18rem;
+    height: 36px;
+    justify-self: end;
+    padding-left: 0.5rem;
+    border: 1px solid #ddd;
+  }
+  .search-bar .search-btn {
+    padding: 0;
+    margin: 0;
+    width: 36px;
+    height: 100%;
+    background-color: #bd0000;
+    border-radius: 0;
+  }
   header .nav-bar {
     display: block;
-    margin-top: 1rem;    
+    margin-top: 1rem;
   }
-
-  header .nav-bar > li {
+  header .nav-bar>li {
     margin: 0;
     padding: 0;
     border-left: 1px solid #fff;
     float: left;
     list-style: none;
   }
-
-  header .nav-bar > li > div {
+  header .nav-bar>li>.nav-label {
     padding: 0.5em 1.125em;
     font-size: 1em;
     font-weight: 400;
+    cursor: pointer;
   }
-
-  header .nav-bar > li > div[current=true] {
+  header .nav-bar>li>.nav-label[current=true] {
     background-color: #fff;
     color: #333;
   }
-
   header .main-menu-button {
     display: none;
   }
@@ -99,7 +129,7 @@ header .top-bar, .nav-bar {
     background: url("assets/NG_logo_generalitat.png") no-repeat 0 0;
     width: 170px;
     height: 2em;
-    text-indent: -555em;  
+    text-indent: -555em;
     width: 100%;
     display: block;
     text-decoration: none;
@@ -113,18 +143,6 @@ header .top-bar, .nav-bar {
   #filler {
     height: 9.5rem;
   }
-}
-
-/* === Search bar === */
-
-.search-bar {
-  display: grid;
-  grid-template-columns: 3rem 1fr 3rem;
-  align-items: center;
-}
-
-.search-bar .search-text {
-  margin: 0 1rem;
 }
 
 /* === Main components === */
@@ -292,6 +310,12 @@ section .torna {
 }
 
 /* === Footer === */
+
+footer {
+  background-color: #efefef;
+  padding: 1rem;
+  clear: both;
+}
 
 footer .foot {
   margin: 3rem auto;
