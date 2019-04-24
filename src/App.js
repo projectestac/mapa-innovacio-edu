@@ -40,6 +40,13 @@ const theme = createMuiTheme({
     error: { main: color_error[500] },
   },
   typography: {
+    fontFamily: [
+      'Open Sans',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
     useNextVariants: true,
   },
 });
@@ -205,7 +212,8 @@ class App extends Component {
    */
   componentDidMount() {
     // Load Google's "Roboto" font
-    Utils.loadGFont('Roboto');
+    //Utils.loadGFont('Roboto');
+    Utils.loadGFont('Open Sans');
     // Load datasets
     this.loadData();
   }

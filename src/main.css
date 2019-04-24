@@ -41,31 +41,77 @@ header .search-text {
   background-color: #fff;
 }
 
-header .main-title {
+header .main-header-block {
   flex-grow: 1;
+  overflow: hidden;
+  max-width: 100rem;
+  margin: auto;
 }
 
-header .top-bar {
+header .top-bar, .nav-bar {
   display: none;
 }
 
 @media (min-width: 1000px) {
+
   header .top-bar {
+    margin: 0.7rem 2rem;
     display: block;
   }
+
+  header .search-bar {
+    float: right;
+  }
+
+  header .nav-bar {
+    display: block;
+    margin-top: 1rem;    
+  }
+
+  header .nav-bar > li {
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #fff;
+    float: left;
+    list-style: none;
+  }
+
+  header .nav-bar > li > div {
+    padding: 0.5em 1.125em;
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  header .nav-bar > li > div[current=true] {
+    background-color: #fff;
+    color: #333;
+  }
+
   header .main-menu-button {
     display: none;
   }
   header .main-title {
-    margin: 1rem 2rem;
-    font-size: 1.5rem;
-    max-width: 1500px;    
+    margin: 0.7rem 2rem;
+    font-size: 28px;
+    font-weight: 600;
   }
   header .logo-gencat {
-    background-image: url("assets/NG_logo_generalitat.png");
+    background: url("assets/NG_logo_generalitat.png") no-repeat 0 0;
     width: 170px;
-    height: 27px;
-    margin-bottom: 1rem;
+    height: 2em;
+    text-indent: -555em;  
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  header .search-btn-small {
+    display: none;
+  }
+  #filler {
+    height: 9.5rem;
   }
 }
 

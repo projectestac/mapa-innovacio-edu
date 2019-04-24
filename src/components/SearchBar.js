@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 
-function SearchBar({ closeFn, searchFn }) {
+function SearchBar({ closeFn = () => null, searchFn, mini = false }) {
 
   const [searchText, setSearchText] = React.useState('');
   const search = (ev) => {
@@ -33,15 +33,17 @@ function SearchBar({ closeFn, searchFn }) {
           onChange={ev => setSearchText(ev.target.value)}
 
         />
-        <IconButton
-          className="search-close"
-          color="inherit"
-          aria-label="Tanca"
-          title="Tanca"
-          onClick={closeFn}
-        >
-          <CloseIcon />
-        </IconButton>
+        {!mini &&
+          <IconButton
+            className="search-close"
+            color="inherit"
+            aria-label="Tanca"
+            title="Tanca"
+            onClick={closeFn}
+          >
+            <CloseIcon />
+          </IconButton>
+        }
 
       </div>
     </form>

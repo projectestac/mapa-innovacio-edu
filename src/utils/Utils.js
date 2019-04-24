@@ -5,7 +5,7 @@ import FontFaceObserver from 'fontfaceobserver';
 /**
  * Asynchronous loading of Google fonts
  */
-function loadGFont(fontName = 'Roboto', weights = '300,400,500') {
+function loadGFont(fontName = 'Roboto', weights = '300,400,500,600') {
   const link = document.createElement('link');
   link.href = `https://fonts.googleapis.com/css?family=${fontName}:${weights}`;
   link.rel = 'stylesheet';
@@ -13,7 +13,7 @@ function loadGFont(fontName = 'Roboto', weights = '300,400,500') {
   document.head.appendChild(link);
   const fontLoader = new FontFaceObserver(fontName);
   fontLoader.load()
-    .then(() => document.documentElement.classList.add(fontName.toLowerCase()))
+    .then(() => document.documentElement.classList.add(fontName.replace(' ', '-').toLowerCase()))
     .catch(err => console.error(`Unable to load ${fontName} font due to: ${err}`));
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -47,13 +46,21 @@ function Header({ menuItems, searchFn, updateMainState }) {
               <MenuIcon />
             </IconButton>
           }
-          <Typography className="main-title" variant="h6" color="inherit" noWrap>
+          <div className="main-header-block">
             <div className="top-bar">
-              <Button className="logo-gencat"> </Button>
+              <a className="logo-gencat" href="https://web.gencat.cat/" title="Generalitat de Catalunya" target="_top">gencat.cat</a>
+              <SearchBar {...{ className: 'search-bar', searchFn, mini: true }} />
             </div>
-            Mapa de la Innovació Educativa (en construcció!)
-          </Typography>
+            <Typography className="main-title" variant="h6" color="inherit" noWrap>
+              Mapa de la Innovació Educativa (en construcció!)
+            </Typography>
+            <ul className="nav-bar">
+              <li><div role="button" current="true">Presentació</div></li>
+              <li><div role="button" current="false">Programes</div></li>
+            </ul>
+          </div>
           <IconButton
+            className="search-btn-small"
             color="inherit"
             aria-label="Cerca"
             title="Cerca"
@@ -65,7 +72,8 @@ function Header({ menuItems, searchFn, updateMainState }) {
         {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), searchFn }} />}
       </AppBar>
 
-      {hasDrawer &&
+      {
+        hasDrawer &&
         <Drawer
           variant="persistent"
           anchor="left"
