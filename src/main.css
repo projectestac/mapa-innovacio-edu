@@ -4,11 +4,22 @@
   --theme-spacing-unit: 10pt;
   --theme-spacing-unit-x2: 20pt;
   --theme-palette-background-paper: #fff;
-  --footer-height: 200px;
+  --footer-height: 250px;
+  --max-width: 1600px;
+  --gencat-red: #c00000;
+  --gencat-black: #333;
+  --gencat-gray-text: #999;
+  --gencat-gray-line: #ddd;
+  /* Segons la guia hauria de ser #F5F5F5 */
+  --gencat-gray-background: #efefef;
 }
 
 body {
   font-family: "Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  color: var(--gencat-red);
 }
 
 #root {
@@ -26,7 +37,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;
   align-items: start;
-  max-width: 1600px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem;
 }
@@ -102,7 +113,7 @@ header .top-bar, .nav-bar {
     margin: 0;
     width: 36px;
     height: 100%;
-    background-color: #bd0000;
+    background-color: var(--gencat-red);
     border-radius: 0;
   }
   header .nav-bar {
@@ -124,7 +135,7 @@ header .top-bar, .nav-bar {
   }
   header .nav-bar>li>.nav-label[current=true] {
     background-color: #fff;
-    color: #333;
+    color: var(--gencat-black);
   }
   header .main-menu-button {
     display: none;
@@ -318,7 +329,7 @@ section .torna {
 /* === Footer === */
 
 footer {
-  background-color: #efefef;
+  background-color: var(--gencat-gray-background);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -327,12 +338,13 @@ footer {
 }
 
 footer .footer-content {
-  margin-top: 1rem;
-  border-top: 2px solid #ccc;
+  margin: 1rem auto;
+  border-top: 2px solid var(--gencat-gray-line);
   padding: 1rem;
   display: grid;
   grid-template-columns: 110px 1fr;
   grid-gap: 1rem;
+  max-width: var(--max-width);
 }
 
 footer .logo-gencat {
@@ -349,7 +361,7 @@ footer .logo-gencat {
 
 footer .copyright {
   font-size: 0.7rem;
-  color: #999;
+  color: var(--gencat-gray-text);
 }
 
 .copyright a {

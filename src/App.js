@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
-//import color_primary from '@material-ui/core/colors/teal';  // was indigo (teal)
-import color_secondary from '@material-ui/core/colors/red';  // was pink (green)
 import color_error from '@material-ui/core/colors/red';
 
 import Utils from './utils/Utils';
@@ -19,7 +17,11 @@ import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 
+// Gencat dark gray
 const color_primary = { 500: '#333' };
+
+// Gencat red
+const color_secondary = { 500: '#c00000' };
 
 /**
  * Miscellanous values taken from environment variables
