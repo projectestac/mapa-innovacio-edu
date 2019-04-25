@@ -10,6 +10,7 @@ function SearchBar({ closeFn = () => null, searchFn, mini = false }) {
   const search = (ev) => {
     ev.preventDefault();
     searchFn(searchText);
+    setSearchText('');
     return closeFn();
   };
 

@@ -319,6 +319,10 @@ section .torna {
   margin: 2rem auto;
 }
 
+.item-found {
+  cursor: pointer;
+}
+
 /* === Mapa === */
 
 .mapa {

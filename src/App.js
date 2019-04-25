@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
 import color_error from '@material-ui/core/colors/red';
+import Fuse from 'fuse.js';
 
 import Utils from './utils/Utils';
 import Header from './components/Header';
@@ -93,8 +94,13 @@ class App extends Component {
       modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
       delayedMapUpdate: true,
       query: null,
+      queryResults: [],
     };
+
+    // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
+    this.fuseFuncs = [];
   }
+
 
   /**
    * Load datasets from API or JSON files
@@ -159,6 +165,32 @@ class App extends Component {
               p.tipus = ['EINF2C', 'EPRI', 'ESO'];
           }
         });
+
+        // Build the Fuse.js objects
+        // See: https://fusejs.io/
+        const fuseOptions = {
+          caseSensitive: false,
+          shouldSort: true,
+          tokenize: true,
+          matchAllTokens: true,
+          includeScore: true,
+          includeMatches: true,
+          threshold: 0.3,
+          location: 0,
+          distance: 4,
+          maxPatternLength: 32,
+          minMatchCharLength: 2,
+        };
+
+        this.fuseFuncs.push(new Fuse(
+          _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom, municipi, comarca, tipus: 'centre' }; }),
+          { ...fuseOptions, keys: ['id', 'nom', 'municipi', 'comarca'] })
+        );
+
+        this.fuseFuncs.push(new Fuse(
+          _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
+          { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] })
+        );
 
         // Convert arrays to maps
         const centres = new Map(_centres.map(c => [c.id, c]));
@@ -346,7 +378,10 @@ class App extends Component {
   search = (query) => {
     // TODO: Implement search feature!
     console.log(`Searching: "${query}"`);
-    this.setState({ query });
+    const queryResults = [];
+    this.fuseFuncs.forEach(ff => queryResults.push(...ff.search(query)));
+    console.log(queryResults);
+    this.setState({ query, queryResults });
   }
 
   /**
@@ -356,7 +391,7 @@ class App extends Component {
 
     // Destructure `data` and `state`
     const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query } = this.state;
+    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query, queryResults } = this.state;
     // TODO: Use React context providers and consumers
     // See: https://reactjs.org/docs/context.html
     const updateMainState = this.updateMainState;
@@ -376,7 +411,7 @@ class App extends Component {
             {
               (error && <Error error={error} refetch={this.loadData} />) ||
               (loading && <Loading />) ||
-              (query && <Cerca id="cerca" {...{ query, updateMainState }} />) ||
+              (query && <Cerca id="cerca" {...{ query, queryResults, updateMainState }} />) ||
               (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
               (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
               (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||

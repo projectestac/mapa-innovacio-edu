@@ -1,7 +1,7 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la Innovació Educativa a Catalunya",
-  "version": "1.0.17-beta",
+  "version": "1.0.18-beta",
   "author": "Francesc Busquets <francesc@gmail.com>",
   "private": true,
   "homepage": ".",
@@ -20,6 +20,7 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "fontfaceobserver": "^2.1.0",
+    "fuse.js": "^3.4.4",
     "leaflet": "^1.4.0",
     "leaflet.markercluster": "^1.4.1",
     "prop-types": "^15.7.2",
