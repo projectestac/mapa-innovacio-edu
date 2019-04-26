@@ -6,6 +6,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
 
+import AppContext from './AppContext';
 import Utils from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
@@ -59,6 +60,8 @@ const theme = createMuiTheme({
  */
 class App extends Component {
 
+  static contextType = AppContext;
+
   constructor() {
     super();
 
@@ -81,6 +84,20 @@ class App extends Component {
       ]),
     }
 
+    // Current app sections
+    this.menuItems = [
+      {
+        id: 'presenta',
+        name: 'Presentació',
+        action: () => this.updateMainState({ intro: true }),
+      },
+      {
+        id: 'programes',
+        name: 'Programes',
+        action: () => this.updateMainState({ intro: false, centre: null, programa: null, query: null }),
+      },
+    ];
+
     // Set the initial state
     this.state = {
       loading: true,
@@ -95,12 +112,17 @@ class App extends Component {
       delayedMapUpdate: true,
       query: null,
       queryResults: [],
+      // Immutable attributes, required by React.Context:
+      updateMainState: this.updateMainState,
+      searchFn: this.search,
+      menuItems: this.menuItems,
+      refetch: this.loadData,
+      data: this.data,
     };
 
     // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
     this.fuseFuncs = [];
   }
-
 
   /**
    * Load datasets from API or JSON files
@@ -182,16 +204,14 @@ class App extends Component {
           minMatchCharLength: 2,
         };
 
-        this.fuseFuncs.push(new Fuse(
-          _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
-          { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] })
-        );
-
-        this.fuseFuncs.push(new Fuse(
-          _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom: `${nom} (${municipi})`, comarca, tipus: 'centre' }; }),
-          { ...fuseOptions, keys: ['id', 'nom', 'comarca'] })
-        );
-
+        this.fuseFuncs = [
+          new Fuse(
+            _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
+            { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] }),
+          new Fuse(
+            _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom: `${nom} (${municipi})`, comarca, tipus: 'centre' }; }),
+            { ...fuseOptions, keys: ['id', 'nom', 'comarca'] }),
+        ];
 
         // Convert arrays to maps
         const centres = new Map(_centres.map(c => [c.id, c]));
@@ -211,19 +231,16 @@ class App extends Component {
         });
 
         // Update main data object
-        this.data = {
-          ...this.data,
-          programes,
-          centres,
-          poligons,
-          // Sort ambits
-          ambitsCurr: new Set(Array.from(ambitsCurr).sort()),
-          ambitsInn: new Set(Array.from(ambitsInn).sort()),
-        };
+        this.data.programes = programes;
+        this.data.centres = centres;
+        this.data.poligons = poligons;
+        this.data.ambitsCurr = new Set(Array.from(ambitsCurr).sort());
+        this.data.ambitsInn = new Set(Array.from(ambitsInn).sort());
 
+        // Update layers density
         this.updateLayersDensity(currentPrograms);
 
-        // Update the state
+        // Update the main state
         this.setState({
           dataLoaded: true,
           polygons: [
@@ -387,40 +404,31 @@ class App extends Component {
    */
   render() {
 
-    // Destructure `data` and `state`
-    const data = this.data;
-    const { error, loading, intro, currentPrograms, polygons, programa, centre, modeProgCentre, mapChanged, query, queryResults } = this.state;
-    // TODO: Use React context providers and consumers
-    // See: https://reactjs.org/docs/context.html
-    const updateMainState = this.updateMainState;
-
-    // Current app sections
-    const menuItems = [
-      { id: 'presenta', name: 'Presentació', action: () => this.updateMainState({ intro: true }), current: intro === true },
-      { id: 'programes', name: 'Programes', action: () => this.updateMainState({ intro: false, centre: null, programa: null }), current: intro === false },
-    ];
+    const { error, loading, intro, programa, centre, query } = this.state;
 
     return (
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
-          <Header {...{ menuItems, searchFn: this.search, updateMainState }} />
-          <div id="filler" />
-          <main>
-            {
-              (error && <Error error={error} refetch={this.loadData} />) ||
-              (loading && <Loading />) ||
-              (query && <Cerca id="cerca" {...{ query, queryResults, updateMainState }} />) ||
-              (intro && <Presentacio id="presenta" {...{ updateMainState }} />) ||
-              (centre && <FitxaCentre {...{ id: 'centre', centre, data, modeProgCentre, updateMainState }} />) ||
-              (programa && <FitxaPrograma {...{ id: 'programa', programa, data, updateMainState }} />) ||
-              (<Programes {...{ id: 'programes', data, currentPrograms, updateMainState }} />)
-            }
-            {
-              !error && !loading && !intro && !query &&
-              <MapSection {...{ id: 'mapa', data, currentPrograms, polygons, programa, centre, mapChanged, updateMainState }} />
-            }
-          </main>
-          <Footer />
+          <AppContext.Provider value={this.state}>
+            <Header />
+            <div id="filler" />
+            <main>
+              {
+                (error && <Error />) ||
+                (loading && <Loading />) ||
+                (query && <Cerca />) ||
+                (intro && <Presentacio />) ||
+                (centre && <FitxaCentre />) ||
+                (programa && <FitxaPrograma />) ||
+                (<Programes />)
+              }
+              {
+                !error && !loading && !intro && !query &&
+                <MapSection />
+              }
+            </main>
+            <Footer />
+          </AppContext.Provider>
         </MuiThemeProvider>
       </CssBaseline>
     );
