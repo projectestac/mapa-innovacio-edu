@@ -1,6 +1,24 @@
 import React from 'react';
 
-const AppContext = React.createContext({
+export const DEFAULT_DATA = {
+  programes: new Map(),
+  centres: new Map(),
+  poligons: new Map(),
+  ambitsCurr: new Set(),
+  ambitsInn: new Set(),
+  nivells: new Map([
+    // Veure: http://queestudiar.gencat.cat/ca/estudis/
+    ['Educació infantil i primària', ['EINF1C', 'EINF2C', 'EPRI']],
+    ['Educació secundària obligatòria', ['ESO']],
+    ['Batxillerat', ['BATX']],
+    ['Formació professional', ['PFI', 'CFPM', 'CFPS', 'RESP']],
+    ['Ens. artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
+    // TODO: Reassignar aquestes categories:
+    ['Altres estudis', ['EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
+  ]),
+};
+
+export const DEFAULT_STATE = {
   loading: true,
   dataLoaded: false,
   intro: true,
@@ -9,15 +27,19 @@ const AppContext = React.createContext({
   currentPrograms: new Set(),
   programa: null,
   centre: null,
-  modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
+  // Possible values are `perCurs` and `agregat`
+  modeProgCentre: 'agregat',
   delayedMapUpdate: true,
   query: null,
   queryResults: [],
-  // Properties to be implemented in App
-  updateMainState: () => { },
-  searchFn: () => { },
+  // Immutable attributes:
+  updateMainState: () => null,
+  searchFn: () => null,
   menuItems: [],
-  data: {},
-});
+  refetch: () => null,
+  data: DEFAULT_DATA,
+};
+
+const AppContext = React.createContext(DEFAULT_STATE);
 
 export default AppContext;

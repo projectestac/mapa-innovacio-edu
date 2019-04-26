@@ -6,7 +6,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
 
-import AppContext from './AppContext';
 import Utils from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
@@ -18,6 +17,7 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
+import AppContext, { DEFAULT_STATE } from './AppContext';
 
 // Gencat dark gray
 const color_primary = { 500: '#333' };
@@ -65,25 +65,6 @@ class App extends Component {
   constructor() {
     super();
 
-    // Container for immutable data
-    this.data = {
-      programes: new Map(),
-      centres: new Map(),
-      poligons: new Map(),
-      ambitsCurr: new Set(),
-      ambitsInn: new Set(),
-      nivells: new Map([
-        // Veure: http://queestudiar.gencat.cat/ca/estudis/
-        ['Educació infantil i primària', ['EINF1C', 'EINF2C', 'EPRI']],
-        ['Educació secundària obligatòria', ['ESO']],
-        ['Batxillerat', ['BATX']],
-        ['Formació professional', ['PFI', 'CFPM', 'CFPS', 'RESP']],
-        ['Ens. artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
-        // TODO: Reassignar aquestes categories:
-        ['Altres estudis', ['EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
-      ]),
-    }
-
     // Current app sections
     this.menuItems = [
       {
@@ -100,24 +81,12 @@ class App extends Component {
 
     // Set the initial state
     this.state = {
-      loading: true,
-      dataLoaded: false,
-      intro: true,
-      error: false,
-      polygons: [],
-      currentPrograms: new Set(),
-      programa: null,
-      centre: null,
-      modeProgCentre: 'agregat', // Possible values are `perCurs` and `agregat`
-      delayedMapUpdate: true,
-      query: null,
-      queryResults: [],
-      // Immutable attributes, required by React.Context:
+      ...DEFAULT_STATE,
+      // Immutable attributes:
       updateMainState: this.updateMainState,
       searchFn: this.search,
       menuItems: this.menuItems,
       refetch: this.loadData,
-      data: this.data,
     };
 
     // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
@@ -231,17 +200,21 @@ class App extends Component {
         });
 
         // Update main data object
-        this.data.programes = programes;
-        this.data.centres = centres;
-        this.data.poligons = poligons;
-        this.data.ambitsCurr = new Set(Array.from(ambitsCurr).sort());
-        this.data.ambitsInn = new Set(Array.from(ambitsInn).sort());
+        const data = {
+          ...this.state.data,
+          programes,
+          centres,
+          poligons,
+          ambitsCurr: new Set(Array.from(ambitsCurr).sort()),
+          ambitsInn: new Set(Array.from(ambitsInn).sort()),
+        };
 
         // Update layers density
-        this.updateLayersDensity(currentPrograms);
+        this.updateLayersDensity(currentPrograms, null, data);
 
         // Update the main state
         this.setState({
+          data,
           dataLoaded: true,
           polygons: [
             { name: 'Serveis Territorials', shapes: _poligons.filter(p => p.tipus === 'ST') },
@@ -295,10 +268,11 @@ class App extends Component {
    * Values can also be filtered by school year.
    * @param {Set} currentPrograms - Set with the `id`s of the programs to be included on the calculation
    * @param {string=} curs - School year to be used. Defaults to `null`, so including all years.
+   * @param {object=} data - Object containing the current datasets. Defaults to `data` in the current state.
    */
-  updateLayersDensity = (currentPrograms, curs = null) => {
+  updateLayersDensity = (currentPrograms, curs = null, data = this.state.data) => {
 
-    const { poligons, programes } = this.data;
+    const { poligons, programes } = data;
 
     // Clear base arrays
     poligons.forEach(poli => {
@@ -308,12 +282,12 @@ class App extends Component {
       // `estudisBase` will be filled with the total number of centres of each educational level involved in at least one current program
       // key: educational level (EINF2C, EPRI...)      
       // value: number of schools having this educational level on this polygon
-      poli.estudisBase = {}
+      poli.estudisBase = {};
 
       // `estudisPart` will be filled with the total number of centres participating in at least one current program.
       // key: educational level (EINF2C, EPRI...)      
       // value: number of centers of this type participating in current programs in this polygon
-      poli.estudisPart = {}
+      poli.estudisPart = {};
     });
 
     // Object with all `centres` participating in current programs
