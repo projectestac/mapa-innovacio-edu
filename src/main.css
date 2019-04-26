@@ -302,6 +302,7 @@ section .torna {
 
 .progs-centre {
   text-align: left;
+  width: 100%;
 }
 
 .centre h4 {
@@ -321,6 +322,15 @@ section .torna {
 
 .item-found {
   cursor: pointer;
+}
+
+.page-num {
+  margin: 0 0.2rem;
+}
+
+.page-link {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /* === Mapa === */

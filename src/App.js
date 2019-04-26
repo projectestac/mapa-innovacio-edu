@@ -183,14 +183,15 @@ class App extends Component {
         };
 
         this.fuseFuncs.push(new Fuse(
-          _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom, municipi, comarca, tipus: 'centre' }; }),
-          { ...fuseOptions, keys: ['id', 'nom', 'municipi', 'comarca'] })
-        );
-
-        this.fuseFuncs.push(new Fuse(
           _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
           { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] })
         );
+
+        this.fuseFuncs.push(new Fuse(
+          _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom: `${nom} (${municipi})`, comarca, tipus: 'centre' }; }),
+          { ...fuseOptions, keys: ['id', 'nom', 'comarca'] })
+        );
+
 
         // Convert arrays to maps
         const centres = new Map(_centres.map(c => [c.id, c]));
@@ -376,11 +377,8 @@ class App extends Component {
    * @param {string} query - The text to serach for
    */
   search = (query) => {
-    // TODO: Implement search feature!
-    console.log(`Searching: "${query}"`);
     const queryResults = [];
     this.fuseFuncs.forEach(ff => queryResults.push(...ff.search(query)));
-    console.log(queryResults);
     this.setState({ query, queryResults });
   }
 
