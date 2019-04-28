@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
@@ -7,12 +8,12 @@ import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
 
 import Utils from './utils/Utils';
+import ScrollToTop from './utils/ScrollToTop';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
 import FitxaPrograma from './components/FitxaPrograma';
 import FitxaCentre from './components/FitxaCentre';
-import MapSection from './components/MapSection';
 import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
@@ -70,12 +71,12 @@ class App extends Component {
       {
         id: 'presenta',
         name: 'Presentació',
-        action: () => this.updateMainState({ intro: true }),
+        path: '/',
       },
       {
         id: 'programes',
         name: 'Programes',
-        action: () => this.updateMainState({ intro: false, centre: null, programa: null, query: null }),
+        path: '/programes',
       },
     ];
 
@@ -83,14 +84,11 @@ class App extends Component {
     this.state = {
       ...DEFAULT_STATE,
       // Immutable attributes:
-      updateMainState: this.updateMainState,
-      searchFn: this.search,
+      updateMap: this.updateMap,
+      // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
+      fuseFuncs: [],
       menuItems: this.menuItems,
-      refetch: this.loadData,
     };
-
-    // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
-    this.fuseFuncs = [];
   }
 
   /**
@@ -173,7 +171,7 @@ class App extends Component {
           minMatchCharLength: 2,
         };
 
-        this.fuseFuncs = [
+        const fuseFuncs = [
           new Fuse(
             _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
             { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] }),
@@ -220,6 +218,7 @@ class App extends Component {
             { name: 'Serveis Territorials', shapes: _poligons.filter(p => p.tipus === 'ST') },
             { name: 'Serveis Educatius de Zona', shapes: _poligons.filter(p => p.tipus === 'SEZ') },
           ],
+          fuseFuncs,
           currentPrograms,
           loading: false,
           error: false,
@@ -248,18 +247,15 @@ class App extends Component {
    * @param {object} state - The new settings for `state`
    * @param {boolean} mapChanged - `true` when this change involves map points
    */
-  updateMainState = (state, mapChanged = true, currentProgramsChanged = false) => {
+  updateMap = (state, mapChanged = true, currentProgramsChanged = false) => {
     this.setState({ ...state, mapChanged });
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
         this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms);
-      const target = document.getElementById('filler');
-      if (target)
-        target.scrollIntoView({ behavior: 'smooth' });
       if (mapChanged)
         window.setTimeout(() => this.setState({ mapChanged: false }), 0);
     });
-  };
+  }
 
   /**
    * Update the `density` value of each polygon, based on the number of schools enroled to
@@ -364,47 +360,40 @@ class App extends Component {
   }
 
   /**
-   * Perform a full text search
-   * @param {string} query - The text to serach for
-   */
-  search = (query) => {
-    const queryResults = [];
-    this.fuseFuncs.forEach(ff => queryResults.push(...ff.search(query)));
-    this.setState({ query, queryResults });
-  }
-
-  /**
    * Builds the App main component
    */
   render() {
 
-    const { error, loading, intro, programa, centre, query } = this.state;
+    const { error, loading } = this.state;
 
     return (
-      <CssBaseline>
-        <MuiThemeProvider theme={theme}>
-          <AppContext.Provider value={this.state}>
-            <Header />
-            <div id="filler" />
-            <main>
-              {
-                (error && <Error />) ||
-                (loading && <Loading />) ||
-                (query && <Cerca />) ||
-                (intro && <Presentacio />) ||
-                (centre && <FitxaCentre />) ||
-                (programa && <FitxaPrograma />) ||
-                (<Programes />)
-              }
-              {
-                !error && !loading && !intro && !query &&
-                <MapSection />
-              }
-            </main>
-            <Footer />
-          </AppContext.Provider>
-        </MuiThemeProvider>
-      </CssBaseline>
+      <Router>
+        <ScrollToTop>
+          <CssBaseline>
+            <MuiThemeProvider theme={theme}>
+              <AppContext.Provider value={this.state}>
+                <Header />
+                <div id="filler" />
+                <main>
+                  {
+                    (loading && <Loading />) ||
+                    (error && <Error {...{ error, refetch: this.loadData }} />) ||
+                    (<>
+                      <Route exact path="/" component={Presentacio} />
+                      <Route path="/programes" component={Programes} />
+                      <Route path="/centre/:codi" component={FitxaCentre} />
+                      <Route path="/programa/:id" component={FitxaPrograma} />
+                      <Route path="/cerca/:query" component={Cerca} />
+                    </>
+                    )
+                  }
+                </main>
+                <Footer />
+              </AppContext.Provider>
+            </MuiThemeProvider>
+          </CssBaseline>
+        </ScrollToTop>
+      </Router>
     );
   }
 }

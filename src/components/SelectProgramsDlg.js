@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,12 +14,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
-function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMainState }) {
+function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }) {
 
   const [ambitInn, setAmbitInn] = React.useState('');
   const [ambitCurr, setAmbitCurr] = React.useState('');
   const [nivellsChk, setNivellsChk] = React.useState(Array.from(nivells).reduce((v, [n]) => { v[n] = true; return v; }, {}));
 
+  // Better to user a react reducer?
   const [currentPrograms, setCurrentPrograms] = React.useState(new Set());
 
   const updateCurrentPrograms = () => {
@@ -47,7 +49,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
 
   const closeDialog = ok => ev => {
     if (ok)
-      updateMainState({ currentPrograms }, true);
+      updateMap({ currentPrograms }, true);
     setDlgOpen(false);
   };
 

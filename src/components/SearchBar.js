@@ -4,14 +4,14 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 
-function SearchBar({ closeFn = () => null, searchFn, mini = false }) {
+function SearchBar({ closeFn = () => null, history, mini = false }) {
 
   const [searchText, setSearchText] = React.useState('');
   const search = (ev) => {
     ev.preventDefault();
-    searchFn(searchText);
+    closeFn();
+    history.push(`/cerca/${searchText}`);
     setSearchText('');
-    return closeFn();
   };
 
   return (

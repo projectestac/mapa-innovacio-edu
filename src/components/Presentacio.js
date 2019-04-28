@@ -4,11 +4,11 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-function Presentacio() {
+function Presentacio({ history }) {
 
   return (
     <AppContext.Consumer>
-      {({ updateMainState }) => {
+      {() => {
         return (
           <section className="seccio presenta">
             <Paper className="paper">
@@ -21,7 +21,7 @@ function Presentacio() {
                 className="close-intro-btn"
                 variant="contained"
                 color="primary"
-                onClick={() => updateMainState({ intro: false })}
+                onClick={() => history.push('/programes')}
               >Ves al mapa</Button>
             </Paper>
           </section>

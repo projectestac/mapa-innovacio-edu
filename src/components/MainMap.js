@@ -8,7 +8,7 @@ import Utils from '../utils/Utils';
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
 const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 
-export default function MainMap({ points = [], polygons = [], programa, center = [41.7, 1.8], zoom = 8, maxZoom = 13, updateMainState }) {
+export default function MainMap({ points = [], polygons = [], programa, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -33,7 +33,7 @@ export default function MainMap({ points = [], polygons = [], programa, center =
     if (layerIndex >= 0) {
       window.currentLayer = layerIndex;
       if (window[OVERLAYS[0].flag])
-        updateMainState({}, false);
+        updateMap({}, false);
     }
   }
 
@@ -43,10 +43,9 @@ export default function MainMap({ points = [], polygons = [], programa, center =
       const overlayVisible = (type === 'add');
       window[OVERLAYS[ov].flag] = overlayVisible;
       if (ov === 0 && overlayVisible)
-        updateMainState({}, false);
+        updateMap({}, false);
     }
   }
-
 
   // Save `currentLayer`, `showDensity` and `showCentres` as global variables to avoid unnecessary refreshing of the app state
 
@@ -57,7 +56,7 @@ export default function MainMap({ points = [], polygons = [], programa, center =
     window[ov.flag] = typeof window[ov.flag] === 'undefined' ? ov.default : window[ov.flag];
   });
 
-  const obreCentre = (id) => () => updateMainState({ centre: id });
+  const obreCentre = (id) => () => history.push(`/centre/${id}`);
 
   const popupCentre = (centre) => (
     <Popup>

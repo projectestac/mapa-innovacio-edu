@@ -14,6 +14,14 @@
   --gencat-gray-background: #efefef;
 }
 
+.hidden {
+  display: none;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
 body {
   font-family: "Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -194,35 +202,33 @@ header .top-bar, .nav-bar {
   margin-top: 0;
 }
 
-/* === Loading === */
-
-.loading-msg {
-  text-align: center;
-  padding: var(--theme-spacing-unit-x2);
-  margin: 20vh auto;
-  max-width: 800px;
-}
-
-.progress {
-  margin: 3rem;
-}
-
 .seccio li button {
   max-width: 100%;
   justify-content: left;
   text-align: left;
 }
 
+/* === Loading === */
+
+.progress {
+  margin: 3rem;
+}
+
 /* === Error === */
 
 .err-msg {
+  text-align: center;
   padding: var(--theme-spacing-unit-x2);
-  margin: 20vh auto;
-  max-width: 800px;
+  margin: 3rem auto;
 }
 
 .err-msg .action-btn {
   margin: 2rem;
+}
+
+.err-icon {
+  vertical-align: bottom;
+  margin: 0 0.5rem;
 }
 
 /* === Presentacio === */

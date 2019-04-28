@@ -21,22 +21,16 @@ export const DEFAULT_DATA = {
 export const DEFAULT_STATE = {
   loading: true,
   dataLoaded: false,
-  intro: true,
   error: false,
   polygons: [],
   currentPrograms: new Set(),
-  programa: null,
-  centre: null,
   // Possible values are `perCurs` and `agregat`
   modeProgCentre: 'agregat',
   delayedMapUpdate: true,
-  query: null,
-  queryResults: [],
   // Immutable attributes:
-  updateMainState: () => null,
-  searchFn: () => null,
+  updateMap: () => null,
+  fuseFuncs: [],
   menuItems: [],
-  refetch: () => null,
   data: DEFAULT_DATA,
 };
 

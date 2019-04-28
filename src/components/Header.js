@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import AppContext from '../AppContext';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
@@ -14,24 +15,24 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-function Header() {
+function Header({ history, location }) {
 
   const [drawerOpened, setDrawerOpened] = React.useState(false);
   const [searchOpened, setSearchOpened] = React.useState(false);
 
   return (
     <AppContext.Consumer>
-      {({ menuItems, intro, searchFn }) => {
+      {({ menuItems, searchFn }) => {
 
         const hasDrawer = menuItems && menuItems.length > 0;
 
-        const itemAction = (item) => (ev) => {
+        const itemAction = (item) => () => {
           setDrawerOpened(false);
-          if (item.action)
-            item.action(ev);
+          if (item.path)
+            history.push(item.path);
         }
 
-        menuItems.forEach(mi => mi.current = mi.id === 'presenta' ? intro : !intro);
+        menuItems.forEach(mi => mi.current = mi.path === location.pathname);
 
         return (
           <>
@@ -56,7 +57,7 @@ function Header() {
                 <div className="main-header-block">
                   <div className="top-bar">
                     <a className="logo-gencat" href="https://web.gencat.cat/" title="Generalitat de Catalunya" target="_top">gencat.cat</a>
-                    <SearchBar {...{ className: 'search-bar', searchFn, mini: true }} />
+                    <SearchBar {...{ className: 'search-bar', history, mini: true }} />
                   </div>
                   <Typography className="main-title" variant="h6" color="inherit" noWrap>
                     Mapa de la Innovació Educativa (en construcció!)
@@ -79,7 +80,7 @@ function Header() {
                   <SearchIcon />
                 </IconButton>
               </ToolBar>
-              {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), searchFn }} />}
+              {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), history }} />}
             </AppBar>
             {
               hasDrawer &&
@@ -110,4 +111,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withRouter(Header);

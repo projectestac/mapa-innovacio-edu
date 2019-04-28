@@ -2,59 +2,80 @@ import React from 'react';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import TablePagination from "@material-ui/core/TablePagination";
+import ProgramIcon from '@material-ui/icons/Group';
+import SchoolIcon from '@material-ui/icons/School';
 
-const ITEMS_PER_PAGE = process.env.REACT_ITEMS_PER_PAGE || 25;
+const DEFAULT_ITEMS_PER_PAGE = process.env.REACT_ITEMS_PER_PAGE || 25;
 
-function Cerca() {
+function Cerca({ history, match: { params: { query } } }) {
 
   const [page, setPage] = React.useState(0);
+  const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
+  const [queryResults, setQueryResults] = React.useState([]);
+  const [currentQuery, setCurrentQuery] = React.useState('');
 
   return (
     <AppContext.Consumer>
-      {({ query, queryResults, updateMainState }) => {
+      {({ fuseFuncs }) => {
 
-        const numPages = Math.ceil(queryResults.length / ITEMS_PER_PAGE);
-
-        const pageLinks = () => {
-          const result = [];
-          for (let n = 0; n < numPages; n++) {
-            result.push(
-              page === n
-                ? <span key={n} className="page-num"><strong>{n + 1}</strong></span>
-                : <span key={n} className="page-num page-link" onClick={ev => setPage(n)}>{n + 1}</span>
-            );
-          }
-          return result;
+        if (query !== currentQuery) {
+          // Perform full text search using Fuse.js
+          // See `loadData` in App.js for details about how these functions are built
+          setCurrentQuery(query);
+          setQueryResults(fuseFuncs.reduce((qr, ff) => qr.concat(ff.search(query)), []));
         }
 
         const goToElement = (tipus, id) => ev => {
-          updateMainState({ query: null, intro: null, centre: null, programa: null, [tipus]: id })
+          history.push(`/${tipus}/${id}`);
         };
-
 
         return (
           <section className="seccio cerca">
+            <Button
+              className="torna"
+              aria-label="Torna"
+              onClick={() => history.goBack()} >
+              <ArrowBack className="leftIcon" />
+              Torna
+            </Button>
             <Paper className="paper">
-              <h2>Resultats de la cerca "{query}"</h2>
+              <h2>Resultats per a la cerca "{currentQuery}"</h2>
               {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
-                <ul>
-                  {queryResults.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE).map(({ item: { nom, id, tipus } }, n) => (
-                    <li className="item-found" key={n} onClick={goToElement(tipus, id)} role="button">{nom}</li>
-                  ))}
-                </ul>
-              }
-              <hr />
-              {(numPages > 1) &&
-                <div className="search-page-selector">
-                  Pàgina: {pageLinks()}
+                <div>
+                  <List component="ul">
+                    {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus } }, n) => (
+                      <ListItem
+                        key={n}
+                        button
+                        onClick={goToElement(tipus, id)}
+                      >
+                        <ListItemIcon>
+                          {tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                        </ListItemIcon>
+                        <ListItemText primary={nom} />
+                      </ListItem>
+                    ))}
+                  </List>
+                  <hr />
+                  <TablePagination
+                    classes={{ spacer: 'hidden', toolbar: 'no-padding' }}
+                    component="nav"
+                    page={page}
+                    rowsPerPage={itemsPerPage}
+                    onChangeRowsPerPage={ev => setItemsPerPage(ev.target.value)}
+                    count={queryResults.length}
+                    onChangePage={(ev, p) => setPage(p)}
+                    labelDisplayedRows={({ from, to, count }) => `Resultats ${from} al ${to} de ${count}`}
+                    labelRowsPerPage="Resultats per pàgina:"
+                  />
                 </div>
               }
-              <Button
-                className="close-query-btn"
-                variant="contained"
-                color="primary"
-                onClick={() => updateMainState({ query: null })}
-              >Torna al mapa</Button>
             </Paper>
           </section>
         );

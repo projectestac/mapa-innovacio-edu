@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
  */
 function Loading() {
   return (
-    <div className='seccio loading-msg'>
-      <Typography variant='h6' color='inherit'>S'estan carregant les dades...</Typography>
+    <div className='err-msg'>
+      <Typography>S'estan carregant les dades...</Typography>
       <CircularProgress className='progress' />
     </div>
   );
