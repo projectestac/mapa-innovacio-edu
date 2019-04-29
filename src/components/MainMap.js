@@ -53,8 +53,6 @@ export default function MainMap({ points = [], polygons = [], programa, center =
     }
   }
 
-  // Save `currentLayer`, `showDensity` and `showCentres` as global variables to avoid unnecessary refreshing of the app state
-
   // Current layer defaults to "SEZ" (índex 1)
   setVal('currentLayer', getInt('currentLayer'));
 

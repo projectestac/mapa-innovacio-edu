@@ -46,7 +46,7 @@ a {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;
   align-items: start;
   max-width: var(--max-width);
@@ -259,6 +259,16 @@ header .top-bar, .nav-bar {
   ** max-height: 80vh; 
   ** overflow-y: auto; 
   */  
+}
+
+.prog_list > li {
+  margin-right: -1rem;
+}
+
+/* .prog_list > li > div:first-child */
+.prog_list .list-button {
+  padding-left: 0;
+  padding-right: 4rem;
 }
 
 .prog_logo {

@@ -62,7 +62,7 @@ function Programes({ history }) {
                 </div>
                 <List dense className="prog_list">
                   {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
-                    <ListItem key={n} button>
+                    <ListItem key={n} button className="list-button">
                       <ListItemAvatar>
                         <Avatar src={`logos/${simbol}`} alt={nom} />
                       </ListItemAvatar>
