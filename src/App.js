@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import CheckRouteChanges from './utils/CheckRouteChanges';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
@@ -8,7 +9,6 @@ import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
 
 import Utils from './utils/Utils';
-import ScrollToTop from './utils/ScrollToTop';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
@@ -247,8 +247,8 @@ class App extends Component {
    * @param {object} state - The new settings for `state`
    * @param {boolean} mapChanged - `true` when this change involves map points
    */
-  updateMap = (state, mapChanged = true, currentProgramsChanged = false) => {
-    this.setState({ ...state, mapChanged });
+  updateMap = (state = {}, mapChanged = true, currentProgramsChanged = false) => {
+    this.setState({ ...state, mapChanged, currentProgramsChanged });
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
         this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms);
@@ -257,8 +257,19 @@ class App extends Component {
     });
   }
 
+  contentUpdated = (props, prevProps) => {
+    if (props.location.pathname !== prevProps.location.pathname) {
+      if (/^\/(programes|programa\/|centre\/)/.test(props.location.pathname)) {
+        const check = /^\/programa\/(.*)$/.exec(props.location.pathname);
+        const programa = check && check.length === 2 ? check[1] : null;
+        this.updateMap({ programa }, true, true);
+      }
+      window.scrollTo(0, 0);
+    }
+  };
+
   /**
-   * Update the `density` value of each polygon, based on the number of schools enroled to
+   * Update the `density` value on each polygon, based on the number of schools enroled to
    * the current programs among the total number of schools on the polygon having at least
    * one of the educational levels targeted by at least one of the current programs.
    * Values can also be filtered by school year.
@@ -367,11 +378,11 @@ class App extends Component {
     const { error, loading } = this.state;
 
     return (
-      <Router>
-        <ScrollToTop>
-          <CssBaseline>
-            <MuiThemeProvider theme={theme}>
-              <AppContext.Provider value={this.state}>
+      <Router basename={window.location.pathname}>
+        <CssBaseline>
+          <MuiThemeProvider theme={theme}>
+            <AppContext.Provider value={this.state}>
+              <CheckRouteChanges updateHandler={this.contentUpdated}>
                 <Header />
                 <div id="filler" />
                 <main>
@@ -389,10 +400,10 @@ class App extends Component {
                   }
                 </main>
                 <Footer />
-              </AppContext.Provider>
-            </MuiThemeProvider>
-          </CssBaseline>
-        </ScrollToTop>
+              </CheckRouteChanges>
+            </AppContext.Provider>
+          </MuiThemeProvider>
+        </CssBaseline>
       </Router>
     );
   }

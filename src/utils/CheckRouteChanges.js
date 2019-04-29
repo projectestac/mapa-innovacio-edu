@@ -3,11 +3,15 @@ import { withRouter } from 'react-router-dom';
 
 // Scroll to top on each router navigation
 // See: https://reacttraining.com/react-router/web/guides/scroll-restoration
-class ScrollToTop extends React.Component {
+class CheckRouteChanges extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateHandler = props.updateHandler;
+  }
+
   componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-      window.scrollTo(0, 0);
-    }
+    if (this.updateHandler)
+      this.updateHandler(this.props, prevProps);
   }
 
   render() {
@@ -15,4 +19,4 @@ class ScrollToTop extends React.Component {
   }
 }
 
-export default withRouter(ScrollToTop);
+export default withRouter(CheckRouteChanges);

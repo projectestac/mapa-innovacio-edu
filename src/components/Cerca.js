@@ -45,7 +45,7 @@ function Cerca({ history, match: { params: { query } } }) {
               Torna
             </Button>
             <Paper className="paper">
-              <h2>Resultats per a la cerca "{currentQuery}"</h2>
+              <h2>Resultats de la cerca "{currentQuery}"</h2>
               {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
                 <div>
                   <List component="ul">

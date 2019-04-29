@@ -24,6 +24,7 @@ export default function MainMap({ points = [], polygons = [], programa, center =
     },
   ];
 
+
   // Line width and opacity of polygons
   const lineWidth = 2;
   const minOpacity = 0;

@@ -24,8 +24,7 @@ export const DEFAULT_STATE = {
   error: false,
   polygons: [],
   currentPrograms: new Set(),
-  // Possible values are `perCurs` and `agregat`
-  modeProgCentre: 'agregat',
+  program: null,
   delayedMapUpdate: true,
   // Immutable attributes:
   updateMap: () => null,

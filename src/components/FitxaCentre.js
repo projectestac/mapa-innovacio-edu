@@ -12,10 +12,13 @@ import Utils from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
+// Possible values are `perCurs` and `agregat`
+const MODE_PROG_CENTRE = process.env.REACT_MODE_PROG_CENTRE || 'agregat';
+
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
     <AppContext.Consumer>
-      {({ data, modeProgCentre, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
         const centre = data.centres.get(codi);
         if (!centre)
@@ -64,7 +67,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   {se}
                 </div>
                 <h4>Programes d'innovació educativa on participa</h4>
-                {(modeProgCentre === 'perCurs' &&
+                {(MODE_PROG_CENTRE === 'perCurs' &&
                   Object.keys(programes)
                     .map((curs, n) => (
                       <ExpansionPanel key={n}>
