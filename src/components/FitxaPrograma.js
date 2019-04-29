@@ -72,7 +72,8 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 {Object.keys(centres).map((curs, n) => (
                   <ExpansionPanel key={n}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography component="h5">{`CURS ${curs}`}</Typography>
+                      <Typography className="wider">{`CURS ${curs}`}</Typography>
+                      <Typography>{`${centres[curs].length} ${centres[curs].length===1 ? 'centre' : 'centres'}`}</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                       <ul>

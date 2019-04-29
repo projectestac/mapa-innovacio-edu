@@ -11,7 +11,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import ProgramIcon from '@material-ui/icons/Group';
 import SchoolIcon from '@material-ui/icons/School';
 
-const DEFAULT_ITEMS_PER_PAGE = process.env.REACT_ITEMS_PER_PAGE || 25;
+const DEFAULT_ITEMS_PER_PAGE = process.env.REACT_APP_ITEMS_PER_PAGE || 25;
 
 function Cerca({ history, match: { params: { query } } }) {
 

@@ -13,7 +13,7 @@ import Error from './Error';
 import MapSection from './MapSection';
 
 // Possible values are `perCurs` and `agregat`
-const MODE_PROG_CENTRE = process.env.REACT_MODE_PROG_CENTRE || 'agregat';
+const MODE_PROG_CENTRE = process.env.REACT_APP_MODE_PROG_CENTRE || 'agregat';
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
@@ -72,7 +72,8 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     .map((curs, n) => (
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                          <Typography component="h5">CURS {curs}</Typography>
+                          <Typography className="wider">CURS {curs}</Typography>
+                          <Typography>{`${programes[curs].length} ${programes[curs].length===1 ? 'programa' : 'programes'}`}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                           <ul>

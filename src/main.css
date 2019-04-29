@@ -22,6 +22,10 @@
   padding: 0 !important;
 }
 
+.wider {
+  flex-grow: 1;
+}
+
 body {
   font-family: "Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
