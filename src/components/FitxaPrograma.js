@@ -15,7 +15,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, curs, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
         const programa = data.programes.get(id);
         if (!programa)
@@ -86,7 +86,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                       <ul>
-                        {centres[curs].map(({ id, nom, municipi }, c) => {
+                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi }, c) => {
                           return (
                             <li key={c} >
                               <Button onClick={obreCentre(id)}>{`${nom} (${municipi})`}</Button>
@@ -99,7 +99,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 ))}
               </Paper>
             </section>
-            <MapSection {...{ data, programa: id, centre: null, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: id, centre: null, curs, cursos: new Set(Object.keys(centres).filter(k => centres[k].length > 0)), currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

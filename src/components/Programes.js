@@ -20,7 +20,7 @@ function Programes({ history }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, data: { programes, ambitsCurr, ambitsInn, nivells }, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, data: { programes, ambitsCurr, ambitsInn, nivells }, curs, currentPrograms, polygons, mapChanged, updateMap }) => {
         const allSelected = currentPrograms.size === programes.size;
 
         // Click on program name
@@ -78,7 +78,7 @@ function Programes({ history }) {
                 </List>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: null, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, curs, cursos: data.cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

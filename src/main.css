@@ -295,6 +295,11 @@ section .torna {
   margin-bottom: 0.2rem;
 }
 
+section .select-curs {
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+
 /* === Selector de programes === */
 
 .dialog-content {
@@ -316,6 +321,16 @@ section .torna {
 
 .select-list {
   max-width: 40rem;
+}
+
+.select-progs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.select-progs > * {
+  flex-grow: 1;
 }
 
 /* === Centres === */
