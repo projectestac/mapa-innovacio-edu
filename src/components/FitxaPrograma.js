@@ -99,7 +99,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 ))}
               </Paper>
             </section>
-            <MapSection {...{ data, programa: id, centre: null, curs, cursos: new Set(Object.keys(centres).filter(k => centres[k].length > 0)), currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: id, centre: null, curs, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

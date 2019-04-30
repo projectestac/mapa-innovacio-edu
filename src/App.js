@@ -256,7 +256,7 @@ class App extends Component {
     this.setState({ ...state, mapChanged, currentProgramsChanged });
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
-        this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms);
+        this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.curs);
       if (mapChanged)
         window.setTimeout(() => this.setState({ mapChanged: false }), 0);
     });

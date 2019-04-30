@@ -8,7 +8,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
-function MapSection({ data: { programes, centres }, programa, centre, cursos, curs, currentPrograms, polygons, mapChanged, history, updateMap }) {
+function MapSection({ data: { programes, centres, cursos }, programa, centre, curs, currentPrograms, polygons, mapChanged, history, updateMap }) {
 
   const singleProg = programa ? programes.get(programa) : null;
   const singleCentre = centre ? centres.get(centre) : null;
@@ -18,11 +18,12 @@ function MapSection({ data: { programes, centres }, programa, centre, cursos, cu
   const addSchoolsOfProgram = (progId, dest) => {
     const prog = programes.get(progId);
     if (prog)
-      Object.keys(prog.centres).forEach(curs => {
-        prog.centres[curs].forEach(centre => {
-          if (!dest.find(c => c.id === centre.id))
-            dest.push(centre)
-        });
+      Object.keys(prog.centres).forEach(cr => {
+        if(!curs || cr === curs)
+          prog.centres[cr].forEach(centre => {
+            if (!dest.find(c => c.id === centre.id))
+              dest.push(centre)
+          });
       });
     return dest;
   };
@@ -39,7 +40,7 @@ function MapSection({ data: { programes, centres }, programa, centre, cursos, cu
   }
 
   const courseSelect = ev => {
-    updateMap({ curs: ev.target.value });
+    updateMap({ curs: ev.target.value }, true, true);
   }
 
   return (
