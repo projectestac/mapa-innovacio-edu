@@ -54,6 +54,7 @@ main {
   padding: 1rem;
 }
 
+/* Singe column below this with: */
 @media (max-width: 840px) {
   main {
     grid-template-columns: 1fr;
@@ -265,7 +266,6 @@ header .top-bar, .nav-bar {
   margin-right: -1rem;
 }
 
-/* .prog_list > li > div:first-child */
 .prog_list .list-button {
   padding-left: 0;
   padding-right: 4rem;
@@ -289,6 +289,10 @@ section .torna {
 .select-all {
   float: right;
   margin-right: 1.5rem;
+}
+
+.programa h4 {
+  margin-bottom: 0.2rem;
 }
 
 /* === Selector de programes === */
@@ -416,6 +420,7 @@ footer .copyright {
   text-decoration: underline;
 }
 
+/* Small devices */
 @media (max-width: 600px) {
   #root {
     padding-bottom: 0;
@@ -429,5 +434,8 @@ footer .copyright {
   }
   footer .footer-content {
     grid-template-columns: 1fr;
+  }
+  body .stretch-dlg {
+    margin: 10px;
   }
 }

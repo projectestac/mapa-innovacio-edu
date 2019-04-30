@@ -29,6 +29,8 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const obrePrograma = id => () => history.push(`/programa/${id}`);
+        const servei_territorial = data.poligons.get(sstt);
+        const servei_educatiu = data.poligons.get(se);
 
         return (
           <>
@@ -54,26 +56,31 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </div>
                 {url && (
                   <div id="link">
-                    <h4>Portal web del centre</h4>
+                    <h4>Portal web del centre:</h4>
                     <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
                   </div>)}
                 <div id="estudis">
-                  <h4>Estudis que s'hi imparteixen</h4>
-                  {estudis.join(', ')}
+                  <h4>Estudis que s'hi imparteixen:</h4>
+                  <ul>
+                    {estudis.map((e, n) => <li key={n}>{data.estudis.get(e)}</li>)}
+                  </ul>
                 </div>
                 <div id="zones">
-                  <h4>Zona</h4>
-                  {sstt}<br />
-                  {se}
+                  <h4>Zona:</h4>
+                  <ul>
+                    {servei_territorial && <li>{servei_territorial.nom}</li>}
+                    {servei_educatiu && <li>{servei_educatiu.nom}</li>}
+                  </ul>
                 </div>
-                <h4>Programes d'innovació educativa on participa</h4>
+                <h4>Programes d'innovació educativa on participa:</h4>
+                <br />
                 {(MODE_PROG_CENTRE === 'perCurs' &&
                   Object.keys(programes)
                     .map((curs, n) => (
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                           <Typography className="wider">CURS {curs}</Typography>
-                          <Typography>{`${programes[curs].length} ${programes[curs].length===1 ? 'programa' : 'programes'}`}</Typography>
+                          <Typography>{`${programes[curs].length} ${programes[curs].length === 1 ? 'programa' : 'programes'}`}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                           <ul>

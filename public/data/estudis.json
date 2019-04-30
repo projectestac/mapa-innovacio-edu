@@ -1,0 +1,92 @@
+{
+  "estudis": {
+    "EINF1C": "Educació infantil 1er cicle",
+    "EINF2C": "Educació infantil 2n cicle",
+    "EPRI": "Educació primària",
+    "EE": "Educació especial",
+    "IFE": "Itineraris Formatius Específics",
+    "ESO": "Educació secundària obligatòria",
+    "BATX": "Batxillerat",
+    "AA01": "Curs específic d'accés als cicles formatius de grau mitjà",
+    "CFPM": "Cicles formatius de grau mitjà",
+    "PPAS": "Curs preparació proves accés a FP grau superior",
+    "AA03": "Curs preparació a la incorporació a FP grau superior",
+    "CFPS": "Cicles formatius de grau superior",
+    "PFI": "Programes de formació i inserció",
+    "PA01": "Cicles formatius d’arts de grau mitjà",
+    "CFAM": "Cicles d'arts plàstiques i disseny grau mitjà",
+    "PA02": "Cicles formatius d’arts de grau superior",
+    "CFAS": "Cicles d'arts plàstiques i disseny grau superior",
+    "ESDI": "Ensenyaments superiors de disseny",
+    "ADR": "Art dramàtic",
+    "CRBC": "Conservació i restauració de bens culturals",
+    "IDI": "Idiomes",
+    "DANE": "Escoles de dansa",
+    "DANP": "Ensenyaments professionals de dansa",
+    "DANS": "Ensenyaments superior de dansa",
+    "MUSE": "Escoles de música",
+    "MUSP": "Ensenyaments professionals de música",
+    "MUSS": "Ensenyaments superior de música",
+    "TEGM": "Ensenyaments esportius grau mitjà",
+    "TEGS": "Ensenyaments esportius grau superior",
+    "ESTR": "Ensenyaments centres estrangers",
+    "ADULTS": "Educació d'adults"
+  },
+  "nivells": {
+    "Educació infantil i primària": [
+      "EINF1C",
+      "EINF2C",
+      "EPRI"
+    ],
+    "Educació secundària obligatòria": [
+      "ESO"
+    ],
+    "Batxillerat": [
+      "BATX"
+    ],
+    "Formació professional": [
+      "PFI",
+      "CFPM",
+      "CFPS",
+      "RESP"
+    ],
+    "Ens. artístics i esportius": [
+      "PA01",
+      "PA02",
+      "ART",
+      "ESDI",
+      "CFAM",
+      "CFAS",
+      "CRBC",
+      "ADR",
+      "DANE",
+      "DANP",
+      "DANS",
+      "MUSE",
+      "MUSP",
+      "MUSS",
+      "TEGM",
+      "TEGS"
+    ],
+    "Altres estudis": [
+      "EE",
+      "IFE",
+      "ADULTS",
+      "ESTR",
+      "IDI"
+    ]
+  },
+  "ambitsCurr": [
+    "Àmbit artístic",
+    "Àmbit científicotecnològic",
+    "Àmbit digital",
+    "Àmbit lingüísitic",
+    "Àmbit matemàtic",
+    "Àmbit personal i social"
+  ],
+  "ambitsInn": [
+    "Àmbit 1: metodologies i recursos per a la millora de l’ensenyament i aprenentatge",
+    "Àmbit 2: organització i gestió educativa",
+    "Àmbit 3: relació i cooperació amb la comunitat educativa i l’entorn"
+  ]
+}

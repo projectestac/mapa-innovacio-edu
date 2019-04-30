@@ -43,37 +43,46 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 </div>
                 {ambInn.length > 0 &&
                   <div className="prog_ambits">
-                    <h4>Àmbits d'Innovació</h4>
-                    <ul>{ambInn.map((amb, n) => <li key={n}>{amb}</li>)}</ul>
+                    <h4>Àmbits d'innovació:</h4>
+                    <ul>
+                      {ambInn.map((a, n) => <li key={n}>{a}</li>)}
+                    </ul>
                   </div>
                 }
                 {ambCurr.length > 0 &&
                   <div className="prog_ambits">
-                    <h4>Àmbits curriculars</h4>
-                    <p>{ambCurr.join(', ')}</p>
+                    <h4>Àmbits curriculars:</h4>
+                    <ul>
+                      {ambCurr.map((a, n) => <li key={n}>{a}</li>)}
+                    </ul>
                   </div>
                 }
                 {arees.length > 0 &&
                   <div className="prog_ambits">
-                    <h4>Àrees curriculars</h4>
-                    <p>{arees.join(', ')}</p>
+                    <h4>Àrees curriculars:</h4>
+                    <ul>
+                      {arees.map((a, n) => <li key={n}>{a}</li>)}
+                    </ul>
                   </div>
                 }
                 {tipus.length > 0 &&
                   <div className="prog_ambits">
-                    <h4>Nivells educatius</h4>
-                    <p>{tipus.join(', ')}</p>
+                    <h4>Nivells educatius:</h4>
+                    <ul>
+                      {tipus.map((t, n) => <li key={n}>{data.estudis.get(t)}</li>)}
+                    </ul>
                   </div>
                 }
                 {link &&
                   <p><a href={link} target="_blank" rel="noopener noreferrer">Més informació sobre el programa</a></p>
                 }
-                <h4>Centres participants</h4>
+                <h4>Centres participants:</h4>
+                <br />
                 {Object.keys(centres).map((curs, n) => (
                   <ExpansionPanel key={n}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                       <Typography className="wider">{`CURS ${curs}`}</Typography>
-                      <Typography>{`${centres[curs].length} ${centres[curs].length===1 ? 'centre' : 'centres'}`}</Typography>
+                      <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                       <ul>

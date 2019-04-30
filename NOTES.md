@@ -17,13 +17,18 @@
 
 ### Codis tipus d'estudis
 
-Veure: https://analisi.transparenciacatalunya.cat/Educaci-/Directori-de-centres-docents/e2ef-eiqj
+~~Veure: https://analisi.transparenciacatalunya.cat/Educaci-/Directori-de-centres-docents/e2ef-eiqj~~
+
+Veure: http://ensenyament.gencat.cat/web/.content/home/arees-actuacio/centres-serveis-educatius/centres/directoris-centres/codisnivellseducatius.pdf
+
 
 | CODI   | ESTUDI                                                     |
 | ------ | ---------------------------------------------------------- |
 | EINF1C | Educació infantil 1er cicle                                |
 | EINF2C | Educació infantil 2n cicle                                 |
 | EPRI   | Educació primària                                          |
+| EE     | Educació especial                                          |
+| IFE    | Itineraris formatius específics                            |
 | ESO    | Educació secundària obligatòria                            |
 | BATX   | Batxillerat                                                |
 | AA01   | Curs específic d'accés als cicles formatius de grau mitjà  |
@@ -31,11 +36,10 @@ Veure: https://analisi.transparenciacatalunya.cat/Educaci-/Directori-de-centres-
 | PPAS   | Curs preparació proves accés a FP grau superior            |
 | AA03   | Curs preparació a la incorporació a FP grau superior       |
 | CFPS   | Cicles formatius de grau superior                          |
-| EE     | Educació especial                                          |
-| PFI    | Programa de formació i inserció                            |
-| PA01   | ???                                                        |
+| PFI    | Programes de formació i inserció                           |
+| PA01   | Cicles formatius d’arts de grau mitjà                      |
 | CFAM   | Cicles d'arts plàstiques i disseny grau mitjà              |
-| PA02   | ???                                                        |
+| PA02   | Cicles formatius d’arts de grau superior                   |
 | CFAS   | Cicles d'arts plàstiques i disseny grau superior           |
 | ESDI   | Ensenyaments superiors de disseny                          |
 | ADR    | Art dramàtic                                               |

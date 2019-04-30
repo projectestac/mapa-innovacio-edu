@@ -75,16 +75,19 @@ export default function MainMap({ points = [], polygons = [], programa, center =
   const obreZona = (nom) => () => console.log(nom);
 
   const popupZona = (zona) => {
+    const centresPart = zona.centresPart.size;
     const estudisPart = Utils.sumAll(zona.estudisPart);
     const estudisBase = Utils.sumAll(zona.estudisBase);
-    const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed();
+    const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed(1);
     return <Popup>
       <h4 style={{ cursor: 'pointer' }} onClick={obreZona(zona.nom)}>{zona.nom}</h4>
-      <p>
-        Etapes participants {programa ? 'al programa seleccionat' : 'als programes seleccionats'}: {estudisPart}<br />
-        Etapes potencialment participants: {estudisBase}<br />
-        Índex de participació: {perCent}%
-      </p>
+      {(centresPart &&
+        <p>
+          <span>{`Centres participants ${programa ? 'al programa seleccionat' : 'als programes seleccionats'}: ${centresPart}`}</span><br />
+          <span>{`Índex de participació: ${perCent}%`}</span>
+        </p>) ||
+        <p>No hi ha cap centre que participi als programes seleccionats.</p>
+      }
     </Popup>
   };
 

@@ -102,13 +102,14 @@ class App extends Component {
         'data/instancies.json', // `${API_ROOT}/instancies/`
         'data/centres.json',
         'data/poligons.json',
+        'data/estudis.json',
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
           .then(Utils.handleFetchErrors)
           .then(response => response.json());
       })
     )
-      .then(([_programes, _instancies, _centres, _poligons]) => {
+      .then(([_programes, _instancies, _centres, _poligons, _estudis]) => {
 
         // Sort data (step to be supressed with well ordered JSON sources!)
         _centres = Utils.sortObjectArrayBy(_centres, ['sstt', 'municipi', 'nom']);
@@ -123,19 +124,18 @@ class App extends Component {
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
         _poligons.forEach(p => {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
+          p.density = MIN_DENSITY;
+          p.estudisBase = {};
+          p.estudisPart = {};
+          p.centresPart = new Set();
         });
 
         // Prepare sets for auto-detected data
         const currentPrograms = new Set();
-        const ambitsCurr = new Set();
-        const ambitsInn = new Set();
 
         // Guess missing fields in `programes`
         // (to be supressed!)
         _programes.forEach(p => {
-
-          p.ambCurr.forEach(a => ambitsCurr.add(a));
-          p.ambInn.forEach(a => ambitsInn.add(a));
 
           // Set all programs initially selected
           currentPrograms.add(p.id);
@@ -203,12 +203,13 @@ class App extends Component {
           programes,
           centres,
           poligons,
-          ambitsCurr: new Set(Array.from(ambitsCurr).sort()),
-          ambitsInn: new Set(Array.from(ambitsInn).sort()),
+          estudis: new Map(Object.entries(_estudis.estudis)),
+          nivells: new Map(Object.entries(_estudis.nivells)),
+          ambitsCurr: new Set(_estudis.ambitsCurr),
+          ambitsInn: new Set(_estudis.ambitsInn),
         };
 
-        // Update layers density
-        this.updateLayersDensity(currentPrograms, null, data);
+        //this.updateLayersDensity(currentPrograms, null, data);
 
         // Update the main state
         this.setState({
@@ -239,7 +240,10 @@ class App extends Component {
     //Utils.loadGFont('Roboto');
     Utils.loadGFont('Open Sans');
     // Load datasets
-    this.loadData();
+    this.loadData()
+      .then(() => {
+        this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
+      });
   }
 
   /**
@@ -257,14 +261,27 @@ class App extends Component {
     });
   }
 
+  /**
+   * Called from CheckRouteChanges when a new path is entered
+   * @param {object} props - New properties used, including a react-route location object
+   * @param {object} prevProps - Old properties, used for checking changes
+   */
   contentUpdated = (props, prevProps) => {
     if (props.location.pathname !== prevProps.location.pathname) {
-      if (/^\/(programes|programa\/|centre\/)/.test(props.location.pathname)) {
-        const check = /^\/programa\/(.*)$/.exec(props.location.pathname);
-        const programa = check && check.length === 2 ? check[1] : null;
-        this.updateMap({ programa }, true, true);
-      }
+      this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
+    }
+  };
+
+  /**
+   * Checks if the polygons density needs to be recalculated, based on the current path
+   * @param {string} pathname - Current path
+   */
+  checkForLayerUpdate = (pathname) => {
+    if (/^\/(programes|programa\/|centre\/)/.test(pathname)) {
+      const check = /^\/programa\/(.*)$/.exec(pathname);
+      const programa = check && check.length === 2 ? check[1] : null;
+      this.updateMap({ programa }, true, true);
     }
   };
 
@@ -286,15 +303,19 @@ class App extends Component {
       // Clear current density
       poli.density = MIN_DENSITY;
 
-      // `estudisBase` will be filled with the total number of centres of each educational level involved in at least one current program
+      // `estudisBase` will be filled with the number of "school groups" involved in at least
+      // one of the current programs, where each "school group" is an educational level inside a school.
       // key: educational level (EINF2C, EPRI...)      
-      // value: number of schools having this educational level on this polygon
+      // value: number of "school groups" of this educational level on this polygon
       poli.estudisBase = {};
 
-      // `estudisPart` will be filled with the total number of centres participating in at least one current program.
+      // `estudisPart` will be filled with the total number of "school groups" participating in at least
+      // one of the current programs, where each "school group" is an educational level inside a school.
       // key: educational level (EINF2C, EPRI...)      
-      // value: number of centers of this type participating in current programs in this polygon
+      // value: number of "school groups" of this type participating in the current programs on this polygon
       poli.estudisPart = {};
+
+      poli.centresPart = new Set();
     });
 
     // Object with all `centres` participating in current programs
@@ -327,10 +348,14 @@ class App extends Component {
       const st = poligons.get(centre.sstt);
       const se = poligons.get(centre.se);
       centre.estudis.forEach(tipus => {
-        if (st && st.estudisBase[tipus])
+        if (st && st.estudisBase[tipus]) {
           st.estudisPart[tipus] = (st.estudisPart[tipus] ? st.estudisPart[tipus] + 1 : 1);
-        if (se && se.estudisBase[tipus])
+          st.centresPart.add(centre.id);
+        }
+        if (se && se.estudisBase[tipus]) {
           se.estudisPart[tipus] = (se.estudisPart[tipus] ? se.estudisPart[tipus] + 1 : 1);
+          se.centresPart.add(centre.id);
+        }
       });
     });
 

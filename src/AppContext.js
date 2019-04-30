@@ -6,16 +6,8 @@ export const DEFAULT_DATA = {
   poligons: new Map(),
   ambitsCurr: new Set(),
   ambitsInn: new Set(),
-  nivells: new Map([
-    // Veure: http://queestudiar.gencat.cat/ca/estudis/
-    ['Educació infantil i primària', ['EINF1C', 'EINF2C', 'EPRI']],
-    ['Educació secundària obligatòria', ['ESO']],
-    ['Batxillerat', ['BATX']],
-    ['Formació professional', ['PFI', 'CFPM', 'CFPS', 'RESP']],
-    ['Ens. artístics i esportius', ['ART', 'ESDI', 'CFAM', 'CFAS', 'CRBC', 'ADR', 'DANE', 'DANP', 'DANS', 'MUSE', 'MUSP', 'MUSS', 'TEGM', 'TEGS']],
-    // TODO: Reassignar aquestes categories:
-    ['Altres estudis', ['EE', 'ADULTS', 'ESTR', 'IDI', 'PA01', 'PA02']],
-  ]),
+  estudis: new Map(),
+  nivells: new Map(),
 };
 
 export const DEFAULT_STATE = {
@@ -26,7 +18,7 @@ export const DEFAULT_STATE = {
   currentPrograms: new Set(),
   program: null,
   delayedMapUpdate: true,
-  // Immutable attributes:
+  // Inmutable attributes
   updateMap: () => null,
   fuseFuncs: [],
   menuItems: [],

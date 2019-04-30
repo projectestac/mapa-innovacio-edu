@@ -58,6 +58,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
       open={dlgOpen}
       onEnter={updateCurrentPrograms}
       aria-labelledby="dialog-title"
+      classes={{paper: 'stretch-dlg'}}
     >
       <DialogTitle id="dialog-title">Tipus de programes</DialogTitle>
       <DialogContent className="dialog-content">
