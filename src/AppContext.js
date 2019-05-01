@@ -8,7 +8,7 @@ export const DEFAULT_DATA = {
   ambitsInn: new Set(),
   estudis: new Map(),
   nivells: new Map(),
-  cursos: new Set(),
+  cursos: [],
 };
 
 export const DEFAULT_STATE = {

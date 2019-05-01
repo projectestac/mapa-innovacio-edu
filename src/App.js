@@ -207,7 +207,7 @@ class App extends Component {
           nivells: new Map(Object.entries(_estudis.nivells)),
           ambitsCurr: new Set(_estudis.ambitsCurr),
           ambitsInn: new Set(_estudis.ambitsInn),
-          cursos: new Set(_estudis.cursos),
+          cursos: _estudis.cursos,
         };
 
         //this.updateLayersDensity(currentPrograms, null, data);

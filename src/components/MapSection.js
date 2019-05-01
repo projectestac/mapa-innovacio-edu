@@ -6,7 +6,9 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepButton from '@material-ui/core/StepButton';
 
 function MapSection({ data: { programes, centres, cursos }, programa, centre, curs, currentPrograms, polygons, mapChanged, history, updateMap }) {
 
@@ -43,6 +45,12 @@ function MapSection({ data: { programes, centres, cursos }, programa, centre, cu
     updateMap({ curs: ev.target.value }, true, true);
   }
 
+  const getCurrentCurs = () => curs ? cursos.indexOf(curs) : cursos.length-1;
+  
+  const handleStep = curs => ev => {
+    updateMap({ curs }, true, true);
+  }
+
   return (
     <section className="seccio smapa">
       <Paper className="paper">
@@ -58,6 +66,24 @@ function MapSection({ data: { programes, centres, cursos }, programa, centre, cu
           />) ||
           <>
             <div>
+              <Stepper 
+                nonLinear
+                alternativeLabel 
+                activeStep={getCurrentCurs()}
+              >
+                {cursos.map((c, k) => (
+                  <Step key={c}>
+                    <StepButton 
+                      onClick={handleStep(c)}
+                      completed={k<=getCurrentCurs()}
+                    >
+                      {c}
+                    </StepButton>
+                  </Step>
+                ))}
+              </Stepper>
+            </div>
+            <div>
               <FormControl className="select-curs">
                 <InputLabel htmlFor="select-curs">Curs escolar</InputLabel>
                 <Select
@@ -69,7 +95,7 @@ function MapSection({ data: { programes, centres, cursos }, programa, centre, cu
                   }}
                 >
                   <MenuItem value=""><em>Tots els cursos</em></MenuItem>
-                  {Array.from(cursos).map((curs, k) => (
+                  {cursos.map((curs, k) => (
                     <MenuItem key={k} value={curs}>{curs}</MenuItem>
                   ))}
                 </Select>
