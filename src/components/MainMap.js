@@ -2,6 +2,9 @@ import React from 'react';
 import { Map, Polygon, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
 import TileLayer from '../utils/TileLayer';
 import MarkerClusterGroup from '../utils/MarkerClusterGroup';
+// Moved to `index.js`:
+// import 'react-leaflet-fullscreen/dist/styles.css';
+import FullscreenControl from 'react-leaflet-fullscreen';
 import Utils from '../utils/Utils';
 
 // See ../utils/TileLayer for all available options
@@ -144,6 +147,11 @@ export default function MainMap({ points = [], polygons = [], programa, center =
           </MarkerClusterGroup>
         </LayersControl.Overlay>
       </LayersControl>
+      <FullscreenControl
+        position="topleft"
+        title="Mostra el mapa a pantalla completa"
+        titleCancel="Surt de la pantalla completa"
+      />
     </Map>
   )
 }
