@@ -54,6 +54,13 @@ const theme = createMuiTheme({
     ].join(','),
     useNextVariants: true,
   },
+  overrides: {
+    "MuiStepIcon": {
+      completed: {
+        color: '#c00000 !important',
+      }
+    }
+  },
 });
 
 /**

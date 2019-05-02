@@ -73,7 +73,7 @@ function MapSection({ data: { programes, centres, cursosDisp }, programa, centre
                     onClick={handleSelectCurs(c)}
                     completed={cursos.includes(c)}
                   >
-                    {`${c.substr(0,5)}${c.substr(7,2)}`}
+                    {`${c.substr(0, 5)}${c.substr(7, 2)}`}
                   </StepButton>
                 </Step>
               ))}
