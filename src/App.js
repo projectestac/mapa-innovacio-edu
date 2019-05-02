@@ -207,7 +207,7 @@ class App extends Component {
           nivells: new Map(Object.entries(_estudis.nivells)),
           ambitsCurr: new Set(_estudis.ambitsCurr),
           ambitsInn: new Set(_estudis.ambitsInn),
-          cursos: _estudis.cursos,
+          cursosDisp: _estudis.cursos,
         };
 
         //this.updateLayersDensity(currentPrograms, null, data);
@@ -220,6 +220,7 @@ class App extends Component {
             { name: 'Serveis Territorials', shapes: _poligons.filter(p => p.tipus === 'ST') },
             { name: 'Serveis Educatius de Zona', shapes: _poligons.filter(p => p.tipus === 'SEZ') },
           ],
+          cursos: [...data.cursosDisp],
           fuseFuncs,
           currentPrograms,
           loading: false,
@@ -256,7 +257,7 @@ class App extends Component {
     this.setState({ ...state, mapChanged, currentProgramsChanged });
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
-        this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.curs);
+        this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.cursos);
       if (mapChanged)
         window.setTimeout(() => this.setState({ mapChanged: false }), 0);
     });
@@ -292,10 +293,10 @@ class App extends Component {
    * one of the educational levels targeted by at least one of the current programs.
    * Values can also be filtered by school year.
    * @param {Set} currentPrograms - Set with the `id`s of the programs to be included on the calculation
-   * @param {string=} curs - School year to be used. Defaults to `null`, so including all years.
+   * @param {string[]=} cursos - School years to be considered. Defaults to _null_, meaning all available years.
    * @param {object=} data - Object containing the current datasets. Defaults to `data` in the current state.
    */
-  updateLayersDensity = (currentPrograms, curs = null, data = this.state.data) => {
+  updateLayersDensity = (currentPrograms, cursos = null, data = this.state.data) => {
 
     const { poligons, programes } = data;
 
@@ -335,7 +336,7 @@ class App extends Component {
         });
 
         Object.keys(program.centres).forEach(ce => {
-          if (!curs || ce === curs) {
+          if (!cursos || cursos.includes(ce)) {
             program.centres[ce].forEach(centre => {
               currentCentres[centre.id] = centre;
             });

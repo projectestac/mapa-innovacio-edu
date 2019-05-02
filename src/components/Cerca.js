@@ -11,7 +11,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import ProgramIcon from '@material-ui/icons/Group';
 import SchoolIcon from '@material-ui/icons/School';
 
-const DEFAULT_ITEMS_PER_PAGE = process.env.REACT_APP_ITEMS_PER_PAGE || 25;
+const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
 function Cerca({ history, match: { params: { query } } }) {
 
@@ -36,7 +36,7 @@ function Cerca({ history, match: { params: { query } } }) {
         };
 
         return (
-          <section className="seccio cerca">
+          <>
             <Button
               className="torna"
               aria-label="Torna"
@@ -44,40 +44,42 @@ function Cerca({ history, match: { params: { query } } }) {
               <ArrowBack className="leftIcon" />
               Torna
             </Button>
-            <Paper className="paper">
-              <h2>Resultats de la cerca "{currentQuery}"</h2>
-              {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
-                <div>
-                  <List component="ul">
-                    {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus } }, n) => (
-                      <ListItem
-                        key={n}
-                        button
-                        onClick={goToElement(tipus, id)}
-                      >
-                        <ListItemIcon>
-                          {tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={nom} />
-                      </ListItem>
-                    ))}
-                  </List>
-                  <hr />
-                  <TablePagination
-                    classes={{ spacer: 'hidden', toolbar: 'no-padding' }}
-                    component="nav"
-                    page={page}
-                    rowsPerPage={itemsPerPage}
-                    onChangeRowsPerPage={ev => setItemsPerPage(ev.target.value)}
-                    count={queryResults.length}
-                    onChangePage={(ev, p) => setPage(p)}
-                    labelDisplayedRows={({ from, to, count }) => `Resultats ${from} al ${to} de ${count}`}
-                    labelRowsPerPage="Resultats per pàgina:"
-                  />
-                </div>
-              }
-            </Paper>
-          </section>
+            <section className="seccio cerca">
+              <Paper className="paper">
+                <h2>Resultats de la cerca "{currentQuery}"</h2>
+                {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
+                  <div>
+                    <List component="ul">
+                      {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus } }, n) => (
+                        <ListItem
+                          key={n}
+                          button
+                          onClick={goToElement(tipus, id)}
+                        >
+                          <ListItemIcon>
+                            {tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                          </ListItemIcon>
+                          <ListItemText primary={nom} />
+                        </ListItem>
+                      ))}
+                    </List>
+                    <hr />
+                    <TablePagination
+                      classes={{ spacer: 'hidden', toolbar: 'no-padding' }}
+                      component="nav"
+                      page={page}
+                      rowsPerPage={itemsPerPage}
+                      onChangeRowsPerPage={ev => setItemsPerPage(ev.target.value)}
+                      count={queryResults.length}
+                      onChangePage={(ev, p) => setPage(p)}
+                      labelDisplayedRows={({ from, to, count }) => `Resultats ${from} al ${to} de ${count}`}
+                      labelRowsPerPage="Resultats per pàgina:"
+                    />
+                  </div>
+                }
+              </Paper>
+            </section>
+          </>
         );
       }}
     </AppContext.Consumer>

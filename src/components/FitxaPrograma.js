@@ -15,7 +15,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, curs, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
         const programa = data.programes.get(id);
         if (!programa)
@@ -29,11 +29,11 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
         return (
           <>
-            <section className="seccio programa">
-              <Button className="torna" aria-label="Torna" onClick={torna} >
-                <ArrowBack className="leftIcon" />
-                Torna
+            <Button className="torna" aria-label="Torna" onClick={torna} >
+              <ArrowBack className="leftIcon" />
+              Torna
             </Button>
+            <section className="seccio programa">
               <Paper className="paper">
                 <h3>{nom}</h3>
                 <div id="descripcio">
@@ -99,7 +99,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 ))}
               </Paper>
             </section>
-            <MapSection {...{ data, programa: id, centre: null, curs, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: id, centre: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

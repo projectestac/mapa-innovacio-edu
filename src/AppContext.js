@@ -4,11 +4,11 @@ export const DEFAULT_DATA = {
   programes: new Map(),
   centres: new Map(),
   poligons: new Map(),
-  ambitsCurr: new Set(),
-  ambitsInn: new Set(),
   estudis: new Map(),
   nivells: new Map(),
-  cursos: [],
+  ambitsCurr: new Set(),
+  ambitsInn: new Set(),
+  cursosDisp: [],
 };
 
 export const DEFAULT_STATE = {
@@ -18,7 +18,7 @@ export const DEFAULT_STATE = {
   polygons: [],
   currentPrograms: new Set(),
   program: null,
-  curs: '',
+  cursos: [],
   delayedMapUpdate: true,
   // Inmutable attributes
   updateMap: () => null,

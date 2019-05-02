@@ -34,12 +34,11 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
 
         return (
           <>
-            <section className="seccio centre">
-              <div id="centre" className="filler" />
-              <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
-                <ArrowBack className="leftIcon" />
-                Torna
+            <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
+              <ArrowBack className="leftIcon" />
+              Torna
             </Button>
+            <section className="seccio centre">
               <Paper className="paper">
                 {logo && <><br clear="all" /><img className="cent_logo" src={logo} alt={nom}></img></>}
                 <h3>{nom}</h3>
