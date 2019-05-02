@@ -52,7 +52,7 @@ function plainArray(obj) {
       container[prog.id].cursos.push(curs);
     });
   });
-  return Object.values(container);
+  return Object.values(container).sort((c1, c2) => c1.nom.localeCompare(c2.nom));
 }
 
 

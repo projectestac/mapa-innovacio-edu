@@ -184,6 +184,10 @@ header .top-bar, .nav-bar {
 
 /* === Main components === */
 
+.presenta {
+  grid-column: 1 / -1;
+}
+
 .presenta .filler {
   height: 4rem;
 }

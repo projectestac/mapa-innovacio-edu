@@ -98,7 +98,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   <ul>
                     {Utils.plainArray(programes).map(({ id, nom, cursos }, c) => (
                       <li key={c}>
-                        <Button className="progs-centre" onClick={obrePrograma(id)}>{`${nom} (${cursos.join(', ')})`}</Button>
+                        <Button className="progs-centre" onClick={obrePrograma(id)}>{`${nom} (${cursos.sort().join(', ')})`}</Button>
                       </li>
                     ))}
                   </ul>
