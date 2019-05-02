@@ -14,6 +14,7 @@ import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
 import FitxaPrograma from './components/FitxaPrograma';
 import FitxaCentre from './components/FitxaCentre';
+import FitxaZona from './components/FitxaZona';
 import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
@@ -131,6 +132,7 @@ class App extends Component {
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
         _poligons.forEach(p => {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
+          p.centresInn = new Set();
           p.density = MIN_DENSITY;
           p.estudisBase = {};
           p.estudisPart = {};
@@ -199,6 +201,10 @@ class App extends Component {
           if (programa && centre) {
             (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
             (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
+            if (centre.sstt)
+              poligons.get(centre.sstt).centresInn.add(centre);
+            if (centre.se)
+              poligons.get(centre.se).centresInn.add(centre);
           }
           else
             console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
@@ -428,6 +434,7 @@ class App extends Component {
                       <Route path="/programes" component={Programes} />
                       <Route path="/centre/:codi" component={FitxaCentre} />
                       <Route path="/programa/:id" component={FitxaPrograma} />
+                      <Route path="/zona/:id" component={FitxaZona} />
                       <Route path="/cerca/:query" component={Cerca} />
                     </>
                     )

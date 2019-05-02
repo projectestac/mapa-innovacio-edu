@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -67,8 +68,8 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <div id="zones">
                   <h4>Zona:</h4>
                   <ul>
-                    {servei_territorial && <li>{servei_territorial.nom}</li>}
-                    {servei_educatiu && <li>{servei_educatiu.nom}</li>}
+                    {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
+                    {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
                   </ul>
                 </div>
                 <h4>Programes d'innovació educativa on participa:</h4>

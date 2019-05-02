@@ -75,7 +75,7 @@ export default function MainMap({ points = [], polygons = [], programa, center =
   );
 
   // TODO: Implementar fitxa de zona / servei territorial
-  const obreZona = (nom) => () => console.log(nom);
+  const obreZona = (key) => () => history.push(`/zona/${key}`);
 
   const popupZona = (zona) => {
     const centresPart = zona.centresPart.size;
@@ -83,7 +83,7 @@ export default function MainMap({ points = [], polygons = [], programa, center =
     const estudisBase = Utils.sumAll(zona.estudisBase);
     const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed(1);
     return <Popup>
-      <h4 style={{ cursor: 'pointer' }} onClick={obreZona(zona.nom)}>{zona.nom}</h4>
+      <h4 style={{ cursor: 'pointer' }} onClick={obreZona(zona.key)}>{zona.nom}</h4>
       {(centresPart &&
         <p>
           <span>{`Centres participants ${programa ? 'al programa seleccionat' : 'als programes seleccionats'}: ${centresPart}`}</span><br />
