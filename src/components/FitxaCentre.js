@@ -103,7 +103,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   ||
                   <List >
                     {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
-                      <ListItem key={n} button>
+                      <ListItem key={n} button className="no-padding-h-small">
                         <ListItemAvatar>
                           <Avatar src={`logos/${simbol}`} alt={nom} />
                         </ListItemAvatar>

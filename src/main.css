@@ -366,14 +366,15 @@ main .torna {
 /* === Zones === */
 
 .zona .prog-icons {
-  display: flex;  
+  display: flex;
+  flex-flow: wrap;
+  max-width: 24rem;
+  justify-content: flex-end;
 }
 
 .prog-icon img {
   max-width: 30px;
 }
-
-
 
 /* === Cerca === */
 
@@ -482,5 +483,12 @@ footer .copyright {
   }
   section .cursos {
     padding: 1rem 0;
+  }
+  section .no-padding-h-small {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .zona .prog-icons {
+    max-width: 16rem;
   }
 }
