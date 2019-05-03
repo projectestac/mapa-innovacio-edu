@@ -363,6 +363,18 @@ main .torna {
   margin-bottom: 0.5rem;
 }
 
+/* === Zones === */
+
+.zona .prog-icons {
+  display: flex;  
+}
+
+.prog-icon img {
+  max-width: 30px;
+}
+
+
+
 /* === Cerca === */
 
 .cerca {

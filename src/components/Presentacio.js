@@ -19,8 +19,7 @@ function Presentacio({ history }) {
               </Typography>
               <Button
                 className="close-intro-btn"
-                variant="contained"
-                color="secondary"
+                variant="outlined"
                 onClick={() => history.push('/programes')}
               >Ves al mapa</Button>
             </Paper>

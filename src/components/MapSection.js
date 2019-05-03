@@ -5,6 +5,7 @@ import MapaCentre from './MapaCentre';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
+import Utils from '../utils/Utils';
 
 function MapSection({ data: { programes, centres, cursosDisp }, programa, centre, cursos, currentPrograms, polygons, mapChanged, history, updateMap }) {
 
@@ -72,9 +73,7 @@ function MapSection({ data: { programes, centres, cursosDisp }, programa, centre
                   <StepButton
                     onClick={handleSelectCurs(c)}
                     completed={cursos.includes(c)}
-                  >
-                    {`${c.substr(0, 5)}${c.substr(7, 2)}`}
-                  </StepButton>
+                  >{Utils.cursCurt(c)}</StepButton>
                 </Step>
               ))}
             </Stepper>

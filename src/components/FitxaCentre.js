@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -96,13 +101,19 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                       </ExpansionPanel>
                     )))
                   ||
-                  <ul>
-                    {Utils.plainArray(programes).map(({ id, nom, cursos }, c) => (
-                      <li key={c}>
-                        <Button className="progs-centre" onClick={obrePrograma(id)}>{`${nom} (${cursos.sort().join(', ')})`}</Button>
-                      </li>
+                  <List >
+                    {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
+                      <ListItem key={n} button>
+                        <ListItemAvatar>
+                          <Avatar src={`logos/${simbol}`} alt={nom} />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={nom}
+                          secondary={`${cursos.sort().join(', ')}`}
+                          onClick={obrePrograma(id)} />
+                      </ListItem>
                     ))}
-                  </ul>
+                  </List>
                 }
               </Paper>
             </section>

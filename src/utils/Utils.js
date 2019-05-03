@@ -36,7 +36,10 @@ function sumAll(obj) {
 }
 
 /**
- * 
+ * Used in objects of type {curs1: [prog1, prog2, prog3, ...], curs2: [prog1, ...], ...}
+ * Returns a single array of type: [{id: prog1.id, nom: prog1.nom, cursos: [curs1, curs2, ...]}, {id: prog2.id, nom: prog2.nom, cursos: [curs1, ...]}, ...]
+ * @param {object} obj - Object structured as in the description
+ * @returns {object[]} - The resulting array of objects of type 'program', with a 'cursos' field.
  */
 function plainArray(obj) {
   const container = {};
@@ -46,6 +49,7 @@ function plainArray(obj) {
         container[prog.id] = {
           id: prog.id,
           nom: prog.nom,
+          simbol: prog.simbol,
           cursos: [],
         };
       }
@@ -53,6 +57,13 @@ function plainArray(obj) {
     });
   });
   return Object.values(container).sort((c1, c2) => c1.nom.localeCompare(c2.nom));
+}
+
+/**
+ * Converts an expression of type '2015-2016' to '2015-16'
+ */
+function cursCurt(curs) {
+  return curs.length === 9 ? `${curs.substr(0, 5)}${curs.substr(7, 2)}` : curs;
 }
 
 
@@ -68,4 +79,4 @@ function sortObjectArrayBy(array, fields) {
     : array.sort((a, b) => fields.map(f => a[f]).join(' ').localeCompare(fields.map(f => b[f]).join(' ')));
 }
 
-export default { loadGFont, handleFetchErrors, sumAll, plainArray, sortObjectArrayBy };
+export default { loadGFont, handleFetchErrors, sumAll, plainArray, sortObjectArrayBy, cursCurt };

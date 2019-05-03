@@ -3,8 +3,13 @@ import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import IconButton from '@material-ui/core/IconButton';
 import Error from './Error';
 import MapSection from './MapSection';
+import Utils from '../utils/Utils';
 
 function FitxaZona({ history, match: { params: { id } } }) {
 
@@ -21,6 +26,7 @@ function FitxaZona({ history, match: { params: { id } } }) {
 
         const torna = () => history.goBack();
         const obreCentre = id => () => history.push(`/centre/${id}`);
+        const obrePrograma = id => () => history.push(`/programa/${id}`);
 
         return (
           <>
@@ -36,15 +42,30 @@ function FitxaZona({ history, match: { params: { id } } }) {
                   <p>... aquí hi anirà l'adreça, la web i altres informacions relacionades amb el ST/SE ...</p>
                 </div>
                 <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
-                <ul>
-                  {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi }, c) => {
+                <List >
+                  {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi, programes }, n) => {
                     return (
-                      <li key={c} >
-                        <Button onClick={obreCentre(id)}>{`${nom} (${municipi})`}</Button>
-                      </li>
-                    );
+                      <ListItem key={n} button>
+                        <ListItemText
+                          primary={`${nom} (${municipi})`}
+                          onClick={obreCentre(id)}
+                        />
+                        <div className="prog-icons">
+                          {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => (
+                            <IconButton
+                              key={k}
+                              className="prog-icon"
+                              aria-label={nom}
+                              onClick={obrePrograma(id)}
+                            >
+                              <img src={`logos/${simbol}`} alt={nom} title={nom} />
+                            </IconButton>
+                          ))}
+                        </div>
+                      </ListItem>
+                    )
                   })}
-                </ul>
+                </List>
               </Paper>
             </section>
             <MapSection {...{ data, programa: null, centre: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />

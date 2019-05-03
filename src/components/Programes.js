@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import SelectProgramsDlg from './SelectProgramsDlg';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Utils from '../utils/Utils';
 
 function Programes({ history }) {
 
@@ -60,7 +61,7 @@ function Programes({ history }) {
                     label="Selecciona'ls tots"
                   />
                 </div>
-                <List dense className="prog_list">
+                <List className="prog_list">
                   {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                     <ListItem key={n} button className="list-button">
                       <ListItemAvatar>
@@ -68,7 +69,7 @@ function Programes({ history }) {
                       </ListItemAvatar>
                       <ListItemText
                         primary={nom}
-                        secondary={'Centres participants: ' + Object.keys(centres).sort().map(k => `${k}: ${centres[k].length}`).join(', ')}
+                        secondary={'Centres participants: ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
                         onClick={handleProgClick(id)} />
                       <ListItemSecondaryAction>
                         <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />
