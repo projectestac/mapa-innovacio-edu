@@ -22,6 +22,16 @@
   padding: 0 !important;
 }
 
+section .no-padding-h {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+section .small-padding-h {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .wider {
   flex-grow: 1;
 }
@@ -196,7 +206,7 @@ header .top-bar, .nav-bar {
   padding: 1.5rem;
 }
 
-.seccio ul {
+.seccio plain-ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -368,8 +378,12 @@ main .torna {
 .zona .prog-icons {
   display: flex;
   flex-flow: wrap;
-  max-width: 24rem;
+  flex-grow: 1;
   justify-content: flex-end;
+}
+
+.prog-icons .prog-icon {
+  padding: 4px;
 }
 
 .prog-icon img {
@@ -489,6 +503,10 @@ footer .copyright {
     padding-right: 0;
   }
   .zona .prog-icons {
-    max-width: 16rem;
+    display: none;
+  }
+  .zona .small-padding-h {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

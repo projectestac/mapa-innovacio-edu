@@ -45,7 +45,7 @@ function FitxaZona({ history, match: { params: { id } } }) {
                 <List >
                   {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi, programes }, n) => {
                     return (
-                      <ListItem key={n} button className="no-padding-h-small">
+                      <ListItem key={n} button className="small-padding-h">
                         <ListItemText
                           primary={`${nom} (${municipi})`}
                           onClick={obreCentre(id)}

@@ -2,6 +2,9 @@ import React from 'react';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -25,7 +28,6 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
         const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus, centres } = programa;
 
         const torna = () => history.goBack();
-        const obreCentre = id => () => history.push(`/centre/${id}`);
 
         return (
           <>
@@ -84,16 +86,16 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                       <Typography className="wider">{`CURS ${curs}`}</Typography>
                       <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
                     </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                      <ul>
-                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi }, c) => {
-                          return (
-                            <li key={c} >
-                              <Button onClick={obreCentre(id)}>{`${nom} (${municipi})`}</Button>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                    <ExpansionPanelDetails className="small-padding-h">
+                      <List dense>
+                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi }, c) => (
+                          <ListItem key={c} button component="a" href={`#/centre/${id}`} className="small-padding-h">
+                            <ListItemText
+                              primary={`${nom} (${municipi})`}
+                            />
+                          </ListItem>
+                        ))}
+                      </List>
                     </ExpansionPanelDetails>
                   </ExpansionPanel>
                 ))}
