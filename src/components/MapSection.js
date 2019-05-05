@@ -7,9 +7,10 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import Utils from '../utils/Utils';
 
-function MapSection({ data: { programes, centres, cursosDisp }, programa, centre, cursos, currentPrograms, polygons, mapChanged, history, updateMap }) {
+function MapSection({ data: { programes, centres, poligons, cursosDisp }, programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, history, updateMap }) {
 
   const singleCentre = centre ? centres.get(centre) : null;
+  const poli = zona ? poligons.get(zona) : null;
   const w = window.innerWidth;
   const zoom = w < 600 ? 7 : w < 820 ? 8 : w < 1300 ? 7 : 8;
 
@@ -19,7 +20,7 @@ function MapSection({ data: { programes, centres, cursosDisp }, programa, centre
       Object.keys(prog.centres).forEach(curs => {
         if (!cursos || cursos.includes(curs))
           prog.centres[curs].forEach(centre => {
-            if (!dest.find(c => c.id === centre.id))
+            if ((!poli || poli.centresInn.has(centre)) && !dest.find(c => c.id === centre.id))
               dest.push(centre)
           });
       });
@@ -82,6 +83,7 @@ function MapSection({ data: { programes, centres, cursosDisp }, programa, centre
                 points,
                 polygons,
                 programa,
+                poli,
                 center: [41.7, 1.8],
                 zoom,
                 maxZoom: 19,

@@ -345,19 +345,6 @@
     ]
   },
   {
-    "id": "46",
-    "nom": "Projecte de Qualitat i Millora Contínua ",
-    "nomCurt": null,
-    "descripcio": "",
-    "link": "",
-    "ambCurr": [],
-    "ambInn": [],
-    "arees": [],
-    "simbol": "qualitat_millora.png",
-    "color": null,
-    "tipus": []
-  },
-  {
     "id": "48",
     "nom": "Prototip Robòtic BCN3D",
     "nomCurt": null,

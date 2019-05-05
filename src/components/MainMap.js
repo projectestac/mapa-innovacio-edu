@@ -9,9 +9,12 @@ import Utils from '../utils/Utils';
 
 // See ../utils/TileLayer for all available options
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
-const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 
-export default function MainMap({ points = [], polygons = [], programa, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
+// Enlarge map bounds to make space for popups
+const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
+const MAX_BOUNDS = [[39.50, -0.85], [43.90, 4.34]];
+
+export default function MainMap({ points = [], polygons = [], programa, poli, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -57,7 +60,8 @@ export default function MainMap({ points = [], polygons = [], programa, center =
   }
 
   // Current layer defaults to "SEZ" (índex 1)
-  setVal('currentLayer', getInt('currentLayer'));
+  const currentLayer = getInt('currentLayer');
+  setVal('currentLayer', currentLayer);
 
   OVERLAYS.forEach(ov => {
     const stored = STORAGE.getItem(ov.flag);
@@ -100,8 +104,8 @@ export default function MainMap({ points = [], polygons = [], programa, center =
       {...{
         maxZoom,
         minZoom: zoom,
-        bounds: MAP_BOUNDS,
-        maxBounds: MAP_BOUNDS,
+        bounds: poli ? poli.bounds : MAP_BOUNDS,
+        maxBounds: MAX_BOUNDS,
         onBaseLayerChange,
         onOverlayAdd: overlayChange('add'),
         onOverlayRemove: overlayChange('remove'),
@@ -110,9 +114,9 @@ export default function MainMap({ points = [], polygons = [], programa, center =
       <TileLayer type={TILE_LAYER} />
       <LayersControl position="topright">
         {polygons.map((p, i) => (
-          <LayersControl.BaseLayer name={p.name} key={i} checked={i === getInt('currentLayer')}>
+          <LayersControl.BaseLayer name={p.name} key={i} checked={poli ? i === (poli.tipus === 'SEZ' ? 1 : 0) : i === currentLayer}>
             <LayerGroup>
-              {p.shapes.map((sh, n) => (
+              {p.shapes.filter(sh => !poli || sh === poli).map((sh, n) => (
                 <Polygon
                   key={n}
                   positions={sh.poligons}
@@ -124,9 +128,9 @@ export default function MainMap({ points = [], polygons = [], programa, center =
             </LayerGroup>
           </LayersControl.BaseLayer>
         ))}
-        <LayersControl.Overlay name={OVERLAYS[0].name} checked={getBool(OVERLAYS[0].flag)}>
+        <LayersControl.Overlay name={OVERLAYS[0].name} checked={!poli && getBool(OVERLAYS[0].flag)}>
           <LayerGroup>
-            {polygons[getInt('currentLayer')].shapes.map((sh, n) => (
+            {polygons[currentLayer].shapes.filter(sh => !poli || sh === poli).map((sh, n) => (
               <Polygon
                 key={n}
                 positions={sh.poligons}

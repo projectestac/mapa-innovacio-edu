@@ -6,16 +6,32 @@
 const raw = require('./poligons-raw.json');
 const centres = require('./centres-total.json');
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
+// Max bounds:
+// const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 
 const result = raw
   .filter(p => p.tipus !== 'CREDA')
   .map(({ tipus, id, nom, poligons }) => {
+    // Calc the bounds of each polygon
+    let bounds = null;
+    poligons.forEach(arr => arr.forEach(({ lat, lng }) => {
+      if (!bounds)
+        bounds = [[lat, lng], [lat, lng]];
+      else {
+        bounds[0][0] = Math.min(bounds[0][0], lat);
+        bounds[0][1] = Math.min(bounds[0][1], lng);
+        bounds[1][0] = Math.max(bounds[1][0], lat);
+        bounds[1][1] = Math.max(bounds[1][1], lng);
+      }
+    }));
+    
     return {
       key: tipus === 'ST' ? id : nom,
       tipus,
       id,
       nom,
       poligons: poligons.map(arr => arr.map(({ lat, lng }) => `${lat}|${lng}`).join(',')),
+      bounds,
       centres: {
         ADR: 0,
         ADULTS: 0,

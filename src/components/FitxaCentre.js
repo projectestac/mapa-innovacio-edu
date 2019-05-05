@@ -117,7 +117,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 }
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: codi, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: codi, zona: null, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

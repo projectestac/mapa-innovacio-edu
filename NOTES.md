@@ -82,3 +82,5 @@ Veure: http://ensenyament.gencat.cat/web/.content/home/arees-actuacio/centres-se
 - línies 455 i 455 (_Talent creatiu i empresa_), substituir "Règim Especial" i "Escoles d'art" per "RESP" i "ART"
 - línies 552 i 553 (_STEAMcat_) substituir "Àmbit Artístic" per "Àmbit artístic" i "Àmbit Personal i Social" per "Àmbit personal i social"
 
+### Modificacions a programes
+- Fusionat el programa 46 (Projecte de Qualitat i Millora Contínua) amb el 39 (Programa de Qualitat i Millora Contínua)

@@ -30,7 +30,8 @@
     "TEGM": "Ensenyaments esportius grau mitjà",
     "TEGS": "Ensenyaments esportius grau superior",
     "ESTR": "Ensenyaments centres estrangers",
-    "ADULTS": "Educació d'adults"
+    "ADULTS": "Educació d'adults",
+    "RESP": "Règim especial"
   },
   "nivells": {
     "Educació infantil i primària": [

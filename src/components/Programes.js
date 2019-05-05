@@ -79,7 +79,7 @@ function Programes({ history }) {
                 </List>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}

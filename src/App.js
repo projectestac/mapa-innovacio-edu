@@ -313,7 +313,7 @@ class App extends Component {
    * @param {string} pathname - Current path
    */
   checkForLayerUpdate = (pathname) => {
-    if (/^\/(programes|programa\/|centre\/)/.test(pathname)) {
+    if (/^\/(programes|programa\/|centre\/|zona\/)/.test(pathname)) {
       const check = /^\/programa\/(.*)$/.exec(pathname);
       const programa = check && check.length === 2 ? check[1] : null;
       this.updateMap({ programa }, true, true);
@@ -454,7 +454,7 @@ class App extends Component {
                       <Route path="/programes" component={Programes} />
                       <Route path="/centre/:codi" component={FitxaCentre} />
                       <Route path="/programa/:id" component={FitxaPrograma} />
-                      <Route path="/zona/:id" component={FitxaZona} />
+                      <Route path="/zona/:key" component={FitxaZona} />
                       <Route path="/cerca/:query" component={Cerca} />
                     </>
                     )

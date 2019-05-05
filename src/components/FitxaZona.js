@@ -11,21 +11,21 @@ import Error from './Error';
 import MapSection from './MapSection';
 import Utils from '../utils/Utils';
 
-function FitxaZona({ history, match: { params: { id } } }) {
+function FitxaZona({ history, match: { params: { key } } }) {
 
   return (
     <AppContext.Consumer>
       {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
-        const zona = data.poligons.get(id);
+        const zona = data.poligons.get(key);
         if (!zona)
-          return <Error {...{ error: `No hi ha cap zona amb el codi: ${id}`, history }} />
+          return <Error {...{ error: `No hi ha cap zona amb el codi: ${key}`, history }} />
 
         // Els camps id, nomCurt i color no s'utilitzen
         const { nom, tipus, centresInn } = zona;
 
         const torna = () => history.goBack();
-        const obreCentre = id => () => history.push(`/centre/${id}`);
+        const obreCentre = codi => () => history.push(`/centre/${codi}`);
         const obrePrograma = id => () => history.push(`/programa/${id}`);
 
         return (
@@ -43,24 +43,27 @@ function FitxaZona({ history, match: { params: { id } } }) {
                 </div>
                 <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
                 <List >
-                  {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi, programes }, n) => {
+                  {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, programes, titols }, n) => {
                     return (
                       <ListItem key={n} button className="small-padding-h">
                         <ListItemText
                           primary={`${nom} (${municipi})`}
-                          onClick={obreCentre(id)}
+                          onClick={obreCentre(codi)}
                         />
                         <div className="prog-icons">
-                          {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => (
-                            <IconButton
-                              key={k}
-                              className="prog-icon"
-                              aria-label={nom}
-                              onClick={obrePrograma(id)}
-                            >
-                              <img src={`logos/${simbol}`} alt={nom} title={nom} />
-                            </IconButton>
-                          ))}
+                          {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => {
+                            const label = `${nom}${titols && titols[id] ? `: ${titols[id]}` : ''}`;
+                            return (
+                              <IconButton
+                                key={k}
+                                className="prog-icon"
+                                aria-label={label}
+                                onClick={obrePrograma(id)}
+                              >
+                                <img src={`logos/${simbol}`} alt={label} title={label} />
+                              </IconButton>
+                            );
+                          })}
                         </div>
                       </ListItem>
                     )
@@ -68,7 +71,7 @@ function FitxaZona({ history, match: { params: { id } } }) {
                 </List>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
           </>
         );
       }}
