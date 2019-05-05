@@ -88,10 +88,11 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className="small-padding-h">
                       <List dense>
-                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id, nom, municipi }, c) => (
-                          <ListItem key={c} button component="a" href={`#/centre/${id}`} className="small-padding-h">
+                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols }, c) => (
+                          <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
                             <ListItemText
                               primary={`${nom} (${municipi})`}
+                              secondary={(titols && titols[id] ? titols[id] : null)}
                             />
                           </ListItem>
                         ))}

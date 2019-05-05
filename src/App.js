@@ -164,6 +164,35 @@ class App extends Component {
           }
         });
 
+        // Convert arrays to maps
+        const centres = new Map(_centres.map(c => [c.id, c]));
+        const programes = new Map(_programes.map(p => [p.id, p]));
+        const poligons = new Map(_poligons.map(p => [p.key, p]));
+
+        // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
+        _instancies.forEach(ins => {
+          const programa = programes.get(ins.programa);
+          const centre = centres.get(ins.centre);
+          if (programa && centre) {
+            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
+            (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
+            if (centre.sstt)
+              poligons.get(centre.sstt).centresInn.add(centre);
+            if (centre.se)
+              poligons.get(centre.se).centresInn.add(centre);
+            if (ins.titol) {
+              if (!programa.titols)
+                programa.titols = {};
+              programa.titols[centre.id] = `${programa.titols[centre.id] ? `${programa.titols[centre.id]}, ` : ''}"${ins.titol}" (${ins.curs})`;
+              if (!centre.titols)
+                centre.titols = {};
+              centre.titols[programa.id] = `${centre.titols[programa.id] ? `${centre.titols[programa.id]}, ` : ''}"${ins.titol}" (${ins.curs})`;
+            }
+          }
+          else
+            console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
+        });
+
         // Build the Fuse.js objects
         // See: https://fusejs.io/
         const fuseOptions = {
@@ -182,33 +211,24 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, descripcio }) => { return { id, nom, descripcio, tipus: 'programa' }; }),
-            { ...fuseOptions, keys: ['id', 'nom', 'descripcio'] }),
+            _programes.map(({ id, nom, descripcio, titols }) => ({
+              id,
+              nom,
+              descripcio,
+              titols: titols ? Object.values(titols).join(', ') : '',
+              tipus: 'programa',
+            })),
+            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'titols'] }),
           new Fuse(
-            _centres.map(({ id, nom, municipi, comarca }) => { return { id, nom: `${nom} (${municipi})`, comarca, tipus: 'centre' }; }),
-            { ...fuseOptions, keys: ['id', 'nom', 'comarca'] }),
+            _centres.map(({ id, nom, municipi, comarca, titols }) => ({
+              id,
+              nom: `${nom} (${municipi})`,
+              comarca,
+              titols: titols ? Object.values(titols).join(', ') : '',
+              tipus: 'centre',
+            })),
+            { ...fuseOptions, keys: ['id', 'nom', 'comarca', 'titols'] }),
         ];
-
-        // Convert arrays to maps
-        const centres = new Map(_centres.map(c => [c.id, c]));
-        const programes = new Map(_programes.map(p => [p.id, p]));
-        const poligons = new Map(_poligons.map(p => [p.key, p]));
-
-        // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
-        _instancies.forEach(ins => {
-          const programa = programes.get(ins.programa);
-          const centre = centres.get(ins.centre);
-          if (programa && centre) {
-            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
-            (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
-            if (centre.sstt)
-              poligons.get(centre.sstt).centresInn.add(centre);
-            if (centre.se)
-              poligons.get(centre.se).centresInn.add(centre);
-          }
-          else
-            console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
-        });
 
         // Update main data object
         const data = {

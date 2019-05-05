@@ -31,7 +31,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
         // Els camps tipus, sstt, se també estan disponibles
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes } = centre;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const obrePrograma = id => () => history.push(`/programa/${id}`);
@@ -92,7 +92,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                             {programes[curs].map(({ id, nom }, c) => {
                               return (
                                 <li key={c} >
-                                  <Button onClick={obrePrograma(id)}>{nom}</Button>
+                                  <Button onClick={obrePrograma(id)}>{nom}{(titols && titols[id]) ? ` - ${titols[id]}` : ''}</Button>
                                 </li>
                               );
                             })}
@@ -109,7 +109,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
-                          secondary={`${cursos.sort().join(', ')}`}
+                          secondary={(titols && titols[id]) || `${cursos.sort().join(', ')}`}
                           onClick={obrePrograma(id)} />
                       </ListItem>
                     ))}
