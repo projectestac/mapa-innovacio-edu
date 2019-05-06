@@ -77,19 +77,19 @@
       "IDI"
     ]
   },
-  "ambitsCurr": [
-    "Àmbit artístic",
-    "Àmbit científicotecnològic",
-    "Àmbit digital",
-    "Àmbit lingüísitic",
-    "Àmbit matemàtic",
-    "Àmbit personal i social"
-  ],
-  "ambitsInn": [
-    "Àmbit 1: metodologies i recursos per a la millora de l’ensenyament i aprenentatge",
-    "Àmbit 2: organització i gestió educativa",
-    "Àmbit 3: relació i cooperació amb la comunitat educativa i l’entorn"
-  ],
+  "ambitsCurr": {
+    "ART": "Àmbit artístic",
+    "CIE": "Àmbit científicotecnològic",
+    "DIG": "Àmbit digital",
+    "LIN": "Àmbit lingüísitic",
+    "MAT": "Àmbit matemàtic",
+    "PSO": "Àmbit personal i social"
+  },
+  "ambitsInn": {
+    "A1-MET": "Àmbit 1: metodologies i recursos per a la millora de l’ensenyament i aprenentatge",
+    "A2-ORG": "Àmbit 2: organització i gestió educativa",
+    "A3-COM": "Àmbit 3: relació i cooperació amb la comunitat educativa i l’entorn"
+  },
   "cursos": [
     "2015-2016",
     "2016-2017",

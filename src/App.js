@@ -211,14 +211,22 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, descripcio, titols }) => ({
+            _programes.map(({ id, nom, descripcio, titols, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
               id,
               nom,
               descripcio,
               titols: titols ? Object.values(titols).join(', ') : '',
+              ambCurr: ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
+              ambInn: ambCurr.map(a => _estudis.ambitsInn[a]).join(', '),
+              arees: arees.join(', '),
+              objectius,
+              requisits,
+              compromisos,
+              contacte,
+              normativa,
               tipus: 'programa',
             })),
-            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'titols'] }),
+            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'titols', 'ambCurr', 'ambInn', 'arees', 'objectius', 'requisits', 'compromisos', 'contacte', 'normativa'] }),
           new Fuse(
             _centres.map(({ id, nom, municipi, comarca, titols }) => ({
               id,
@@ -238,8 +246,8 @@ class App extends Component {
           poligons,
           estudis: new Map(Object.entries(_estudis.estudis)),
           nivells: new Map(Object.entries(_estudis.nivells)),
-          ambitsCurr: new Set(_estudis.ambitsCurr),
-          ambitsInn: new Set(_estudis.ambitsInn),
+          ambitsCurr: new Map(Object.entries(_estudis.ambitsCurr)),
+          ambitsInn: new Map(Object.entries(_estudis.ambitsInn)),
           cursosDisp: _estudis.cursos,
         };
 

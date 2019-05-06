@@ -6,8 +6,8 @@ export const DEFAULT_DATA = {
   poligons: new Map(),
   estudis: new Map(),
   nivells: new Map(),
-  ambitsCurr: new Set(),
-  ambitsInn: new Set(),
+  ambitsCurr: new Map(),
+  ambitsInn: new Map(),
   cursosDisp: [],
 };
 

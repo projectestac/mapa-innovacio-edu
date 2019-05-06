@@ -19,8 +19,10 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
   return (
     <AppContext.Consumer>
       {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
+        const { programes, estudis, ambitsCurr, ambitsInn } = data;
+
         // Find the specified program
-        const programa = data.programes.get(id);
+        const programa = programes.get(id);
         if (!programa)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${id}`, history }} />
 
@@ -47,7 +49,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   <div className="prog_ambits">
                     <h4>Àmbits d'innovació:</h4>
                     <ul>
-                      {ambInn.map((a, n) => <li key={n}>{a}</li>)}
+                      {ambInn.map(a => <li key={a}>{ambitsInn.get(a)}</li>)}
                     </ul>
                   </div>
                 }
@@ -55,7 +57,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   <div className="prog_ambits">
                     <h4>Àmbits curriculars:</h4>
                     <ul>
-                      {ambCurr.map((a, n) => <li key={n}>{a}</li>)}
+                      {ambCurr.map(a => <li key={a}>{ambitsCurr.get(a)}</li>)}
                     </ul>
                   </div>
                 }
@@ -71,7 +73,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   <div className="prog_ambits">
                     <h4>Nivells educatius:</h4>
                     <ul>
-                      {tipus.map((t, n) => <li key={n}>{data.estudis.get(t)}</li>)}
+                      {tipus.map((t, n) => <li key={n}>{estudis.get(t)}</li>)}
                     </ul>
                   </div>
                 }

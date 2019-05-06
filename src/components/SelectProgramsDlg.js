@@ -58,7 +58,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
       open={dlgOpen}
       onEnter={updateCurrentPrograms}
       aria-labelledby="dialog-title"
-      classes={{paper: 'stretch-dlg'}}
+      classes={{ paper: 'stretch-dlg' }}
     >
       <DialogTitle id="dialog-title">Tipus de programes</DialogTitle>
       <DialogContent className="dialog-content">
@@ -88,8 +88,8 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
             }}
           >
             <MenuItem value=""><em>Tots els àmbits</em></MenuItem>
-            {Array.from(ambitsCurr).map((ambit, k) => (
-              <MenuItem key={k} value={ambit}>{ambit}</MenuItem>
+            {Array.from(ambitsCurr.keys()).sort().map(key => (
+              <MenuItem key={key} value={key}>{ambitsCurr.get(key)}</MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -105,8 +105,8 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
             }}
           >
             <MenuItem value=""><em>Tots els àmbits</em></MenuItem>
-            {Array.from(ambitsInn).map((ambit, k) => (
-              <MenuItem key={k} value={ambit}>{ambit}</MenuItem>
+            {Array.from(ambitsInn.keys()).sort().map(key => (
+              <MenuItem key={key} value={key}>{ambitsInn.get(key)}</MenuItem>
             ))}
           </Select>
         </FormControl>
