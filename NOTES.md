@@ -84,3 +84,18 @@ Veure: http://ensenyament.gencat.cat/web/.content/home/arees-actuacio/centres-se
 
 ### Modificacions a programes
 - Fusionat el programa 46 (Projecte de Qualitat i Millora Contínua) amb el 39 (Programa de Qualitat i Millora Contínua)
+
+### Actualització de dades
+Partir del full de càlcul:
+https://docs.google.com/spreadsheets/d/1nl7Mnwlg6uqaQj-gZ0ajAx7l-zh-VOQh2F_JbMhf314/edit#gid=0
+
+Convertir els enllaços a fitxes amb: https://sites.google.com/site/gdocs2direct/
+Escriure directament el codi embed dels vídeos
+
+Exportar el primer full a `utils/programes.csv` i executar:
+
+```bash
+# Go to the "utils" folder and launch the converter
+$ cd utils
+$ ./conv-programes.js > ../public/data/programes.json
+```

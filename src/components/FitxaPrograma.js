@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown/with-html';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -11,8 +12,13 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import Error from './Error';
 import MapSection from './MapSection';
+
+const MD_OPTIONS = {
+  escapeHtml: false,
+};
 
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
@@ -42,31 +48,41 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 <h3>{nom}</h3>
                 <div id="descripcio">
                   {simbol && <img className="prog_logo" src={`logos/${simbol}`} alt={nom}></img>}
-                  <p>{descripcio}</p>
+                  <ReactMarkdown {...MD_OPTIONS}>
+                    {descripcio}
+                  </ReactMarkdown>
                   <br clear="all" />
                 </div>
                 {objectius &&
                   <div className="prog-objectius">
                     <h4>Objectius</h4>
-                    <div>{objectius}</div>
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {objectius}
+                    </ReactMarkdown>
                   </div>
                 }
                 {requisits &&
                   <div className="prog-requisits">
                     <h4>Requisits</h4>
-                    <div>{requisits}</div>
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {requisits}
+                    </ReactMarkdown>
                   </div>
                 }
                 {compromisos &&
                   <div className="prog-compromisos">
                     <h4>Compromisos</h4>
-                    <div>{compromisos}</div>
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {compromisos}
+                    </ReactMarkdown>
                   </div>
                 }
                 {normativa &&
                   <div className="prog-normativa">
                     <h4>Normativa</h4>
-                    <div>{normativa}</div>
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {normativa}
+                    </ReactMarkdown>
                   </div>
                 }
                 {contacte &&
@@ -109,6 +125,20 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 }
                 {link &&
                   <p><a href={link} target="_blank" rel="noopener noreferrer">Més informació sobre el programa</a></p>
+                }
+                {fitxa &&
+                  <Button variant="contained" className="prog-fitxa" href={fitxa} >
+                    <CloudDownloadIcon className="leftIcon" />
+                    Fitxa
+                  </Button>
+                }
+                {video &&
+                  <div className="prog-video">
+                    <br />
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {video}
+                    </ReactMarkdown>
+                  </div>
                 }
                 <h4>Centres participants:</h4>
                 <br />
