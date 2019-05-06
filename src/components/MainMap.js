@@ -9,6 +9,7 @@ import Utils from '../utils/Utils';
 
 // See ../utils/TileLayer for all available options
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
+const PRESERVE_MAP_BOUNDS = (process.env.REACT_APP_PRESERVE_MAP_BOUNDS || 'true') === 'true';
 
 // Enlarge map bounds to make space for popups
 const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
@@ -21,7 +22,7 @@ const MARKERCLUSTER_PROPS = {
   maxClusterRadius: 30, // Default is 80
 };
 
-export default function MainMap({ points = [], polygons = [], programa, poli, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
+export default function MainMap({ points = [], polygons = [], programa = null, poli = null, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -38,31 +39,32 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
   ];
 
   // Save overlay preferences to browser's local storage
-  const STORAGE = window.localStorage;
-  const getBool = key => STORAGE.getItem(key) === 'true';
-  const getInt = key => Number(STORAGE.getItem(key));
-  const setVal = (key, val) => STORAGE.setItem(key, val);
+  const OVERLAY_SETTINGS_STORAGE = window.localStorage;
+  const getBool = key => OVERLAY_SETTINGS_STORAGE.getItem(key) === 'true';
+  const getInt = key => Number(OVERLAY_SETTINGS_STORAGE.getItem(key));
+  const setVal = (key, val) => OVERLAY_SETTINGS_STORAGE.setItem(key, val);
 
-  // Save the current map bounds in session storage (thus allowing to navigate between pages preserving it)
-  const saveBounds = (bounds) => window.sessionStorage.setItem('mapBounds', bounds.toBBoxString());
+  // Save the current map bounds in session storage, thus allowing to navigate between pages preserving map layout.
+  const MAP_BOUNDS_STORAGE = window.sessionStorage;
+  const saveBounds = (bounds) => MAP_BOUNDS_STORAGE.setItem('mapBounds', bounds.toBBoxString());
   const getSavedBounds = () => {
-    const str = window.sessionStorage.getItem('mapBounds');
+    const str = MAP_BOUNDS_STORAGE.getItem('mapBounds');
     if (!str)
       return null;
     const values = str.split(',');
     if (values.length !== 4)
       return null;
     return [[
-      Number(values[1]),
-      Number(values[0]),
+      Number(values[1]), // Lat SW
+      Number(values[0]), // Lng SW
     ], [
-      Number(values[3]),
-      Number(values[2]),
+      Number(values[3]), // Lat NE
+      Number(values[2]), // Lng NE
     ]];
   };
 
   // Don't preserve map bounds in `single polygon` mode
-  const preserveBounds = !poli;
+  const preserveBounds = PRESERVE_MAP_BOUNDS && poli === null;
   const currentlySavedBounds = preserveBounds && getSavedBounds();
 
   // Handle zoom changes
@@ -75,6 +77,7 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
   const lineWidth = 2;
   const minOpacity = 0;
 
+  // Force `updateMap` when changing some layout settings
   const onBaseLayerChange = (ev) => {
     const layerIndex = polygons.findIndex(p => p.name === ev.name);
     if (layerIndex >= 0) {
@@ -84,11 +87,12 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
     }
   }
 
+  // Force `updateMap` when changing some overlay settings
   const overlayChange = (type) => (ev) => {
     const ov = OVERLAYS.findIndex(ov => ov.name === ev.name);
     if (ov >= 0) {
       const overlayVisible = (type === 'add');
-      STORAGE.setItem(OVERLAYS[ov].flag, overlayVisible);
+      OVERLAY_SETTINGS_STORAGE.setItem(OVERLAYS[ov].flag, overlayVisible);
       if (ov === 0 && overlayVisible)
         updateMap({}, false);
     }
@@ -98,8 +102,9 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
   const currentLayer = getInt('currentLayer');
   setVal('currentLayer', currentLayer);
 
+  // Set default or stored value in each overlay
   OVERLAYS.forEach(ov => {
-    const stored = STORAGE.getItem(ov.flag);
+    const stored = OVERLAY_SETTINGS_STORAGE.getItem(ov.flag);
     setVal(ov.flag, stored === null ? ov.default : stored);
   });
 
@@ -113,7 +118,6 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
     </Popup>
   );
 
-  // TODO: Implementar fitxa de zona / servei territorial
   const obreZona = (key) => () => history.push(`/zona/${key}`);
 
   const popupZona = (zona) => {
@@ -151,9 +155,9 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
       <TileLayer type={TILE_LAYER} />
       <LayersControl position="topright">
         {polygons.map((p, i) => (
-          <LayersControl.BaseLayer name={p.name} key={i} checked={poli ? i === (poli.tipus === 'SEZ' ? 1 : 0) : i === currentLayer}>
+          <LayersControl.BaseLayer name={p.name} key={i} checked={poli !== null ? i === (poli.tipus === 'SEZ' ? 1 : 0) : i === currentLayer}>
             <LayerGroup>
-              {p.shapes.filter(sh => !poli || sh === poli).map((sh, n) => (
+              {p.shapes.filter(sh => poli === null || poli === sh).map((sh, n) => (
                 <Polygon
                   key={n}
                   positions={sh.poligons}
@@ -165,9 +169,9 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
             </LayerGroup>
           </LayersControl.BaseLayer>
         ))}
-        <LayersControl.Overlay name={OVERLAYS[0].name} checked={!poli && getBool(OVERLAYS[0].flag)}>
+        <LayersControl.Overlay name={OVERLAYS[0].name} checked={poli === null && getBool(OVERLAYS[0].flag)}>
           <LayerGroup>
-            {polygons[currentLayer].shapes.filter(sh => !poli || sh === poli).map((sh, n) => (
+            {polygons[currentLayer].shapes.filter(sh => poli === null || poli === sh).map((sh, n) => (
               <Polygon
                 key={n}
                 positions={sh.poligons}
@@ -178,7 +182,7 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
               </Polygon>))}
           </LayerGroup>
         </LayersControl.Overlay>
-        <LayersControl.Overlay name={OVERLAYS[1].name} checked={getBool(OVERLAYS[1].flag)}>
+        <LayersControl.Overlay name={OVERLAYS[1].name} checked={poli !== null || getBool(OVERLAYS[1].flag)}>
           <MarkerClusterGroup clusterProps={MARKERCLUSTER_PROPS}>
             {points.map(pt => (
               <Marker key={pt.id} position={[pt.lat, pt.lng]}>
