@@ -14,6 +14,13 @@ const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
 const MAP_BOUNDS = [[40.50, 0.15], [42.90, 3.34]];
 const MAX_BOUNDS = [[39.50, -0.85], [43.90, 4.34]];
 
+// Options for MarkerCluster
+// See: https://github.com/Leaflet/Leaflet.markercluster
+const MARKERCLUSTER_PROPS = {
+  showCoverageOnHover: false, // Default is `true`
+  maxClusterRadius: 30, // Default is 80
+};
+
 export default function MainMap({ points = [], polygons = [], programa, poli, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
 
   // Optional overlays
@@ -35,6 +42,34 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
   const getBool = key => STORAGE.getItem(key) === 'true';
   const getInt = key => Number(STORAGE.getItem(key));
   const setVal = (key, val) => STORAGE.setItem(key, val);
+
+  // Save the current map bounds in session storage (thus allowing to navigate between pages preserving it)
+  const saveBounds = (bounds) => window.sessionStorage.setItem('mapBounds', bounds.toBBoxString());
+  const getSavedBounds = () => {
+    const str = window.sessionStorage.getItem('mapBounds');
+    if (!str)
+      return null;
+    const values = str.split(',');
+    if (values.length !== 4)
+      return null;
+    return [[
+      Number(values[1]),
+      Number(values[0]),
+    ], [
+      Number(values[3]),
+      Number(values[2]),
+    ]];
+  };
+
+  // Don't preserve map bounds in `single polygon` mode
+  const preserveBounds = !poli;
+  const currentlySavedBounds = preserveBounds && getSavedBounds();
+
+  // Handle zoom changes
+  const boundsChanged = ev => {
+    if (preserveBounds && ev.target && ev.target.getBounds)
+      saveBounds(ev.target.getBounds());
+  }
 
   // Line width and opacity of polygons
   const lineWidth = 2;
@@ -104,11 +139,13 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
       {...{
         maxZoom,
         minZoom: zoom,
-        bounds: poli ? poli.bounds : MAP_BOUNDS,
+        bounds: (poli && poli.bounds) || currentlySavedBounds || MAP_BOUNDS,
         maxBounds: MAX_BOUNDS,
         onBaseLayerChange,
         onOverlayAdd: overlayChange('add'),
         onOverlayRemove: overlayChange('remove'),
+        onZoomEnd: boundsChanged,
+        onMoveEnd: boundsChanged,
       }}
     >
       <TileLayer type={TILE_LAYER} />
@@ -142,7 +179,7 @@ export default function MainMap({ points = [], polygons = [], programa, poli, ce
           </LayerGroup>
         </LayersControl.Overlay>
         <LayersControl.Overlay name={OVERLAYS[1].name} checked={getBool(OVERLAYS[1].flag)}>
-          <MarkerClusterGroup clusterProps={{ showCoverageOnHover: false }}>
+          <MarkerClusterGroup clusterProps={MARKERCLUSTER_PROPS}>
             {points.map(pt => (
               <Marker key={pt.id} position={[pt.lat, pt.lng]}>
                 {popupCentre(pt)}
