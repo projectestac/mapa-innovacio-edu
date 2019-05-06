@@ -27,7 +27,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${id}`, history }} />
 
         // Els camps id, nomCurt i color no s'utilitzen
-        const { nom, descripcio, link, ambCurr, ambInn, arees, simbol, tipus, centres } = programa;
+        const { nom, descripcio, link, ambCurr, ambInn, fitxa, video, objectius, requisits, compromisos, contacte, normativa, arees, simbol, tipus, centres } = programa;
 
         const torna = () => history.goBack();
 
@@ -45,6 +45,36 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   <p>{descripcio}</p>
                   <br clear="all" />
                 </div>
+                {objectius &&
+                  <div className="prog-objectius">
+                    <h4>Objectius</h4>
+                    <div>{objectius}</div>
+                  </div>
+                }
+                {requisits &&
+                  <div className="prog-requisits">
+                    <h4>Requisits</h4>
+                    <div>{requisits}</div>
+                  </div>
+                }
+                {compromisos &&
+                  <div className="prog-compromisos">
+                    <h4>Compromisos</h4>
+                    <div>{compromisos}</div>
+                  </div>
+                }
+                {normativa &&
+                  <div className="prog-normativa">
+                    <h4>Normativa</h4>
+                    <div>{normativa}</div>
+                  </div>
+                }
+                {contacte &&
+                  <div className="prog-contacte">
+                    <h4>Contacte</h4>
+                    <div><a href={`mailto:${contacte}`}>{contacte}</a></div>
+                  </div>
+                }
                 {ambInn.length > 0 &&
                   <div className="prog_ambits">
                     <h4>Àmbits d'innovació:</h4>
