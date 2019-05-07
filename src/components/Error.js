@@ -19,7 +19,7 @@ function Error({ error, history, refetch }) {
             aria-label="Reintenta"
             onClick={refetch}
             variant='outlined' >
-            <Refresh className="leftIcon" />
+            <Refresh className="left-icon" />
             Reintenta
         </Button>) ||
         (history && history.length > 1 &&
@@ -28,7 +28,7 @@ function Error({ error, history, refetch }) {
             aria-label="Torna"
             variant="outlined"
             onClick={() => history.goBack()} >
-            <ArrowBack className="leftIcon" />
+            <ArrowBack className="left-icon" />
             Torna
         </Button>)
       }

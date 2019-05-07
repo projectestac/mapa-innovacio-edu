@@ -31,7 +31,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
         return (
           <>
             <Button className="torna" aria-label="Torna" onClick={torna} >
-              <ArrowBack className="leftIcon" />
+              <ArrowBack className="left-icon" />
               Torna
             </Button>
             <section className="seccio zona">

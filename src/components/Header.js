@@ -60,7 +60,7 @@ function Header({ history, location }) {
                     <SearchBar {...{ className: 'search-bar', history, mini: true }} />
                   </div>
                   <Typography className="main-title" variant="h6" color="inherit" noWrap>
-                    Mapa de la Innovació Educativa (en construcció!)
+                    Mapa de la Innovació Educativa
                 </Typography>
                   <ul className="nav-bar">
                     {menuItems.map(item => (

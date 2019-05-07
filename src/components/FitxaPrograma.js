@@ -40,14 +40,14 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
         return (
           <>
             <Button className="torna" aria-label="Torna" onClick={torna} >
-              <ArrowBack className="leftIcon" />
+              <ArrowBack className="left-icon" />
               Torna
             </Button>
             <section className="seccio programa">
               <Paper className="paper">
                 <h3>{nom}</h3>
                 <div id="descripcio">
-                  {simbol && <img className="prog_logo" src={`logos/${simbol}`} alt={nom}></img>}
+                  {simbol && <img className="prog-logo" src={`logos/${simbol}`} alt={nom}></img>}
                   <ReactMarkdown {...MD_OPTIONS}>
                     {descripcio}
                   </ReactMarkdown>
@@ -128,7 +128,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 }
                 {fitxa &&
                   <Button variant="contained" className="prog-fitxa" href={fitxa} >
-                    <CloudDownloadIcon className="leftIcon" />
+                    <CloudDownloadIcon className="left-icon" />
                     Fitxa
                   </Button>
                 }

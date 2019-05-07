@@ -70,6 +70,9 @@ main {
   main {
     grid-template-columns: 1fr;
   }
+  main .gomap {
+    display: block !important;
+  }  
 }
 
 /* === Search bar === */
@@ -103,6 +106,10 @@ header .main-header-block {
 }
 
 header .top-bar, .nav-bar {
+  display: none;
+}
+
+main .gomap {
   display: none;
 }
 
@@ -267,7 +274,7 @@ header .top-bar, .nav-bar {
 
 /* === Programes === */
 
-.prog_list {
+.prog-list {
   width: 100%;
   max-width: 50rem;
   background-color: var(--theme-palette-background-paper);
@@ -278,27 +285,27 @@ header .top-bar, .nav-bar {
   */
 }
 
-.prog_list>li {
+.prog-list>li {
   margin-right: -1rem;
 }
 
-.prog_list .list-button {
+.prog-list .list-button {
   padding-left: 0;
   padding-right: 4rem;
 }
 
-.prog_logo {
+.prog-logo {
   max-width: 100px;
   max-height: 100px;
   float: left;
   margin-right: 1rem;
 }
 
-.leftIcon {
+.left-icon {
   margin-right: 0.5rem;
 }
 
-main .torna {
+main .torna, .gomap {
   grid-column: 1 / -1;
   justify-self: start;
 }
@@ -347,7 +354,7 @@ main .torna {
 
 /* === Centres === */
 
-.cent_logo {
+.cent-logo {
   max-width: 100px;
   max-height: 100px;
   float: left;
@@ -511,120 +518,3 @@ footer .copyright {
   }
 }
 
-
-/* === Presentació === */
-#cdrTitInnovacio{
-  width: 100%;
-  background-color: #f3c253;
-  color:white;
-  text-align: center;
-  padding:2px;
-}
-
-#cdrTitInnovacio h3{ 
-  font-size:1.5rem;
-  line-height: 10px;
-}
-
-#cdrTitInnovacio h4{ 
-  font-size:1.3rem;  
-  line-height: 8px;
-}
-
-#secMod{
-  height:450px;
-}
-
-#secAmb{
-  text-align:center;
-}
-
-.cercle {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  border: 1px solid black;
-  text-align: center;
-  padding-top: 65px;
-  color: white;
-}
-
-.cercle:hover {
-  box-shadow: rgba(0, 0, 0, 1) 2px 8px 16px 3px!important; 
-}
-
-#cerclePrg{
-  position: relative;
-  top:20px;
-  left:35%;
-  background-color: #70c946;
-}
-
-#cerclePrj{
-  position: relative;
-  top:10px;
-  left:20%;  
-  background-color: #096f8b;
-}
-
-#cerclePra{
-  position: relative;
-  top:-200px;
-  left:50%;
-  background-color: #df5839;
-}
-
-#cercleMod{
-  position: relative;
-  top:-420px;
-  left:42%;
-  background-color: #460b29;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  color: white;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.cercleAmbit {
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-  border: 1px solid black;
-  text-align: center;
-  padding-top: 45px;
-  color: white;
-  background-color: #fab36e;
-}
-
-.cercleAmbit:hover {
-  box-shadow: rgba(0, 0, 0, 1) 2px 8px 16px 3px!important; 
-}
-
-#cercleAmbit1 {
-  float:left;
-  margin-left:5%
-}
-
-#cercleAmbit2 {
-  float:left;
-  margin-left:5%
-}
-
-#cercleAmbit3 {
-  float:left;
-  margin-left:5%
-}
-
-#peuInn{
-  clear: both;
-  margin-top:5px;
-  padding-top: 10px;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-#infoInnovacio{
-  width:100%;
-}

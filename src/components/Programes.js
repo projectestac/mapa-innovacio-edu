@@ -10,6 +10,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Switch from '@material-ui/core/Switch';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import SelectProgramsDlg from './SelectProgramsDlg';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -42,8 +43,14 @@ function Programes({ history }) {
           updateMap({ currentPrograms }, true, true);
         };
 
+        const gomap = () => document.querySelector('.smapa').scrollIntoView();
+
         return (
           <>
+            <Button className="gomap" aria-label="Mapa" onClick={gomap} >
+              <ArrowDownward className="left-icon" />
+              Mapa
+            </Button>
             <section className="seccio programes">
               <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
               <Paper className="paper">
@@ -61,7 +68,7 @@ function Programes({ history }) {
                     label="Selecciona'ls tots"
                   />
                 </div>
-                <List className="prog_list">
+                <List className="prog-list">
                   {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                     <ListItem key={n} button className="list-button">
                       <ListItemAvatar>

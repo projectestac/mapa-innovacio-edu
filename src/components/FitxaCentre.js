@@ -41,12 +41,12 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         return (
           <>
             <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
-              <ArrowBack className="leftIcon" />
+              <ArrowBack className="left-icon" />
               Torna
             </Button>
             <section className="seccio centre">
               <Paper className="paper">
-                {logo && <><br clear="all" /><img className="cent_logo" src={logo} alt={nom}></img></>}
+                {logo && <><br clear="all" /><img className="cent-logo" src={logo} alt={nom}></img></>}
                 <h3>{nom}</h3>
                 <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
                 <br clear="all" />

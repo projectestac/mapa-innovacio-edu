@@ -95,7 +95,6 @@ Escriure directament el codi embed dels vídeos
 Exportar el primer full a `utils/programes.csv` i executar:
 
 ```bash
-# Go to the "utils" folder and launch the converter
 $ cd utils
 $ ./conv-programes.js > ../public/data/programes.json
 ```

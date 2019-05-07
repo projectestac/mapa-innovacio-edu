@@ -41,7 +41,7 @@ function Cerca({ history, match: { params: { query } } }) {
               className="torna"
               aria-label="Torna"
               onClick={() => history.goBack()} >
-              <ArrowBack className="leftIcon" />
+              <ArrowBack className="left-icon" />
               Torna
             </Button>
             <section className="seccio cerca">
