@@ -6,7 +6,12 @@
 const { createReadStream } = require('fs');
 const csv = require('csv');
 const CSV_FILE = 'programes.csv';
+const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
+const instancies = DEBUG ? require('../public/data/instancies.json') : [];
+const centres = DEBUG ? require('../public/data/centres.json') : [];
+const chalk = require('chalk');
 
+const warnings = [];
 
 const readCsv = (file) => {
   const programes = [];
@@ -21,7 +26,7 @@ const readCsv = (file) => {
           reject(err);
         else {
           data.forEach(reg => {
-            programes.push({
+            const programa = {
               id: reg.id_programa, // Is a string!
               nom: reg.Nom_programa.trim(),
               nomCurt: reg.Nom_curt || '',
@@ -39,7 +44,37 @@ const readCsv = (file) => {
               compromisos: reg.Compromisos || null,
               contacte: reg.Contacte || null,
               normativa: reg.Normativa || null,
-            });
+            };
+            if (DEBUG) {
+              if (programa.tipus.length === 0) {
+                warnings.push(`${chalk.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${chalk.italic(programa.nom)}) no té definides les etapes objectiu`);
+              } else {
+                const instProg = instancies.filter(ins => ins.programa === programa.id);
+                if (instProg.length === 0)
+                  warnings.push(`${chalk.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${chalk.italic(programa.nom)}) no té cap centre participant`);
+                else {
+                  const warned = [];
+                  instProg.forEach(ins => {
+                    const codi = ins.centre;
+                    if (!warned.includes(codi)) {
+                      const centre = centres.find(c => c.id === codi);
+                      if (!centre) {
+                        warned.push(codi);
+                        warnings.push(`${chalk.bold.bgRed.white('ERROR:')} Hi ha una instància del programa ${programa.id} (${chalk.italic(programa.nom)}) associada a un centre inexistent: "${chalk.bold(codi)}"`);
+                      }
+                      else {
+                        const k = centre.estudis.find(es => programa.tipus.find(pes => pes === es));
+                        if (!k) {
+                          warned.push(codi);
+                          warnings.push(`${chalk.bold.bgYellowBright.red('ATENCIÓ:')} El centre amb codi "${chalk.bold(codi)}" participa al programa ${programa.id} (${chalk.italic(programa.nom)}) sense tenir cap dels estudis requerits (centre: ${chalk.bold(centre.estudis.join(', '))} | programa: ${chalk.bold(programa.tipus.join(', '))})`);
+                        }
+                      }
+                    }
+                  });
+                }
+              }
+            }
+            programes.push(programa);
           });
           resolve(programes);
         }
@@ -51,6 +86,11 @@ const readCsv = (file) => {
 readCsv(CSV_FILE)
   .then(programes => {
     //programes.forEach(p => console.log(`${p.id} - ${p.nom} - ${p.nomCurt}`));
-    console.log(JSON.stringify(programes, 1));
+    if (DEBUG) {
+      warnings.forEach(inc => console.log(inc));
+      console.log(chalk.bold.green(`${programes.length} programes comprovats`));
+    }
+    else
+      console.log(JSON.stringify(programes, 1));
   })
-  .catch(err => console.log(`ERROR: ${err}`));
+  .catch(err => console.log(chalk.bold.red(`ERROR: ${err}`)));

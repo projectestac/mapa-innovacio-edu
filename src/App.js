@@ -35,6 +35,7 @@ const color_secondary = { 500: '#c00000' };
 const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
+const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
 
 /**
  * Main Material-UI theme
@@ -99,11 +100,21 @@ class App extends Component {
     };
   }
 
+  setStateMod(values, callback = null) {
+    this.setState(values, () => {
+      if (DEBUG_GLOBAL_VAR)
+        window[DEBUG_GLOBAL_VAR] = this.state;
+      if (callback)
+        callback();
+    });
+  }
+
+
   /**
    * Load datasets from API or JSON files
    */
   loadData() {
-    this.setState({ loading: true });
+    this.setStateMod({ loading: true });
     return Promise.all(
       [
         'data/programes.json', // `${API_ROOT}/programes/`
@@ -254,7 +265,7 @@ class App extends Component {
         //this.updateLayersDensity(currentPrograms, null, data);
 
         // Update the main state
-        this.setState({
+        this.setStateMod({
           data,
           dataLoaded: true,
           polygons: [
@@ -271,7 +282,7 @@ class App extends Component {
       .catch(error => {
         // Something wrong happened!
         console.log(error);
-        this.setState({ error: error.toString() });
+        this.setStateMod({ error: error.toString() });
       });
   }
 
@@ -295,12 +306,12 @@ class App extends Component {
    * @param {boolean} mapChanged - `true` when this change involves map points
    */
   updateMap = (state = {}, mapChanged = true, currentProgramsChanged = false) => {
-    this.setState({ ...state, mapChanged, currentProgramsChanged });
+    this.setStateMod({ ...state, mapChanged, currentProgramsChanged });
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
         this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.cursos);
       if (mapChanged)
-        window.setTimeout(() => this.setState({ mapChanged: false }), 0);
+        window.setTimeout(() => this.setStateMod({ mapChanged: false }), 0);
     });
   }
 

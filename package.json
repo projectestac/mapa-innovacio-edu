@@ -49,6 +49,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "chalk": "^2.4.2",
     "csv": "^5.1.1"
   }
 }
