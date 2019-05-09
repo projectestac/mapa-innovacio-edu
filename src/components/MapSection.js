@@ -38,16 +38,14 @@ function MapSection({ data: { programes, centres, poligons, cursosDisp }, progra
       currentPrograms.forEach(progId => addSchoolsOfProgram(progId, points));
   }
 
-  const getMaxCurs = () => cursos ? cursos.length - 1 : cursosDisp.length - 1;
-
   const handleSelectCurs = curs => ev => {
-    const cursos = [];
-    for (let n = 0; n < cursosDisp.length; n++) {
-      cursos.push(cursosDisp[n]);
-      if (cursosDisp[n] === curs)
-        break;
-    }
-    updateMap({ cursos }, true, true);
+    const result = [];
+    cursosDisp.forEach(c => {
+      if ((curs === c && !cursos.includes(c)) || (curs !== c && cursos.includes(c)))
+        result.push(c);
+    });
+    updateMap({ cursos: result }, true, true);
+
   }
 
   return (
@@ -67,7 +65,7 @@ function MapSection({ data: { programes, centres, poligons, cursosDisp }, progra
               className="cursos"
               nonLinear
               alternativeLabel
-              activeStep={getMaxCurs()}
+              activeStep={null}
             >
               {cursosDisp.map((c, k) => (
                 <Step key={c}>
