@@ -1,0 +1,2055 @@
+[
+  {
+    "SSTT": "CCE",
+    "codi": "08056729",
+    "nom": "ZER El Moianès Ponent",
+    "localitat": "Calders",
+    "centres": [
+      {
+        "codi": "08015107",
+        "centre": "Escola Anton Busquets i Punset - ZER El Moianès Ponent",
+        "localitat": "Calders"
+      },
+      {
+        "codi": "08021934",
+        "centre": "Escola L'Esqueix - ZER El Moianès Ponent",
+        "localitat": "Monistrol de Calders"
+      },
+      {
+        "codi": "08039306",
+        "centre": "Escola Els Pins - ZER El Moianès Ponent",
+        "localitat": "Cabrianes"
+      },
+      {
+        "codi": "08061521",
+        "centre": "Escola Vall de Néspola - ZER El Moianès Ponent",
+        "localitat": "Mura"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056742",
+    "nom": "ZER Alt Lluçanès",
+    "localitat": "Sant Boi de Lluçanès",
+    "centres": [
+      {
+        "codi": "08000086",
+        "centre": "Escola La Forja - ZER Alt Lluçanès",
+        "localitat": "Alpens"
+      },
+      {
+        "codi": "08019861",
+        "centre": "Escola Gafarró - ZER Alt Lluçanès",
+        "localitat": "Santa Eulàlia de Puig-oriol"
+      },
+      {
+        "codi": "08025666",
+        "centre": "Escola Aurora - ZER Alt Lluçanès",
+        "localitat": "Sant Boi de Lluçanès"
+      },
+      {
+        "codi": "08034795",
+        "centre": "Escola Heurom - ZER Alt Lluçanès",
+        "localitat": "Perafita"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056766",
+    "nom": "ZER Subirats",
+    "localitat": "Subirats",
+    "centres": [
+      {
+        "codi": "08029143",
+        "centre": "Escola Subirats - ZER Subirats",
+        "localitat": "Lavern"
+      },
+      {
+        "codi": "08029155",
+        "centre": "Escola El Montcau - ZER Subirats",
+        "localitat": "Ordal"
+      },
+      {
+        "codi": "08029192",
+        "centre": "Escola Sant Jordi - ZER Subirats",
+        "localitat": "Sant Pau d'Ordal"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056781",
+    "nom": "ZER Serra d'Ancosa",
+    "localitat": "Cabrera d'Anoia",
+    "centres": [
+      {
+        "codi": "08014841",
+        "centre": "Escola Les Oliveres - ZER Serra d'Ancosa",
+        "localitat": "Canaletes"
+      },
+      {
+        "codi": "08019691",
+        "centre": "Escola Vilademàger - ZER Serra d'Ancosa",
+        "localitat": "La Llacuna"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056791",
+    "nom": "ZER Vent d'Avall",
+    "localitat": "Castellfollit de Riubregós",
+    "centres": [
+      {
+        "codi": "08016082",
+        "centre": "Escola Sant Roc - ZER Vent d'Avall",
+        "localitat": "Castellfollit de Riubregós"
+      },
+      {
+        "codi": "08016291",
+        "centre": "Escola Copons - ZER Vent d'Avall",
+        "localitat": "Copons"
+      },
+      {
+        "codi": "08023141",
+        "centre": "Escola Mare de Déu del Portal - ZER Vent d'Avall",
+        "localitat": "Els Prats de Rei"
+      },
+      {
+        "codi": "08027021",
+        "centre": "Escola Font de l'Anoia - ZER Vent d'Avall",
+        "localitat": "Sant Martí Sesgueioles"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056811",
+    "nom": "ZER Alt Berguedà",
+    "localitat": "Vallcebre",
+    "centres": [
+      {
+        "codi": "08018017",
+        "centre": "Escola L'Albiol - ZER Alt Berguedà",
+        "localitat": "Sant Julià de Cerdanyola"
+      },
+      {
+        "codi": "08030728",
+        "centre": "Escola Serrat Voltor - ZER Alt Berguedà",
+        "localitat": "Vallcebre"
+      },
+      {
+        "codi": "25001709",
+        "centre": "Escola Santa Margarida - ZER Alt Berguedà",
+        "localitat": "Gósol"
+      }
+    ]
+  },
+  {
+    "SSTT": "MVO",
+    "codi": "08056833",
+    "nom": "ZER Baix Montseny",
+    "localitat": "Santa Maria de Palautordera",
+    "centres": [
+      {
+        "codi": "08015259",
+        "centre": "Escola L'Alzinar - ZER Baix Montseny",
+        "localitat": "Campins"
+      },
+      {
+        "codi": "08022082",
+        "centre": "Escola Puig Drau - ZER Baix Montseny",
+        "localitat": "Montseny"
+      },
+      {
+        "codi": "08039744",
+        "centre": "Escola del Pont Trencat - ZER Baix Montseny",
+        "localitat": "Santa Maria de Palautordera"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08056857",
+    "nom": "ZER Gavarresa",
+    "localitat": "Sant Feliu Sasserra",
+    "centres": [
+      {
+        "codi": "08022549",
+        "centre": "Escola Llevant - ZER Gavarresa",
+        "localitat": "Oristà"
+      },
+      {
+        "codi": "08026415",
+        "centre": "Escola Els Roures - ZER Gavarresa",
+        "localitat": "Sant Feliu Sasserra"
+      }
+    ]
+  },
+  {
+    "SSTT": "BCO",
+    "codi": "08057281",
+    "nom": "ZER Cep de Sis",
+    "localitat": "Santa Fe del Penedès",
+    "centres": [
+      {
+        "codi": "08023359",
+        "centre": "Escola Virolai - ZER Cep de Sis",
+        "localitat": "Puigdàlber"
+      },
+      {
+        "codi": "08028151",
+        "centre": "Escola Les Moreres - ZER Cep de Sis",
+        "localitat": "Santa Fe del Penedès"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08058076",
+    "nom": "ZER Els Castells",
+    "localitat": "Vidrà",
+    "centres": [
+      {
+        "codi": "08021961",
+        "centre": "Escola El Rocal - ZER Els Castells",
+        "localitat": "Montesquiu"
+      },
+      {
+        "codi": "08038201",
+        "centre": "Escola La Baumeta - ZER Els Castells",
+        "localitat": "Santa Maria de Besora"
+      },
+      {
+        "codi": "17004062",
+        "centre": "Escola Santa Bàrbara - ZER Els Castells",
+        "localitat": "Vidrà"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08058088",
+    "nom": "ZER Berguedà Centre",
+    "localitat": "Vilada",
+    "centres": [
+      {
+        "codi": "08014796",
+        "centre": "Escola de Borredà - ZER Berguedà Centre",
+        "localitat": "Borredà"
+      },
+      {
+        "codi": "08031046",
+        "centre": "Escola Serra de Picamill - ZER Berguedà Centre",
+        "localitat": "Vilada"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08058091",
+    "nom": "ZER Baix Berguedà",
+    "localitat": "Olvan",
+    "centres": [
+      {
+        "codi": "08021983",
+        "centre": "Escola Gira-sol - ZER Baix Berguedà",
+        "localitat": "Montmajor"
+      },
+      {
+        "codi": "08022331",
+        "centre": "Escola d'Olvan - ZER Baix Berguedà",
+        "localitat": "Olvan"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08058817",
+    "nom": "ZER Tres Branques",
+    "localitat": "Carme",
+    "centres": [
+      {
+        "codi": "08016069",
+        "centre": "Escola Coll de Gossem - ZER Tres Branques",
+        "localitat": "Castellfollit del Boix"
+      },
+      {
+        "codi": "08016070",
+        "centre": "Escola de Maians - ZER Tres Branques",
+        "localitat": "Maians"
+      },
+      {
+        "codi": "08016136",
+        "centre": "Escola Les Passeres - ZER Tres Branques",
+        "localitat": "Castellolí"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08059287",
+    "nom": "ZER Guilleries",
+    "localitat": "Viladrau",
+    "centres": [
+      {
+        "codi": "08029283",
+        "centre": "Escola El Gurri - ZER Guilleries",
+        "localitat": "El Gurri"
+      },
+      {
+        "codi": "17004189",
+        "centre": "Escola Els Castanyers - ZER Guilleries",
+        "localitat": "Viladrau"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08068197",
+    "nom": "ZER El Cardener",
+    "localitat": "Sant Mateu de Bages",
+    "centres": [
+      {
+        "codi": "08015612",
+        "centre": "Escola Joan de Palà - ZER El Cardener",
+        "localitat": "La Coromina"
+      },
+      {
+        "codi": "08038089",
+        "centre": "Escola Sant Esteve - ZER El Cardener",
+        "localitat": "Valls de Torroella"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "08071421",
+    "nom": "ZER El Moianès Llevant",
+    "localitat": "L'Estany",
+    "centres": [
+      {
+        "codi": "08015831",
+        "centre": "Escola La Popa - ZER El Moianès Llevant",
+        "localitat": "Castellcir"
+      },
+      {
+        "codi": "08037981",
+        "centre": "Escola de L'Estany - ZER El Moianès Llevant",
+        "localitat": "L'Estany"
+      },
+      {
+        "codi": "08064982",
+        "centre": "Escola de Sant Quirze Safaja - ZER El Moianès Llevant",
+        "localitat": "Sant Quirze Safaja"
+      },
+      {
+        "codi": "08065482",
+        "centre": "Escola de Collsuspina - ZER El Moianès Llevant",
+        "localitat": "Collsuspina"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007427",
+    "nom": "ZER Tramuntana",
+    "localitat": "Vilamacolum",
+    "centres": [
+      {
+        "codi": "17004049",
+        "centre": "Escola Oliveres Mil·lenàries - ZER Tramuntana",
+        "localitat": "Ventalló"
+      },
+      {
+        "codi": "17004128",
+        "centre": "Escola Puig Segalar - ZER Tramuntana",
+        "localitat": "Viladamat"
+      },
+      {
+        "codi": "17004220",
+        "centre": "Escola Els Valentins - ZER Tramuntana",
+        "localitat": "Vilamacolum"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007439",
+    "nom": "ZER Cerdanya",
+    "localitat": "Ger",
+    "centres": [
+      {
+        "codi": "17001395",
+        "centre": "Escola Santa Coloma - ZER Cerdanya",
+        "localitat": "Ger"
+      },
+      {
+        "codi": "17002090",
+        "centre": "Escola Jaume I - ZER Cerdanya",
+        "localitat": "Llívia"
+      },
+      {
+        "codi": "17004888",
+        "centre": "Escola Santa Cecília - ZER Cerdanya",
+        "localitat": "Bolvir"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007440",
+    "nom": "ZER Vall de Ter",
+    "localitat": "Sant Pau de Segúries",
+    "centres": [
+      {
+        "codi": "17002065",
+        "centre": "Escola Les Moreres - ZER Vall de Ter",
+        "localitat": "Llanars"
+      },
+      {
+        "codi": "17003616",
+        "centre": "Escola Els Pinets - ZER Vall de Ter",
+        "localitat": "Sant Pau de Segúries"
+      },
+      {
+        "codi": "17004219",
+        "centre": "Escola La Daina - ZER Vall de Ter",
+        "localitat": "Vilallonga de Ter"
+      },
+      {
+        "codi": "17005029",
+        "centre": "Escola L'Esquirol - ZER Vall de Ter",
+        "localitat": "Ogassa"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007452",
+    "nom": "ZER El Llierca",
+    "localitat": "Sant Jaume de Llierca",
+    "centres": [
+      {
+        "codi": "17002247",
+        "centre": "Escola Mont Cós - ZER El Llierca",
+        "localitat": "Montagut"
+      },
+      {
+        "codi": "17003461",
+        "centre": "Escola Les Escomes - ZER El Llierca",
+        "localitat": "Sant Jaume de Llierca"
+      },
+      {
+        "codi": "17003902",
+        "centre": "Escola Joan Roura i Parella - ZER El Llierca",
+        "localitat": "Tortellà"
+      },
+      {
+        "codi": "17005261",
+        "centre": "Escola Montpalau - ZER El Llierca",
+        "localitat": "Argelaguer"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007464",
+    "nom": "ZER Comte Arnau",
+    "localitat": "Vallfogona de Ripollès",
+    "centres": [
+      {
+        "codi": "17002764",
+        "centre": "Escola Núria Morer i Pi - ZER Comte Arnau",
+        "localitat": "Planoles"
+      },
+      {
+        "codi": "17003537",
+        "centre": "Escola de Vallfogona de Ripollès - ZER Comte Arnau",
+        "localitat": "Vallfogona de Ripollès"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007488",
+    "nom": "ZER Requesens",
+    "localitat": "Capmany",
+    "centres": [
+      {
+        "codi": "17000822",
+        "centre": "Escola Els Dòlmens - ZER Requesens",
+        "localitat": "Capmany"
+      },
+      {
+        "codi": "17001036",
+        "centre": "Escola Mont-roig - ZER Requesens",
+        "localitat": "Darnius"
+      },
+      {
+        "codi": "17001085",
+        "centre": "Escola Antoni Balmanya - ZER Requesens",
+        "localitat": "Espolla"
+      },
+      {
+        "codi": "17003227",
+        "centre": "Escola Sant Sebastià - ZER Requesens",
+        "localitat": "Sant Climent Sescebes"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007518",
+    "nom": "ZER Les Salines",
+    "localitat": "Agullana",
+    "centres": [
+      {
+        "codi": "17000019",
+        "centre": "Escola Lluís Marià Vidal - ZER Les Salines",
+        "localitat": "Agullana"
+      },
+      {
+        "codi": "17000603",
+        "centre": "Escola Santa Cecília - ZER Les Salines",
+        "localitat": "Boadella d'Empordà"
+      },
+      {
+        "codi": "17002168",
+        "centre": "Escola Les Salines - ZER Les Salines",
+        "localitat": "Maçanet de Cabrenys"
+      },
+      {
+        "codi": "17004293",
+        "centre": "Escola Manuel de Pedrolo - ZER Les Salines",
+        "localitat": "Biure"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007531",
+    "nom": "ZER Montgrí",
+    "localitat": "Albons",
+    "centres": [
+      {
+        "codi": "17000056",
+        "centre": "Escola la Branca - ZER Montgrí",
+        "localitat": "Albons"
+      },
+      {
+        "codi": "17000381",
+        "centre": "Escola El Rajaret - ZER Montgrí",
+        "localitat": "Bellcaire d'Empordà"
+      },
+      {
+        "codi": "17003938",
+        "centre": "Escola Puig Rodó - ZER Montgrí",
+        "localitat": "Ullà"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007695",
+    "nom": "ZER Empordà",
+    "localitat": "Santa Llogaia d'Àlguema",
+    "centres": [
+      {
+        "codi": "17000937",
+        "centre": "Escola Mossèn Josep Maria Albert - ZER Empordà",
+        "localitat": "Cistella"
+      },
+      {
+        "codi": "17001371",
+        "centre": "Escola de Garrigàs - ZER Empordà",
+        "localitat": "Garrigàs"
+      },
+      {
+        "codi": "17002776",
+        "centre": "Escola Tramuntana - ZER Empordà",
+        "localitat": "Pont de Molins"
+      },
+      {
+        "codi": "17004244",
+        "centre": "Escola Tramuntana - ZER Empordà",
+        "localitat": "Vilanant"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17009473",
+    "nom": "ZER Empordanet-Gavarres",
+    "localitat": "Cruïlles, Monells i Sant Sadurní l'Heura",
+    "centres": [
+      {
+        "codi": "17001024",
+        "centre": "Escola Les Gavarres - ZER Empordanet-Gavarres",
+        "localitat": "Cruïlles"
+      },
+      {
+        "codi": "17002715",
+        "centre": "Escola Pedra Blanca - ZER Empordanet-Gavarres",
+        "localitat": "La Pera"
+      },
+      {
+        "codi": "17003631",
+        "centre": "Escola La Pedra Dreta - ZER Empordanet-Gavarres",
+        "localitat": "Sant Sadurní de l'Heura"
+      },
+      {
+        "codi": "17003941",
+        "centre": "Escola L'Estany - ZER Empordanet-Gavarres",
+        "localitat": "Ullastret"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17009631",
+    "nom": "ZER Cap de Creus",
+    "localitat": "El Port de la Selva",
+    "centres": [
+      {
+        "codi": "17000950",
+        "centre": "Escola Puig d'Esquers - ZER Cap de Creus",
+        "localitat": "Colera"
+      },
+      {
+        "codi": "17002879",
+        "centre": "Escola Les Clisques - ZER Cap de Creus",
+        "localitat": "El Port de la Selva"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007761",
+    "nom": "ZER Guicivervi",
+    "localitat": "Ciutadilla",
+    "centres": [
+      {
+        "codi": "25001357",
+        "centre": "Escola de Ciutadilla - ZER Guicivervi",
+        "localitat": "Ciutadilla"
+      },
+      {
+        "codi": "25001758",
+        "centre": "Escola de Guimerà - ZER Guicivervi",
+        "localitat": "Guimerà"
+      },
+      {
+        "codi": "25004863",
+        "centre": "Escola Jardí - ZER Guicivervi",
+        "localitat": "Verdú"
+      },
+      {
+        "codi": "25004966",
+        "centre": "Escola Ramon Perelló - ZER Guicivervi",
+        "localitat": "Vilagrassa"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007773",
+    "nom": "ZER La Segarra",
+    "localitat": "Els Plans de Sió",
+    "centres": [
+      {
+        "codi": "25003500",
+        "centre": "Escola de les Pallargues - ZER La Segarra",
+        "localitat": "Les Pallargues"
+      },
+      {
+        "codi": "25004024",
+        "centre": "Escola de Sanaüja - ZER La Segarra",
+        "localitat": "Sanaüja"
+      },
+      {
+        "codi": "25004073",
+        "centre": "Escola Mare de Déu de la Mercè - ZER La Segarra",
+        "localitat": "Sant Ramon"
+      },
+      {
+        "codi": "25004085",
+        "centre": "Escola Vall Ondara - ZER La Segarra",
+        "localitat": "Sant Antolí i Vilanova"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007797",
+    "nom": "ZER Baridà-Batllia",
+    "localitat": "Montellà i Martinet",
+    "centres": [
+      {
+        "codi": "25003056",
+        "centre": "Escola Portella Blanca - ZER Baridà-Batllia",
+        "localitat": "Lles de Cerdanya"
+      },
+      {
+        "codi": "25003263",
+        "centre": "Escola Pere Sarret - ZER Baridà-Batllia",
+        "localitat": "Martinet"
+      },
+      {
+        "codi": "25003275",
+        "centre": "Escola Ridolaina - ZER Baridà-Batllia",
+        "localitat": "Montellà"
+      },
+      {
+        "codi": "25003846",
+        "centre": "Escola El Puig - ZER Baridà-Batllia",
+        "localitat": "Prullans"
+      },
+      {
+        "codi": "25005983",
+        "centre": "Escola Sant Serni - ZER Baridà-Batllia",
+        "localitat": "Prats"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007803",
+    "nom": "ZER Alt Pallars Sobirà",
+    "localitat": "Vall de Cardós",
+    "centres": [
+      {
+        "codi": "25000316",
+        "centre": "Escola d'Alins - ZER Alt Pallars Sobirà",
+        "localitat": "Alins"
+      },
+      {
+        "codi": "25003032",
+        "centre": "Escola de Llavorsí - ZER Alt Pallars Sobirà",
+        "localitat": "Llavorsí"
+      },
+      {
+        "codi": "25003871",
+        "centre": "Escola Montsent de Pallars - ZER Alt Pallars Sobirà",
+        "localitat": "Rialp"
+      },
+      {
+        "codi": "25003895",
+        "centre": "Escola Els Minairons - ZER Alt Pallars Sobirà",
+        "localitat": "Ribera de Cardós"
+      },
+      {
+        "codi": "25004577",
+        "centre": "Escola de Tírvia - ZER Alt Pallars Sobirà",
+        "localitat": "Tírvia"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007815",
+    "nom": "ZER Elaia",
+    "localitat": "Bellaguarda",
+    "centres": [
+      {
+        "codi": "25001126",
+        "centre": "Escola Vallmajor - ZER Elaia",
+        "localitat": "Bovera"
+      },
+      {
+        "codi": "25001710",
+        "centre": "Escola de la Granadella - ZER Elaia",
+        "localitat": "La Granadella"
+      },
+      {
+        "codi": "25003676",
+        "centre": "Escola Els Set Focs - ZER Elaia",
+        "localitat": "Bellaguarda"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007827",
+    "nom": "ZER Narieda",
+    "localitat": "Organyà",
+    "centres": [
+      {
+        "codi": "25001400",
+        "centre": "Escola Sant Climent - ZER Narieda",
+        "localitat": "Coll de Nargó"
+      },
+      {
+        "codi": "25003469",
+        "centre": "Escola Miret i Sans - ZER Narieda",
+        "localitat": "Organyà"
+      },
+      {
+        "codi": "25003585",
+        "centre": "Escola Sant Miquel - ZER Narieda",
+        "localitat": "Peramola"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007839",
+    "nom": "ZER Pallars Jussà",
+    "localitat": "Abella de la Conca",
+    "centres": [
+      {
+        "codi": "25001886",
+        "centre": "Escola Aeso - ZER Pallars Jussà",
+        "localitat": "Isona"
+      },
+      {
+        "codi": "25008765",
+        "centre": "Escola La Vall Fosca - ZER Pallars Jussà",
+        "localitat": "La Plana de Mont-ros"
+      },
+      {
+        "codi": "25010231",
+        "centre": "Escola de Salàs de Pallars - ZER Pallars Jussà",
+        "localitat": "Salàs de Pallars"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007840",
+    "nom": "ZER Montsec",
+    "localitat": "Les Avellanes i Santa Linya",
+    "centres": [
+      {
+        "codi": "25000031",
+        "centre": "Escola Andreu Farran - ZER Montsec",
+        "localitat": "Àger"
+      },
+      {
+        "codi": "25000699",
+        "centre": "Escola de Les Avellanes - ZER Montsec",
+        "localitat": "Les Avellanes"
+      },
+      {
+        "codi": "25000717",
+        "centre": "Escola de Tartareu - ZER Montsec",
+        "localitat": "Tartareu"
+      },
+      {
+        "codi": "25003470",
+        "centre": "Escola L'Espígol - ZER Montsec",
+        "localitat": "Gerb"
+      },
+      {
+        "codi": "25003482",
+        "centre": "Escola Leandre Cristòfol - ZER Montsec",
+        "localitat": "Os de Balaguer"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007852",
+    "nom": "ZER El Sió",
+    "localitat": "Montgai",
+    "centres": [
+      {
+        "codi": "25003238",
+        "centre": "Escola de Butsènit - ZER El Sió",
+        "localitat": "Butsènit"
+      },
+      {
+        "codi": "25003810",
+        "centre": "Escola de Preixens - ZER El Sió",
+        "localitat": "Preixens"
+      },
+      {
+        "codi": "25003822",
+        "centre": "Escola de Les Ventoses - ZER El Sió",
+        "localitat": "Les Ventoses"
+      },
+      {
+        "codi": "25003858",
+        "centre": "Escola de Puigverd d'Agramunt - ZER El Sió",
+        "localitat": "Puigverd d'Agramunt"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007864",
+    "nom": "ZER Urgellet",
+    "localitat": "Ribera d'Urgellet",
+    "centres": [
+      {
+        "codi": "25000122",
+        "centre": "Escola Sant Esteve - ZER Urgellet",
+        "localitat": "Alàs"
+      },
+      {
+        "codi": "25001242",
+        "centre": "Escola Castell-Ciutat - ZER Urgellet",
+        "localitat": "Castellciutat"
+      },
+      {
+        "codi": "25003299",
+        "centre": "Escola Rosa Campà - ZER Urgellet",
+        "localitat": "Montferrer"
+      },
+      {
+        "codi": "25003950",
+        "centre": "Escola Arnau Mir - ZER Urgellet",
+        "localitat": "El Pla de Sant Tirs"
+      },
+      {
+        "codi": "25004826",
+        "centre": "Escola de Tuixent - ZER Urgellet",
+        "localitat": "Tuixén"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007876",
+    "nom": "ZER Riu Corb",
+    "localitat": "Maldà",
+    "centres": [
+      {
+        "codi": "25000951",
+        "centre": "Escola Pere Teixiné - ZER Riu Corb",
+        "localitat": "Belianes"
+      },
+      {
+        "codi": "25003809",
+        "centre": "Escola Montalbà - ZER Riu Corb",
+        "localitat": "Preixana"
+      },
+      {
+        "codi": "25004103",
+        "centre": "Escola El Tallat - ZER Riu Corb",
+        "localitat": "Sant Martí de Maldà"
+      },
+      {
+        "codi": "25005892",
+        "centre": "Escola Maldanell - ZER Riu Corb",
+        "localitat": "Maldà"
+      },
+      {
+        "codi": "25005909",
+        "centre": "Escola Mossèn Ramon Muntanyola - ZER Riu Corb",
+        "localitat": "Els Omells de na Gaia"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007888",
+    "nom": "ZER Garrigues Altes",
+    "localitat": "Juncosa",
+    "centres": [
+      {
+        "codi": "25001916",
+        "centre": "Escola L'Espígol - ZER Garrigues Altes",
+        "localitat": "Juncosa"
+      },
+      {
+        "codi": "25004231",
+        "centre": "Escola del Soleràs - ZER Garrigues Altes",
+        "localitat": "El Soleràs"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007891",
+    "nom": "ZER Alta Ribagorça",
+    "localitat": "La Vall de Boí",
+    "centres": [
+      {
+        "codi": "25004981",
+        "centre": "Escola Vidal i Abad - ZER Alta Ribagorça",
+        "localitat": "Vilaller"
+      },
+      {
+        "codi": "25006549",
+        "centre": "Escola d'Espluga de Serra - ZER Alta Ribagorça",
+        "localitat": "Espluga de Serra"
+      },
+      {
+        "codi": "25008534",
+        "centre": "Escola de La Vall de Boí - ZER Alta Ribagorça",
+        "localitat": "Barruera"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007906",
+    "nom": "ZER Serra Llarga",
+    "localitat": "Algerri",
+    "centres": [
+      {
+        "codi": "25000286",
+        "centre": "Escola Sant Blai - ZER Serra Llarga",
+        "localitat": "Algerri"
+      },
+      {
+        "codi": "25001278",
+        "centre": "Escola Santa Maria - ZER Serra Llarga",
+        "localitat": "Castelló de Farfanya"
+      },
+      {
+        "codi": "25001795",
+        "centre": "Escola Sant Sebastià - ZER Serra Llarga",
+        "localitat": "Ivars de Noguera"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007918",
+    "nom": "ZER L'Oliver",
+    "localitat": "Llardecans",
+    "centres": [
+      {
+        "codi": "25001722",
+        "centre": "Escola Sant Jaume - ZER L'Oliver",
+        "localitat": "La Granja d'Escarp"
+      },
+      {
+        "codi": "25003019",
+        "centre": "Escola Arc d'Adà - ZER L'Oliver",
+        "localitat": "Llardecans"
+      },
+      {
+        "codi": "25003111",
+        "centre": "Escola de Massalcoreig - ZER L'Oliver",
+        "localitat": "Massalcoreig"
+      },
+      {
+        "codi": "25003123",
+        "centre": "Escola Otogesa - ZER L'Oliver",
+        "localitat": "Maials"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007921",
+    "nom": "ZER L'Horta de Lleida",
+    "localitat": "Lleida",
+    "centres": [
+      {
+        "codi": "25000110",
+        "centre": "Escola Arrels - ZER l'Horta de Lleida",
+        "localitat": "Alamús, els"
+      },
+      {
+        "codi": "25001990",
+        "centre": "Escola Antoni Bergós - ZER L'Horta de Lleida",
+        "localitat": "Butsènit"
+      },
+      {
+        "codi": "25002131",
+        "centre": "Escola Creu del Batlle - ZER L'Horta de Lleida",
+        "localitat": "Lleida"
+      },
+      {
+        "codi": "25002854",
+        "centre": "Escola El Segrià - ZER L'Horta de Lleida",
+        "localitat": "Llívia"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007931",
+    "nom": "ZER Val d'Aran",
+    "localitat": "Naut Aran",
+    "centres": [
+      {
+        "codi": "25000535",
+        "centre": "Escola Loseron - ZER Val d'Aran",
+        "localitat": "Arties"
+      },
+      {
+        "codi": "25000559",
+        "centre": "Escola Sant Martí - ZER Val d'Aran",
+        "localitat": "Gessa"
+      },
+      {
+        "codi": "25000560",
+        "centre": "Escola Ruda - ZER Val d'Aran",
+        "localitat": "Salardú"
+      },
+      {
+        "codi": "25001138",
+        "centre": "Escola Casteth Leon - ZER Val d'Aran",
+        "localitat": "Es Bòrdes"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25007943",
+    "nom": "ZER Plaurcén",
+    "localitat": "Bellvís",
+    "centres": [
+      {
+        "codi": "25003652",
+        "centre": "Escola El Roser - ZER Plaurcén",
+        "localitat": "El Poal"
+      },
+      {
+        "codi": "25004221",
+        "centre": "Escola El Timó - ZER Plaurcén",
+        "localitat": "Sidamon"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008042",
+    "nom": "ZER Riu Set",
+    "localitat": "L'Albi",
+    "centres": [
+      {
+        "codi": "25000171",
+        "centre": "Escola Els Aubis - ZER Riu Set",
+        "localitat": "Albi, l'"
+      },
+      {
+        "codi": "25001333",
+        "centre": "Escola El Cérvol - ZER Riu Set",
+        "localitat": "Cervià de les Garrigues"
+      },
+      {
+        "codi": "25003664",
+        "centre": "Escola Josep Espasa - ZER Riu Set",
+        "localitat": "La Pobla de Cérvoles"
+      },
+      {
+        "codi": "25005107",
+        "centre": "Escola Sant Bonifaci - ZER Riu Set",
+        "localitat": "Vinaixa"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008054",
+    "nom": "ZER Vall de l'Aranyó",
+    "localitat": "Castelldans",
+    "centres": [
+      {
+        "codi": "25000146",
+        "centre": "Escola Mare de Déu de Montserrat - ZER Vall de l'Aranyó",
+        "localitat": "Albagés, l'"
+      },
+      {
+        "codi": "25001254",
+        "centre": "Escola Timorell - ZER Vall de l'Aranyó",
+        "localitat": "Castelldans"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008066",
+    "nom": "ZER Espernallac",
+    "localitat": "Bellmunt d'Urgell",
+    "centres": [
+      {
+        "codi": "25001001",
+        "centre": "Escola Sant Bartomeu - ZER Espernallac",
+        "localitat": "Bellmunt d'Urgell"
+      },
+      {
+        "codi": "25001281",
+        "centre": "Escola El Terrall - ZER Espernallac",
+        "localitat": "Castellserà"
+      },
+      {
+        "codi": "25003551",
+        "centre": "Escola Ramon Gombal - ZER Espernallac",
+        "localitat": "Penelles"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008078",
+    "nom": "ZER El Romaní",
+    "localitat": "Montgai",
+    "centres": [
+      {
+        "codi": "25000675",
+        "centre": "Escola Mare de Déu de la Guardiola - ZER El Romaní",
+        "localitat": "La Sentiu de Sió"
+      },
+      {
+        "codi": "25001436",
+        "centre": "Escola Sol Naixent - ZER El Romaní",
+        "localitat": "Cubells"
+      },
+      {
+        "codi": "25003241",
+        "centre": "Escola Colomina - ZER El Romaní",
+        "localitat": "Montgai"
+      },
+      {
+        "codi": "25005053",
+        "centre": "Escola Mare de Déu del Puig de Meià - ZER El Romaní",
+        "localitat": "Vilanova de Meià"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008081",
+    "nom": "ZER El Jonc",
+    "localitat": "Camarasa",
+    "centres": [
+      {
+        "codi": "25001229",
+        "centre": "Escola Dos Rius - ZER El Jonc",
+        "localitat": "Camarasa"
+      },
+      {
+        "codi": "25003135",
+        "centre": "Escola Joan Ros i Porta - ZER El Jonc",
+        "localitat": "Menàrguens"
+      },
+      {
+        "codi": "25008935",
+        "centre": "Escola La Ràpita - ZER El Jonc",
+        "localitat": "La Ràpita"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008091",
+    "nom": "ZER Vent Serè",
+    "localitat": "Vilanova de Bellpuig",
+    "centres": [
+      {
+        "codi": "25001266",
+        "centre": "Escola L'Estel - ZER Vent Serè",
+        "localitat": "Castellnou de Seana"
+      },
+      {
+        "codi": "25005077",
+        "centre": "Escola Mossèn Ton Clavé - ZER Vent Serè",
+        "localitat": "Vila-sana"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008108",
+    "nom": "ZER L'Eral",
+    "localitat": "Sarroca de Lleida",
+    "centres": [
+      {
+        "codi": "25000183",
+        "centre": "Escola La Dula - ZER L'Eral",
+        "localitat": "Alcanó"
+      },
+      {
+        "codi": "25000274",
+        "centre": "Escola d'Alfés - ZER L'Eral",
+        "localitat": "Alfés"
+      },
+      {
+        "codi": "25004115",
+        "centre": "Escola La Roca - ZER L'Eral",
+        "localitat": "Sarroca de Lleida"
+      },
+      {
+        "codi": "25004413",
+        "centre": "Escola de Sunyer - ZER L'Eral",
+        "localitat": "Sunyer"
+      },
+      {
+        "codi": "25004656",
+        "centre": "Escola de Torrebesses - ZER L'Eral",
+        "localitat": "Torrebesses"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008111",
+    "nom": "ZER La Coma",
+    "localitat": "Sudanell",
+    "centres": [
+      {
+        "codi": "25003305",
+        "centre": "Escola Sant Isidre - ZER La Coma",
+        "localitat": "Montoliu de Lleida"
+      },
+      {
+        "codi": "25004401",
+        "centre": "Escola El Roser - ZER La Coma",
+        "localitat": "Sudanell"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008133",
+    "nom": "ZER Ponent",
+    "localitat": "Lleida",
+    "centres": [
+      {
+        "codi": "25000481",
+        "centre": "Escola Sant Isidre - ZER Ponent",
+        "localitat": "Gimenells"
+      },
+      {
+        "codi": "25000511",
+        "centre": "Escola Inocencio Pardos - ZER Ponent",
+        "localitat": "El Pla de la Font"
+      },
+      {
+        "codi": "25002921",
+        "centre": "Escola El Vilot - ZER Ponent",
+        "localitat": "Sucs"
+      },
+      {
+        "codi": "25010085",
+        "centre": "Escola Josep Mañé i Gavaldà - ZER Ponent",
+        "localitat": "Raïmat"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008145",
+    "nom": "ZER Alt Segrià",
+    "localitat": "Benavent de Segrià",
+    "centres": [
+      {
+        "codi": "25003792",
+        "centre": "Escola Blanca de Villalonga - ZER Alt Segrià",
+        "localitat": "La Portella"
+      },
+      {
+        "codi": "25004759",
+        "centre": "Escola El Roser - ZER Alt Segrià",
+        "localitat": "Torre-serona"
+      },
+      {
+        "codi": "25005065",
+        "centre": "Escola de Vilanova de Segrià - ZER Alt Segrià",
+        "localitat": "Vilanova de Segrià"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008157",
+    "nom": "ZER Riu Ondara",
+    "localitat": "Tornabous",
+    "centres": [
+      {
+        "codi": "25000869",
+        "centre": "Escola Sant Roc - ZER Riu Ondara",
+        "localitat": "Barbens"
+      },
+      {
+        "codi": "25004644",
+        "centre": "Escola Espígol - ZER Riu Ondara",
+        "localitat": "Tornabous"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008224",
+    "nom": "ZER Argelaga",
+    "localitat": "Corbins",
+    "centres": [
+      {
+        "codi": "25005090",
+        "centre": "Escola Mestral - ZER Argelaga",
+        "localitat": "Vilanova de la Barca"
+      },
+      {
+        "codi": "25009800",
+        "centre": "Escola Torrelameu - ZER Argelaga",
+        "localitat": "Torrelameu"
+      }
+    ]
+  },
+  {
+    "SSTT": "LLE",
+    "codi": "25008236",
+    "nom": "ZER Pedrera",
+    "localitat": "Els Omellons",
+    "centres": [
+      {
+        "codi": "25001473",
+        "centre": "Escola Porcel de Cervera - ZER Pedrera",
+        "localitat": "L'Espluga Calba"
+      },
+      {
+        "codi": "25005910",
+        "centre": "Escola Abat Ruera - ZER Pedrera",
+        "localitat": "Puiggròs"
+      }
+    ]
+  },
+  {
+    "SSTT": "CCE",
+    "codi": "25009009",
+    "nom": "ZER El Solsonès",
+    "localitat": "Llobera",
+    "centres": [
+      {
+        "codi": "25002982",
+        "centre": "Escola de Lladurs - ZER El Solsonès",
+        "localitat": "Lladurs"
+      },
+      {
+        "codi": "25003093",
+        "centre": "Escola de Llobera - ZER El Solsonès",
+        "localitat": "Llobera"
+      },
+      {
+        "codi": "25003330",
+        "centre": "Escola Aiguadora - ZER El Solsonès",
+        "localitat": "Navès"
+      },
+      {
+        "codi": "25003536",
+        "centre": "Escola de la Coma - ZER El Solsonès",
+        "localitat": "La Coma"
+      },
+      {
+        "codi": "25003627",
+        "centre": "Escola de Sant Climent - ZER El Solsonès",
+        "localitat": "Sant Climenç"
+      },
+      {
+        "codi": "25003974",
+        "centre": "Escola de Freixinet de Solsona - ZER El Solsonès",
+        "localitat": "Freixinet"
+      },
+      {
+        "codi": "25006069",
+        "centre": "Escola d'Ardèvol - ZER El Solsonès",
+        "localitat": "Ardèvol"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009001",
+    "nom": "ZER Montsant-Serra de Prades",
+    "localitat": "Cornudella de Montsant",
+    "centres": [
+      {
+        "codi": "43000962",
+        "centre": "Escola Dr. Piñol i Aguadé - ZER Montsant-Serra de Prades",
+        "localitat": "Cornudella de Montsant"
+      },
+      {
+        "codi": "43002053",
+        "centre": "Escola Garbí - ZER Montsant-Serra de Prades",
+        "localitat": "Poboleda"
+      },
+      {
+        "codi": "43004487",
+        "centre": "Escola Montsant - ZER Montsant-Serra de Prades",
+        "localitat": "Ulldemolins"
+      },
+      {
+        "codi": "43005510",
+        "centre": "Escola Serra de Prades - ZER Montsant-Serra de Prades",
+        "localitat": "Prades"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009011",
+    "nom": "ZER Riu Avall",
+    "localitat": "Tivenys",
+    "centres": [
+      {
+        "codi": "43003801",
+        "centre": "Escola La Pineda - ZER Riu Avall",
+        "localitat": "Tivenys"
+      },
+      {
+        "codi": "43003951",
+        "centre": "Escola Bítem - ZER Riu Avall",
+        "localitat": "Bítem"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009023",
+    "nom": "ZER L'Aglà",
+    "localitat": "La Figuera",
+    "centres": [
+      {
+        "codi": "43001310",
+        "centre": "Escola Llicorella - ZER L'Aglà",
+        "localitat": "Gratallops"
+      },
+      {
+        "codi": "43005455",
+        "centre": "Escola Pius XII - ZER L'Aglà",
+        "localitat": "El Molar"
+      },
+      {
+        "codi": "43010839",
+        "centre": "Escola Serra Major - ZER L'Aglà",
+        "localitat": "La Vilella Baixa"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009035",
+    "nom": "ZER Atzavara",
+    "localitat": "Vilabella",
+    "centres": [
+      {
+        "codi": "43000226",
+        "centre": "Escola La Barquera - ZER Atzavara",
+        "localitat": "Alió"
+      },
+      {
+        "codi": "43000652",
+        "centre": "Escola Sant Jaume de Bràfim - ZER Atzavara",
+        "localitat": "Bràfim"
+      },
+      {
+        "codi": "43001796",
+        "centre": "Escola Sant Sebastià - ZER Atzavara",
+        "localitat": "Nulles"
+      },
+      {
+        "codi": "43005637",
+        "centre": "Escola Manuel de Castellví i Feliu - ZER Atzavara",
+        "localitat": "Vilabella"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009047",
+    "nom": "ZER Baix Priorat",
+    "localitat": "Bellmunt del Priorat",
+    "centres": [
+      {
+        "codi": "43000512",
+        "centre": "Escola El Sarraí - ZER Baix Priorat",
+        "localitat": "Bellmunt del Priorat"
+      },
+      {
+        "codi": "43001498",
+        "centre": "Escola Onze de Setembre - ZER Baix Priorat",
+        "localitat": "El Masroig"
+      },
+      {
+        "codi": "43005509",
+        "centre": "Escola Rossend Giol - ZER Baix Priorat",
+        "localitat": "Porrera"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009059",
+    "nom": "ZER Baix Camp Nord",
+    "localitat": "Vilaplana",
+    "centres": [
+      {
+        "codi": "43000184",
+        "centre": "Escola Teresa Salvat i Llauradó - ZER Baix Camp Nord",
+        "localitat": "L'Aleixar"
+      },
+      {
+        "codi": "43010621",
+        "centre": "Escola Cingle Roig - ZER Baix Camp Nord",
+        "localitat": "Vilaplana"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009072",
+    "nom": "ZER Conca de Barberà",
+    "localitat": "Rocafort de Queralt",
+    "centres": [
+      {
+        "codi": "43000470",
+        "centre": "Escola Valldemur - ZER Conca de Barberà",
+        "localitat": "Barberà de la Conca"
+      },
+      {
+        "codi": "43001954",
+        "centre": "Escola Antoni Tous - ZER Conca de Barberà",
+        "localitat": "Pira"
+      },
+      {
+        "codi": "43003124",
+        "centre": "Escola Sagrat Cor - ZER Conca de Barberà",
+        "localitat": "Solivella"
+      },
+      {
+        "codi": "43006371",
+        "centre": "Escola Sant Roc - ZER Conca de Barberà",
+        "localitat": "Rocafort de Queralt"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009084",
+    "nom": "ZER Montsià",
+    "localitat": "Mas de Barberans",
+    "centres": [
+      {
+        "codi": "43001395",
+        "centre": "Escola Teresa Subirats i Mestre - ZER Montsià",
+        "localitat": "Mas de Barberans"
+      },
+      {
+        "codi": "43001437",
+        "centre": "Escola Rosa Gisbert - ZER Montsià",
+        "localitat": "Masdenverge"
+      },
+      {
+        "codi": "43005388",
+        "centre": "Escola Mestre Josep Roncero i Pallarès - ZER Montsià",
+        "localitat": "Freginals"
+      },
+      {
+        "codi": "43005391",
+        "centre": "Escola Sant Llorenç - ZER Montsià",
+        "localitat": "La Galera"
+      },
+      {
+        "codi": "43005418",
+        "centre": "Escola Sant Salvador - ZER Montsià",
+        "localitat": "Godall"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009096",
+    "nom": "ZER Els Ceps",
+    "localitat": "Masllorenç",
+    "centres": [
+      {
+        "codi": "43000615",
+        "centre": "Escola L'Estel - ZER Els Ceps",
+        "localitat": "Bonastre"
+      },
+      {
+        "codi": "43005421",
+        "centre": "Escola Berenguer de Montoliu - ZER Els Ceps",
+        "localitat": "Masllorenç"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009114",
+    "nom": "ZER El Francolí",
+    "localitat": "Vallmoll",
+    "centres": [
+      {
+        "codi": "43001462",
+        "centre": "Escola Els Til·lers - ZER El Francolí",
+        "localitat": "La Masó"
+      },
+      {
+        "codi": "43004517",
+        "centre": "Escola Rocabruna - ZER El Francolí",
+        "localitat": "Picamoixons"
+      },
+      {
+        "codi": "43005546",
+        "centre": "Escola de La Riba - ZER El Francolí",
+        "localitat": "La Riba"
+      },
+      {
+        "codi": "43012903",
+        "centre": "Escola El Bosc - ZER El Francolí",
+        "localitat": "Mont-ral"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009126",
+    "nom": "ZER Baix Camp Sud",
+    "localitat": "Botarell",
+    "centres": [
+      {
+        "codi": "43004888",
+        "centre": "Escola Font de l'Arc - ZER Baix Camp Sud",
+        "localitat": "Vilanova d'Escornalbou"
+      },
+      {
+        "codi": "43005376",
+        "centre": "Escola Puigmarí - ZER Baix Camp Sud",
+        "localitat": "Duesaigües"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009138",
+    "nom": "ZER La Parellada",
+    "localitat": "Aiguamúrcia",
+    "centres": [
+      {
+        "codi": "43000688",
+        "centre": "Escola de Cabra del Camp - ZER La Parellada",
+        "localitat": "Cabra del Camp"
+      },
+      {
+        "codi": "43001115",
+        "centre": "Escola Mare de Déu de l'Esperança - ZER La Parellada",
+        "localitat": "Figuerola del Camp"
+      },
+      {
+        "codi": "43005492",
+        "centre": "Escola Santa Magdalena - ZER La Parellada",
+        "localitat": "El Pont d'Armentera"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43009141",
+    "nom": "ZER Poblet",
+    "localitat": "Vimbodí i Poblet",
+    "centres": [
+      {
+        "codi": "43000603",
+        "centre": "Escola de Blancafort - ZER Poblet",
+        "localitat": "Blancafort"
+      },
+      {
+        "codi": "43005017",
+        "centre": "Escola del Montgoi - ZER Poblet",
+        "localitat": "Vilaverd"
+      },
+      {
+        "codi": "43005081",
+        "centre": "Escola Mare de Déu dels Torrents - ZER Poblet",
+        "localitat": "Vimbodí"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009229",
+    "nom": "ZER Ports-Algars",
+    "localitat": "Arnes",
+    "centres": [
+      {
+        "codi": "43000421",
+        "centre": "Escola La Miranda - ZER Ports-Algars",
+        "localitat": "Arnes"
+      },
+      {
+        "codi": "43000809",
+        "centre": "Escola La Gessera - ZER Ports-Algars",
+        "localitat": "Caseres"
+      },
+      {
+        "codi": "43002144",
+        "centre": "Escola Mare de Déu de la Fontcalda - ZER Ports-Algars",
+        "localitat": "Prat de Comte"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009308",
+    "nom": "ZER Mediterrània",
+    "localitat": "Alcanar",
+    "centres": [
+      {
+        "codi": "43005613",
+        "centre": "Escola Setze de Febrer - ZER Mediterrània",
+        "localitat": "Els Muntells"
+      },
+      {
+        "codi": "43005698",
+        "centre": "Escola Marjal - ZER Mediterrània",
+        "localitat": "Les Cases d'Alcanar"
+      },
+      {
+        "codi": "43009217",
+        "centre": "Escola del Poble Nou del Delta - ZER Mediterrània",
+        "localitat": "El Poblenou del Delta"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009311",
+    "nom": "ZER Mont Caro",
+    "localitat": "Roquetes",
+    "centres": [
+      {
+        "codi": "43005315",
+        "centre": "Escola d'Alfara de Carles - ZER Mont Caro",
+        "localitat": "Alfara de Carles"
+      },
+      {
+        "codi": "43005625",
+        "centre": "Escola Sant Antoni Abat - ZER Mont Caro",
+        "localitat": "Els Reguers"
+      },
+      {
+        "codi": "43005674",
+        "centre": "Escola Raval de Cristo - ZER Mont Caro",
+        "localitat": "El Raval de Crist"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009321",
+    "nom": "ZER Riu i Serra",
+    "localitat": "Benifallet",
+    "centres": [
+      {
+        "codi": "43000551",
+        "centre": "Escola Llorenç Vallespí i Vidiella - ZER Riu i Serra",
+        "localitat": "Benifallet"
+      },
+      {
+        "codi": "43001851",
+        "centre": "Escola Sant Roc - ZER Riu i Serra",
+        "localitat": "Paüls"
+      },
+      {
+        "codi": "43005303",
+        "centre": "Escola Sant Jordi - ZER Riu i Serra",
+        "localitat": "Aldover"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009345",
+    "nom": "ZER Ribera d'Ebre Nord",
+    "localitat": "Garcia",
+    "centres": [
+      {
+        "codi": "43005108",
+        "centre": "Escola Les Eres - ZER Ribera d'Ebre Nord",
+        "localitat": "Vinebre"
+      },
+      {
+        "codi": "43005406",
+        "centre": "Escola El Verger - ZER Ribera d'Ebre Nord",
+        "localitat": "Garcia"
+      },
+      {
+        "codi": "43005601",
+        "centre": "Escola El Tormo - ZER Ribera d'Ebre Nord",
+        "localitat": "La Torre de l'Espanyol"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009370",
+    "nom": "ZER Terra Alta Nord",
+    "localitat": "Vilalba dels Arcs",
+    "centres": [
+      {
+        "codi": "43001097",
+        "centre": "Escola Los Castellets - ZER Terra Alta Nord",
+        "localitat": "La Fatarella"
+      },
+      {
+        "codi": "43002016",
+        "centre": "Escola L'Ametller - ZER Terra Alta Nord",
+        "localitat": "La Pobla de Massaluca"
+      },
+      {
+        "codi": "43005650",
+        "centre": "Escola El Diví Mestre - ZER Terra Alta Nord",
+        "localitat": "Vilalba dels Arcs"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009394",
+    "nom": "ZER La Font de l'Aiguadí",
+    "localitat": "Rasquera",
+    "centres": [
+      {
+        "codi": "43001280",
+        "centre": "Escola Pàmies - ZER La Font de l'Aiguadí",
+        "localitat": "Ginestar"
+      },
+      {
+        "codi": "43005534",
+        "centre": "Escola Les Eres de Rasquera - ZER La Font de l'Aiguadí",
+        "localitat": "Rasquera"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009461",
+    "nom": "ZER Terra Alta-Centre",
+    "localitat": "El Pinell de Brai",
+    "centres": [
+      {
+        "codi": "43000639",
+        "centre": "Escola Sant Blai - ZER Terra Alta-Centre",
+        "localitat": "Bot"
+      },
+      {
+        "codi": "43000950",
+        "centre": "Escola Doctor Ferran - ZER Terra Alta-Centre",
+        "localitat": "Corbera d'Ebre"
+      },
+      {
+        "codi": "43001942",
+        "centre": "Escola Cèsar Martinell - ZER Terra Alta-Centre",
+        "localitat": "El Pinell de Brai"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009606",
+    "nom": "ZER Benissanet-Miravet",
+    "localitat": "Benissanet",
+    "centres": [
+      {
+        "codi": "43000561",
+        "centre": "Escola Antoni Nat - ZER Benissanet-Miravet",
+        "localitat": "Benissanet"
+      },
+      {
+        "codi": "43005443",
+        "centre": "Escola Roc Llop i Convalia - ZER Benissanet-Miravet",
+        "localitat": "Miravet"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43009618",
+    "nom": "ZER Mestral",
+    "localitat": "Tortosa",
+    "centres": [
+      {
+        "codi": "43003987",
+        "centre": "Escola Port rodó - ZER Mestral",
+        "localitat": "Camp-redó"
+      },
+      {
+        "codi": "43004116",
+        "centre": "Escola del Lligallo del Gànguil - ZER Mestral",
+        "localitat": "El Lligallo del Gànguil"
+      },
+      {
+        "codi": "43006046",
+        "centre": "Escola Divina Pastora - ZER Mestral",
+        "localitat": "Vinallop"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43010554",
+    "nom": "ZER Les Vinyes",
+    "localitat": "Marçà",
+    "centres": [
+      {
+        "codi": "43000792",
+        "centre": "Escola Sant Isidre - ZER Les Vinyes",
+        "localitat": "Capçanes"
+      },
+      {
+        "codi": "43001334",
+        "centre": "Escola Sant Feliu - ZER Les Vinyes",
+        "localitat": "Els Guiamets"
+      },
+      {
+        "codi": "43001383",
+        "centre": "Escola Anicet Villar - ZER Les Vinyes",
+        "localitat": "Marçà"
+      },
+      {
+        "codi": "43003835",
+        "centre": "Escola Josep Riba - ZER Les Vinyes",
+        "localitat": "La Serra d'Almós"
+      }
+    ]
+  },
+  {
+    "SSTT": "TEB",
+    "codi": "43011029",
+    "nom": "ZER Ebre",
+    "localitat": "Riba-roja d'Ebre",
+    "centres": [
+      {
+        "codi": "43002661",
+        "centre": "Escola Sant Agustí - ZER Ebre",
+        "localitat": "Riba-roja d'Ebre"
+      },
+      {
+        "codi": "43005479",
+        "centre": "Escola 1 d'Abril - ZER Ebre",
+        "localitat": "La Palma d'Ebre"
+      }
+    ]
+  },
+  {
+    "SSTT": "TAR",
+    "codi": "43011303",
+    "nom": "ZER Montsant",
+    "localitat": "Cabacés",
+    "centres": [
+      {
+        "codi": "43000676",
+        "centre": "Escola El Castell - ZER Montsant",
+        "localitat": "Cabacés"
+      },
+      {
+        "codi": "43005339",
+        "centre": "Escola Montsant - ZER Montsant",
+        "localitat": "La Bisbal de Falset"
+      }
+    ]
+  },
+  {
+    "SSTT": "GIR",
+    "codi": "17007415",
+    "nom": "ZER Les Goges",
+    "localitat": "Porqueres",
+    "centres": [
+      {
+        "codi": "17002818",
+        "centre": "Escola Frigolet",
+        "localitat": "Porqueres"
+      }
+    ]
+  }
+]

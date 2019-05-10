@@ -3,13 +3,18 @@
 export const intro = `
 #### ATENCIÓ: Espai en construcció
 
-Lorem ipsum _dolor_ sit amet, __consectetur__ adipiscing elit. Sed et eleifend diam, sed commodo orci. Sed ut eros faucibus, varius velit eget, euismod quam. Vivamus sed odio erat.
+L’article 84 de la Llei 12/2009, d’educació, estableix la voluntat d’afavorir les iniciatives de desenvolupament de projectes d’innovació pedagògica
+i curricular amb l’objectiu, entre altres, d’estimular la capacitat d’aprenentatge i l’èxit escolar de tot l’alumnat.
 
-Cras ac sem egestas nisi vestibulum ultricies. Sed mattis sem quis sagittis pretium. Nulla vel tortor lacinia, venenatis diam non, vulputate ante. Aenean sed nibh eget erat varius aliquet.
+En el context normatiu de la LEC, l’ordre Ens/303/2015 de reconeixement de la innovació educativa es desenvolupa a partir dels articles 84 i 85, amb
+l’objectiu de coordinar i impulsar les actuacions que el Departament d’Educació  promou en matèria d’innovació pedagògica i establir el marc de la
+innovació pedagògica, que defineix i estableix les diferents modalitats d’innovació pedagògica i el procediment comú pel seu reconeixement.
 
----
+![Àmbits d'innovació](logos/ambits_innovacio.png "Àmbits d'innovació")
 
-Sed in [condimentum](http://condimentum.com.mx/ "Una web mexicana de condiments") ex, vel elementum ipsum. Morbi rutrum felis sit amet iaculis maximus. Nulla laoreet ante vel lacinia feugiat. Mauris suscipit interdum tellus vitae ultrices. Pellentesque ligula sem, sodales et consequat ut, interdum ut tellus. In laoreet aliquam luctus. Vestibulum at diam ut diam ornare mollis.
+El mapa de la Innovació mostra els centres de Catalunya que han dut a terme accions educatives innovadores sota el reconeixement del Marc de la
+innovació pedagògica, ja sigui com a membres dels programes d’innovació proposats pel Departament d’Educació o com a centres on s’han implementat
+projectes d’innovació pedagògica propis reconeguts.
 
 `;
 

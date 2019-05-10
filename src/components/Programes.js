@@ -76,7 +76,7 @@ function Programes({ history }) {
                       </ListItemAvatar>
                       <ListItemText
                         primary={nom}
-                        secondary={'Centres participants: ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
+                        secondary={'Centres: ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
                         onClick={handleProgClick(id)} />
                       <ListItemSecondaryAction>
                         <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />

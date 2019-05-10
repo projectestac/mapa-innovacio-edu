@@ -93,3 +93,5 @@ Exportar el primer full a `utils/programes.csv` i executar:
 $ cd utils
 $ ./conv-programes.js > ../public/data/programes.json
 ```
+
+Atenció: Nova ZER detectada: "Les Goges" (17007415). Al bloc (https://blocs.xtec.cat/zerlesgoges/pagina-exemple/) diu que sòn dos centres (El Frigolet de Porqueres - 17002818 i "La Roqueta de Santi Miquel de Campmajor") però el segon centre no existeix a la BD.

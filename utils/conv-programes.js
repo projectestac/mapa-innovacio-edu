@@ -9,11 +9,17 @@ const CSV_FILE = 'programes.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 const instancies = DEBUG ? require('../public/data/instancies.json') : [];
 const centres = DEBUG ? require('../public/data/centres.json') : [];
-const chalk = require('chalk');
+const ch = require('chalk');
 
+// Array to be filled with the warnings found in debug mode
 const warnings = [];
 
-const readCsv = (file) => {
+/**
+ * Read the main CSV file
+ * @param {string} file - The name of the file to read
+ * @returns {Promise} - A Promise resolving with a list of `program` objects
+ */
+const readCSV = (file) => {
   const programes = [];
   return new Promise((resolve, reject) => {
     createReadStream(`${__dirname}/${file}`, { encoding: 'utf8' }).pipe(csv.parse(
@@ -26,8 +32,9 @@ const readCsv = (file) => {
           reject(err);
         else {
           data.forEach(reg => {
+            // Build a program object with each row
             const programa = {
-              id: reg.id_programa, // Is a string!
+              id: reg.id_programa, // It's a string!
               nom: reg.Nom_programa.trim(),
               nomCurt: reg.Nom_curt || '',
               descripcio: reg.Descripcio || '',
@@ -45,13 +52,14 @@ const readCsv = (file) => {
               contacte: reg.Contacte || null,
               normativa: reg.Normativa || null,
             };
+            // Check for inconsistencies
             if (DEBUG) {
               if (programa.tipus.length === 0) {
-                warnings.push(`${chalk.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${chalk.italic(programa.nom)}) no té definides les etapes objectiu`);
+                warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té definides les etapes objectiu`);
               } else {
                 const instProg = instancies.filter(ins => ins.programa === programa.id);
                 if (instProg.length === 0)
-                  warnings.push(`${chalk.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${chalk.italic(programa.nom)}) no té cap centre participant`);
+                  warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té cap centre participant`);
                 else {
                   const warned = [];
                   instProg.forEach(ins => {
@@ -60,13 +68,13 @@ const readCsv = (file) => {
                       const centre = centres.find(c => c.id === codi);
                       if (!centre) {
                         warned.push(codi);
-                        warnings.push(`${chalk.bold.bgRed.white('ERROR:')} Hi ha una instància del programa ${programa.id} (${chalk.italic(programa.nom)}) associada a un centre inexistent: "${chalk.bold(codi)}"`);
+                        warnings.push(`${ch.bold.bgRed.white('ERROR:')} Hi ha una instància del programa ${programa.id} (${ch.italic(programa.nom)}) associada a un centre inexistent amb codi: "${ch.bold(codi)}"`);
                       }
                       else {
                         const k = centre.estudis.find(es => programa.tipus.find(pes => pes === es));
                         if (!k) {
                           warned.push(codi);
-                          warnings.push(`${chalk.bold.bgYellowBright.red('ATENCIÓ:')} El centre amb codi "${chalk.bold(codi)}" participa al programa ${programa.id} (${chalk.italic(programa.nom)}) sense tenir cap dels estudis requerits (centre: ${chalk.bold(centre.estudis.join(', '))} | programa: ${chalk.bold(programa.tipus.join(', '))})`);
+                          warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre amb codi "${ch.bold(codi)}" participa al programa ${programa.id} (${ch.italic(programa.nom)}) sense tenir cap dels estudis requerits (centre: ${ch.bold(centre.estudis.join(', '))} | programa: ${ch.bold(programa.tipus.join(', '))})`);
                         }
                       }
                     }
@@ -83,14 +91,18 @@ const readCsv = (file) => {
   });
 };
 
-readCsv(CSV_FILE)
+// Main process starts here
+readCSV(CSV_FILE)
   .then(programes => {
-    //programes.forEach(p => console.log(`${p.id} - ${p.nom} - ${p.nomCurt}`));
     if (DEBUG) {
+      // Display the summary and possible warnings
+      console.log(ch.bold.green(`${programes.length} programes comprovats`));
       warnings.forEach(inc => console.log(inc));
-      console.log(chalk.bold.green(`${programes.length} programes comprovats`));
     }
     else
+      // Send the resulting JSON to the standard output (usually redirected to '../public/data/programes.json' )
       console.log(JSON.stringify(programes, 1));
   })
-  .catch(err => console.log(chalk.bold.red(`ERROR: ${err}`)));
+  .catch(err => {
+    console.log(ch.bold.red(`ERROR: ${err}`));
+  });
