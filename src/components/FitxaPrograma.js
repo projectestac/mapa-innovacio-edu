@@ -20,6 +20,23 @@ const MD_OPTIONS = {
   escapeHtml: false,
 };
 
+function createExpansionPanel(className, title, mdContent) {
+  return (
+    <ExpansionPanel classname={className}>
+      <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
+        <h4 style={{ marginTop: 0 }}>{title}</h4>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails className="small-padding-h">
+        <div>
+          <ReactMarkdown {...MD_OPTIONS}>
+            {mdContent}
+          </ReactMarkdown>
+        </div>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
+}
+
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
   return (
@@ -53,38 +70,10 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   </ReactMarkdown>
                   <br clear="all" />
                 </div>
-                {objectius &&
-                  <div className="prog-objectius">
-                    <h4>Objectius</h4>
-                    <ReactMarkdown {...MD_OPTIONS}>
-                      {objectius}
-                    </ReactMarkdown>
-                  </div>
-                }
-                {requisits &&
-                  <div className="prog-requisits">
-                    <h4>Requisits</h4>
-                    <ReactMarkdown {...MD_OPTIONS}>
-                      {requisits}
-                    </ReactMarkdown>
-                  </div>
-                }
-                {compromisos &&
-                  <div className="prog-compromisos">
-                    <h4>Compromisos</h4>
-                    <ReactMarkdown {...MD_OPTIONS}>
-                      {compromisos}
-                    </ReactMarkdown>
-                  </div>
-                }
-                {normativa &&
-                  <div className="prog-normativa">
-                    <h4>Normativa</h4>
-                    <ReactMarkdown {...MD_OPTIONS}>
-                      {normativa}
-                    </ReactMarkdown>
-                  </div>
-                }
+                {objectius && createExpansionPanel('prog-objectius', 'Objectius', objectius)}
+                {requisits && createExpansionPanel('prog-requisits', 'Requisits', requisits)}
+                {compromisos && createExpansionPanel('prog-compromisos', 'Compromisos', compromisos)}
+                {normativa && createExpansionPanel('prog-normativa', 'Normativa', normativa)}
                 {contacte &&
                   <div className="prog-contacte">
                     <h4>Contacte</h4>
@@ -140,7 +129,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ReactMarkdown>
                   </div>
                 }
-                <h4>Centres participants:</h4>
+                <h4>Centres:</h4>
                 <br />
                 {Object.keys(centres).map((curs, n) => (
                   <ExpansionPanel key={n}>
