@@ -13,6 +13,8 @@ const centresTotal = require('./centres-total.json');
 // Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
 const centresValids = centresTotal.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
 
+const programes = require('../public/data/programes.json');
+
 const zers = require('./zer.json');
 
 const CSV_FILE = 'instancies.csv';
@@ -46,15 +48,25 @@ const readCSV = (file) => {
           reject(err);
         else {
           data.forEach(reg => {
+            // Conversió manual
+            if (Number(reg.id_programa) === 46)
+              reg.id_programa = 39;
+            else if (Number(reg.id_programa) === 54)
+              reg.id_programa = 53;
+            // ----------------
+            reg.id_programa = reg.id_programa.toString();
+
             const codiCentre = reg.Codi_centre;
-            const programa = reg.id_programa;
             let centre = centresValids.find(c => c.id === codiCentre);
+            const programa = reg.id_programa;
+            let prog = programes.find(p => p.id === programa);
             const result = [];
 
             if (!centre)
               warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un centre inexistent: ${codiCentre}`);
+            else if (!prog)
+              warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància d'un programa inexistent (${programa}) assignada al centre "${centre.nom}" (${codiCentre})`);
             else {
-
               const instancia = {
                 centre: codiCentre,
                 programa,

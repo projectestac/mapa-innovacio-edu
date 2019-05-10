@@ -10,7 +10,7 @@ En el context normatiu de la LEC, l’ordre Ens/303/2015 de reconeixement de la 
 l’objectiu de coordinar i impulsar les actuacions que el Departament d’Educació  promou en matèria d’innovació pedagògica i establir el marc de la
 innovació pedagògica, que defineix i estableix les diferents modalitats d’innovació pedagògica i el procediment comú pel seu reconeixement.
 
-![Àmbits d'innovació](logos/ambits_innovacio.png "Àmbits d'innovació")
+<img src="logos/ambits_innovacio.png" alt="Àmbits d'innovació" style="display: block; margin: auto;"/>
 
 El mapa de la Innovació mostra els centres de Catalunya que han dut a terme accions educatives innovadores sota el reconeixement del Marc de la
 innovació pedagògica, ja sigui com a membres dels programes d’innovació proposats pel Departament d’Educació o com a centres on s’han implementat

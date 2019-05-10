@@ -355,8 +355,8 @@ main .torna, .gomap {
 /* === Centres === */
 
 .cent-logo {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 160px;
+  max-height: 160px;
   float: left;
   margin-right: 1rem;
 }
@@ -382,6 +382,15 @@ main .torna, .gomap {
 
 /* === Zones === */
 
+.se-logo {
+  max-width: 160px;
+  max-height: 160px;
+  float: left;
+  margin-right: 1rem;
+  background-color: cadetblue;
+  padding: 10px;
+}
+
 .zona .prog-icons {
   display: flex;
   flex-flow: wrap;
@@ -395,6 +404,14 @@ main .torna, .gomap {
 
 .prog-icon img {
   max-width: 30px;
+}
+
+.zona h4 {
+  margin-bottom: 0.2rem;
+}
+
+.zona h3 {
+  margin-bottom: 0.5rem;
 }
 
 /* === Cerca === */

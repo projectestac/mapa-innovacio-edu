@@ -22,7 +22,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
           return <Error {...{ error: `No hi ha cap zona amb el codi: ${key}`, history }} />
 
         // Els camps id, nomCurt i color no s'utilitzen
-        const { nom, tipus, centresInn } = zona;
+        const { tipus, nom, logo, cp, adreca, municipi, comarca, tel, fax, correu, web, centresInn } = zona;
 
         const torna = () => history.goBack();
         const obreCentre = codi => () => history.push(`/centre/${codi}`);
@@ -36,11 +36,23 @@ function FitxaZona({ history, match: { params: { key } } }) {
             </Button>
             <section className="seccio zona">
               <Paper className="paper">
+                {logo && <><br clear="all" /><img className={tipus==='ST' ? 'cent-logo' : 'se-logo'} src={logo} alt={nom}></img></>}
                 <h3>{nom}</h3>
-                <div>{`Tipus: ${tipus}`}</div>
-                <div id="descripcio">
-                  <p>... aquí hi anirà l'adreça, la web i altres informacions relacionades amb el ST/SE ...</p>
+                <br clear="all" />
+                <div id="adreca">
+                  <p>
+                    {adreca}<br />
+                    {`${cp} ${municipi} (${comarca})`}<br />
+                    {tel && <>{`Tel. ${tel}`}<br /></>}
+                    {fax && <>{`Fax. ${fax}`}<br /></>}
+                    {correu && <><a href={`mailto:${correu}`}>{correu}</a><br /></>}
+                  </p>
                 </div>
+                {web && (
+                  <div id="link">
+                    <h4>Portal web:</h4>
+                    <a href={web} target="_blank" rel="noopener noreferrer">{web}</a>
+                  </div>)}
                 <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
                 <List >
                   {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, programes, titols }, n) => {

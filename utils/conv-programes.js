@@ -44,7 +44,7 @@ const readCSV = (file) => {
               arees: [],
               simbol: reg.Simbol || 'generic.png',
               tipus: reg.Etapes_objectiu ? reg.Etapes_objectiu.trim().split(',').map(t => t.trim()) : [],
-              fitxa: reg.Fitxa || null,
+              fitxa: reg['Enllaç_fitxa'] || null,
               video: reg.Video || null,
               objectius: reg.Objectius || null,
               requisits: reg.Requisits || null,
