@@ -54,7 +54,7 @@ function Programes({ history }) {
             <section className="seccio programes">
               <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
               <Paper className="paper">
-                <h3>Programes d'innovació</h3>
+                <h2>Programes d'innovació</h2>
                 <div className="select-progs">
                   <Button variant="outlined" color="primary" onClick={() => setDlgOpen(true)}>Selecciona per tipus</Button>
                   <FormControlLabel

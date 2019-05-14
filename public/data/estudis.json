@@ -83,7 +83,11 @@
     "DIG": "Àmbit digital",
     "LIN": "Àmbit lingüísitic",
     "MAT": "Àmbit matemàtic",
-    "PSO": "Àmbit personal i social"
+    "PSO": "Àmbit personal i social",
+    "EVA": "Àmbit educació en valors (PRI)",
+    "CME": "Àmbit coneixement del medi",
+    "CVA": "Àmbit cultura i valors (SEC)",
+    "EFI": "Àmbit educació física"
   },
   "ambitsInn": {
     "A1-MET": "Àmbit 1: metodologies i recursos per a la millora de l’ensenyament i aprenentatge",

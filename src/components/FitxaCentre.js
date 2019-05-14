@@ -47,7 +47,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
             <section className="seccio centre">
               <Paper className="paper">
                 {logo && <><br clear="all" /><img className="cent-logo" src={logo} alt={nom}></img></>}
-                <h3>{nom}</h3>
+                <h2>{nom}</h2>
                 <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
                 <br clear="all" />
                 <div id="adreca">

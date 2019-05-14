@@ -17,7 +17,7 @@ export const DEFAULT_STATE = {
   error: false,
   polygons: [],
   currentPrograms: new Set(),
-  program: null,
+  programa: null,
   cursos: [],
   delayedMapUpdate: true,
   // Inmutable attributes

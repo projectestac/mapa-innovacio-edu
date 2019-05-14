@@ -9,6 +9,7 @@ const CSV_FILE = 'programes.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 const instancies = DEBUG ? require('../public/data/instancies.json') : [];
 const centres = DEBUG ? require('../public/data/centres.json') : [];
+const estudis = require('../public/data/estudis.json');
 const ch = require('chalk');
 
 // Array to be filled with the warnings found in debug mode
@@ -54,6 +55,12 @@ const readCSV = (file) => {
             };
             // Check for inconsistencies
             if (DEBUG) {
+
+              const unknownAmbCurr = programa.ambCurr.filter(ac => !estudis.ambitsCurr[ac]);
+              if (unknownAmbCurr.length > 0) {
+                warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) declara àmbits curriculars inexistents: ${unknownAmbCurr.join(', ')}`);
+              }
+
               if (programa.tipus.length === 0) {
                 warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té definides les etapes objectiu`);
               } else {

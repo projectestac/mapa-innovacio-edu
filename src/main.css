@@ -315,8 +315,23 @@ main .torna, .gomap {
   margin-right: 1.5rem;
 }
 
+.programa #descripcio {
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
 .programa h4 {
   margin-bottom: 0.2rem;
+}
+
+.programa .prog-info-btn {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.programa .wider {
+  font-weight: bold;
+  font-size: 12pt;
 }
 
 /* === Selector de programes === */

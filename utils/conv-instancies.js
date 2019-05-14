@@ -17,6 +17,8 @@ const programes = require('../public/data/programes.json');
 
 const zers = require('./zer.json');
 
+const estudis = require('../public/data/estudis.json');
+
 const CSV_FILE = 'instancies.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 
@@ -66,6 +68,8 @@ const readCSV = (file) => {
               warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un centre inexistent: ${codiCentre}`);
             else if (!prog)
               warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància d'un programa inexistent (${programa}) assignada al centre "${centre.nom}" (${codiCentre})`);
+            else if (!estudis.cursos.includes(reg.Curs))
+              warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un curs fora de rang: ${reg.Curs || '???'}`);
             else {
               const instancia = {
                 centre: codiCentre,

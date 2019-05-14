@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import InfoIcon from '@material-ui/icons/Info';
+import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
 
@@ -20,22 +22,29 @@ const MD_OPTIONS = {
   escapeHtml: false,
 };
 
-function createExpansionPanel(className, title, mdContent) {
+function createExpansionPanel(className, title, content) {
   return (
-    <ExpansionPanel classname={className}>
+    <ExpansionPanel className={className}>
       <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
         <h4 style={{ marginTop: 0 }}>{title}</h4>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className="small-padding-h">
-        <div>
-          <ReactMarkdown {...MD_OPTIONS}>
-            {mdContent}
-          </ReactMarkdown>
-        </div>
+        {content}
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );
 }
+
+function createMDExpansionPanel(className, title, mdContent) {
+  return createExpansionPanel(className, title,
+    <div>
+      <ReactMarkdown {...MD_OPTIONS}>
+        {mdContent}
+      </ReactMarkdown>
+    </div>
+  );
+}
+
 
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
@@ -62,74 +71,81 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
             </Button>
             <section className="seccio programa">
               <Paper className="paper">
-                <h3>{nom}</h3>
                 <div id="descripcio">
                   {simbol && <img className="prog-logo" src={`logos/${simbol}`} alt={nom}></img>}
+                  <h2>{nom}</h2>
                   <ReactMarkdown {...MD_OPTIONS}>
                     {descripcio}
                   </ReactMarkdown>
-                  <br clear="all" />
                 </div>
-                {objectius && createExpansionPanel('prog-objectius', 'Objectius', objectius)}
-                {requisits && createExpansionPanel('prog-requisits', 'Requisits', requisits)}
-                {compromisos && createExpansionPanel('prog-compromisos', 'Compromisos', compromisos)}
-                {normativa && createExpansionPanel('prog-normativa', 'Normativa', normativa)}
-                {contacte &&
-                  <div className="prog-contacte">
-                    <h4>Contacte</h4>
-                    <div><a href={`mailto:${contacte}`}>{contacte}</a></div>
+                <div id="info">
+                  {fitxa &&
+                    <Button variant="contained" className="prog-info-btn" href={fitxa} >
+                      <CloudDownloadIcon className="left-icon" />
+                      Fitxa
+                    </Button>
+                  }
+                  {link &&
+                    <Button variant="contained" className="prog-info-btn" href={link} >
+                      <InfoIcon className="left-icon" />
+                      Web
+                    </Button>
+                  }
+                  {contacte &&
+                    <Button variant="contained" className="prog-info-btn" href={`mailto:${contacte}`} >
+                      <MailIcon className="left-icon" />
+                      Contacte
+                    </Button>
+                  }
+                  {video &&
+                    <div className="prog-video">
+                      <br />
+                      <ReactMarkdown {...MD_OPTIONS}>
+                        {video}
+                      </ReactMarkdown>
+                    </div>
+                  }
+                </div>
+                {objectius && createMDExpansionPanel('prog-objectius', 'Objectius', objectius)}
+                {requisits && createMDExpansionPanel('prog-requisits', 'Requisits', requisits)}
+                {compromisos && createMDExpansionPanel('prog-compromisos', 'Compromisos', compromisos)}
+                {normativa && createMDExpansionPanel('prog-normativa', 'Normativa', normativa)}
+                {createExpansionPanel('prog-ambits', 'Àmbits, àrees i nivells', (
+                  <div>
+                    {ambInn.length > 0 &&
+                      <div className="prog_ambits">
+                        <h4>Àmbits d'innovació:</h4>
+                        <ul>
+                          {ambInn.map(a => <li key={a}>{ambitsInn.get(a)}</li>)}
+                        </ul>
+                      </div>
+                    }
+                    {ambCurr.length > 0 &&
+                      <div className="prog_ambits">
+                        <h4>Àmbits curriculars:</h4>
+                        <ul>
+                          {ambCurr.map(a => <li key={a}>{ambitsCurr.get(a)}</li>)}
+                        </ul>
+                      </div>
+                    }
+                    {arees.length > 0 &&
+                      <div className="prog_ambits">
+                        <h4>Àrees curriculars:</h4>
+                        <ul>
+                          {arees.map((a, n) => <li key={n}>{a}</li>)}
+                        </ul>
+                      </div>
+                    }
+                    {tipus.length > 0 &&
+                      <div className="prog_ambits">
+                        <h4>Nivells educatius:</h4>
+                        <ul>
+                          {tipus.map((t, n) => <li key={n}>{estudis.get(t)}</li>)}
+                        </ul>
+                      </div>
+                    }
                   </div>
-                }
-                {ambInn.length > 0 &&
-                  <div className="prog_ambits">
-                    <h4>Àmbits d'innovació:</h4>
-                    <ul>
-                      {ambInn.map(a => <li key={a}>{ambitsInn.get(a)}</li>)}
-                    </ul>
-                  </div>
-                }
-                {ambCurr.length > 0 &&
-                  <div className="prog_ambits">
-                    <h4>Àmbits curriculars:</h4>
-                    <ul>
-                      {ambCurr.map(a => <li key={a}>{ambitsCurr.get(a)}</li>)}
-                    </ul>
-                  </div>
-                }
-                {arees.length > 0 &&
-                  <div className="prog_ambits">
-                    <h4>Àrees curriculars:</h4>
-                    <ul>
-                      {arees.map((a, n) => <li key={n}>{a}</li>)}
-                    </ul>
-                  </div>
-                }
-                {tipus.length > 0 &&
-                  <div className="prog_ambits">
-                    <h4>Nivells educatius:</h4>
-                    <ul>
-                      {tipus.map((t, n) => <li key={n}>{estudis.get(t)}</li>)}
-                    </ul>
-                  </div>
-                }
-                {link &&
-                  <p><a href={link} target="_blank" rel="noopener noreferrer">Més informació sobre el programa</a></p>
-                }
-                {fitxa &&
-                  <Button variant="contained" className="prog-fitxa" href={fitxa} >
-                    <CloudDownloadIcon className="left-icon" />
-                    Fitxa
-                  </Button>
-                }
-                {video &&
-                  <div className="prog-video">
-                    <br />
-                    <ReactMarkdown {...MD_OPTIONS}>
-                      {video}
-                    </ReactMarkdown>
-                  </div>
-                }
-                <h4>Centres:</h4>
+                ))}
                 <br />
                 {Object.keys(centres).map((curs, n) => (
                   <ExpansionPanel key={n}>
