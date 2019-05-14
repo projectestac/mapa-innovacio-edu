@@ -32,6 +32,10 @@ section .small-padding-h {
   padding-right: 0.5rem;
 }
 
+section .small-padding-left {
+  padding-left: 0.5rem;
+}
+
 .wider {
   flex-grow: 1;
 }
@@ -369,11 +373,21 @@ main .torna, .gomap {
 
 /* === Centres === */
 
+.logo-nom-centre {
+  display: flex;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
 .cent-logo {
   max-width: 160px;
   max-height: 160px;
-  float: left;
-  margin-right: 1rem;
+  margin-right: 2rem;
+}
+
+.adreca {
+  font-size: 10pt !important;
+  margin-bottom: 1rem;
 }
 
 .mapa-centre {

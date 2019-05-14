@@ -48,16 +48,18 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
             </Button>
             <section className="seccio centre">
               <Paper className="paper">
-                {logo && <><br clear="all" /><img className="cent-logo" src={logo} alt={nom}></img></>}
-                <Typography variant="h4">{nom}</Typography>
-                <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
-                <br clear="all" />
-                <div id="adreca">
+                <div className="logo-nom-centre">
+                  {logo && <img className="cent-logo" src={logo} alt={nom} />}
+                  <div className="nom-centre">
+                    <Typography variant="h4">{nom}</Typography>
+                    <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
+                  </div>
+                </div>
+                <div className="adreca">
                   <p>
                     {adreca}<br />
                     {`${municipi} (${comarca})`}<br />
-                    {tel && <>{`Tel. ${tel}`}<br /></>}
-                    {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
+                    {tel && <>{`Tel. ${tel}`}</>}
                   </p>
                 </div>
                 <div id="info">
@@ -72,6 +74,19 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     >
                       <InfoIcon className="left-icon" />
                       Web
+                    </Button>
+                  }
+                  {twitter &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={`https://twitter.com/${twitter}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={twitter}
+                    >
+                      {/* TODO: Add twitter icon!*/}
+                      Twitter
                     </Button>
                   }
                   {mail &&
