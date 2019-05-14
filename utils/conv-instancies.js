@@ -12,12 +12,10 @@ const ch = require('chalk');
 const centresTotal = require('./centres-total.json');
 // Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
 const centresValids = centresTotal.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
-
 const programes = require('../public/data/programes.json');
-
 const zers = require('./zer.json');
-
 const estudis = require('../public/data/estudis.json');
+const logos = require('./logos.json');
 
 const CSV_FILE = 'instancies.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
@@ -86,9 +84,19 @@ const readCSV = (file) => {
               if (zer) {
                 warnings.push(`${ch.bold.green('INFO:')} La instància del programa ${programa} assignada a la ZER ${centre.nom} (${centre.id}) per al curs ${instancia.curs} s'expandeix als ${zer.centres.length} centres de la zona.`);
                 zer.centres.forEach(cz => {
-                  const inst = Object.assign({}, instancia);
-                  inst.centre = cz.codi;
-                  result.push(inst);
+                  const centreZer = centresValids.find(c => c.id === cz.codi);
+                  if (!centreZer)
+                    warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre ${cz.centre} (${cz.codi}) pertanyent a la ZER ${zer.nom} no es troba a la llista de centres vàlids!`);
+                  else {
+                    if (!centreZer.logo && centre.logo)
+                      centreZer.logo = `https://clic.xtec.cat/pub/logos/${centre.id}.png`;                    
+                    centreZer.web = centreZer.web || centre.web || null;
+                    centreZer.twitter = centreZer.twitter || centre.twitter || null;
+                    centreZer.mail = centreZer.mail || centre.mail || null;
+                    const inst = Object.assign({}, instancia);
+                    inst.centre = cz.codi;
+                    result.push(inst);
+                  }
                 });
               }
               else
@@ -100,8 +108,12 @@ const readCSV = (file) => {
                   warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un centre inexistent: ${codiCentre}`);
                 else {
                   // Afegir centre a la llista de centres
-                  if (!centres.find(c => c.id === ins.centre))
+                  if (!centres.find(c => c.id === ins.centre)) {
+                    // Sobrescriu l'URL del logo si es troba a la llista de logos coneguts
+                    if (logos.includes(centre.id))
+                      centre.logo = `https://clic.xtec.cat/pub/logos/${centre.id}.png`;
                     centres.push(centre);
+                  }
                   // Actualitzar nombre de certificats
                   if (ins.cert)
                     certificats++;
