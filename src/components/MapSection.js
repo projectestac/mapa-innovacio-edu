@@ -7,7 +7,7 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import Utils from '../utils/Utils';
 
-function MapSection({ data: { programes, centres, poligons, cursosDisp }, programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, history, updateMap }) {
+function MapSection({ data: { programes, centres, poligons, estudis, cursosDisp }, programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, updateMap }) {
 
   const singleCentre = centre ? centres.get(centre) : null;
   const poli = zona ? poligons.get(zona) : null;
@@ -82,10 +82,9 @@ function MapSection({ data: { programes, centres, poligons, cursosDisp }, progra
                 polygons,
                 programa,
                 poli,
-                center: [41.7, 1.8],
                 zoom,
                 maxZoom: 19,
-                history,
+                estudis,
                 updateMap
               }}
             />

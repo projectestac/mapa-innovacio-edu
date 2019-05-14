@@ -54,7 +54,6 @@ function Programes({ history }) {
             <section className="seccio programes">
               <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
               <Paper className="paper">
-                <h2>Programes d'innovació</h2>
                 <div className="select-progs">
                   <Button variant="outlined" color="primary" onClick={() => setDlgOpen(true)}>Selecciona per tipus</Button>
                   <FormControlLabel
@@ -86,7 +85,7 @@ function Programes({ history }) {
                 </List>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );
       }}

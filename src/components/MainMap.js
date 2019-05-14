@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Map, Polygon, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
 import TileLayer from '../utils/TileLayer';
 import MarkerClusterGroup from '../utils/MarkerClusterGroup';
@@ -22,7 +23,7 @@ const MARKERCLUSTER_PROPS = {
   maxClusterRadius: 30, // Default is 80
 };
 
-export default function MainMap({ points = [], polygons = [], programa = null, poli = null, center = [41.7, 1.8], zoom = 8, maxZoom = 13, history, updateMap }) {
+export default function MainMap({ points = [], polygons = [], estudis=[], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -108,17 +109,14 @@ export default function MainMap({ points = [], polygons = [], programa = null, p
     setVal(ov.flag, stored === null ? ov.default : stored);
   });
 
-  const obreCentre = (id) => () => history.push(`/centre/${id}`);
-
   const popupCentre = (centre) => (
     <Popup>
-      <h4 style={{ cursor: 'pointer' }} onClick={obreCentre(centre.id)}>{centre.nom}</h4>
-      {centre.adreca}<br />
-      <a href={centre.web}>{centre.web}</a>
+      <h4><Link to={`/centre/${centre.id}`}>{centre.nom}</Link></h4>
+      <p>{centre.adreca}<br />
+      <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a></p>
+      <p>{centre.estudis.map(e => estudis.get(e)).join(', ')}.</p>
     </Popup>
   );
-
-  const obreZona = (key) => () => history.push(`/zona/${key}`);
 
   const popupZona = (zona) => {
     const centresPart = zona.centresPart.size;
@@ -126,7 +124,7 @@ export default function MainMap({ points = [], polygons = [], programa = null, p
     const estudisBase = Utils.sumAll(zona.estudisBase);
     const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed(1);
     return <Popup>
-      <h4 style={{ cursor: 'pointer' }} onClick={obreZona(zona.key)}>{zona.nom}</h4>
+      <h4><Link to={`/zona/${zona.key}`}>{zona.nom}</Link></h4>
       {(centresPart &&
         <p>
           <span>{`Centres participants ${programa ? 'al programa seleccionat' : 'als programes seleccionats'}: ${centresPart}`}</span><br />

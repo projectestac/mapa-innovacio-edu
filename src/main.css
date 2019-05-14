@@ -241,6 +241,11 @@ main .gomap {
   text-align: left;
 }
 
+.seccio .info-btn {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* === Loading === */
 
 .progress {
@@ -322,11 +327,6 @@ main .torna, .gomap {
 
 .programa h4 {
   margin-bottom: 0.2rem;
-}
-
-.programa .prog-info-btn {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
 }
 
 .programa .wider {

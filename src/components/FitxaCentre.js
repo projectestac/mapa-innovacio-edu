@@ -14,6 +14,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import InfoIcon from '@material-ui/icons/Info';
+import MailIcon from '@material-ui/icons/Mail';
 import Utils from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
@@ -47,7 +49,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
             <section className="seccio centre">
               <Paper className="paper">
                 {logo && <><br clear="all" /><img className="cent-logo" src={logo} alt={nom}></img></>}
-                <h2>{nom}</h2>
+                <Typography variant="h4">{nom}</Typography>
                 <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
                 <br clear="all" />
                 <div id="adreca">
@@ -55,23 +57,45 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     {adreca}<br />
                     {`${municipi} (${comarca})`}<br />
                     {tel && <>{`Tel. ${tel}`}<br /></>}
-                    {mail && <><a href={`mailto:${mail}`}>{mail}</a><br /></>}
                     {twitter && <><a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">{twitter}</a><br /></>}
                   </p>
                 </div>
-                {url && (
-                  <div id="link">
-                    <h4>Portal web del centre:</h4>
-                    <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
-                  </div>)}
+                <div id="info">
+                  {url &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={url}
+                    >
+                      <InfoIcon className="left-icon" />
+                      Web
+                    </Button>
+                  }
+                  {mail &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={`mailto:${mail}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={mail}
+                    >
+                      <MailIcon className="left-icon" />
+                      Contacte
+                    </Button>
+                  }
+                </div>
                 <div id="estudis">
-                  <h4>Estudis que s'hi imparteixen:</h4>
+                  <h4>Estudis</h4>
                   <ul>
                     {estudis.map((e, n) => <li key={n}>{data.estudis.get(e)}</li>)}
                   </ul>
                 </div>
                 <div id="zones">
-                  <h4>Zona:</h4>
+                  <h4>Zones:</h4>
                   <ul>
                     {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
                     {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
@@ -117,7 +141,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 }
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: codi, zona: null, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: codi, zona: null, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );
       }}

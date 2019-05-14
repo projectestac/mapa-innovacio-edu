@@ -11,7 +11,7 @@ export default function MapaCentre({ point, center = [41.7, 1.8], zoom = 8, maxZ
   return (
     <Map
       className="mapa-centre"
-      {...{ center, zoom, maxZoom, minZoom: zoom, maxBounds: MAP_BOUNDS }}
+      {...{ center, zoom, maxZoom, minZoom: 8, maxBounds: MAP_BOUNDS }}
     >
       <TileLayer type={TILE_LAYER} />
       <Marker key={point.id} position={[point.lat, point.lng]} />

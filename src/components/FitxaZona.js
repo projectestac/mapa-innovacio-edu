@@ -7,9 +7,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
 import Utils from '../utils/Utils';
+import Typography from '@material-ui/core/Typography';
 
 function FitxaZona({ history, match: { params: { key } } }) {
 
@@ -36,8 +39,8 @@ function FitxaZona({ history, match: { params: { key } } }) {
             </Button>
             <section className="seccio zona">
               <Paper className="paper">
-                {logo && <><br clear="all" /><img className={tipus==='ST' ? 'cent-logo' : 'se-logo'} src={logo} alt={nom}></img></>}
-                <h3>{nom}</h3>
+                {logo && <><br clear="all" /><img className={tipus === 'ST' ? 'cent-logo' : 'se-logo'} src={logo} alt={nom}></img></>}
+                <Typography variant="h4">{nom}</Typography>
                 <br clear="all" />
                 <div id="adreca">
                   <p>
@@ -45,14 +48,36 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     {`${cp} ${municipi} (${comarca})`}<br />
                     {tel && <>{`Tel. ${tel}`}<br /></>}
                     {fax && <>{`Fax. ${fax}`}<br /></>}
-                    {correu && <><a href={`mailto:${correu}`}>{correu}</a><br /></>}
                   </p>
                 </div>
-                {web && (
-                  <div id="link">
-                    <h4>Portal web:</h4>
-                    <a href={web} target="_blank" rel="noopener noreferrer">{web}</a>
-                  </div>)}
+                <div id="info">
+                  {web &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={web}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={web}
+                    >
+                      <InfoIcon className="left-icon" />
+                      Web
+                    </Button>
+                  }
+                  {correu &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={`mailto:${correu}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={correu}
+                    >
+                      <MailIcon className="left-icon" />
+                      Contacte
+                    </Button>
+                  }
+                </div>
                 <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
                 <List >
                   {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, programes, titols }, n) => {
@@ -83,7 +108,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                 </List>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );
       }}

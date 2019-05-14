@@ -73,26 +73,26 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
               <Paper className="paper">
                 <div id="descripcio">
                   {simbol && <img className="prog-logo" src={`logos/${simbol}`} alt={nom}></img>}
-                  <h2>{nom}</h2>
+                  <Typography variant="h4">{nom}</Typography>
                   <ReactMarkdown {...MD_OPTIONS}>
                     {descripcio}
                   </ReactMarkdown>
                 </div>
                 <div id="info">
                   {fitxa &&
-                    <Button variant="contained" className="prog-info-btn" href={fitxa} >
+                    <Button variant="contained" className="info-btn" href={fitxa} >
                       <CloudDownloadIcon className="left-icon" />
                       Fitxa
                     </Button>
                   }
                   {link &&
-                    <Button variant="contained" className="prog-info-btn" href={link} >
+                    <Button variant="contained" className="info-btn" href={link} target="_blank" rel="noopener noreferrer">
                       <InfoIcon className="left-icon" />
                       Web
                     </Button>
                   }
                   {contacte &&
-                    <Button variant="contained" className="prog-info-btn" href={`mailto:${contacte}`} >
+                    <Button variant="contained" className="info-btn" href={`mailto:${contacte}`} target="_blank" rel="noopener noreferrer" >
                       <MailIcon className="left-icon" />
                       Contacte
                     </Button>
@@ -169,7 +169,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 ))}
               </Paper>
             </section>
-            <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, history, updateMap }} />
+            <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );
       }}
