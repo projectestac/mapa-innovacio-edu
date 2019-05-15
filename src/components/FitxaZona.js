@@ -13,6 +13,11 @@ import Error from './Error';
 import MapSection from './MapSection';
 import Utils from '../utils/Utils';
 import Typography from '@material-ui/core/Typography';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 function FitxaZona({ history, match: { params: { key } } }) {
 
@@ -26,6 +31,19 @@ function FitxaZona({ history, match: { params: { key } } }) {
 
         // Els camps id, nomCurt i color no s'utilitzen
         const { tipus, nom, logo, cp, adreca, municipi, comarca, tel, fax, correu, web, centresInn } = zona;
+        const centresInnArray = Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom));
+
+        // TODO: Canviar a objecte on clau->progid, valor->{prog, [centres]}
+        // Millor encara: processar els polígons amb aquesta informació!
+        const progsZona = [];
+        centresInn.forEach(c => {
+          Utils.plainArray(c.programes).forEach(prog => {
+            if (!progsZona.find(p => p.id === prog.id))
+              progsZona.push(prog);
+          })
+        });
+
+        const schoolHasProgram = (centre, prog) => Object.keys(centre.programes).find(k => centre.programes[k].find(p => p.id === prog.id));
 
         const torna = () => history.goBack();
         const obreCentre = codi => () => history.push(`/centre/${codi}`);
@@ -82,8 +100,50 @@ function FitxaZona({ history, match: { params: { key } } }) {
                   }
                 </div>
                 <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
+
+
+                {progsZona.map((prog, n) => (
+                  <ExpansionPanel key={n}>
+                    <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
+                      <Typography className="wider">{prog.nom}</Typography>
+                      <Typography>{`...calcular els centres...`}</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className="small-padding-h">
+                      <List dense>
+                        {centresInnArray.filter(c => schoolHasProgram(c, prog)).map(({ id: codi, nom, municipi, programes, titols }, n) => {
+                          return (
+                            <ListItem key={n} button className="small-padding-h">
+                              <ListItemText
+                                primary={`${nom} (${municipi})`}
+                                onClick={obreCentre(codi)}
+                              />
+                              <div className="prog-icons">
+                                {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => {
+                                  const label = `${nom}${titols && titols[id] ? `: ${titols[id]}` : ''}`;
+                                  return (
+                                    <IconButton
+                                      key={k}
+                                      className="prog-icon"
+                                      aria-label={label}
+                                      onClick={obrePrograma(id)}
+                                    >
+                                      <img src={`logos/${simbol}`} alt={label} title={label} />
+                                    </IconButton>
+                                  );
+                                })}
+                              </div>
+                            </ListItem>
+                          )
+                        })}
+                      </List>
+                    </ExpansionPanelDetails>
+                  </ExpansionPanel>
+                ))}
+
+
+                <hr />
                 <List >
-                  {Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, programes, titols }, n) => {
+                  {centresInnArray.map(({ id: codi, nom, municipi, programes, titols }, n) => {
                     return (
                       <ListItem key={n} button className="small-padding-h">
                         <ListItemText

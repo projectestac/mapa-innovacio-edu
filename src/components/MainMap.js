@@ -23,7 +23,7 @@ const MARKERCLUSTER_PROPS = {
   maxClusterRadius: 30, // Default is 80
 };
 
-export default function MainMap({ points = [], polygons = [], estudis=[], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {
+export default function MainMap({ points = [], polygons = [], estudis = [], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -113,8 +113,8 @@ export default function MainMap({ points = [], polygons = [], estudis=[], progra
     <Popup>
       <h4><Link to={`/centre/${centre.id}`}>{centre.nom}</Link></h4>
       <p>{centre.adreca}<br />
-      <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a></p>
-      <p>{centre.estudis.map(e => estudis.get(e)).join(', ')}.</p>
+        <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a></p>
+      <p>{`${centre.estudis.map(e => estudis.get(e)).join(', ')}.`}</p>
     </Popup>
   );
 
@@ -156,12 +156,7 @@ export default function MainMap({ points = [], polygons = [], estudis=[], progra
           <LayersControl.BaseLayer name={p.name} key={i} checked={poli !== null ? i === (poli.tipus === 'SEZ' ? 1 : 0) : i === currentLayer}>
             <LayerGroup>
               {p.shapes.filter(sh => poli === null || poli === sh).map((sh, n) => (
-                <Polygon
-                  key={n}
-                  positions={sh.poligons}
-                  weight={lineWidth}
-                  fillOpacity={minOpacity}
-                >
+                <Polygon key={n} positions={sh.poligons} weight={lineWidth} fillOpacity={minOpacity}>
                   {popupZona(sh)}
                 </Polygon>))}
             </LayerGroup>
@@ -170,12 +165,7 @@ export default function MainMap({ points = [], polygons = [], estudis=[], progra
         <LayersControl.Overlay name={OVERLAYS[0].name} checked={poli === null && getBool(OVERLAYS[0].flag)}>
           <LayerGroup>
             {polygons[currentLayer].shapes.filter(sh => poli === null || poli === sh).map((sh, n) => (
-              <Polygon
-                key={n}
-                positions={sh.poligons}
-                weight={0}
-                fillOpacity={sh.density}
-              >
+              <Polygon key={n} positions={sh.poligons} weight={0} fillOpacity={sh.density}>
                 {popupZona(sh)}
               </Polygon>))}
           </LayerGroup>
