@@ -16,6 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
+import TwitterIcon from 'mdi-material-ui/Twitter';
 import Utils from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
@@ -86,7 +87,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                       rel="noopener noreferrer"
                       title={twitter}
                     >
-                      {/* TODO: Add twitter icon!*/}
+                      <TwitterIcon className="left-icon" />
                       Twitter
                     </Button>
                   }
