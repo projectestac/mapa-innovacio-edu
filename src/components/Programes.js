@@ -71,7 +71,7 @@ function Programes({ history }) {
                   {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                     <ListItem key={n} button className="list-button">
                       <ListItemAvatar>
-                        <Avatar src={`logos/${simbol}`} alt={nom} />
+                        <Avatar src={`logos/mini/${simbol}`} alt={nom} />
                       </ListItemAvatar>
                       <ListItemText
                         primary={nom}

@@ -13,6 +13,7 @@ module.exports = {
     'build/ico/favicon.ico',
     'build/data/*.json',
     'build/images/*',
+    'build/logos/mini/*'
   ],
   swFilePath: './build/service-worker.js',
   templateFilePath: './node_modules/sw-precache/service-worker.tmpl',
@@ -21,6 +22,7 @@ module.exports = {
     { urlPattern: /\/ico\//, handler: 'cacheFirst' },
     { urlPattern: /\/images\//, handler: 'cacheFirst' },
     { urlPattern: /\/logos\//, handler: 'cacheFirst' },
+    { urlPattern: /^https:\/\/maps\.wikimedia\.org\//, handler: 'cacheFirst' },
     //{ urlPattern: /^https:\/\/api\.tiles\.mapbox\.com\//, handler: 'cacheFirst' },
     //{ urlPattern: /^https:\/\/.*\.tile\.openstreetmap\.org\//, handler: 'cacheFirst' },
   ]
