@@ -22,6 +22,7 @@ import MapSection from './MapSection';
 
 // Possible values are `perCurs` and `agregat`
 const MODE_PROG_CENTRE = process.env.REACT_APP_MODE_PROG_CENTRE || 'agregat';
+const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
@@ -48,9 +49,9 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
             </Button>
             <section className="seccio centre">
               <Paper className="paper">
-                <div className="logo-nom-centre">
-                  {logo && <img className="cent-logo" src={logo} alt={nom} />}
-                  <div className="nom-centre">
+                <div className="logo-nom-seccio">
+                  {logo && <img className="seccio-logo" src={`${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}`} alt={nom} />}
+                  <div className="nom-seccio">
                     <Typography variant="h4">{nom}</Typography>
                     <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
                   </div>

@@ -89,7 +89,7 @@ const readCSV = (file) => {
                     warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre ${cz.centre} (${cz.codi}) pertanyent a la ZER ${zer.nom} no es troba a la llista de centres vàlids!`);
                   else {
                     if (!centreZer.logo && centre.logo)
-                      centreZer.logo = `https://clic.xtec.cat/pub/logos/${centre.id}.png`;                    
+                      centreZer.logo = `${centre.id}.png`;                    
                     centreZer.web = centreZer.web || centre.web || null;
                     centreZer.twitter = centreZer.twitter || centre.twitter || null;
                     centreZer.mail = centreZer.mail || centre.mail || null;
@@ -111,7 +111,7 @@ const readCSV = (file) => {
                   if (!centres.find(c => c.id === ins.centre)) {
                     // Sobrescriu l'URL del logo si es troba a la llista de logos coneguts
                     if (logos.includes(centre.id))
-                      centre.logo = `https://clic.xtec.cat/pub/logos/${centre.id}.png`;
+                      centre.logo = `${centre.id}.png`;
                     centres.push(centre);
                   }
                   // Actualitzar nombre de certificats

@@ -1,20 +1,22 @@
 // Textos utilitzats a l'aplicació
 
 export const intro = `
-#### ATENCIÓ: Espai en construcció
+<img src="logos/portada.png" style="max-width:100%;text-align:center;" alt="Mapa de la innovació pedagògica" />
 
-L’article 84 de la Llei 12/2009, d’educació, estableix la voluntat d’afavorir les iniciatives de desenvolupament de projectes d’innovació pedagògica
-i curricular amb l’objectiu, entre altres, d’estimular la capacitat d’aprenentatge i l’èxit escolar de tot l’alumnat.
+És voluntat del Departament d’Educació acompanyar els centres educatius del país en el procés de
+transformació educativa per donar resposta a les necessitats del segle XXI i reconèixer els esforços
+que s’estan fent en termes d’innovació pedagògica.
 
-En el context normatiu de la LEC, l’ordre Ens/303/2015 de reconeixement de la innovació educativa es desenvolupa a partir dels articles 84 i 85, amb
-l’objectiu de coordinar i impulsar les actuacions que el Departament d’Educació  promou en matèria d’innovació pedagògica i establir el marc de la
-innovació pedagògica, que defineix i estableix les diferents modalitats d’innovació pedagògica i el procediment comú pel seu reconeixement.
+El mapa de la innovació pedagògica de Catalunya és un instrument que situa en el territori i
+visibilitza totes les iniciatives vinculades a la innovació i a la recerca educativa que es desenvolupa
+en els centres educatius i que han estat reconegudes pel Departament d’Educació des del 2015, d’acord
+amb el <a href="http://xtec.gencat.cat/ca/innovacio/" target="_blank" rel="noopener noreferrer">Marc de la Innovació Pedagògica de Catalunya</a>. 
 
-<img src="logos/ambits_innovacio.png" alt="Àmbits d'innovació" style="display: block; margin: auto;"/>
-
-El mapa de la Innovació mostra els centres de Catalunya que han dut a terme accions educatives innovadores sota el reconeixement del Marc de la
-innovació pedagògica, ja sigui com a membres dels programes d’innovació proposats pel Departament d’Educació o com a centres on s’han implementat
-projectes d’innovació pedagògica propis reconeguts.
+Amb el mapa de la innovació es pretén impulsar el treball en xarxa entre els centres que comparteixen
+objectius al llarg del territori i posar en valor la informació que faciliti la presa de decisions a
+tota la comunitat educativa, a l’administració i a altres agents. Aquesta presa de decisions ha de
+permetre promoure la inclusió, la cohesió i l’equitat, i facilitar la participació de tots els centres
+en l’èxit educatiu i la innovació per a la millora.
 
 `;
 

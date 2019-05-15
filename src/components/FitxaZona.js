@@ -39,10 +39,13 @@ function FitxaZona({ history, match: { params: { key } } }) {
             </Button>
             <section className="seccio zona">
               <Paper className="paper">
-                {logo && <><br clear="all" /><img className={tipus === 'ST' ? 'cent-logo' : 'se-logo'} src={logo} alt={nom}></img></>}
-                <Typography variant="h4">{nom}</Typography>
-                <br clear="all" />
-                <div id="adreca">
+                <div className="logo-nom-seccio">
+                  {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={logo} alt={nom} />}
+                  <div className="nom-seccio">
+                    <Typography variant="h4">{nom}</Typography>
+                  </div>
+                </div>
+                <div className="adreca">
                   <p>
                     {adreca}<br />
                     {`${cp} ${municipi} (${comarca})`}<br />

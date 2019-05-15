@@ -71,28 +71,48 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
             </Button>
             <section className="seccio programa">
               <Paper className="paper">
+                <div className="logo-nom-seccio">
+                  {simbol && <img className="seccio-logo" src={`logos/${simbol}`} alt={nom} />}
+                  <div className="nom-seccio">
+                    <Typography variant="h4">{nom}</Typography>
+                  </div>
+                </div>
                 <div id="descripcio">
-                  {simbol && <img className="prog-logo" src={`logos/${simbol}`} alt={nom}></img>}
-                  <Typography variant="h4">{nom}</Typography>
                   <ReactMarkdown {...MD_OPTIONS}>
                     {descripcio}
                   </ReactMarkdown>
                 </div>
                 <div id="info">
                   {fitxa &&
-                    <Button variant="contained" className="info-btn" href={fitxa} >
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={fitxa}
+                      title="Descarrega la fitxa del projecte" >
                       <CloudDownloadIcon className="left-icon" />
                       Fitxa
                     </Button>
                   }
                   {link &&
-                    <Button variant="contained" className="info-btn" href={link} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={link}>
                       <InfoIcon className="left-icon" />
                       Web
                     </Button>
                   }
                   {contacte &&
-                    <Button variant="contained" className="info-btn" href={`mailto:${contacte}`} target="_blank" rel="noopener noreferrer" >
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={`mailto:${contacte}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={contacte}>
                       <MailIcon className="left-icon" />
                       Contacte
                     </Button>

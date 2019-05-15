@@ -3,7 +3,6 @@ import AppContext from '../AppContext';
 import ReactMarkdown from 'react-markdown/with-html';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import { intro } from '../literals';
 
 const MD_OPTIONS = {
@@ -18,7 +17,6 @@ function Presentacio({ history }) {
         return (
           <section className="seccio presenta">
             <Paper className="paper">
-              <Typography variant="h4" color="inherit">Presentació</Typography>
               <ReactMarkdown {...MD_OPTIONS}>
                 {intro}
               </ReactMarkdown>
@@ -26,7 +24,7 @@ function Presentacio({ history }) {
                 className="close-intro-btn"
                 variant="outlined"
                 onClick={() => history.push('/programes')}
-              >Ves al mapa</Button>
+              >Accés al mapa</Button>
             </Paper>
           </section>
         );
