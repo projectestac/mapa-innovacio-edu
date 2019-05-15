@@ -7,11 +7,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
+import Avatar from '@material-ui/core/Avatar';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
-import Utils from '../utils/Utils';
 import Typography from '@material-ui/core/Typography';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -30,20 +30,8 @@ function FitxaZona({ history, match: { params: { key } } }) {
           return <Error {...{ error: `No hi ha cap zona amb el codi: ${key}`, history }} />
 
         // Els camps id, nomCurt i color no s'utilitzen
-        const { tipus, nom, logo, cp, adreca, municipi, comarca, tel, fax, correu, web, centresInn } = zona;
-        const centresInnArray = Array.from(centresInn).sort((a, b) => a.nom.localeCompare(b.nom));
-
-        // TODO: Canviar a objecte on clau->progid, valor->{prog, [centres]}
-        // Millor encara: processar els polígons amb aquesta informació!
-        const progsZona = [];
-        centresInn.forEach(c => {
-          Utils.plainArray(c.programes).forEach(prog => {
-            if (!progsZona.find(p => p.id === prog.id))
-              progsZona.push(prog);
-          })
-        });
-
-        const schoolHasProgram = (centre, prog) => Object.keys(centre.programes).find(k => centre.programes[k].find(p => p.id === prog.id));
+        const { tipus, nom, logo, cp, adreca, municipi, comarca, tel, fax, correu, web, centresInn, programes } = zona;
+        const programesArray = Array.from(programes).sort((a, b) => a.nom.localeCompare(b.nom));
 
         const torna = () => history.goBack();
         const obreCentre = codi => () => history.push(`/centre/${codi}`);
@@ -99,76 +87,31 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     </Button>
                   }
                 </div>
-                <h4>Centres d'aquest servei que participen en programes d'innovació:</h4>
-
-
-                {progsZona.map((prog, n) => (
-                  <ExpansionPanel key={n}>
-                    <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
-                      <Typography className="wider">{prog.nom}</Typography>
-                      <Typography>{`...calcular els centres...`}</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className="small-padding-h">
-                      <List dense>
-                        {centresInnArray.filter(c => schoolHasProgram(c, prog)).map(({ id: codi, nom, municipi, programes, titols }, n) => {
-                          return (
-                            <ListItem key={n} button className="small-padding-h">
+                <h4>Programes d'innovació amb presència en aquest territori:</h4>
+                {programesArray.map((prog, n) => {
+                  const centres = prog.allCentres.filter(c => centresInn.has(c));
+                  const numCentres = centres.length;
+                  return (
+                    <ExpansionPanel key={n}>
+                      <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
+                        <Typography className="wider"><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /> {prog.nom}</Typography>
+                        <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
+                      </ExpansionPanelSummary>
+                      <ExpansionPanelDetails className="small-padding-h">
+                        <List dense>
+                          {centres.map(({ id, nom, municipi, titols, allPrograms }, n) => (
+                            <ListItem key={n} button component="a" href={`#/centre/${id}`} className="small-padding-h">
                               <ListItemText
                                 primary={`${nom} (${municipi})`}
-                                onClick={obreCentre(codi)}
+                                secondary={(titols && titols[id] ? titols[id] : null)}
                               />
-                              <div className="prog-icons">
-                                {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => {
-                                  const label = `${nom}${titols && titols[id] ? `: ${titols[id]}` : ''}`;
-                                  return (
-                                    <IconButton
-                                      key={k}
-                                      className="prog-icon"
-                                      aria-label={label}
-                                      onClick={obrePrograma(id)}
-                                    >
-                                      <img src={`logos/${simbol}`} alt={label} title={label} />
-                                    </IconButton>
-                                  );
-                                })}
-                              </div>
                             </ListItem>
-                          )
-                        })}
-                      </List>
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                ))}
-
-
-                <hr />
-                <List >
-                  {centresInnArray.map(({ id: codi, nom, municipi, programes, titols }, n) => {
-                    return (
-                      <ListItem key={n} button className="small-padding-h">
-                        <ListItemText
-                          primary={`${nom} (${municipi})`}
-                          onClick={obreCentre(codi)}
-                        />
-                        <div className="prog-icons">
-                          {Utils.plainArray(programes).map(({ id, nom, simbol }, k) => {
-                            const label = `${nom}${titols && titols[id] ? `: ${titols[id]}` : ''}`;
-                            return (
-                              <IconButton
-                                key={k}
-                                className="prog-icon"
-                                aria-label={label}
-                                onClick={obrePrograma(id)}
-                              >
-                                <img src={`logos/${simbol}`} alt={label} title={label} />
-                              </IconButton>
-                            );
-                          })}
-                        </div>
-                      </ListItem>
-                    )
-                  })}
-                </List>
+                          ))}
+                        </List>
+                      </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                  )
+                })}
               </Paper>
             </section>
             <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, updateMap }} />

@@ -137,13 +137,15 @@ class App extends Component {
 
         // Build an object with centre ids as keys, useful for optimizing searches
         _centres.forEach(c => {
-          c.programes = [];
+          c.programes = {};
+          c.allPrograms = new Set();
         });
 
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
         _poligons.forEach(p => {
           p.poligons = p.poligons.map(pts => pts.split(',').map(pt => pt.split('|').map(vs => Number(vs))));
           p.centresInn = new Set();
+          p.programes = new Set();
           p.density = MIN_DENSITY;
           p.estudisBase = {};
           p.estudisPart = {};
@@ -160,8 +162,9 @@ class App extends Component {
           // Set all programs initially selected
           currentPrograms.add(p.id);
 
-          // Initialize `centres` (to be filled later)
+          // Initialize `centres` and `allCentres` (to be filled later)
           p.centres = {};
+          p.allCentres = new Set();
 
           // Empty `tipus`? then try to guess them from title and description
           if (p.tipus.length === 0) {
@@ -186,11 +189,19 @@ class App extends Component {
           const centre = centres.get(ins.centre);
           if (programa && centre) {
             (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
+            programa.allCentres.add(centre);
             (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
-            if (centre.sstt)
-              poligons.get(centre.sstt).centresInn.add(centre);
-            if (centre.se)
-              poligons.get(centre.se).centresInn.add(centre);
+            centre.allPrograms.add(programa);
+            if (centre.sstt) {
+              const p = poligons.get(centre.sstt);
+              p.centresInn.add(centre);
+              p.programes.add(programa);
+            }
+            if (centre.se) {
+              const p = poligons.get(centre.se);
+              p.centresInn.add(centre);
+              p.programes.add(programa);
+            }
             if (ins.titol) {
               if (!programa.titols)
                 programa.titols = {};
@@ -203,6 +214,15 @@ class App extends Component {
           else
             console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
         });
+
+        // Summarize and order programs and centres
+        centres.forEach(c => {
+          c.allPrograms = Array.from(c.allPrograms).sort((a, b) => a.nom.localeCompare(b.nom));
+        });
+        programes.forEach(p => {
+          p.allCentres = Array.from(p.allCentres).sort((a, b) => a.nom.localeCompare(b.nom));
+        });
+
 
         // Build the Fuse.js objects
         // See: https://fusejs.io/

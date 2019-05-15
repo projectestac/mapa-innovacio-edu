@@ -35,7 +35,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
         // Els camps tipus, sstt, se també estan disponibles
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols } = centre;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, allPrograms, titols } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const obrePrograma = id => () => history.push(`/programa/${id}`);
@@ -146,7 +146,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
                       <ListItem key={n} button className="no-padding-h-small">
                         <ListItemAvatar>
-                          <Avatar src={`logos/${simbol}`} alt={nom} />
+                          <Avatar src={`logos/mini/${simbol}`} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
