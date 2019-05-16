@@ -22,7 +22,7 @@ module.exports = {
     { urlPattern: /\/ico\//, handler: 'cacheFirst' },
     { urlPattern: /\/images\//, handler: 'cacheFirst' },
     { urlPattern: /\/logos\//, handler: 'cacheFirst' },
-    { urlPattern: /^https:\/\/maps\.wikimedia\.org\//, handler: 'cacheFirst' },
+    //{ urlPattern: /^https:\/\/maps\.wikimedia\.org\//, handler: 'cacheFirst' },
     //{ urlPattern: /^https:\/\/api\.tiles\.mapbox\.com\//, handler: 'cacheFirst' },
     //{ urlPattern: /^https:\/\/.*\.tile\.openstreetmap\.org\//, handler: 'cacheFirst' },
   ]

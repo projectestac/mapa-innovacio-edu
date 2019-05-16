@@ -51,8 +51,6 @@ const readCSV = (file) => {
             // Conversió manual
             if (Number(reg.id_programa) === 46)
               reg.id_programa = 39;
-            else if (Number(reg.id_programa) === 54)
-              reg.id_programa = 53;
             // ----------------
             reg.id_programa = reg.id_programa.toString();
 
@@ -132,6 +130,18 @@ const readCSV = (file) => {
 
 const getDuplicates = instancies => instancies.map(({ centre, programa, curs }) => `${centre}|${programa}|${curs}`).sort().filter((ii, n, arr) => ii === arr[n + 1]);
 
+const filterDuplicates = instancies => {
+  const duplicates = getDuplicates(instancies);
+  duplicates.forEach(dup => {
+    const [centre, programa, curs] = dup.split('|');
+    const index = instancies.findIndex(ins => ins.centre === centre && ins.programa === programa && ins.curs === curs);
+    if (index >= 0) {
+      instancies.splice(index, 1);
+    }
+  });
+  return instancies;
+}
+
 // Main process start here
 readCSV(CSV_FILE)
   .then(({ instancies, centres, certificats }) => {
@@ -147,7 +157,7 @@ readCSV(CSV_FILE)
     }
     else if (DUMP_INSTANCIES)
       // Send the resulting JSON to the standard output (usually redirected to '../public/data/instancies.json' )
-      console.log(JSON.stringify(instancies, 1));
+      console.log(JSON.stringify(filterDuplicates(instancies), 1));
     else if (DUMP_CENTRES)
       // Send the resulting JSON to the standard output (usually redirected to '../public/data/centres.json' )
       console.log(JSON.stringify(centres, 1));
