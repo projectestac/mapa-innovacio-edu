@@ -174,7 +174,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                       <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className="small-padding-h">
-                      <List dense>
+                      <List>
                         {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols }, c) => (
                           <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
                             <ListItemText

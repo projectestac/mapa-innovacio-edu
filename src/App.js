@@ -242,13 +242,14 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, descripcio, titols, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
+            _programes.map(({ id, nom, simbol, descripcio, titols, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
               id,
               nom,
+              simbol,
               descripcio,
               titols: titols ? Object.values(titols).join(', ') : '',
               ambCurr: ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
-              ambInn: ambCurr.map(a => _estudis.ambitsInn[a]).join(', '),
+              ambInn: ambInn.map(a => _estudis.ambitsInn[a]).join(', '),
               arees: arees.join(', '),
               objectius,
               requisits,

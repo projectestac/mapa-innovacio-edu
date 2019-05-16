@@ -3,13 +3,14 @@ import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import Avatar from '@material-ui/core/Avatar';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TablePagination from "@material-ui/core/TablePagination";
 import ProgramIcon from '@material-ui/icons/Group';
-import SchoolIcon from '@material-ui/icons/School';
+import SchoolIcon from 'mdi-material-ui/MapMarker';
 
 const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
@@ -50,14 +51,14 @@ function Cerca({ history, match: { params: { query } } }) {
                 {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
                   <div>
                     <List component="ul">
-                      {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus } }, n) => (
+                      {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus, simbol } }, n) => (
                         <ListItem
                           key={n}
                           button
                           onClick={goToElement(tipus, id)}
                         >
                           <ListItemIcon>
-                            {tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                            {simbol ? <Avatar src={`logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
                           </ListItemIcon>
                           <ListItemText primary={nom} />
                         </ListItem>
