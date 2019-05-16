@@ -8,7 +8,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import InfoIcon from '@material-ui/icons/Info';
+//import WebIcon from '@material-ui/icons/Info';
+import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
@@ -67,7 +68,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       rel="noopener noreferrer"
                       title={web}
                     >
-                      <InfoIcon className="left-icon" />
+                      <WebIcon className="left-icon" />
                       Web
                     </Button>
                   }

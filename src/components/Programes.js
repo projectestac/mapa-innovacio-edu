@@ -47,12 +47,12 @@ function Programes({ history }) {
 
         return (
           <>
+            <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
             <Button className="gomap" aria-label="Mapa" onClick={gomap} >
               <ArrowDownward className="left-icon" />
               Mapa
             </Button>
             <section className="seccio programes">
-              <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
               <Paper className="paper">
                 <div className="select-progs">
                   <Button variant="outlined" color="primary" onClick={() => setDlgOpen(true)}>Selecciona per tipus</Button>
@@ -75,7 +75,7 @@ function Programes({ history }) {
                       </ListItemAvatar>
                       <ListItemText
                         primary={nom}
-                        secondary={'Centres: ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
+                        secondary={'Centres ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
                         onClick={handleProgClick(id)} />
                       <ListItemSecondaryAction>
                         <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />

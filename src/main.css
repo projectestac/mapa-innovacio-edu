@@ -22,6 +22,10 @@
   padding: 0 !important;
 }
 
+.padding-one {
+  padding: 1rem;
+}
+
 section .no-padding-h {
   padding-left: 0;
   padding-right: 0;
@@ -38,6 +42,10 @@ section .small-padding-left {
 
 .wider {
   flex-grow: 1;
+}
+
+.flow-v {
+  flex-flow: column;
 }
 
 body {
@@ -76,7 +84,7 @@ main {
   }
   main .gomap {
     display: block !important;
-  }  
+  }
 }
 
 /* === Search bar === */
@@ -428,7 +436,7 @@ main .torna, .gomap {
 .seccio .zona-prog {
   display: grid;
   grid-template-columns: 50px 1fr;
-  margin-right: 2rem;
+  margin-right: 2rem !important;
 }
 
 .zona-prog-logo {
@@ -554,6 +562,4 @@ footer .copyright {
   .logo-nom-seccio {
     flex-wrap: wrap;
   }
-  
 }
-

@@ -8,13 +8,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
-import InfoIcon from '@material-ui/icons/Info';
+//import WebIcon from '@material-ui/icons/Info';
+import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
 import Utils from '../utils/Utils';
@@ -22,7 +19,6 @@ import Error from './Error';
 import MapSection from './MapSection';
 
 // Possible values are `perCurs` and `agregat`
-const MODE_PROG_CENTRE = process.env.REACT_APP_MODE_PROG_CENTRE || 'agregat';
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
@@ -37,10 +33,9 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols, notCert } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
-        const obrePrograma = id => () => history.push(`/programa/${id}`);
         const servei_territorial = data.poligons.get(sstt);
         const servei_educatiu = data.poligons.get(se);
-        let hasNotCert = false;
+        let hasNc = false;
 
         return (
           <>
@@ -74,7 +69,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                       rel="noopener noreferrer"
                       title={url}
                     >
-                      <InfoIcon className="left-icon" />
+                      <WebIcon className="left-icon" />
                       Web
                     </Button>
                   }
@@ -120,47 +115,24 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </div>
                 <h4>Programes on participa:</h4>
                 <br />
-                {(MODE_PROG_CENTRE === 'perCurs' &&
-                  Object.keys(programes)
-                    .map((curs, n) => (
-                      <ExpansionPanel key={n}>
-                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                          <Typography className="wider">CURS {curs}</Typography>
-                          <Typography>{`${programes[curs].length} ${programes[curs].length === 1 ? 'programa' : 'programes'}`}</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                          <ul>
-                            {programes[curs].map(({ id, nom }, c) => {
-                              return (
-                                <li key={c} >
-                                  <Button onClick={obrePrograma(id)}>{nom}{(titols && titols[id]) ? ` - ${titols[id]}` : ''}</Button>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </ExpansionPanelDetails>
-                      </ExpansionPanel>
-                    )))
-                  ||
-                  <List >
-                    {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
-                      <ListItem key={n} button className="no-padding-h-small">
-                        <ListItemAvatar>
-                          <Avatar src={`logos/mini/${simbol}`} alt={nom} />
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={nom}
-                          secondary={(titols && titols[id]) || `${cursos.sort().map(c => {
-                            const nc = notCert.has(`${id}|${c}`);
-                            hasNotCert = hasNotCert || nc;
-                            return `${c}${nc ? ' *' : ''}`;
-                          }).join(', ')}`}
-                          onClick={obrePrograma(id)} />
-                      </ListItem>
-                    ))}
-                  </List>
-                }
-                {hasNotCert &&
+                <List >
+                  {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
+                    <ListItem key={n} button className="no-padding-h-small" component="a" href={`#/programa/${id}`}>
+                      <ListItemAvatar>
+                        <Avatar src={`logos/mini/${simbol}`} alt={nom} />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={nom}
+                        secondary={(titols && titols[id]) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
+                          const nc = notCert.has(`${id}|${c}`);
+                          hasNc = hasNc || nc;
+                          return `${c}${nc ? ' *' : ''}`;
+                        }).join(', ')}`}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+                {hasNc &&
                   <>
                     <br />
                     <Typography>*: Pendent de certificació</Typography>

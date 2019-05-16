@@ -13,6 +13,8 @@ function Footer() {
           <a href={`https://spdx.org/licenses/${license}.html`}>Llicència Pública de la Unió Europea {license}</a><br />
           <a href={repository.url}>{repository.url}</a><br />
           <br />
+          <strong>Bústia de contacte</strong>: <a href="mailto:innovacio@xtec.cat">innovacio@xtec.cat</a><br />
+          <br />
           <a href="https://web.gencat.cat/ca/menu-ajuda/ajuda/avis_legal/"><strong>Avís legal</strong></a>: D’acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se'n citi la font i la data d'actualització i que no es desnaturalitzi la informació (article 8 de la Llei 37/2007) i també que no es contradigui amb una llicència específica.
         </Typography>
       </div>

@@ -10,6 +10,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
@@ -167,28 +168,40 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   </div>
                 ))}
                 <br />
-                {Object.keys(centres).map((curs, n) => (
-                  <ExpansionPanel key={n}>
-                    <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
-                      <Typography className="wider">{`CURS ${curs}`}</Typography>
-                      <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className="small-padding-h">
-                      <List>
-                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols, notCert }, c) => (
-                          <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
-                            <ListItemText
-                              primary={`${nom} (${municipi})${notCert.has(`${id}|${curs}`) ? ' *':''}`}
-                              secondary={(titols && titols[id] ? titols[id] : null)}
-                            />
-                          </ListItem>
-                        ))}
-                      </List>
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                ))}
-                <br />
-                <Typography>*: Pendent de certificació</Typography>
+                {Object.keys(centres).sort().map((curs, n) => {
+                  let hasNc = false;
+                  return (
+                    <ExpansionPanel key={n}>
+                      <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
+                        <Typography className="wider">{`CURS ${curs}`}</Typography>
+                        <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
+                      </ExpansionPanelSummary>
+                      <ExpansionPanelDetails className="small-padding-h flow-v">
+                        <List className="wider">
+                          {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols, notCert }, c) => {
+                            const nc = notCert.has(`${id}|${curs}`);
+                            hasNc = hasNc || nc;
+                            return (
+                              <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
+                                <ListItemText
+                                  primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
+                                  secondary={(titols && titols[id] ? titols[id] : null)}
+                                />
+                              </ListItem>
+                            )
+                          }
+                          )}
+                        </List>
+                        {hasNc &&
+                          <>
+                            <Divider />
+                            <Typography className="padding-one">*: Pendent de certificació</Typography>
+                          </>
+                        }
+                      </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                  );
+                })}
               </Paper>
             </section>
             <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
