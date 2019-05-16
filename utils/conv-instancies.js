@@ -89,7 +89,7 @@ const readCSV = (file) => {
                     warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre ${cz.centre} (${cz.codi}) pertanyent a la ZER ${zer.nom} no es troba a la llista de centres vàlids!`);
                   else {
                     if (!centreZer.logo && centre.logo)
-                      centreZer.logo = `${centre.id}.png`;                    
+                      centreZer.logo = `${centre.id}.png`;
                     centreZer.web = centreZer.web || centre.web || null;
                     centreZer.twitter = centreZer.twitter || centre.twitter || null;
                     centreZer.mail = centreZer.mail || centre.mail || null;
@@ -130,6 +130,8 @@ const readCSV = (file) => {
   });
 };
 
+const getDuplicates = instancies => instancies.map(({ centre, programa, curs }) => `${centre}|${programa}|${curs}`).sort().filter((ii, n, arr) => ii === arr[n + 1]);
+
 // Main process start here
 readCSV(CSV_FILE)
   .then(({ instancies, centres, certificats }) => {
@@ -137,6 +139,10 @@ readCSV(CSV_FILE)
       // Display the summary and possible warnings
       console.log(ch.bold.green(`S'han processat ${instancies.length} instancies (${certificats} ja certificades, ${instancies.length - certificats} en curs)`));
       console.log(ch.bold.green(`Hi ha un total de ${centres.length} centres participants`));
+      getDuplicates(instancies).forEach(d => {
+        const [centre, programa, curs] = d.split('|');
+        console.log(`${ch.bold.bgRed.white('ERROR:')} Instància duplicada: ${centre} | prog. ${programa} | curs ${curs}`);
+      });
       warnings.forEach(inc => console.log(inc));
     }
     else if (DUMP_INSTANCIES)

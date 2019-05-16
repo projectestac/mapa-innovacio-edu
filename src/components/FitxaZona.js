@@ -85,7 +85,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     </Button>
                   }
                 </div>
-                <h4>Programes d'innovació amb presència en aquest territori:</h4>
+                <h4>Programes amb presència en aquest territori:</h4>
                 <br />
                 {programesArray.map((prog, n) => {
                   const centres = prog.allCentres.filter(c => centresInn.has(c));

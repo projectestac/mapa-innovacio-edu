@@ -59,23 +59,10 @@ Veure: http://ensenyament.gencat.cat/web/.content/home/arees-actuacio/centres-se
 | ART    | Escoles d'Art                                              |
 
 
-### Canvis fets per corregir zones
-
-#### utils/poligons-raw.json
-- línia 17, canviar "SE Santa Coloma de Gramenet" per "SE Ciutat de Santa Coloma de Gramenet"
-- línia 43, canviar "SE de La Cerdanya" per "SE de la Cerdanya"
-- línia 48, canviar "SE del Gironés" pern "SE del Gironès"
 
 #### utils/centres-total.json
 - línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"
 
-### Canvis fets per corregir codis d'estudis i nomenclatura als programes
-
-#### public/data/progranes.json
-- línia 198 (_Programa d'assessorament professional a les persones i a les empreses_), substituir "Règim Especial" per "RESP"
-- línia 281 (_Programa de Qualitat i Millora contínua_), substituir "Règim especial" per "RESP"
-- línies 455 i 455 (_Talent creatiu i empresa_), substituir "Règim Especial" i "Escoles d'art" per "RESP" i "ART"
-- línies 552 i 553 (_STEAMcat_) substituir "Àmbit Artístic" per "Àmbit artístic" i "Àmbit Personal i Social" per "Àmbit personal i social"
 
 ### Modificacions a programes
 - Fusionat el programa 46 (Projecte de Qualitat i Millora Contínua) amb el 39 (Programa de Qualitat i Millora Contínua)
@@ -91,7 +78,39 @@ Exportar el primer full a `utils/programes.csv` i executar:
 
 ```bash
 $ cd utils
+$ ./conv-programes.js debug
+# Si tot éstà OK:
 $ ./conv-programes.js > ../public/data/programes.json
 ```
 
+Exportar el full "Zones" a `utils/zones.csv` i executar:
+
+```bash
+$ cd utils
+$ ./conv-poligons.js debug
+# Si tot éstà OK:
+$ ./conv-poligons.js > ../public/data/poligons.json
+```
+
+Exportar el full "Zones" a `utils/zones.csv` i executar:
+
+```bash
+$ cd utils
+$ ./conv-poligons.js debug
+# Si tot éstà OK:
+$ ./conv-poligons.js > ../public/data/poligons.json
+```
+
+Exportar el full "Instàncies" a `utils/instancies.csv` i executar:
+
+```bash
+$ cd utils
+$ ./conv-instancies.js debug
+# Si tot éstà OK:
+$ ./conv-instancies.js centres > ../public/data/centres.json
+$ ./conv-instancies.js instancies > ../public/data/instancies.json
+```
+
+
 Atenció: Nova ZER detectada: "Les Goges" (17007415). Al bloc (https://blocs.xtec.cat/zerlesgoges/pagina-exemple/) diu que sòn dos centres (El Frigolet de Porqueres - 17002818 i "La Roqueta de Santi Miquel de Campmajor") però el segon centre no existeix a la BD.
+

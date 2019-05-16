@@ -34,12 +34,13 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols } = centre;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols, notCert } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const obrePrograma = id => () => history.push(`/programa/${id}`);
         const servei_territorial = data.poligons.get(sstt);
         const servei_educatiu = data.poligons.get(se);
+        let hasNotCert = false;
 
         return (
           <>
@@ -117,7 +118,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
                   </ul>
                 </div>
-                <h4>Programes d'innovació educativa on participa:</h4>
+                <h4>Programes on participa:</h4>
                 <br />
                 {(MODE_PROG_CENTRE === 'perCurs' &&
                   Object.keys(programes)
@@ -149,11 +150,21 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
-                          secondary={(titols && titols[id]) || `${cursos.sort().join(', ')}`}
+                          secondary={(titols && titols[id]) || `${cursos.sort().map(c => {
+                            const nc = notCert.has(`${id}|${c}`);
+                            hasNotCert = hasNotCert || nc;
+                            return `${c}${nc ? ' *' : ''}`;
+                          }).join(', ')}`}
                           onClick={obrePrograma(id)} />
                       </ListItem>
                     ))}
                   </List>
+                }
+                {hasNotCert &&
+                  <>
+                    <br />
+                    <Typography>*: Pendent de certificació</Typography>
+                  </>
                 }
               </Paper>
             </section>

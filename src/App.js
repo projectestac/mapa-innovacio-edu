@@ -139,6 +139,7 @@ class App extends Component {
         _centres.forEach(c => {
           c.programes = {};
           c.allPrograms = new Set();
+          c.notCert = new Set();
         });
 
         // Convert synthetic multi-point expressions into arrays of co-ordinates suitable for leaflet polygons
@@ -184,35 +185,37 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
-        _instancies.forEach(ins => {
-          const programa = programes.get(ins.programa);
-          const centre = centres.get(ins.centre);
-          if (programa && centre) {
-            (programa.centres[ins.curs] = programa.centres[ins.curs] || []).push(centre);
-            programa.allCentres.add(centre);
-            (centre.programes[ins.curs] = centre.programes[ins.curs] || []).push(programa);
-            centre.allPrograms.add(programa);
-            if (centre.sstt) {
-              const p = poligons.get(centre.sstt);
-              p.centresInn.add(centre);
-              p.programes.add(programa);
+        _instancies.forEach(({ programa, centre, curs, titol, cert }) => {
+          const prog = programes.get(programa);
+          const cent = centres.get(centre);
+          if (prog && cent) {
+            (prog.centres[curs] = prog.centres[curs] || []).push(cent);
+            prog.allCentres.add(cent);
+            (cent.programes[curs] = cent.programes[curs] || []).push(prog);
+            cent.allPrograms.add(prog);
+            if (cent.sstt) {
+              const p = poligons.get(cent.sstt);
+              p.centresInn.add(cent);
+              p.programes.add(prog);
             }
-            if (centre.se) {
-              const p = poligons.get(centre.se);
-              p.centresInn.add(centre);
-              p.programes.add(programa);
+            if (cent.se) {
+              const p = poligons.get(cent.se);
+              p.centresInn.add(cent);
+              p.programes.add(prog);
             }
-            if (ins.titol) {
-              if (!programa.titols)
-                programa.titols = {};
-              programa.titols[centre.id] = `${programa.titols[centre.id] ? `${programa.titols[centre.id]}, ` : ''}"${ins.titol}" (${ins.curs})`;
-              if (!centre.titols)
-                centre.titols = {};
-              centre.titols[programa.id] = `${centre.titols[programa.id] ? `${centre.titols[programa.id]}, ` : ''}"${ins.titol}" (${ins.curs})`;
+            if (titol) {
+              if (!prog.titols)
+                prog.titols = {};
+              prog.titols[cent.id] = `${prog.titols[cent.id] ? `${prog.titols[cent.id]}, ` : ''}"${titol}" (${curs})`;
+              if (!cent.titols)
+                cent.titols = {};
+              cent.titols[prog.id] = `${cent.titols[prog.id] ? `${cent.titols[prog.id]}, ` : ''}"${titol}" (${curs})`;
             }
+            if (!cert)
+              cent.notCert.add(`${programa}|${curs}`);
           }
           else
-            console.log(`WARNING: Instància amb programa o centre desconegut: ${ins.programa} - ${ins.centre} - ${ins.curs}`);
+            console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${curs}`);
         });
 
         // Summarize and order programs and centres
@@ -434,19 +437,19 @@ class App extends Component {
       });
     });
 
-    // Finally, calculate the density of each polygon
+    // Calculate the density of each polygon
     // (ratio between the summations of `estudisPart` and `estudisBase`)
     let maxDensityST = 0, maxDensitySE = 0;
     poligons.forEach(poli => {
       let n = 0, d = 0;
-      Object.keys(poli.estudisPart).forEach(tipus => {
+      Object.keys(poli.estudisBase).forEach(tipus => {
         if (poli.estudisBase[tipus]) {
-          n += poli.estudisPart[tipus];
+          n += (poli.estudisPart[tipus] || 0);
           d += poli.estudisBase[tipus];
         }
       });
       if (d > 0) {
-        poli.density = n / d;
+        poli.density = Math.max(MIN_DENSITY, n / d);
         if (poli.tipus === 'ST')
           maxDensityST = Math.max(maxDensityST, poli.density);
         else

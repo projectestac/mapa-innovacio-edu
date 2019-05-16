@@ -175,10 +175,10 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className="small-padding-h">
                       <List>
-                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols }, c) => (
+                        {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols, notCert }, c) => (
                           <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
                             <ListItemText
-                              primary={`${nom} (${municipi})`}
+                              primary={`${nom} (${municipi})${notCert.has(`${id}|${curs}`) ? ' *':''}`}
                               secondary={(titols && titols[id] ? titols[id] : null)}
                             />
                           </ListItem>
@@ -187,6 +187,8 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ExpansionPanelDetails>
                   </ExpansionPanel>
                 ))}
+                <br />
+                <Typography>*: Pendent de certificació</Typography>
               </Paper>
             </section>
             <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
