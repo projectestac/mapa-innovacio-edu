@@ -333,7 +333,7 @@ main .torna, .gomap {
   margin-bottom: 0.2rem;
 }
 
-.programa .wider {
+.seccio .wider {
   font-weight: bold;
   font-size: 12pt;
 }
@@ -417,27 +417,22 @@ main .torna, .gomap {
   padding: 10px;
 }
 
-.zona .prog-icons {
-  display: flex;
-  flex-flow: wrap;
-  flex-grow: 1;
-  justify-content: flex-end;
-}
-
-.prog-icons .prog-icon {
-  padding: 4px;
-}
-
-.prog-icon img {
-  max-width: 30px;
-}
-
 .zona h4 {
   margin-bottom: 0.2rem;
 }
 
 .zona h3 {
   margin-bottom: 0.5rem;
+}
+
+.seccio .zona-prog {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin-right: 2rem;
+}
+
+.zona-prog-logo {
+  grid-area: 1 / 1 / 3 / 2;
 }
 
 /* === Cerca === */
@@ -551,9 +546,6 @@ footer .copyright {
   section .no-padding-h-small {
     padding-left: 0;
     padding-right: 0;
-  }
-  .zona .prog-icons {
-    display: none;
   }
   .zona .small-padding-h {
     padding-left: 0;

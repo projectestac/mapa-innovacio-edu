@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -6,7 +7,6 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
@@ -34,8 +34,6 @@ function FitxaZona({ history, match: { params: { key } } }) {
         const programesArray = Array.from(programes).sort((a, b) => a.nom.localeCompare(b.nom));
 
         const torna = () => history.goBack();
-        const obreCentre = codi => () => history.push(`/centre/${codi}`);
-        const obrePrograma = id => () => history.push(`/programa/${id}`);
 
         return (
           <>
@@ -88,17 +86,19 @@ function FitxaZona({ history, match: { params: { key } } }) {
                   }
                 </div>
                 <h4>Programes d'innovació amb presència en aquest territori:</h4>
+                <br />
                 {programesArray.map((prog, n) => {
                   const centres = prog.allCentres.filter(c => centresInn.has(c));
                   const numCentres = centres.length;
                   return (
                     <ExpansionPanel key={n}>
-                      <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
-                        <Typography className="wider"><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /> {prog.nom}</Typography>
+                      <ExpansionPanelSummary classes={{ root: 'small-padding-left', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
+                        <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
+                        <Typography className="wider">{prog.nom}</Typography>
                         <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails className="small-padding-h">
-                        <List dense>
+                        <List>
                           {centres.map(({ id, nom, municipi, titols, allPrograms }, n) => (
                             <ListItem key={n} button component="a" href={`#/centre/${id}`} className="small-padding-h">
                               <ListItemText

@@ -34,8 +34,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        // Els camps tipus, sstt, se també estan disponibles
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, allPrograms, titols } = centre;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const obrePrograma = id => () => history.push(`/programa/${id}`);
