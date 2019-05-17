@@ -55,7 +55,7 @@ function Programes({ history }) {
             <section className="seccio programes">
               <Paper className="paper">
                 <div className="select-progs">
-                  <Button variant="outlined" color="primary" onClick={() => setDlgOpen(true)}>Selecciona per tipus</Button>
+                  <Button variant="outlined" color="primary" onClick={() => updateMap({}, true, false, () => setDlgOpen(true))}>Selecciona per tipus</Button>
                   <FormControlLabel
                     className="select-all"
                     labelPlacement="start"

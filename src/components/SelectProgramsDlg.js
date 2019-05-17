@@ -48,9 +48,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
   };
 
   const closeDialog = ok => ev => {
-    if (ok)
-      updateMap({ currentPrograms }, true, true);
-    setDlgOpen(false);
+    updateMap(ok ? { currentPrograms } : {}, true, ok, () => setDlgOpen(false));
   };
 
   return (

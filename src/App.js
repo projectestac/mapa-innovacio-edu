@@ -331,11 +331,13 @@ class App extends Component {
 
   /**
    * Update the state of the main component, scrolling to new sections when needed
-   * @param {object} state - The new settings for `state`
-   * @param {boolean} mapChanged - `true` when this change involves map points
+   * @param {object} [state={}] - The new settings for `state`
+   * @param {boolean} [mapChanged=true] - `true` when this change involves map points
+   * @param {boolean} [currentProgramsChanged=false] - `true` when the list of current programs has changed
+   * @param {function} [callback] - Optional function to be called after state is changed
    */
-  updateMap = (state = {}, mapChanged = true, currentProgramsChanged = false) => {
-    this.setStateMod({ ...state, mapChanged, currentProgramsChanged });
+  updateMap = (state = {}, mapChanged = true, currentProgramsChanged = false, callback = null) => {
+    this.setStateMod({ ...state, mapChanged, currentProgramsChanged }, callback);
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
         this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.cursos);

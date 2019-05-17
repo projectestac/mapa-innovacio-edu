@@ -21,10 +21,13 @@ import MapSection from './MapSection';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 
+// Options for React-Markdown
+// See: https://github.com/rexxars/react-markdown#options
 const MD_OPTIONS = {
   escapeHtml: false,
 };
 
+// Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
   return (
     <ExpansionPanel className={className}>
@@ -38,6 +41,7 @@ function createExpansionPanel(className, title, content) {
   );
 }
 
+// Same as `createExpansionPanel`, but with Markdown content
 function createMDExpansionPanel(className, title, mdContent) {
   return createExpansionPanel(className, title,
     <div>
@@ -61,14 +65,12 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
         if (!programa)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${id}`, history }} />
 
-        // Els camps id, nomCurt i color no s'utilitzen
+        // Deconstruct `programa`
         const { nom, descripcio, link, ambCurr, ambInn, fitxa, video, objectius, requisits, compromisos, contacte, normativa, arees, simbol, tipus, centres } = programa;
-
-        const torna = () => history.goBack();
 
         return (
           <>
-            <Button className="torna" aria-label="Torna" onClick={torna} >
+            <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
               <ArrowBack className="left-icon" />
               Torna
             </Button>

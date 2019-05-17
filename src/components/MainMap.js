@@ -95,7 +95,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
       const overlayVisible = (type === 'add');
       OVERLAY_SETTINGS_STORAGE.setItem(OVERLAYS[ov].flag, overlayVisible);
       if (ov === 0 && overlayVisible)
-        updateMap({}, false);
+        updateMap({}, false, false);
     }
   }
 
