@@ -87,6 +87,11 @@ class App extends Component {
         name: 'Programes',
         path: '/programes',
       },
+      {
+        id: 'projectes',
+        name: 'Projectes',
+        path: '/programa/1001',
+      },
     ];
 
     // Set the initial state

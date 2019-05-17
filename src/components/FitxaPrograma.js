@@ -19,6 +19,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
 
+const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
+
 const MD_OPTIONS = {
   escapeHtml: false,
 };
@@ -88,7 +90,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     <Button
                       variant="contained"
                       className="info-btn"
-                      href={fitxa}
+                      href={`${/^http.?:\/\//.test(fitxa) ? '' : FITXA_BASE}${fitxa}`}
                       title="Descarrega la fitxa del projecte" >
                       <CloudDownloadIcon className="left-icon" />
                       Fitxa
@@ -195,7 +197,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         {hasNc &&
                           <>
                             <Divider />
-                            <Typography className="padding-one">*: Pendent de certificació</Typography>
+                            <Typography className="padding-one">*: Participació en curs, pendent de certificar</Typography>
                           </>
                         }
                       </ExpansionPanelDetails>

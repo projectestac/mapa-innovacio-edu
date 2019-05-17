@@ -10,7 +10,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import ArrowBack from '@material-ui/icons/ArrowBack';
-//import WebIcon from '@material-ui/icons/Info';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
@@ -18,7 +17,6 @@ import Utils from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
-// Possible values are `perCurs` and `agregat`
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
@@ -135,7 +133,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 {hasNc &&
                   <>
                     <br />
-                    <Typography>*: Pendent de certificació</Typography>
+                    <Typography>*: Participació en curs, pendent de certificar</Typography>
                   </>
                 }
               </Paper>
