@@ -2,7 +2,6 @@
 
 - Migrar de `sw-precache` a `workbox`. Veure: https://developers.google.com/web/tools/workbox/guides/migrations/migrate-from-sw
 - Fer que l'aplicació sigui multi-idioma
-- Redactar README.md
 
 #### utils/centres-total.json
 - línia 83939 (Fundació UAB), indicar: "SE del Vallès Occidental V"

@@ -298,24 +298,10 @@ class App extends Component {
    * Miscellaneous operations to be performed at startup
    */
   componentDidMount() {
-    // Load Google's "Roboto" font
-    //Utils.loadGFont('Roboto');
+    // Load Google's "Open Sans" font
     Utils.loadGFont('Open Sans');
     // Load datasets
     this.loadData()
-      /*
-        .then(() => {
-          // Preload small icons
-          window.setTimeout(() => {
-            this.state.data.programes.forEach(p => {
-              const img = new Image();
-              img.src = `logos/${p.simbol}`;
-              const miniImg = new Image();
-              miniImg.src = `logos/mini/${p.simbol}`;
-            });
-          }, 0);
-        })
-      */
       .then(() => {
         // Check if map layers should be updated
         window.setTimeout(() => {
