@@ -62,8 +62,12 @@ a {
   padding-bottom: var(--footer-height);
 }
 
-#filler {
+.filler {
   height: 4rem;
+}
+
+#fill-progs {
+  display: none;
 }
 
 main {
@@ -82,8 +86,14 @@ main {
   main {
     grid-template-columns: 1fr;
   }
-  main .gomap {
+  .smapa {
+    grid-row-start: 2;
+  }
+  main .gomap, main .goprogs {
     display: block !important;
+  }
+  #fill-progs {
+    display: block;
   }
 }
 
@@ -121,7 +131,7 @@ header .top-bar, .nav-bar {
   display: none;
 }
 
-main .gomap {
+main .gomap, main .goprogs {
   display: none;
 }
 
@@ -131,7 +141,7 @@ main .gomap {
   #root header {
     position: inherit;
   }
-  #filler {
+  .filler {
     position: absolute;
     top: 0;
     height: 0;
@@ -320,9 +330,14 @@ main .gomap {
 
 .left-icon {
   margin-right: 0.5rem;
+  vertical-align: bottom;
 }
 
-main .torna, .gomap {
+main .gomap {
+  margin-bottom: 1rem;
+}
+
+.torna {
   grid-column: 1 / -1;
   justify-self: start;
 }

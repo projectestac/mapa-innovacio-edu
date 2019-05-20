@@ -11,6 +11,7 @@ import Switch from '@material-ui/core/Switch';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import SelectProgramsDlg from './SelectProgramsDlg';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -43,15 +44,17 @@ function Programes({ history }) {
           updateMap({ currentPrograms }, true, true);
         };
 
-        const gomap = () => document.querySelector('.smapa').scrollIntoView();
+        const goprogs = () => document.querySelector('#fill-progs').scrollIntoView();
+        const gomap = () => document.querySelector('.filler').scrollIntoView();
 
         return (
           <>
             <SelectProgramsDlg {...{ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
-            <Button className="gomap" aria-label="Mapa" onClick={gomap} >
+            <Button className="goprogs" aria-label="Programes" onClick={goprogs} >
               <ArrowDownward className="left-icon" />
-              Mapa
+              Programes
             </Button>
+            <div id="fill-progs" className="filler" />
             <section className="seccio programes">
               <Paper className="paper">
                 <div className="select-progs">
@@ -86,6 +89,10 @@ function Programes({ history }) {
               </Paper>
             </section>
             <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
+            <Button className="gomap" aria-label="Programes" onClick={gomap} >
+              <ArrowUpward className="left-icon" />
+              Mapa
+            </Button>
           </>
         );
       }}

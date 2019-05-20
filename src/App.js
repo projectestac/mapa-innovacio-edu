@@ -489,7 +489,7 @@ class App extends Component {
             <AppContext.Provider value={this.state}>
               <CheckRouteChanges updateHandler={this.contentUpdated}>
                 <Header />
-                <div id="filler" />
+                <div className="filler" />
                 <main>
                   {
                     (loading && <Loading />) ||

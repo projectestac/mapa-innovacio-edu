@@ -26,12 +26,12 @@ function Presentacio({ history }) {
                 onClick={() => history.push('/programes')}
               >Accés al mapa</Button>
               <div className="hidden">
-                { /* Preload icons */
+                { /* Preload icons in a hidden div */
                   data.programes && Array.from(data.programes.values()).map((p, n) => (
-                    <div key={n}>
-                      <img alt="" src={`logos/${p.simbol}`} />
-                      <img alt="" src={`logos/mini/${p.simbol}`} />
-                    </div>
+                    <>
+                      <img key={n} alt="" src={`logos/${p.simbol}`} />
+                      <img key={`mini-${n}`} alt="" src={`logos/mini/${p.simbol}`} />
+                    </>
                   ))
                 }
               </div>
