@@ -3,6 +3,7 @@
 // Usage: ./conv-poligons.js > ../public/data/poligons.json
 // Debug: ./conv-poligons.js debug
 
+const { sortObjectArrayBy } = require('./utils');
 const { createReadStream } = require('fs');
 const csv = require('csv');
 const ch = require('chalk');
@@ -87,6 +88,7 @@ const readCSV = (file) => {
               key: reg.key,
               tipus: reg.tipus,
               id: reg.id,
+              st: reg.st,
               nom: reg.nom,
               adreca: reg.adreça,
               tel: reg.telèfon,
@@ -106,7 +108,7 @@ const readCSV = (file) => {
             zones.push(poligon);
           });
 
-          resolve(countLevels(zones));
+          resolve(countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'key'])));
         }
       }
     ));

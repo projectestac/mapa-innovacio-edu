@@ -135,11 +135,6 @@ class App extends Component {
     )
       .then(([_programes, _instancies, _centres, _poligons, _estudis]) => {
 
-        // Sort data (step to be supressed with well ordered JSON sources!)
-        _centres = Utils.sortObjectArrayBy(_centres, ['sstt', 'municipi', 'nom']);
-        _programes = Utils.sortObjectArrayBy(_programes, 'nom');
-        _poligons = Utils.sortObjectArrayBy(_poligons, ['tipus', 'id', 'key']);
-
         // Build an object with centre ids as keys, useful for optimizing searches
         _centres.forEach(c => {
           c.programes = {};
@@ -161,27 +156,13 @@ class App extends Component {
         // Prepare sets for auto-detected data
         const currentPrograms = new Set();
 
-        // Guess missing fields in `programes`
-        // (to be supressed!)
+        // Initialize transient properties
         _programes.forEach(p => {
-
           // Set all programs initially selected
           currentPrograms.add(p.id);
-
           // Initialize `centres` and `allCentres` (to be filled later)
           p.centres = {};
           p.allCentres = new Set();
-
-          // Empty `tipus`? then try to guess them from title and description
-          if (p.tipus.length === 0) {
-            const str = `${p.nom} ${p.nomCurt} ${p.descripcio}`;
-            if (/(FP|fp|[pP]rofessio)/.test(str))
-              p.tipus = ['CFPM', 'CFPS'];
-            else if (/(infantil|primària|escola)/.test(str))
-              p.tipus = ['EINF2C', 'EPRI'];
-            else
-              p.tipus = ['EINF2C', 'EPRI', 'ESO'];
-          }
         });
 
         // Convert arrays to maps
@@ -291,8 +272,6 @@ class App extends Component {
           cursosDisp: _estudis.cursos,
         };
 
-        //this.updateLayersDensity(currentPrograms, null, data);
-
         // Update the main state
         this.setStateMod({
           data,
@@ -324,8 +303,24 @@ class App extends Component {
     Utils.loadGFont('Open Sans');
     // Load datasets
     this.loadData()
+    /*
       .then(() => {
-        this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
+        // Preload small icons
+        window.setTimeout(() => {
+          this.state.data.programes.forEach(p => {
+            const img = new Image();
+            img.src = `logos/${p.simbol}`;
+            const miniImg = new Image();
+            miniImg.src = `logos/mini/${p.simbol}`;
+          });
+        }, 0);
+      })
+    */
+      .then(() => {
+        // Check if map layers should be updated
+        window.setTimeout(() => {
+          this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
+        }, 0);
       });
   }
 

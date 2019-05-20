@@ -19,7 +19,7 @@ export const DEFAULT_STATE = {
   currentPrograms: new Set(),
   programa: null,
   cursos: [],
-  delayedMapUpdate: true,
+  mapChanged: true,
   // Inmutable attributes
   updateMap: () => null,
   fuseFuncs: [],

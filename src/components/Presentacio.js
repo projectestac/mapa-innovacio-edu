@@ -13,7 +13,7 @@ function Presentacio({ history }) {
 
   return (
     <AppContext.Consumer>
-      {() => {
+      {({ data }) => {
         return (
           <section className="seccio presenta">
             <Paper className="paper">
@@ -25,6 +25,16 @@ function Presentacio({ history }) {
                 variant="outlined"
                 onClick={() => history.push('/programes')}
               >Accés al mapa</Button>
+              <div className="hidden">
+                { /* Preload icons */
+                  data.programes && Array.from(data.programes.values()).map((p, n) => (
+                    <div key={n}>
+                      <img alt="" src={`logos/${p.simbol}`} />
+                      <img alt="" src={`logos/mini/${p.simbol}`} />
+                    </div>
+                  ))
+                }
+              </div>
             </Paper>
           </section>
         );

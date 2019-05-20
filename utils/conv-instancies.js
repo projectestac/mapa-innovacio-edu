@@ -5,6 +5,7 @@
 //   ./conv-instancies.js centres > ../public/data/centres.json
 // Debug: ./conv-instancies.js debug
 
+const { sortObjectArrayBy } = require('./utils');
 const { createReadStream } = require('fs');
 const csv = require('csv');
 const ch = require('chalk');
@@ -160,7 +161,7 @@ readCSV(CSV_FILE)
       console.log(JSON.stringify(filterDuplicates(instancies), 1));
     else if (DUMP_CENTRES)
       // Send the resulting JSON to the standard output (usually redirected to '../public/data/centres.json' )
-      console.log(JSON.stringify(centres, 1));
+      console.log(JSON.stringify(sortObjectArrayBy(centres, ['sstt', 'municipi', 'nom']), 1));
     else
       console.log(`${ch.bold.red('ERROR:')} Heu d'indicar un d'aquests paràmetres: ${ch.italic('debug')}, ${ch.italic('instancies')}, ${ch.italic('centres')}`);
   })
