@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -303,19 +303,19 @@ class App extends Component {
     Utils.loadGFont('Open Sans');
     // Load datasets
     this.loadData()
-    /*
-      .then(() => {
-        // Preload small icons
-        window.setTimeout(() => {
-          this.state.data.programes.forEach(p => {
-            const img = new Image();
-            img.src = `logos/${p.simbol}`;
-            const miniImg = new Image();
-            miniImg.src = `logos/mini/${p.simbol}`;
-          });
-        }, 0);
-      })
-    */
+      /*
+        .then(() => {
+          // Preload small icons
+          window.setTimeout(() => {
+            this.state.data.programes.forEach(p => {
+              const img = new Image();
+              img.src = `logos/${p.simbol}`;
+              const miniImg = new Image();
+              miniImg.src = `logos/mini/${p.simbol}`;
+            });
+          }, 0);
+        })
+      */
       .then(() => {
         // Check if map layers should be updated
         window.setTimeout(() => {
@@ -494,15 +494,15 @@ class App extends Component {
                   {
                     (loading && <Loading />) ||
                     (error && <Error {...{ error, refetch: this.loadData }} />) ||
-                    (<>
+                    <Switch>
                       <Route exact path="/" component={Presentacio} />
                       <Route path="/programes" component={Programes} />
                       <Route path="/centre/:codi" component={FitxaCentre} />
                       <Route path="/programa/:id" component={FitxaPrograma} />
                       <Route path="/zona/:key" component={FitxaZona} />
                       <Route path="/cerca/:query" component={Cerca} />
-                    </>
-                    )
+                      <Redirect to="/" />
+                    </Switch>
                   }
                 </main>
                 <Footer />

@@ -14,8 +14,11 @@ import SchoolIcon from 'mdi-material-ui/MapMarker';
 
 const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
-function Cerca({ history, match: { params: { query } } }) {
+function Cerca({ history, match: { params: { query = '' } } }) {
 
+  // Remove extra spaces
+  query = query.trim();
+  
   const [page, setPage] = React.useState(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
   const [queryResults, setQueryResults] = React.useState([]);
