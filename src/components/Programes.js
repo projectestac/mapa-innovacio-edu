@@ -15,7 +15,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Utils from '../utils/Utils';
+import { cursCurt } from '../utils/Utils';
 
 function Programes({ history }) {
 
@@ -82,7 +82,7 @@ function Programes({ history }) {
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
-                          secondary={'Centres ' + Object.keys(centres).sort().map(k => `${Utils.cursCurt(k)}: ${centres[k].length}`).join(', ')}
+                          secondary={'Centres ' + Object.keys(centres).sort().map(k => `${cursCurt(k)}: ${centres[k].length}`).join(', ')}
                           onClick={handleProgClick(id)} />
                         <ListItemSecondaryAction>
                           <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />

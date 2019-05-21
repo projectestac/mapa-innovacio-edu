@@ -66,6 +66,15 @@ a {
   height: 4rem;
 }
 
+div .small-media-element {
+  color: var(--gencat-red);
+  padding: 4px;
+}
+
+div .small-media-element:first-of-type {
+  margin-left: 5px;
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;

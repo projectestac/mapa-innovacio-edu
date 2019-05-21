@@ -8,7 +8,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
 
-import Utils from './utils/Utils';
+import {handleFetchErrors, loadGFont} from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
@@ -129,7 +129,7 @@ class App extends Component {
         'data/estudis.json',
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
-          .then(Utils.handleFetchErrors)
+          .then(handleFetchErrors)
           .then(response => response.json());
       })
     )
@@ -171,7 +171,7 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
-        _instancies.forEach(({ programa, centre, curs, titol, cert }) => {
+        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
           if (prog && cent) {
@@ -190,12 +190,26 @@ class App extends Component {
               p.programes.add(prog);
             }
             if (titol) {
-              if (!prog.titols)
-                prog.titols = {};
-              prog.titols[cent.id] = `${prog.titols[cent.id] ? `${prog.titols[cent.id]}, ` : ''}"${titol}" (${curs})`;
-              if (!cent.titols)
-                cent.titols = {};
-              cent.titols[prog.id] = `${cent.titols[prog.id] ? `${cent.titols[prog.id]}, ` : ''}"${titol}" (${curs})`;
+              const info = {
+                titol,
+                curs,
+              };
+              if (fitxa)
+                info.fitxa = fitxa;
+              if (video)
+                info.video = video;
+
+              if (!prog.info)
+                prog.info = {};
+              if (!prog.info[cent.id])
+                prog.info[cent.id] = [];
+              prog.info[cent.id].push(info);
+
+              if (!cent.info)
+                cent.info = {};
+              if (!cent.info[prog.id])
+                cent.info[prog.id] = [];
+              cent.info[prog.id].push(info);
             }
             if (!cert)
               cent.notCert.add(`${programa}|${curs}`);
@@ -231,12 +245,12 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, simbol, descripcio, titols, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
+            _programes.map(({ id, nom, simbol, descripcio, info, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
               id,
               nom,
               simbol,
               descripcio,
-              titols: titols ? Object.values(titols).join(', ') : '',
+              info: info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
               ambCurr: ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
               ambInn: ambInn.map(a => _estudis.ambitsInn[a]).join(', '),
               arees: arees.join(', '),
@@ -247,16 +261,16 @@ class App extends Component {
               normativa,
               tipus: 'programa',
             })),
-            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'titols', 'ambCurr', 'ambInn', 'arees', 'objectius', 'requisits', 'compromisos', 'contacte', 'normativa'] }),
+            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'info', 'ambCurr', 'ambInn', 'arees', 'objectius', 'requisits', 'compromisos', 'contacte', 'normativa'] }),
           new Fuse(
-            _centres.map(({ id, nom, municipi, comarca, titols }) => ({
+            _centres.map(({ id, nom, municipi, comarca, info }) => ({
               id,
               nom: `${nom} (${municipi})`,
               comarca,
-              titols: titols ? Object.values(titols).join(', ') : '',
+              info: info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
               tipus: 'centre',
             })),
-            { ...fuseOptions, keys: ['id', 'nom', 'comarca', 'titols'] }),
+            { ...fuseOptions, keys: ['id', 'nom', 'comarca', 'info'] }),
         ];
 
         // Update main data object
@@ -305,7 +319,7 @@ class App extends Component {
    */
   componentDidMount() {
     // Load Google's "Open Sans" font
-    Utils.loadGFont('Open Sans');
+    loadGFont('Open Sans');
     // Load datasets
     this.loadData()
       .then(() => {

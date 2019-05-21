@@ -13,7 +13,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
-import Utils from '../utils/Utils';
+import { plainArray, getInfoSpan } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
@@ -28,7 +28,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, titols, notCert } = centre;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, info, notCert } = centre;
         const url = nodes || web || web_propi;
         const tancaFitxa = () => history.goBack();
         const servei_territorial = data.poligons.get(sstt);
@@ -114,14 +114,14 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <h4>Programes on participa:</h4>
                 <br />
                 <List >
-                  {Utils.plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
+                  {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
                     <ListItem key={n} button className="no-padding-h-small" component="a" href={`#/programa/${id}`}>
                       <ListItemAvatar>
                         <Avatar src={`logos/mini/${simbol}`} alt={nom} />
                       </ListItemAvatar>
                       <ListItemText
                         primary={nom}
-                        secondary={(titols && titols[id]) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
+                        secondary={(info && info[id] && getInfoSpan(info[id])) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
                           const nc = notCert.has(`${id}|${c}`);
                           hasNc = hasNc || nc;
                           return `${c}${nc ? ' *' : ''}`;

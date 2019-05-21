@@ -77,6 +77,10 @@ const readCSV = (file) => {
 
               if (reg.Titol)
                 instancia.titol = reg.Titol;
+              if (reg.Nom_Fitxa)
+                instancia.fitxa = reg.Nom_Fitxa;
+              if (reg.URL_Video)
+                instancia.video = reg.URL_Video;
 
               // Comprovar ZERs
               const zer = zers.find(z => z.codi === codiCentre);
@@ -158,7 +162,7 @@ readCSV(CSV_FILE)
     }
     else if (DUMP_INSTANCIES)
       // Send the resulting JSON to the standard output (usually redirected to '../public/data/instancies.json' )
-      console.log(JSON.stringify(filterDuplicates(instancies), 1));
+      console.log(JSON.stringify(sortObjectArrayBy(filterDuplicates(instancies), ['programa', 'centre', 'curs']), 1));
     else if (DUMP_CENTRES)
       // Send the resulting JSON to the standard output (usually redirected to '../public/data/centres.json' )
       console.log(JSON.stringify(sortObjectArrayBy(centres, ['sstt', 'municipi', 'nom']), 1));

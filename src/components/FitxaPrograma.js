@@ -18,6 +18,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
+import { getInfoSpan } from '../utils/Utils';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 
@@ -51,7 +52,6 @@ function createMDExpansionPanel(className, title, mdContent) {
     </div>
   );
 }
-
 
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
@@ -182,14 +182,14 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails className="small-padding-h flow-v">
                         <List className="wider">
-                          {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, titols, notCert }, c) => {
+                          {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
                             const nc = notCert.has(`${id}|${curs}`);
                             hasNc = hasNc || nc;
                             return (
                               <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
                                 <ListItemText
                                   primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                  secondary={(titols && titols[id] ? titols[id] : null)}
+                                  secondary={(info && info[id] ? getInfoSpan(info[id]) : null)}
                                 />
                               </ListItem>
                             )

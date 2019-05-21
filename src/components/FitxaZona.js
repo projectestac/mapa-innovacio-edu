@@ -8,7 +8,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-//import WebIcon from '@material-ui/icons/Info';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
@@ -18,6 +17,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { getInfoSpan } from '../utils/Utils';
 
 
 function FitxaZona({ history, match: { params: { key } } }) {
@@ -100,11 +100,11 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails className="small-padding-h">
                         <List>
-                          {centres.map(({ id, nom, municipi, titols, allPrograms }, n) => (
+                          {centres.map(({ id, nom, municipi, info, allPrograms }, n) => (
                             <ListItem key={n} button component="a" href={`#/centre/${id}`} className="small-padding-h">
                               <ListItemText
                                 primary={`${nom} (${municipi})`}
-                                secondary={(titols && titols[id] ? titols[id] : null)}
+                                secondary={(info && info[id] ? getInfoSpan(info[id]) : null)}
                               />
                             </ListItem>
                           ))}

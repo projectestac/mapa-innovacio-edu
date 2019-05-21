@@ -6,7 +6,7 @@ import MarkerClusterGroup from '../utils/MarkerClusterGroup';
 // Moved to `index.js`:
 // import 'react-leaflet-fullscreen/dist/styles.css';
 import FullscreenControl from 'react-leaflet-fullscreen';
-import Utils from '../utils/Utils';
+import { sumAll } from '../utils/Utils';
 
 // See ../utils/TileLayer for all available options
 const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
@@ -120,8 +120,8 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
 
   const popupZona = (zona) => {
     const centresPart = zona.centresPart.size;
-    const estudisPart = Utils.sumAll(zona.estudisPart);
-    const estudisBase = Utils.sumAll(zona.estudisBase);
+    const estudisPart = sumAll(zona.estudisPart);
+    const estudisBase = sumAll(zona.estudisBase);
     const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed(1);
     return <Popup>
       <h4><Link to={`/zona/${zona.key}`}>{zona.nom}</Link></h4>
