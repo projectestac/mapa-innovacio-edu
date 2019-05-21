@@ -1,7 +1,7 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la innovació pedagògica de Catalunya",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Francesc Busquets <francesc@gmail.com>",
   "private": true,
   "homepage": ".",

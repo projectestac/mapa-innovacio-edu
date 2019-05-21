@@ -14,7 +14,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
-function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }) {
+function SelectProgramsDlg({ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }) {
 
   const [ambitInn, setAmbitInn] = React.useState('');
   const [ambitCurr, setAmbitCurr] = React.useState('');
@@ -48,7 +48,7 @@ function SelectProgramsDlg({ dlgOpen, setDlgOpen, data: { programes, ambitsCurr,
   };
 
   const closeDialog = ok => ev => {
-    updateMap(ok ? { currentPrograms } : {}, true, ok, () => setDlgOpen(false));
+    updateMap(Object.assign({ dlgOpen: false }, (ok && { currentPrograms }) || {}), true, ok);
   };
 
   return (

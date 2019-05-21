@@ -20,6 +20,9 @@ export const DEFAULT_STATE = {
   programa: null,
   cursos: [],
   mapChanged: true,
+  tabMode: false,
+  currentTab: 0,
+  dlgOpen: false,
   // Inmutable attributes
   updateMap: () => null,
   fuseFuncs: [],

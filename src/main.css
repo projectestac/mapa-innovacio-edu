@@ -66,17 +66,13 @@ a {
   height: 4rem;
 }
 
-#fill-progs {
-  display: none;
-}
-
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   align-items: start;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 0 auto 1.5rem auto;
   padding: 1rem;
 }
 
@@ -85,15 +81,6 @@ main {
 @media (max-width: 840px) {
   main {
     grid-template-columns: 1fr;
-  }
-  .smapa {
-    grid-row-start: 2;
-  }
-  main .gomap, main .goprogs {
-    display: block !important;
-  }
-  #fill-progs {
-    display: block;
   }
 }
 
@@ -128,10 +115,6 @@ header .main-header-block {
 }
 
 header .top-bar, .nav-bar {
-  display: none;
-}
-
-main .gomap, main .goprogs {
   display: none;
 }
 
@@ -331,10 +314,6 @@ main .gomap, main .goprogs {
 .left-icon {
   margin-right: 0.5rem;
   vertical-align: bottom;
-}
-
-main .gomap {
-  margin-bottom: 1rem;
 }
 
 .torna {
@@ -559,6 +538,7 @@ footer .copyright {
   }
   footer .footer-content {
     grid-template-columns: 1fr;
+    padding: 1rem 0;
   }
   body .stretch-dlg {
     margin: 10px;
@@ -566,10 +546,13 @@ footer .copyright {
   section .cursos {
     padding: 1rem 0;
   }
+  section .paper {
+    padding: 1rem 0.5rem;
+  }
   section .no-padding-h-small {
     padding-left: 0;
     padding-right: 0;
-  }
+  }  
   .zona .small-padding-h {
     padding-left: 0;
     padding-right: 0;

@@ -103,6 +103,7 @@ class App extends Component {
       fuseFuncs: [],
       menuItems: this.menuItems,
     };
+
   }
 
   setStateMod(values, callback = null) {
@@ -113,7 +114,6 @@ class App extends Component {
         callback();
     });
   }
-
 
   /**
    * Load datasets from API or JSON files
@@ -294,6 +294,12 @@ class App extends Component {
       });
   }
 
+  checkTabMode(force = false) {
+    const tabs = window.matchMedia('(max-width: 840px)').matches;
+    if (this.state.tabMode !== tabs)
+      this.updateMap({ tabMode: tabs });
+  }
+
   /**
    * Miscellaneous operations to be performed at startup
    */
@@ -303,6 +309,10 @@ class App extends Component {
     // Load datasets
     this.loadData()
       .then(() => {
+        // Check if tabs should be used
+        this.checkTabMode(true);
+        // Update tan mode when window resizes
+        window.addEventListener('resize', this.checkTabMode.bind(this));
         // Check if map layers should be updated
         window.setTimeout(() => {
           this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
