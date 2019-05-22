@@ -18,7 +18,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
-import { getInfoSpan } from '../utils/Utils';
+import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 
@@ -183,13 +183,14 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                       <ExpansionPanelDetails className="small-padding-h flow-v">
                         <List className="wider">
                           {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
+                            const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
                             const nc = notCert.has(`${id}|${curs}`);
                             hasNc = hasNc || nc;
                             return (
-                              <ListItem key={c} button component="a" href={`#/centre/${codi}`} className="small-padding-h">
+                              <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
                                 <ListItemText
                                   primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                  secondary={(info && info[id] ? getInfoSpan(info[id]) : null)}
+                                  secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
                                 />
                               </ListItem>
                             )

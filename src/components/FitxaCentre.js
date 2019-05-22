@@ -13,7 +13,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
-import { plainArray, getInfoSpan } from '../utils/Utils';
+import { plainArray, getInfoSpan, hasExtraInfo } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
@@ -114,21 +114,24 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <h4>Programes on participa:</h4>
                 <br />
                 <List >
-                  {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => (
-                    <ListItem key={n} button className="no-padding-h-small" component="a" href={`#/programa/${id}`}>
-                      <ListItemAvatar>
-                        <Avatar src={`logos/mini/${simbol}`} alt={nom} />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={nom}
-                        secondary={(info && info[id] && getInfoSpan(info[id])) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
-                          const nc = notCert.has(`${id}|${c}`);
-                          hasNc = hasNc || nc;
-                          return `${c}${nc ? ' *' : ''}`;
-                        }).join(', ')}`}
-                      />
-                    </ListItem>
-                  ))}
+                  {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
+                    const link = (info && hasExtraInfo(info[id])) ? null : `#/programa/${id}`;
+                    return (
+                      <ListItem key={n} button className="no-padding-h-small" component={link ? 'a' : 'div'} href={link}>
+                        <ListItemAvatar>
+                          <Avatar src={`logos/mini/${simbol}`} alt={nom} />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={nom}
+                          secondary={(info && info[id] && getInfoSpan(info[id], id, codi)) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
+                            const nc = notCert.has(`${id}|${c}`);
+                            hasNc = hasNc || nc;
+                            return `${c}${nc ? ' *' : ''}`;
+                          }).join(', ')}`}
+                        />
+                      </ListItem>
+                    );
+                  })}
                 </List>
                 {hasNc &&
                   <>

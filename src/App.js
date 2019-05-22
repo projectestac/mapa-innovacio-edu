@@ -15,6 +15,7 @@ import Programes from './components/Programes';
 import FitxaPrograma from './components/FitxaPrograma';
 import FitxaCentre from './components/FitxaCentre';
 import FitxaZona from './components/FitxaZona';
+import FitxaProjecte from './components/FitxaProjecte';
 import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
@@ -509,6 +510,7 @@ class App extends Component {
                       <Route path="/programes" component={Programes} />
                       <Route path="/centre/:codi" component={FitxaCentre} />
                       <Route path="/programa/:id" component={FitxaPrograma} />
+                      <Route path="/projecte/:id" component={FitxaProjecte} />
                       <Route path="/zona/:key" component={FitxaZona} />
                       <Route path="/cerca/:query" component={Cerca} />
                       <Redirect to="/" />

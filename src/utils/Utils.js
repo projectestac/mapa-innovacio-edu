@@ -1,12 +1,8 @@
 // From: https://github.com/zeit/next.js/issues/512#issuecomment-322026199
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
-import IconButton from '@material-ui/core/IconButton';
-import PdfIcon from 'mdi-material-ui/FilePdf';
-import VideoIcon from 'mdi-material-ui/FileVideo';
-
-const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
 
 /**
  * Asynchronous loading of Google fonts
@@ -77,42 +73,69 @@ export function cursCurt(curs) {
  * @param {Object} info - Array of objects with mandatory fields `titol` and `curs`, and optional fields `video` and `fitxa`
  * @returns {React.Component}
  */
-export function getInfoSpan(info) {
+export function getInfoSpan(info, proj, centre) {
   return (
     <>
       {info.map(({ titol, fitxa, video, curs }, n) => {
         return (
           <span key={n}>
-            <span>{`"${titol}" (${curs})`}</span>
-            {fitxa &&
-              <IconButton
-                className="small-media-element"
-                aria-label="Fitxa del projecte"
-                title="Fitxa del projecte"
-                href={`${/^http.?:\/\//.test(fitxa) ? '' : FITXA_PROJ_BASE}${fitxa}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <PdfIcon />
-              </IconButton>
-            }
-            {video &&
-              <IconButton
-                className="small-media-element"
-                aria-label="Video sobre aquest projecte"
-                title="Vídeo sobre aquest projecte"
-                href={`${/^http.?:\/\//.test(video) ? '' : FITXA_PROJ_BASE}${video}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <VideoIcon />
-              </IconButton>
+            {(fitxa || video) ?
+              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`"${titol}"`}</Link>{` (${curs})`}</span> :
+              <span>{`"${titol}" (${curs})`}</span>
             }
             {n < info.length - 1 && <span>, </span>}
           </span>
         );
       })}
     </>
+  );
+}
+
+/**
+ * Checks if at least one of the elements of a "info" group has `fitxa` or `video`
+ */
+export function hasExtraInfo(info) {
+  return (info && info.find(inf => inf.fitxa || inf.video)) ? true : false;
+}
+
+/**
+ * Options passed into YouTube embed URLs
+ */
+const YOUTUBE_OPTIONS = Object.entries({
+  autoplay: 0, // Don't automatically start the video
+  cc_lang_pref: 'ca', // Preferred language for captions
+  hl: 'ca', // Preferred language for interface
+  fs: 1, // Allow full screen
+  modestbranding: 1, // Reduced branding
+  rel: 0, // related videos (see https://developers.google.com/youtube/player_parameters#release_notes_08_23_2018)
+}).map((e) => `${e[0]}=${e[1]}`).join('&');
+
+/**
+ * Generates an "iframe" with the provided url
+ * When the url matches with a YouTube video player, an "embed" code is used instead.
+ */
+export function VideoIframe({ url, title = '', width = 800, height = 600, className }) {
+
+  let src = url || '';
+
+  // Check for YouTube
+  // See: https://stackoverflow.com/questions/18336873/regex-to-extract-youtube-video-id
+  let matches = /(youtu\.be\/|[?&]v=)([^&]+)/.exec(url);
+  if (matches && matches.length === 3) {
+    const youTubeId = matches[2];
+    src = `https://www.youtube.com/embed/${youTubeId}?${YOUTUBE_OPTIONS}`;
+  }
+
+  return (
+    <iframe
+      className={className}
+      title={title}
+      src={src}
+      width={width}
+      height={height}
+      type="text/html"
+      allowFullScreen
+    />
   );
 }
 

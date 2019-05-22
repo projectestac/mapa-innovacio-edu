@@ -17,7 +17,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { getInfoSpan } from '../utils/Utils';
+import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
 
 
 function FitxaZona({ history, match: { params: { key } } }) {
@@ -100,14 +100,17 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails className="small-padding-h">
                         <List>
-                          {centres.map(({ id, nom, municipi, info, allPrograms }, n) => (
-                            <ListItem key={n} button component="a" href={`#/centre/${id}`} className="small-padding-h">
-                              <ListItemText
-                                primary={`${nom} (${municipi})`}
-                                secondary={(info && info[id] ? getInfoSpan(info[id]) : null)}
-                              />
-                            </ListItem>
-                          ))}
+                          {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
+                            const link = (info && hasExtraInfo(info[prog.id])) ? null : `#/centre/${id}`;
+                            return (
+                              <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
+                                <ListItemText
+                                  primary={`${nom} (${municipi})`}
+                                  secondary={info && info[prog.id] && getInfoSpan(info[prog.id], prog.id, id)}
+                                />
+                              </ListItem>
+                            );
+                          })}
                         </List>
                       </ExpansionPanelDetails>
                     </ExpansionPanel>

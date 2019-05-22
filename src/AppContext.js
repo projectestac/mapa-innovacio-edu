@@ -22,6 +22,7 @@ export const DEFAULT_STATE = {
   mapChanged: true,
   tabMode: false,
   currentTab: 0,
+  currentPrjTab: 0,
   dlgOpen: false,
   // Inmutable attributes
   updateMap: () => null,
