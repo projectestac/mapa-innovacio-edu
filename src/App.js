@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
-
+import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
 import color_error from '@material-ui/core/colors/red';
 import Fuse from 'fuse.js';
-
-import {handleFetchErrors, loadGFont} from './utils/Utils';
+import { handleFetchErrors, loadGFont } from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
@@ -37,6 +36,7 @@ const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
+const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || '';
 
 /**
  * Main Material-UI theme
@@ -67,6 +67,12 @@ const theme = createMuiTheme({
 });
 
 /**
+ * Initialize GA
+ */
+if (ANALYTICS_UA)
+  ReactGA.initialize(ANALYTICS_UA);
+
+/**
  * Main React component
  */
 class App extends Component {
@@ -76,7 +82,7 @@ class App extends Component {
   constructor() {
     super();
 
-    // Current app sections
+    // Main sections
     this.menuItems = [
       {
         id: 'presenta',
@@ -99,32 +105,47 @@ class App extends Component {
     this.state = {
       ...DEFAULT_STATE,
       // Immutable attributes:
-      updateMap: this.updateMap,
+      updateMap: this.updateMap.bind(this),
       // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
       fuseFuncs: [],
       menuItems: this.menuItems,
     };
 
+    // Flag indicating that the first path should be reported to GA
+    this.firstView = true;
   }
 
+  /**
+   * Should be called on all the updates of `this.state`
+   * @param {Object} values - The state values to be updated
+   * @param {Function=} callback - Optional callback method to be called immediatly after state is updated
+   */
   setStateMod(values, callback = null) {
     this.setState(values, () => {
+
+      // Global variable used to quickly inspect `this.state` on the debug console
+      // `REACT_APP_DEBUG_GLOBAL_VAR` should be set only in `.env.development`
       if (DEBUG_GLOBAL_VAR)
         window[DEBUG_GLOBAL_VAR] = this.state;
+
       if (callback)
         callback();
     });
   }
 
   /**
-   * Load datasets from API or JSON files
+   * Load the datasets from JSON files and arrange internal variables
+   * @returns {Promise}
    */
   loadData() {
+    // Set the app in "loading" mode
     this.setStateMod({ loading: true });
+
     return Promise.all(
+      // Launch all fetch promises in parallel
       [
-        'data/programes.json', // `${API_ROOT}/programes/`
-        'data/instancies.json', // `${API_ROOT}/instancies/`
+        'data/programes.json',
+        'data/instancies.json',
         'data/centres.json',
         'data/poligons.json',
         'data/estudis.json',
@@ -171,7 +192,7 @@ class App extends Component {
         const programes = new Map(_programes.map(p => [p.id, p]));
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
-        // Initialize arrays of `centres` for each program, and `programa` for each centre, by curs
+        // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
         _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
@@ -219,14 +240,13 @@ class App extends Component {
             console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${curs}`);
         });
 
-        // Summarize and order programs and centres
+        // Summarize and put in order programs and schools
         centres.forEach(c => {
           c.allPrograms = Array.from(c.allPrograms).sort((a, b) => a.nom.localeCompare(b.nom));
         });
         programes.forEach(p => {
           p.allCentres = Array.from(p.allCentres).sort((a, b) => a.nom.localeCompare(b.nom));
         });
-
 
         // Build the Fuse.js objects
         // See: https://fusejs.io/
@@ -274,7 +294,7 @@ class App extends Component {
             { ...fuseOptions, keys: ['id', 'nom', 'comarca', 'info'] }),
         ];
 
-        // Update main data object
+        // Build the main `data` object
         const data = {
           ...this.state.data,
           programes,
@@ -309,14 +329,23 @@ class App extends Component {
       });
   }
 
-  checkTabMode(force = false) {
+  /**
+   * Checks if the content of the main page should be arranged in two tabs instead of two colums.
+   * This should be done when the display width is below 840px.
+   * @return {boolean} - `true` when in "tabs" mode
+   */
+  checkTabMode() {
     const tabs = window.matchMedia('(max-width: 840px)').matches;
+
+    // Update state and map when tabs mode changes
     if (this.state.tabMode !== tabs)
       this.updateMap({ tabMode: tabs });
+
+    return tabs;
   }
 
   /**
-   * Miscellaneous operations to be performed at startup
+   * Operations to be performed at startup
    */
   componentDidMount() {
     // Load Google's "Open Sans" font
@@ -325,10 +354,10 @@ class App extends Component {
     this.loadData()
       .then(() => {
         // Check if tabs should be used
-        this.checkTabMode(true);
-        // Update tan mode when window resizes
+        this.checkTabMode();
+        // Check the tabs mode when window resizes
         window.addEventListener('resize', this.checkTabMode.bind(this));
-        // Check if map layers should be updated
+        // Pseudo-asynchronous checking of map layers
         window.setTimeout(() => {
           this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
         }, 0);
@@ -336,18 +365,22 @@ class App extends Component {
   }
 
   /**
-   * Update the state of the main component, scrolling to new sections when needed
+   * Update the state of the main component and the maps
    * @param {object} [state={}] - The new settings for `state`
    * @param {boolean} [mapChanged=true] - `true` when this change involves map points
    * @param {boolean} [currentProgramsChanged=false] - `true` when the list of current programs has changed
    * @param {function} [callback] - Optional function to be called after state is changed
    */
-  updateMap = (state = {}, mapChanged = true, currentProgramsChanged = false, callback = null) => {
+  updateMap(state = {}, mapChanged = true, currentProgramsChanged = false, callback = null) {
+    // Update state
+    // The `mapChanged` flag will prevent LeafLet to place popup points on the map
     this.setStateMod({ ...state, mapChanged, currentProgramsChanged }, callback);
+    // Pseudo-asyncronously update layers and map
     window.requestAnimationFrame(() => {
       if (currentProgramsChanged)
         this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentPrograms, this.state.cursos);
       if (mapChanged)
+        // After the repainting of all components (timeout zero), refresh the map leaving the restriction to place points on it
         window.setTimeout(() => this.setStateMod({ mapChanged: false }), 0);
     });
   }
@@ -357,18 +390,28 @@ class App extends Component {
    * @param {object} props - New properties used, including a react-route location object
    * @param {object} prevProps - Old properties, used for checking changes
    */
-  contentUpdated = (props, prevProps) => {
-    if (props.location.pathname !== prevProps.location.pathname) {
+  contentUpdated(props, prevProps) {
+    // Check if there is a new pathname
+    const haveNewLocation = props.location.pathname !== prevProps.location.pathname;
+
+    // Report new path to GA
+    if (ANALYTICS_UA && (haveNewLocation || this.firstView)) {
+      this.firstView = false;
+      ReactGA.pageview(props.location.pathname);
+    }
+
+    // Check for layers to be updated and scroll to top of page
+    if (haveNewLocation) {
       this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
     }
   };
 
   /**
-   * Checks if the polygons density needs to be recalculated, based on the current path
+   * Check if the polygons density needs to be recalculated, based on the current path
    * @param {string} pathname - Current path
    */
-  checkForLayerUpdate = (pathname) => {
+  checkForLayerUpdate(pathname) {
     if (/^\/(programes|programa\/|centre\/|zona\/)/.test(pathname)) {
       const check = /^\/programa\/(.*)$/.exec(pathname);
       const programa = check && check.length === 2 ? check[1] : null;
@@ -385,8 +428,9 @@ class App extends Component {
    * @param {string[]=} cursos - School years to be considered. Defaults to _null_, meaning all available years.
    * @param {object=} data - Object containing the current datasets. Defaults to `data` in the current state.
    */
-  updateLayersDensity = (currentPrograms, cursos = null, data = this.state.data) => {
+  updateLayersDensity(currentPrograms, cursos = null, data = this.state.data) {
 
+    // De-structure the needed fields of `data`
     const { poligons, programes } = data;
 
     // Clear base arrays
@@ -470,12 +514,14 @@ class App extends Component {
       }
     });
 
-    // Compute correction factors
+    // Compute the correction factor for _Serveis Territorials_
     const factorST = (maxDensityST > MIN_DENSITY && maxDensityST < MINMAX_DENSITY)
       ? MINMAX_DENSITY / maxDensityST
       : maxDensityST > MAX_DENSITY
         ? MAX_DENSITY / maxDensityST
         : 1;
+
+    // Compute the correction factor for _Serveis Educatius_
     const factorSE = (maxDensitySE > MIN_DENSITY && maxDensitySE < MINMAX_DENSITY)
       ? MINMAX_DENSITY / maxDensitySE
       : maxDensitySE > MAX_DENSITY
@@ -491,6 +537,7 @@ class App extends Component {
    */
   render() {
 
+    // Take `error` and `loading` flags from `this.state`
     const { error, loading } = this.state;
 
     return (
@@ -498,13 +545,13 @@ class App extends Component {
         <CssBaseline>
           <MuiThemeProvider theme={theme}>
             <AppContext.Provider value={this.state}>
-              <CheckRouteChanges updateHandler={this.contentUpdated}>
+              <CheckRouteChanges updateHandler={this.contentUpdated.bind(this)}>
                 <Header />
                 <div className="filler" />
                 <main>
                   {
                     (loading && <Loading />) ||
-                    (error && <Error {...{ error, refetch: this.loadData }} />) ||
+                    (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
                     <Switch>
                       <Route exact path="/" component={Presentacio} />
                       <Route path="/programes" component={Programes} />
