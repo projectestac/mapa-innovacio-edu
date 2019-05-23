@@ -14,6 +14,7 @@ const centresTotal = require('./centres-total.json');
 // Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
 const centresValids = centresTotal.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
 const programes = require('../public/data/programes.json');
+const poligons = require('../public/data/poligons.json');
 const zers = require('./zer.json');
 const estudis = require('../public/data/estudis.json');
 const logos = require('./logos.json');
@@ -126,6 +127,16 @@ const readCSV = (file) => {
               })
             }
           });
+
+          // Change the original SE code of centres, fom short name to "codi"
+          centres.forEach(c => {
+            const se = poligons.find(p => p.nomcurt === c.se);
+            if (se)
+              c.se = se.key;
+            else
+              warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre "${c.nom}" (${c.id}) té assignat un SE desconegut: ${c.se}`);
+          });
+
           resolve({ instancies, centres, certificats });
         }
       }

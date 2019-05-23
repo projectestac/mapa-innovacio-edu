@@ -85,11 +85,12 @@ const readCSV = (file) => {
             }));
 
             const poligon = {
-              key: reg.key,
+              key: reg.codi,
               tipus: reg.tipus,
               id: reg.id,
               st: reg.st,
               nom: reg.nom,
+              nomcurt: reg.key,
               adreca: reg.adreça,
               tel: reg.telèfon,
               fax: reg.fax,
@@ -108,7 +109,7 @@ const readCSV = (file) => {
             zones.push(poligon);
           });
 
-          resolve(countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'key'])));
+          resolve(countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom'])));
         }
       }
     ));
@@ -126,7 +127,9 @@ const countLevels = zones => {
   const sez = {};
   zones.filter(p => p.tipus === 'SEZ')
     .forEach(p => {
-      sez[p.key] = p;
+      // Revert when using real codes
+      // sez[p.key] = p;
+      sez[p.nomcurt] = p;
     });
 
   centresValids.forEach(c => {
@@ -135,7 +138,7 @@ const countLevels = zones => {
     if (!cst && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei territorial`);
 
-    const csez = sez[c.se];
+    const csez = sez[c.se];    
     if (!csez && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei educatiu de zona`);
 
