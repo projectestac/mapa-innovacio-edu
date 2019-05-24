@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
+import { Parser } from 'json2csv';
 
 /**
  * Asynchronous loading of Google fonts
@@ -137,5 +138,53 @@ export function VideoIframe({ url, title = '', width = 800, height = 600, classN
       allowFullScreen
     />
   );
+}
+
+/**
+ * Generates a [json2csv](https://github.com/zemirco/json2csv) object
+ * containing the data of all items and returns
+ * a string with the full CSV file content.
+ * @param {Object} data - The data object to be exported
+ * @param {Object[]} fields - An array of objects with two string attributes:
+ *                            * `name` (the field name to be included in the CSV file)
+ *                            * `id` (the attribute name in `data`)
+ * @returns {String}
+ */
+export function csvExport(data, fields) {
+  const parser = new Parser({ fields: fields.map(f => f.name) });
+  return parser.parse(data.map(item => {
+    return fields.reduce((result, field) => {
+      result[field.name] = item[field.id] || '';
+      return result;
+    }, {});
+  }));
+}
+
+/**
+ * Generates a CSV file with the provided data
+ * @param {string} fileName - The proposed file name
+ * @param {Object} data - The data object to be exported
+ * @param {Object[]} fields - An array of objects with two string attributes:
+ *                            * `name` (the field name to be included in the CSV file)
+ *                            * `id` (the attribute name in `data`)
+ */
+export function csvExportToFile(fileName, data, fields) {
+  const blob = new Blob(['\uFEFF' + csvExport(data, fields)], { type: 'text/csv;charset=utf-16;' });
+  if (navigator.msSaveBlob) // IE 10+
+    navigator.msSaveBlob(blob, fileName);
+  else {
+    const link = document.createElement("a");
+    if (link.download !== undefined) {
+      // feature detection
+      // Browsers that support HTML5 download attribute
+      var url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", fileName);
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
 }
 

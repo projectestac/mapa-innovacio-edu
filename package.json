@@ -22,6 +22,7 @@
     "@material-ui/styles": "^4.0.0",
     "fontfaceobserver": "^2.1.0",
     "fuse.js": "^3.4.4",
+    "json2csv": "^4.5.1",
     "leaflet": "^1.5.1",
     "leaflet.markercluster": "^1.4.1",
     "mdi-material-ui": "^5.11.0",

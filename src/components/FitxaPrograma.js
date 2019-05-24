@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
-import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import DocumentIcon from 'mdi-material-ui/FileDocument';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
@@ -109,7 +109,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                       className="info-btn"
                       href={`${/^http.?:\/\//.test(fitxa) ? '' : FITXA_BASE}${fitxa}`}
                       title="Descarrega la fitxa del projecte" >
-                      <CloudDownloadIcon className="left-icon" />
+                      <DocumentIcon className="left-icon" />
                       Fitxa
                     </Button>
                   }

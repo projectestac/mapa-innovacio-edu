@@ -9,8 +9,8 @@ import Error from './Error';
 import Typography from '@material-ui/core/Typography';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import IcoFitxa from '@material-ui/icons/Assignment';
-import IcoVideo from '@material-ui/icons/Videocam';
+import DocumentIcon from 'mdi-material-ui/FileDocument';
+import VideoIcon from 'mdi-material-ui/Youtube';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
@@ -70,11 +70,11 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
                     >
                       <Tab
                         label="Video"
-                        icon={<IcoVideo />}
+                        icon={<VideoIcon />}
                       />
                       <Tab
                         label="Fitxa"
-                        icon={<IcoFitxa />}
+                        icon={<DocumentIcon />}
                       />
                     </Tabs>
                   }

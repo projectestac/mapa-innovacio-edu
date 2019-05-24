@@ -13,11 +13,32 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
-import { plainArray, getInfoSpan, hasExtraInfo } from '../utils/Utils';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
+import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
+
+function exportData(programes) {
+  const fields = [
+    { name: 'PROGRAMA', id: 'nom' },
+    { name: 'CURSOS', id: 'cursos' },
+    { name: 'INFO', id: 'url' }
+  ];
+  const base = `${window.location.origin}${window.location.pathname}#/programa/`
+
+  return csvExportToFile(
+    `programes.csv`,
+    plainArray(programes).map(p => {
+      return {
+        ...p,
+        url: `${base}${p.id}`
+      }
+    }),
+    fields
+  );
+}
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
@@ -135,6 +156,16 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     <Typography>*: Participació en curs, pendent de certificar</Typography>
                   </>
                 }
+                <br />
+                <Button
+                  variant="contained"
+                  className="csv-btn"
+                  title='Descarrega la llista de programes en format CSV'
+                  onClick={() => exportData(programes)}
+                >
+                  <DownloadIcon className="left-icon" />
+                  CSV
+                </Button>
               </Paper>
             </section>
             <MapSection {...{ data, programa: null, centre: codi, zona: null, currentPrograms, polygons, mapChanged, updateMap }} />
