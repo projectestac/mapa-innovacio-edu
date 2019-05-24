@@ -20,23 +20,45 @@ import MapSection from './MapSection';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 
-function exportData(programes) {
+/**
+ * Export the list of programs to a CSV spreadsheet
+ */
+function exportData(centre) {
+  const { programes, info } = centre;
+
   const fields = [
-    { name: 'PROGRAMA', id: 'nom' },
-    { name: 'CURSOS', id: 'cursos' },
+    { name: 'CODI', id: 'codi' },
+    { name: 'CENTRE', id: 'centre' },
+    { name: 'CURS', id: 'curs' },
+    { name: 'PROGRAMA', id: 'programa' },
     { name: 'INFO', id: 'url' }
   ];
-  const base = `${window.location.origin}${window.location.pathname}#/programa/`
+
+  if (info)
+    fields.push({ name: 'TITOL', id: 'titol' });
+
+  const base = `${window.location.origin}${window.location.pathname}#`;
+  const nomCentre = `${centre.nom} (${centre.municipi})`;
+
+  const data = Object.keys(programes).reduce((result, curs) => {
+    programes[curs].forEach(prog => {
+      const inf = info && info[prog.id] && info[prog.id].find(i => i.curs === curs);
+      result.push({
+        centre: nomCentre,
+        codi: centre.id,
+        curs,
+        programa: prog.nom,
+        url: inf ? `${base}/projecte/${prog.id}|${centre.id}|${inf.num || 0}` : `${base}/programa/${prog.id}`,
+        titol: inf ? inf.titol : '',
+      });
+    });
+    return result;
+  }, []);
 
   return csvExportToFile(
-    `programes.csv`,
-    plainArray(programes).map(p => {
-      return {
-        ...p,
-        url: `${base}${p.id}`
-      }
-    }),
-    fields
+    `programes-${centre.id}.csv`,
+    data,
+    fields,
   );
 }
 
@@ -161,7 +183,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   variant="contained"
                   className="csv-btn"
                   title='Descarrega la llista de programes en format CSV'
-                  onClick={() => exportData(programes)}
+                  onClick={() => exportData(centre)}
                 >
                   <DownloadIcon className="left-icon" />
                   CSV

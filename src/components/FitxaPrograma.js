@@ -16,9 +16,10 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
 import Error from './Error';
 import MapSection from './MapSection';
-import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
+import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 
@@ -36,6 +37,48 @@ const MD_OPTIONS = {
   escapeHtml: false,
 };
 
+/**
+ * Export the list of schools to a CSV spreadsheet
+ */
+function exportData(programa) {
+
+  const { centres, info } = programa;
+
+  const fields = [
+    { name: 'CODI', id: 'codi' },
+    { name: 'CENTRE', id: 'centre' },
+    { name: 'CURS', id: 'curs' },
+    { name: 'PROGRAMA', id: 'programa' },
+  ];
+
+  if (info){
+    fields.push({ name: 'TITOL', id: 'titol' });
+    fields.push({ name: 'INFO', id: 'url' });
+  }
+
+  const base = `${window.location.origin}${window.location.pathname}#`;
+
+  const data = Object.keys(centres).reduce((result, curs) => {
+    centres[curs].forEach(centre => {
+      const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+      result.push({
+        centre: `${centre.nom} (${centre.municipi})`,
+        codi: centre.id,
+        curs,
+        programa: programa.nom,
+        titol: inf ? inf.titol : '',
+        url: inf ? `${base}/projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+      });
+    });
+    return result;
+  }, []);
+
+  return csvExportToFile(
+    `centres-${programa.nomCurt}.csv`,
+    data,
+    fields,
+  );
+}
 
 // Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
@@ -224,6 +267,16 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </ExpansionPanel>
                   );
                 })}
+                <br />
+                <Button
+                  variant="contained"
+                  className="csv-btn"
+                  title='Descarrega la llista de centres en format CSV'
+                  onClick={() => exportData(programa)}
+                >
+                  <DownloadIcon className="left-icon" />
+                  CSV
+                </Button>
               </Paper>
             </section>
             <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
