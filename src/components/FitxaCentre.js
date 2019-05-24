@@ -98,21 +98,17 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     </Button>
                   }
                 </div>
-                <div id="estudis">
-                  <h4>Estudis</h4>
-                  <ul>
-                    {estudis.map((e, n) => <li key={n}>{data.estudis.get(e)}</li>)}
-                  </ul>
-                </div>
-                <div id="zones">
-                  <h4>Zones:</h4>
-                  <ul>
-                    {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
-                    {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
-                  </ul>
-                </div>
-                <h4>Programes on participa:</h4>
+                <Typography variant="h6">Estudis</Typography>
+                <ul>
+                  {estudis.map((e, n) => <li key={n}>{data.estudis.get(e)}</li>)}
+                </ul>
+                <Typography variant="h6">Zones</Typography>
+                <ul>
+                  {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
+                  {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
+                </ul>
                 <br />
+                <Typography variant="h6">Programes on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
                     const link = (info && hasExtraInfo(info[id])) ? null : `#/programa/${id}`;

@@ -22,18 +22,28 @@ import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 
+// Programs with schools list expanded by default
+const EXPANDED_PROGS = [
+  "1001" // "Reconeixement de projectes d'innovació pedagògica"
+];
+
+// Maximum number of expected expansion panels (increase it if needed!)
+const MAX_EXPANSION_PANELS = 25;
+
 // Options for React-Markdown
 // See: https://github.com/rexxars/react-markdown#options
 const MD_OPTIONS = {
   escapeHtml: false,
 };
 
+
 // Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
   return (
     <ExpansionPanel className={className}>
       <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
-        <h4 style={{ marginTop: 0 }}>{title}</h4>
+        <Typography variant="h6">{title}</Typography>
+        {/*<h3 style={{ margin: 0 }}>{title}</h3>*/}
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className="small-padding-h">
         {content}
@@ -54,6 +64,11 @@ function createMDExpansionPanel(className, title, mdContent) {
 }
 
 function FitxaPrograma({ history, match: { params: { id } } }) {
+
+  const [expandedPanels, setExpandedPanels] = React.useState((new Array(MAX_EXPANSION_PANELS)).fill(EXPANDED_PROGS.includes(id), 0, 10));
+  const expandPanel = n => ev => {
+    setExpandedPanels(expandedPanels.map((p, i) => (i === n) ? !p : p));
+  }
 
   return (
     <AppContext.Consumer>
@@ -175,35 +190,37 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 {Object.keys(centres).sort().map((curs, n) => {
                   let hasNc = false;
                   return (
-                    <ExpansionPanel key={n}>
-                      <ExpansionPanelSummary className="small-padding-left" expandIcon={<ExpandMoreIcon />}>
+                    <ExpansionPanel key={n} expanded={expandedPanels[n]}>
+                      <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
                         <Typography className="wider">{`CURS ${curs}`}</Typography>
                         <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
                       </ExpansionPanelSummary>
-                      <ExpansionPanelDetails className="small-padding-h flow-v">
-                        <List className="wider">
-                          {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                            const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
-                            const nc = notCert.has(`${id}|${curs}`);
-                            hasNc = hasNc || nc;
-                            return (
-                              <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
-                                <ListItemText
-                                  primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                  secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
-                                />
-                              </ListItem>
-                            )
+                      {expandedPanels[n] &&
+                        <ExpansionPanelDetails className="small-padding-h flow-v">
+                          <List className="wider">
+                            {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
+                              const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
+                              const nc = notCert.has(`${id}|${curs}`);
+                              hasNc = hasNc || nc;
+                              return (
+                                <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
+                                  <ListItemText
+                                    primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
+                                    secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
+                                  />
+                                </ListItem>
+                              )
+                            }
+                            )}
+                          </List>
+                          {hasNc &&
+                            <>
+                              <Divider />
+                              <Typography className="padding-one">*: Participació en curs, pendent de certificar</Typography>
+                            </>
                           }
-                          )}
-                        </List>
-                        {hasNc &&
-                          <>
-                            <Divider />
-                            <Typography className="padding-one">*: Participació en curs, pendent de certificar</Typography>
-                          </>
-                        }
-                      </ExpansionPanelDetails>
+                        </ExpansionPanelDetails>
+                      }
                     </ExpansionPanel>
                   );
                 })}

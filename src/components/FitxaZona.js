@@ -86,14 +86,14 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     </Button>
                   }
                 </div>
-                <h4>Programes amb presència en aquest territori:</h4>
+                <Typography variant="h6">Programes amb presència en aquest territori</Typography>
                 <br />
                 {programesArray.map((prog, n) => {
                   const centres = prog.allCentres.filter(c => centresInn.has(c));
                   const numCentres = centres.length;
                   return (
                     <ExpansionPanel key={n}>
-                      <ExpansionPanelSummary classes={{ root: 'small-padding-left', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
+                      <ExpansionPanelSummary classes={{ root: 'small-padding-h', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
                         <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
                         <Typography className="wider">{prog.nom}</Typography>
                         <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>

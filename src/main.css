@@ -36,10 +36,6 @@ section .small-padding-h {
   padding-right: 0.5rem;
 }
 
-section .small-padding-left {
-  padding-left: 0.5rem;
-}
-
 .wider {
   flex-grow: 1;
 }
@@ -254,7 +250,7 @@ header .top-bar, .nav-bar {
 
 .seccio .info-btn {
   margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* === Loading === */
@@ -339,11 +335,6 @@ header .top-bar, .nav-bar {
 
 .programa h4 {
   margin-bottom: 0.2rem;
-}
-
-.seccio .wider {
-  font-weight: bold;
-  font-size: 12pt;
 }
 
 /* === Selector de programes === */
