@@ -18,8 +18,8 @@
   display: none;
 }
 
-.no-padding {
-  padding: 0 !important;
+.wrap {
+  flex-flow: wrap;
 }
 
 .padding-one {
@@ -46,10 +46,6 @@ section .small-padding-left {
 
 .flow-v {
   flex-flow: column;
-}
-
-body {
-  font-family: "Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 a {
@@ -217,6 +213,7 @@ header .top-bar, .nav-bar {
 
 .presenta {
   grid-column: 1 / -1;
+  padding: 1rem;
 }
 
 .presenta .filler {
@@ -591,13 +588,11 @@ footer .copyright {
     padding: 1rem 0;
   }
   body .stretch-dlg {
-    margin: 10px;
+    margin: 0.5rem;
+    max-height: calc(100% - 20px);
   }
   section .cursos {
     padding: 1rem 0;
-  }
-  section .paper {
-    padding: 1rem 0.5rem;
   }
   section .no-padding-h-small {
     padding-left: 0;
@@ -610,4 +605,9 @@ footer .copyright {
   .logo-nom-seccio {
     flex-wrap: wrap;
   }
+  .seccio-logo {
+    max-width: 80px;
+    max-height: 80px;
+  }
+  
 }

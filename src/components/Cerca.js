@@ -69,7 +69,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                     </List>
                     <hr />
                     <TablePagination
-                      classes={{ spacer: 'hidden', toolbar: 'no-padding' }}
+                      classes={{ spacer: 'hidden', toolbar: 'wrap' }}
                       component="nav"
                       page={page}
                       rowsPerPage={itemsPerPage}

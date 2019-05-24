@@ -3,9 +3,8 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import { createMuiTheme } from '@material-ui/core/styles';
-import color_error from '@material-ui/core/colors/red';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Fuse from 'fuse.js';
 import { handleFetchErrors, loadGFont } from './utils/Utils';
 import Header from './components/Header';
@@ -21,12 +20,6 @@ import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 import AppContext, { DEFAULT_STATE } from './AppContext';
 
-// Gencat dark gray
-const color_primary = { 500: '#333' };
-
-// Gencat red
-const color_secondary = { 500: '#c00000' };
-
 /**
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
@@ -41,30 +34,28 @@ const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || '';
 /**
  * Main Material-UI theme
  */
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: color_primary[500] },
-    secondary: { main: color_secondary[500] },
-    error: { main: color_error[500] },
-  },
-  typography: {
-    fontFamily: [
-      'Open Sans',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-    ].join(','),
-    useNextVariants: true,
-  },
-  overrides: {
-    "MuiStepIcon": {
-      completed: {
-        color: '#c00000 !important',
+const theme = responsiveFontSizes(
+  createMuiTheme({
+    palette: {
+      // Gencat dark gray
+      primary: { main: '#333' },
+      // Gencat red
+      secondary: { main: '#c00000' },
+      // Material-UI red
+      error: { main: '#f44336' },
+    },
+    typography: {
+      fontFamily: '"Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif',
+    },
+    overrides: {
+      MuiStepIcon: {
+        completed: {
+          color: '#c00000 !important',
+        }
       }
-    }
-  },
-});
+    },
+  })
+);
 
 /**
  * Initialize GA
@@ -542,8 +533,8 @@ class App extends Component {
 
     return (
       <Router basename={window.location.pathname}>
-        <CssBaseline>
-          <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline>
             <AppContext.Provider value={this.state}>
               <CheckRouteChanges updateHandler={this.contentUpdated.bind(this)}>
                 <Header />
@@ -567,8 +558,8 @@ class App extends Component {
                 <Footer />
               </CheckRouteChanges>
             </AppContext.Provider>
-          </MuiThemeProvider>
-        </CssBaseline>
+          </CssBaseline>
+        </ThemeProvider>
       </Router>
     );
   }
