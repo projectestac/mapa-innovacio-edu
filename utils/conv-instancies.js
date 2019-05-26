@@ -10,9 +10,28 @@ const { createReadStream } = require('fs');
 const csv = require('csv');
 const ch = require('chalk');
 
-const centresTotal = require('./centres-total.json');
-// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
-const centresValids = centresTotal.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
+// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa, i sumaritzar dades
+const centresValids = require('./centres-total.json')
+  .filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0)
+  .map(c => ({
+    id: c.id,
+    nom: c.nom,
+    municipi: c.municipi,
+    comarca: c.comarca,
+    lat: c.lat,
+    lng: c.lng,
+    estudis: c.estudis,
+    adreca: c.adreca,
+    web: c.nodes || c.web || c.web_propi || '', // Just one web!
+    logo: c.logo,
+    tel: c.tel,
+    mail: c.mail,
+    twitter: c.twitter,
+    sstt: c.sstt,
+    se: c.se,
+    pb: c['public'], // Reserved word
+  }));
+
 const programes = require('../public/data/programes.json');
 const poligons = require('../public/data/poligons.json');
 const zers = require('./zer.json');

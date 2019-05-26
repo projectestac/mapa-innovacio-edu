@@ -71,8 +71,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        const { nom, municipi, comarca, estudis, adreca, web, logo, nodes, web_propi, tel, mail, twitter, sstt, se, public: pb, programes, info, notCert } = centre;
-        const url = nodes || web || web_propi;
+        const { nom, municipi, comarca, estudis, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
         const tancaFitxa = () => history.goBack();
         const servei_territorial = data.poligons.get(sstt);
         const servei_educatiu = data.poligons.get(se);
@@ -101,14 +100,14 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   </p>
                 </div>
                 <div id="info">
-                  {url &&
+                  {web &&
                     <Button
                       variant="contained"
                       className="info-btn"
-                      href={url}
+                      href={web}
                       target="_blank"
                       rel="noopener noreferrer"
-                      title={url}
+                      title={web}
                     >
                       <WebIcon className="left-icon" />
                       Web
