@@ -33,6 +33,8 @@ This is a [Progressive Web Application](https://en.wikipedia.org/wiki/Progressiv
 - [react-markdown](https://rexxars.github.io/react-markdown/) is used to render the program descriptions in rich-text.
 - [sw-precache](https://github.com/GoogleChromeLabs/sw-precache) builds a costumized [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), allowing also the use of the application when the device is off-line. This component will be replaced soon by [Workbox](https://developers.google.com/web/tools/workbox/).
 - [Font Face Observer](https://github.com/bramstein/fontfaceobserver) is used to dynamically load the [Open Sans](https://fonts.google.com/specimen/Open+Sans) font.
+- [json2csv](https://github.com/zemirco/json2csv) exports spreadsheets of data in CSV format.
+- [react-ga](https://github.com/react-ga/react-ga) React module for Google Analytics.
 
 Keep in mind that these components use hundreds of other open source projects to make the final application possible.
 
