@@ -3,6 +3,7 @@
 - Export data to CSV spreadshhets in "Programa", "Centre" and "Zona"
 - Updated data
 - Updated components
+- Service Worker now generated with [Workbox](https://developers.google.com/web/tools/workbox/) instead of [sw-precache](https://github.com/GoogleChromeLabs/sw-precache)
 
 ### v1.0.8 (2019-24-05)
 #### Improvements
