@@ -33,7 +33,7 @@ export function register(config) {
 
     window.addEventListener('load', () => {
       //const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-      const swUrl = `${process.env.PUBLIC_URL}/sw.js${window.location.search.indexOf('debug') >= 0 ? '?debug' : ''}`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js${window.location.search.indexOf('debug') >= 0 ? '?debug' : ''}`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -49,23 +49,10 @@ export function register(config) {
         });
       } else {
         // Is not localhost. Just register service worker
-        removeOldAndRegisterValidSW(swUrl, config);
+        registerValidSW(swUrl, config);
       }
     });
   }
-}
-
-// Remove old service worker 'service-worker.js', if exists, prior to register the new one
-function removeOldAndRegisterValidSW(swUrl, config) {
-  return navigator.serviceWorker.getRegistration()
-    .then(reg => {
-      if (reg && reg.active && reg.active.scriptURL && reg.active.scriptURL.endsWith('service-worker.js')) {
-        console.log('SW - Unregistering old Service Worker "service-worker.js", not yet used.');
-        return reg.unregister();
-      }
-      return true;
-    })
-    .then(_result => registerValidSW(swUrl, config));
 }
 
 // Register the valid SW

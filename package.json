@@ -38,8 +38,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-sw": "node ./utils/sw-build.js",
-    "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
+    "build-sw": "node ./sw/sw-build.js",
+    "clean-cra-sw": "rm -f build/precache-manifest.*.js",
     "build": "react-scripts build && npm run build-sw && npm run clean-cra-sw",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
