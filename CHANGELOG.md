@@ -1,4 +1,8 @@
-### v1.1.0 (Not yet released)
+### v1.1.1 (Not yet released)
+#### Improvements
+- Updated data, with more external documents
+
+### v1.1.0 (2019-29-05)
 #### Improvements
 - Export data to CSV spreadshhets in "Programa", "Centre" and "Zona"
 - Updated data

@@ -69,7 +69,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 68,Programa,9,08044053,2018-2019,N,,,,,
 69,Programa,9,08044077,2018-2019,N,,,,,
 70,Programa,9,08044156,2018-2019,N,,,,,
-71,Programa,9,08044594,2018-2019,N,,,,,
+71,Programa,9,08044594,2018-2019,N,Participació en el programa CatSkills,,,,08044594_participacio_programa_catskills.pdf
 72,Programa,9,08044624,2018-2019,N,,,,,
 73,Programa,9,08044715,2018-2019,N,,,,,
 74,Programa,9,08044934,2015-2016,S,,,,,
@@ -732,7 +732,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 731,Programa,21,08034862,2015-2016,S,,,,,
 732,Programa,21,08035234,2015-2016,S,,,,,
 733,Programa,21,08035234,2016-2017,S,,,,,
-734,Programa,21,08035234,2017-2018,S,,,,,
+734,Programa,21,08035234,2017-2018,S,"Participació en el programa ""Impuls de la lectura""",,,,08035234_participacio_programa_ilec.pdf
 735,Programa,21,08035313,2015-2016,S,,,,,
 736,Programa,21,08035313,2016-2017,S,,,,,
 737,Programa,21,08035313,2017-2018,S,,,,,
@@ -1254,7 +1254,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 1253,Programa,21,43011170,2017-2018,S,,,,,
 1254,Programa,21,43011194,2015-2016,S,,,,,
 1255,Programa,21,43011194,2016-2017,S,,,,,
-1256,Programa,21,43011194,2017-2018,S,,,,,
+1256,Programa,21,43011194,2017-2018,S,"Participació en el programa ""Impuls de la lectura""",,,,43011194_participacio_programa_ilec.pdf
 1257,Programa,21,43011212,2015-2016,S,,,,,
 1258,Programa,21,43011303,2015-2016,S,,,,,
 1259,Programa,21,43012083,2015-2016,S,,,,,
@@ -1302,7 +1302,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 1301,Programa,25,08016781,2015-2016,S,,,,,
 1302,Programa,25,08016781,2016-2017,S,,,,,
 1303,Programa,25,08016781,2017-2018,S,,,,,
-1304,Programa,25,08016781,2018-2019,N,,,,,
+1304,Programa,25,08016781,2018-2019,N,Participació en el programa de mobilitat formativa,,,,08016781_participacio_programa_mobilitatfp.pdf
 1305,Programa,25,08017131,2017-2018,S,,,,,
 1306,Programa,25,08017131,2018-2019,N,,,,,
 1307,Programa,25,08017852,2017-2018,S,,,,,
@@ -1938,7 +1938,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 1937,Programa,32,25005442,2015-2016,S,,,,,
 1938,Programa,32,25005442,2016-2017,S,,,,,
 1939,Programa,32,25005442,2017-2018,S,,,,,
-1940,Programa,32,25005442,2018-2019,N,,,,,
+1940,Programa,32,25005442,2018-2019,N,"Participació en el programa ""Innova FP""",,,,25005442_participacio_programa_innovafp.pdf
 1941,Programa,32,25006720,2015-2016,S,,,,,
 1942,Programa,32,25006720,2016-2017,S,,,,,
 1943,Programa,32,25006720,2017-2018,S,,,,,
@@ -2133,7 +2133,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 2132,Programa,33,25005442,2015-2016,S,,,,,
 2133,Programa,33,25005442,2016-2017,S,,,,,
 2134,Programa,33,25005442,2017-2018,S,,,,,
-2135,Programa,33,25005442,2018-2019,N,,,,,
+2135,Programa,33,25005442,2018-2019,N,Participació en el programa d'assessorament professional,,,,25005442_participacio_programa_assessorametnfp.pdf
 2136,Programa,33,25006720,2016-2017,S,,,,,
 2137,Programa,33,25006720,2017-2018,S,,,,,
 2138,Programa,33,25006732,2017-2018,S,,,,,
@@ -2340,7 +2340,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 2339,Programa,37,25005442,2015-2016,S,,,,,
 2340,Programa,37,25005442,2016-2017,S,,,,,
 2341,Programa,37,25005442,2017-2018,S,,,,,
-2342,Programa,37,25005442,2018-2019,N,,,,,
+2342,Programa,37,25005442,2018-2019,N,Participació en el programa de suport a l'empredenoria,,,,25005442_participacio_programa_suport_emprenedoriafp.pdf
 2343,Programa,37,25006720,2015-2016,S,,,,,
 2344,Programa,37,25006720,2016-2017,S,,,,,
 2345,Programa,37,25006720,2017-2018,S,,,,,
@@ -2528,7 +2528,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 2527,Programa,38,08024741,2015-2016,S,,,,,
 2528,Programa,38,08024741,2016-2017,S,,,,,
 2529,Programa,38,08024741,2017-2018,S,,,,,
-2530,Programa,38,08024741,2018-2019,N,,,,,
+2530,Programa,38,08024741,2018-2019,N,"Participació en el programa ""FP Dual""",,,,08024741_paticipacio_programa_fpdual.pdf
 2531,Programa,38,08024893,2015-2016,S,,,,,
 2532,Programa,38,08024893,2016-2017,S,,,,,
 2533,Programa,38,08024893,2017-2018,S,,,,,
@@ -3353,7 +3353,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 3352,Programa,39,08037206,2018-2019,N,,,,,
 3353,Programa,39,08040552,2016-2017,S,,,,,
 3354,Programa,39,08040552,2017-2018,S,,,,,
-3355,Programa,39,08040552,2018-2019,N,,,,,
+3355,Programa,39,08040552,2018-2019,N,Participació en el programa de Qualitat i Millora,,,,08040552_participacio_programa_pqmc.pdf
 3356,Programa,39,08041519,2017-2018,S,,,,,
 3357,Programa,39,08041519,2018-2019,N,,,,,
 3358,Programa,39,08041866,2016-2017,S,,,,,
@@ -3809,7 +3809,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 3808,Programa,43,08054198,2018-2019,N,,,,,
 3809,Programa,43,08056614,2018-2019,N,,,,,
 3810,Programa,43,08056742,2018-2019,N,,,,,
-3811,Programa,43,08057734,2018-2019,N,,,,,
+3811,Programa,43,08057734,2018-2019,N,"Participació en el programa ""SI!""",,,,08057734_participacio_programa_si.pdf
 3812,Programa,43,08059354,2018-2019,N,,,,,
 3813,Programa,43,08060605,2018-2019,N,,,,,
 3814,Programa,43,08060629,2018-2019,N,,,,,
@@ -3910,7 +3910,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 3909,Programa,44,08053236,2015-2016,S,,,,,
 3910,Programa,44,08053236,2016-2017,S,,,,,
 3911,Programa,44,08053236,2017-2018,S,,,,,
-3912,Programa,44,17000548,2017-2018,S,,,,,
+3912,Programa,44,17000548,2017-2018,S,Participació en el programa Tàndem,,,,17000548_participacio_programa_tandem.pdf
 3913,Programa,46,08001421,2015-2016,S,,,,,
 3914,Programa,46,08012714,2015-2016,S,,,,,
 3915,Programa,46,08013111,2015-2016,S,,,,,
@@ -4262,7 +4262,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4261,Programa,53,08039380,2017-2018,N,,,,,
 4262,Programa,53,08039616,2016-2017,N,,,,,
 4263,Programa,53,08039628,2016-2017,N,,,,,
-4264,Programa,53,08040059,2017-2018,S,,,,,
+4264,Programa,53,08040059,2017-2018,S,"Participació en el programa ""Xarxa de Competències Bàsiques""",,,,08040059_participacio_programa_xarxa_competencies_basiques.pdf
 4265,Programa,53,08040060,2017-2018,N,,,,,
 4266,Programa,53,08040333,2016-2017,N,,,,,
 4267,Programa,53,08040345,2016-2017,N,,,,,
@@ -4396,12 +4396,12 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4395,Programa,53,08061117,2016-2017,N,,,,,
 4396,Programa,53,08061129,2015-2016,S,,,,,
 4397,Programa,53,08061129,2016-2017,S,,,,,
-4398,Programa,53,08061129,2017-2018,S,,,,,
+4398,Programa,53,08061129,2017-2018,S,"Participació en el programa ""Xarxa de Competències Bàsiques""",,,,08061129_participacio_programa_ xarxa_competencies_basiques.pdf
 4399,Programa,53,08061609,2017-2018,N,,,,,
 4400,Programa,53,08061610,2017-2018,N,,,,,
 4401,Programa,53,08062122,2018-2019,N,,,,,
 4402,Programa,53,08062717,2017-2018,N,,,,,
-4403,Programa,53,08062729,2018-2019,N,,,,,
+4403,Programa,53,08062729,2018-2019,N,"Participació en el programa ""Xarxa de Competències Bàsiques""",,,,08062729_Participacio_programa_steamcat.pdf
 4404,Programa,53,08062730,2017-2018,N,,,,,
 4405,Programa,53,08062778,2017-2018,N,,,,,
 4406,Programa,53,08062781,2018-2019,N,,,,,
@@ -4713,7 +4713,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4712,Programa,55,08056857,2018-2019,N,,,,,
 4713,Programa,55,08062870,2018-2019,N,,,,,
 4714,Programa,55,08065408,2018-2019,N,,,,,
-4715,Programa,55,08071196,2018-2019,N,,,,,
+4715,Programa,55,08071196,2018-2019,N,Participació en el programa Avancem,,,,08071196_particpacio_programa_avancem.pdf
 4716,Programa,55,08072188,2018-2019,N,,,,,
 4717,Programa,55,17003306,2018-2019,N,,,,,
 4718,Programa,55,17006691,2017-2018,S,,,,,
@@ -4743,7 +4743,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4742,Programa,56,08038533,2017-2018,S,,,,,
 4743,Programa,56,08038533,2018-2019,N,,,,,
 4744,Programa,56,08038545,2017-2018,S,,,,,
-4745,Programa,56,08038545,2018-2019,N,,,,,
+4745,Programa,56,08038545,2018-2019,N,"Participació en el programa ""Talent creatiu""",,,,08045495_08038545_participacio_programa_talent_creatiu.pdf
 4746,Programa,56,08038557,2017-2018,S,,,,,
 4747,Programa,56,08038557,2018-2019,N,,,,,
 4748,Programa,56,08038569,2018-2019,N,,,,,
@@ -4761,7 +4761,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4760,Programa,56,08044077,2018-2019,N,,,,,
 4761,Programa,56,08044156,2018-2019,N,,,,,
 4762,Programa,56,08045495,2017-2018,S,,,,,
-4763,Programa,56,08045495,2018-2019,N,,,,,
+4763,Programa,56,08045495,2018-2019,N,"Participació en el programa ""Talent creatiu""",,,,08045495_08038545_participacio_programa_talent_creatiu.pdf
 4764,Programa,56,08046475,2017-2018,S,,,,,
 4765,Programa,56,08046475,2018-2019,N,,,,,
 4766,Programa,56,08054149,2017-2018,S,,,,,
@@ -4769,7 +4769,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4768,Programa,56,08059275,2018-2019,N,,,,,
 4769,Programa,56,08074690,2017-2018,S,,,,,
 4770,Programa,56,17005340,2017-2018,S,,,,,
-4771,Programa,56,17005340,2018-2019,N,,,,,
+4771,Programa,56,17005340,2018-2019,N,"Participació en el programa ""Talent creatiu""",,,,17005340_participacio_programa_talent_creatiu.pdf
 4772,Programa,56,17007300,2017-2018,S,,,,,
 4773,Programa,56,17007300,2018-2019,N,,,,,
 4774,Programa,56,25004528,2017-2018,S,,,,,
@@ -4826,7 +4826,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4825,Programa,57,08040564,2018-2019,N,,,,,
 4826,Programa,57,08041659,2018-2019,N,,,,,
 4827,Programa,57,08041684,2018-2019,N,,,,,
-4828,Programa,57,08042019,2018-2019,N,,,,,
+4828,Programa,57,08042019,2018-2019,N,"Participació en el programa ""Tecnologies Digitals per a l'Aprenentatge""",,,,08042019_participacio_programa_tda.pdf
 4829,Programa,57,08042101,2018-2019,N,,,,,
 4830,Programa,57,08043361,2017-2018,S,,,,,
 4831,Programa,57,08043361,2018-2019,N,,,,,
@@ -4874,7 +4874,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4873,Programa,57,17006733,2018-2019,N,,,,,
 4874,Programa,57,17006782,2017-2018,S,,,,,
 4875,Programa,57,17006782,2018-2019,N,,,,,
-4876,Programa,57,17009138,2018-2019,N,,,,,
+4876,Programa,57,17009138,2018-2019,N,"Participació en el programa ""Tecnologies Digitals per a l'Aprenentatge""",,,,17009138_participacio_programa_tda.pdf
 4877,Programa,57,17009278,2018-2019,N,,,,,
 4878,Programa,57,17010189,2018-2019,N,,,,,
 4879,Programa,57,25002431,2017-2018,S,,,,,
@@ -4987,7 +4987,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 4986,Programa,60,17006770,2018-2019,N,,,,,
 4987,Programa,60,17009898,2018-2019,N,,,,,
 4988,Programa,60,25002684,2018-2019,N,,,,,
-4989,Programa,60,25007517,2018-2019,N,,,,,
+4989,Programa,60,25007517,2018-2019,N,Participació en el programa d'orientació educativa,,,,25007517_participacio_programa_orientacio_educativa_aprenentatge_competencial_orientador.pdf
 4990,Programa,60,25009733,2018-2019,N,,,,,
 4991,Programa,60,43005972,2018-2019,N,,,,,
 4992,Programa,60,43006617,2018-2019,N,,,,,
@@ -5035,7 +5035,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5034,Programa,61,25006732,2018-2019,N,,,,,
 5035,Programa,61,25008352,2018-2019,N,,,,,
 5036,Programa,61,25008777,2018-2019,N,,,,,
-5037,Programa,61,43001127,2018-2019,N,,,,,
+5037,Programa,61,43001127,2018-2019,N,Participació en el programa STEAMCat,,,,43009394_ 43001127_4301228_participacio_programa_steamcat .pdf
 5038,Programa,61,43001346,2018-2019,N,,,,,
 5039,Programa,61,43004554,2018-2019,N,,,,,
 5040,Programa,61,43005595,2018-2019,N,,,,,
@@ -5043,8 +5043,8 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5042,Programa,61,43006681,2018-2019,N,,,,,
 5043,Programa,61,43008432,2018-2019,N,,,,,
 5044,Programa,61,43008444,2018-2019,N,,,,,
-5045,Programa,61,43009394,2018-2019,N,,,,,
-5046,Programa,61,43012289,2018-2019,N,,,,,
+5045,Programa,61,43009394,2018-2019,N,Participació en el programa STEAMCat,,,,43009394_ 43001127_4301228_participacio_programa_steamcat .pdf
+5046,Programa,61,43012289,2018-2019,N,Participació en el programa STEAMCat,,,,43009394_ 43001127_4301228_participacio_programa_steamcat .pdf
 5047,Programa,62,08000013,2017-2018,N,,,,,
 5048,Programa,62,08000131,2017-2018,N,,,,,
 5049,Programa,62,08000396,2018-2019,N,,,,,
@@ -5170,7 +5170,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5169,Programa,62,08072255,2017-2018,N,,,,,
 5170,Programa,62,08073843,2018-2019,N,,,,,
 5171,Programa,62,17000299,2017-2018,N,,,,,
-5172,Programa,62,17001191,2017-2018,N,,,,,
+5172,Programa,62,17001191,2017-2018,N,"Participació en el programa ""Aquí prou bullying""",,,,17001191_programa_aquiproubulling.pdf
 5173,Programa,62,17003011,2018-2019,N,,,,,
 5174,Programa,62,17003124,2018-2019,N,,,,,
 5175,Programa,62,17003434,2017-2018,N,,,,,
@@ -5193,7 +5193,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5192,Programa,62,25005144,2018-2019,N,,,,,
 5193,Programa,62,25005685,2017-2018,N,,,,,
 5194,Programa,62,25006771,2017-2018,N,,,,,
-5195,Programa,62,25007153,2017-2018,N,,,,,
+5195,Programa,62,25007153,2017-2018,N,"Participació en el programa ""Aquí prou bullying""",,,,25007153_participacio_programa_aquiproubulling.pdf
 5196,Programa,62,25007189,2018-2019,N,,,,,
 5197,Programa,62,25008790,2017-2018,N,,,,,
 5198,Programa,62,43000263,2017-2018,N,,,,,
@@ -5239,7 +5239,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5238,Programa,63,17001735,2018-2019,N,,,,,
 5239,Programa,63,17005388,2018-2019,N,,,,,
 5240,Programa,63,25002775,2018-2019,N,,,,,
-5241,Programa,63,25005442,2018-2019,N,,,,,
+5241,Programa,63,25005442,2018-2019,N,"Participació en el programa ""Activa FP""",,,,25005442_participacio_programa_activafp.pdf
 5242,Programa,63,25007505,2018-2019,N,,,,,
 5243,Programa,63,43002594,2018-2019,N,,,,,
 5244,Programa,63,43003653,2018-2019,N,,,,,
@@ -5271,7 +5271,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5270,Projecte,1001,08009260,2018-2019,S,Horitzó 2020,,,,
 5271,Projecte,1001,08011941,2018-2019,S,SUMMEM,,,,
 5272,Projecte,1001,08012027,2018-2019,S,Projecte d'innovació pedagògica de l'Escola Frederic Mistral-Tècnic Eulàlia,,,,
-5273,Projecte,1001,08012714,2018-2019,S,Pla de millora de l'orientació,,,,
+5273,Projecte,1001,08012714,2018-2019,S,Pla de millora de l'orientació,,,,08012714_pla_de_millora_de_ l_orientacio.pdf
 5274,Projecte,1001,08013135,2018-2019,S,ArtINN,,,,
 5275,Projecte,1001,08015041,2018-2019,S,SUMMEM,,,,
 5276,Projecte,1001,08015120,2018-2019,S,SUMMEM,,,,
@@ -5280,13 +5280,13 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5279,Projecte,1001,08016203,2018-2019,S,Pla Estratègic (Pla d'Innovació),,,,
 5280,Projecte,1001,08016914,2018-2019,S,Laboratoris a secundària,,,,
 5281,Projecte,1001,08017207,2018-2019,S,Fem projectes,,,,
-5282,Projecte,1001,08017694,2018-2019,S,Música per a crèixer,,,,
+5282,Projecte,1001,08017694,2018-2019,S,Música per a crèixer,,,,08017694_musica_per_a_creixer.pdf
 5283,Projecte,1001,08017785,2018-2019,S,SUMMEM,,,,
 5284,Projecte,1001,08018871,2018-2019,S,Transformant les etapes educatives,,,,
 5285,Projecte,1001,08019502,2018-2019,S,SUMMEM,,,,
 5286,Projecte,1001,08019630,2018-2019,S,GEP,,,,
 5287,Projecte,1001,08019782,2018-2019,S,Canvi metodològic en llengües estrangeres,,,,
-5288,Projecte,1001,08020723,2018-2019,S,L'art a l'escola,,,,
+5288,Projecte,1001,08020723,2018-2019,S,L'art a l'escola,,,,08020723_art_a_ l_escola.pdf
 5289,Projecte,1001,08021107,2018-2019,S,SUMMEM,,,,
 5290,Projecte,1001,08021545,2018-2019,S,Robòtica educativa a l'escola,,,,
 5291,Projecte,1001,08021570,2018-2019,S,Robòtica a l'aula,,,,
@@ -5295,7 +5295,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5294,Projecte,1001,08025344,2018-2019,S,Teatre a l'escola,,,,
 5295,Projecte,1001,08025812,2018-2019,S,La globalització del currículum,,,,
 5296,Projecte,1001,08026294,2018-2019,S,Apadrinament del Palau Falguera,,,,
-5297,Projecte,1001,08027936,2018-2019,S,Una nova mirada pedagògica,,,,
+5297,Projecte,1001,08027936,2018-2019,S,Una nova mirada pedagògica,,,,08027936_una_nova_mirada_pedagogica.pdf
 5298,Projecte,1001,08028588,2018-2019,S,Aprenentatge cooperatiu: Cooperar per aprendre,,,,
 5299,Projecte,1001,08029076,2018-2019,S,SUMMEM,,,,
 5300,Projecte,1001,08029647,2018-2019,S,SUMMEM,,,,
@@ -5306,13 +5306,13 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5305,Projecte,1001,08035143,2018-2019,S,Amb tú aprenc,,,,
 5306,Projecte,1001,08036366,2018-2019,S,Banc d’activitats sistemàtiques per a la millora de la lectura,,,,
 5307,Projecte,1001,08037504,2018-2019,S,Apadrinem un tros de bosc,,,,
-5308,Projecte,1001,08037528,2018-2019,S,Innovem amb el llenguatge audiovisual,,,,
+5308,Projecte,1001,08037528,2018-2019,S,Innovem amb el llenguatge audiovisual,,,,08037528_innovem_amb_el_llenguatge_audiovisual.pdf
 5309,Projecte,1001,08037747,2018-2019,S,Projecte d'innovació pedagògica de l'Escola Avenç,,,,
-5310,Projecte,1001,08038223,2018-2019,S,Apadrinem el nostre patrimoni: La Torre Benviure,,,,
+5310,Projecte,1001,08038223,2018-2019,S,Apadrinem el nostre patrimoni: La Torre Benviure,,,,08038223_participacio_programa_apadrinem_el_nostre_patrimoni.pdf
 5311,Projecte,1001,08039380,2018-2019,S,Projecte educació emocional,,,,
 5312,Projecte,1001,08039471,2018-2019,S,Emociona't,,,,
 5313,Projecte,1001,08040540,2018-2019,S,Gust i passió per investigar,,,,
-5314,Projecte,1001,08041234,2018-2019,S,La màgia dels llibres als passadissos,,,,
+5314,Projecte,1001,08041234,2018-2019,S,La màgia dels llibres als passadissos,,,,08041234_la_magia_dels_llibres_als_passadissos.pdf
 5315,Projecte,1001,08041684,2018-2019,S,Internacionalitzem-nos,,,,
 5316,Projecte,1001,08041714,2018-2019,S,Treball per ambients,,,,
 5317,Projecte,1001,08042780,2018-2019,S,An artistic trip around Europe. Erasmus+,,,,
@@ -5320,7 +5320,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5319,Projecte,1001,08043267,2018-2019,S,El teatre i la competència comunicativa plurilingüe,,,,
 5320,Projecte,1001,08043310,2018-2019,S,L'aprenentatge entre iguals: els grups interactius,,,,
 5321,Projecte,1001,08043401,2018-2019,S,Fairy yoga,,,,
-5322,Projecte,1001,08043644,2018-2019,S,Eines aplicades per a la realització dels treball de recerca,,,,
+5322,Projecte,1001,08043644,2018-2019,S,Eines aplicades per a la realització dels treball de recerca,,,,08043644_eines_aplicades_per_a_la_realitzaci_treball_recerca.pdf
 5323,Projecte,1001,08043784,2018-2019,S,ApS Grans-Petits,,,,
 5324,Projecte,1001,08043899,2018-2019,S,De Barcino la Barcelona d'avui (Tenim història),,,,
 5325,Projecte,1001,08045057,2018-2019,S,Espais d'aprenentatge interdisciplinaris,,,,
@@ -5330,16 +5330,16 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5329,Projecte,1001,08046797,2018-2019,S,Educar en l'ús de les eines digitals,,,,
 5330,Projecte,1001,08052165,2018-2019,S,OP-innov@,,,,
 5331,Projecte,1001,08052608,2018-2019,S,La innovació educativa per a la cohesió social. Fer que les coses passin,,,,
-5332,Projecte,1001,08052785,2018-2019,S,Projecte artístic cooperatiu i transversal,,,,
-5333,Projecte,1001,08053078,2018-2019,S,Mediació escolar,,,,
-5334,Projecte,1001,08053121,2018-2019,S,Construïm el nostre currículum pas a pas,,,,
-5335,Projecte,1001,08053364,2018-2019,S,Acció cultural +3,,,,
+5332,Projecte,1001,08052785,2018-2019,S,Projecte artístic cooperatiu i transversal,,,,08052785_projecte_artistic_cooperatiu_transversal.pdf
+5333,Projecte,1001,08053078,2018-2019,S,Mediació escolar,,,,08053078_mediacio_escolar.pdf
+5334,Projecte,1001,08053121,2018-2019,S,Construïm el nostre currículum pas a pas,,,,08053121_tots_som_ins_prevencio_deteccio_i_intervencio_en_casos_assetjament_escolar.pdf
+5335,Projecte,1001,08053364,2018-2019,S,Acció cultural +3,,,,08053364_accio_ cultural_3.pdf
 5336,Projecte,1001,08053391,2018-2019,S,Comunitat d'aprenentatge,,,,
 5337,Projecte,1001,08055932,2018-2019,S,Xarxa d'escoles per la igualtat i la no discriminació,,,,
 5338,Projecte,1001,08057266,2018-2019,S,Treball de grafomotricitat,,,,
 5339,Projecte,1001,08058416,2018-2019,S,Treball interdisciplinari: projectes i entorns,,,,
-5340,Projecte,1001,08059354,2018-2019,S,L'avaluació formativa: engranatge del canvi,,,,
-5341,Projecte,1001,08060605,2018-2019,S,KM. 15,,,,
+5340,Projecte,1001,08059354,2018-2019,S,L'avaluació formativa: engranatge del canvi,,,,08059354_avaluacio_formativa_ engranatge_del_canvi.pdf
+5341,Projecte,1001,08060605,2018-2019,S,KM. 15,,,,08060605_km_15_els_infants_com_a_centre_del_canvi_per_la_millora..pdf
 5342,Projecte,1001,08060991,2018-2019,S,Projecte Mogentmat,,,,
 5343,Projecte,1001,08061099,2018-2019,S,Avancem en el GEP,,,,
 5344,Projecte,1001,08061683,2018-2019,S,El treball per projectes i la Flippedclassroom en l'educació d'adults,,,,
@@ -5347,7 +5347,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5346,Projecte,1001,08062948,2018-2019,S,L'aprenentatge cooperatiu dins l'escola inclusiva,,,,
 5347,Projecte,1001,08063904,2018-2019,S,"Organització i metodologia globalitzades, competencials i cooperatives amb l’ús responsable de les tecnologies digitals",,,,
 5348,Projecte,1001,08064167,2018-2019,S,Teixits,,,,
-5349,Projecte,1001,08064179,2018-2019,S,La manera de treballa a la Llacuna,,,,
+5349,Projecte,1001,08064179,2018-2019,S,La manera de treballa a la Llacuna,,,,08064179_la_manera_de_treballar_a_la_llacuna.pdf
 5350,Projecte,1001,08064741,2018-2019,S,"L'escola, experiència de vida",,,,
 5351,Projecte,1001,08065238,2018-2019,S,El projecte de poble coma treball d'emprenedoria,,,,
 5352,Projecte,1001,08065287,2018-2019,S,La programació multinivell mitjançant la metodologia per racons,,,,
@@ -5357,7 +5357,7 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5356,Projecte,1001,08066905,2018-2019,S,Situacions d'aprenentatge com a element d'organització curricular,,,,
 5357,Projecte,1001,08067181,2018-2019,S,L'escola com un projecte,,,,
 5358,Projecte,1001,08067211,2018-2019,S,Implementació del treball per projectes al Salas Xandri,,,,
-5359,Projecte,1001,08067594,2018-2019,S,Projecte educatiu de centre,,,,
+5359,Projecte,1001,08067594,2018-2019,S,Projecte educatiu de centre,,,,08067594_projecte_educatiu_centre.pdf
 5360,Projecte,1001,08067661,2018-2019,S,Cultivant el desig d'aprendre,,,,
 5361,Projecte,1001,08067764,2018-2019,S,Eina de gestió i participació integrada,,,,
 5362,Projecte,1001,08069736,2018-2019,S,Un model d'escola avançada,,,,
@@ -5369,16 +5369,16 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5368,Projecte,1001,17000548,2018-2019,S,Ciències: la vida a l'aigua,,,,
 5369,Projecte,1001,17000561,2018-2019,S,Cinema en curs,,,,
 5370,Projecte,1001,17000676,2018-2019,S,Rutes per Caldes,,,,
-5371,Projecte,1001,17000846,2018-2019,S,La Glosa: Cançó improvisada,,,,
+5371,Projecte,1001,17000846,2018-2019,S,La Glosa: Cançó improvisada,,,,17000846_la_glosa_canco_improvisada.pdf
 5372,Projecte,1001,17001425,2018-2019,S,Projecte HortambCor,,,,
 5373,Projecte,1001,17001887,2018-2019,S,La ciencia i la tecnologia com a Eix Curricular,,,,
 5374,Projecte,1001,17002031,2018-2019,S,Les matemàtiques com a eix de transformació de l'escola.,,,,
 5375,Projecte,1001,17002341,2018-2019,S,SUMMEM,,,,
-5376,Projecte,1001,17002399,2018-2019,S,Desenvolupament i Consolidació de la Carta de Serveis del Centre,,,,
+5376,Projecte,1001,17002399,2018-2019,S,Desenvolupament i Consolidació de la Carta de Serveis del Centre,,,,17002399_desenvolupament_i_consolidacio_de_la_carta_de_serveis_del_centre.pdf
 5377,Projecte,1001,17003124,2018-2019,S,Comunicació i Veu,,,,
 5378,Projecte,1001,17003872,2018-2019,S,El treball per ambients i el llenguatge oral,,,,
 5379,Projecte,1001,17004153,2018-2019,S,Educació Emocional,,,,
-5380,Projecte,1001,17004852,2018-2019,S,Erasmus + K2 Speaking for yourself,,,,
+5380,Projecte,1001,17004852,2018-2019,S,Erasmus + K2 Speaking for yourself,,,,17004852_erasmus_plus_K2_speaking_for_yourself.pdf
 5381,Projecte,1001,17007828,2018-2019,S,Implementació de les Intel·ligències Múltiples a través del programa Apadrinem,,,,
 5382,Projecte,1001,17008080,2018-2019,S,Llegim en parella/ Reading in Paris,,,,
 5383,Projecte,1001,17008481,2018-2019,S,"Els ambients, un espai compartit",,,,
@@ -5402,8 +5402,8 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5401,Projecte,1001,25004929,2018-2019,S,El plurilingüisme com a repte educatiu competencial,,,,
 5402,Projecte,1001,25005171,2018-2019,S,Apadrinem el patrimoni,,,,
 5403,Projecte,1001,25005429,2018-2019,S,Lego Els Planells,,,,
-5404,Projecte,1001,25005491,2018-2019,S,Pentagram@,,,,
-5405,Projecte,1001,25006252,2018-2019,S,Aules sense fronteres: professors innovadors i alumnes proactius,,,,
+5404,Projecte,1001,25005491,2018-2019,S,Pentagram@,,,,25005491_pentagrama.pdf
+5405,Projecte,1001,25006252,2018-2019,S,Aules sense fronteres: professors innovadors i alumnes proactius,,,,25006252_lego_els_planells.pdf
 5406,Projecte,1001,25006732,2018-2019,S,All you need is CLIL,,,,
 5407,Projecte,1001,25007153,2018-2019,S,Youth in yourope,,,,
 5408,Projecte,1001,25007499,2018-2019,S,"El nostre entorn: Oli, aigua i energia",,,,
@@ -5411,27 +5411,27 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5410,Projecte,1001,25008212,2018-2019,S,"Compartint coneixements, ampliant capacitats",,,,
 5411,Projecte,1001,25008649,2018-2019,S,"Racons, projectes i espais d'aprenentatge",,,,
 5412,Projecte,1001,25009095,2018-2019,S,Aprenentatge cooperatiu,,,,
-5413,Projecte,1001,25009101,2018-2019,S,Fent aprenem,,,,
+5413,Projecte,1001,25009101,2018-2019,S,Fent aprenem,,,,25009101_fent_aprenem.pdf
 5414,Projecte,1001,25009356,2018-2019,S,Treballem amb projectes,,,,
 5415,Projecte,1001,43000676,2018-2019,S,Fostering Communitave Competence through Arts,,,,
 5416,Projecte,1001,43000950,2018-2019,S,Cap al treball per ambients,,,,
 5417,Projecte,1001,43001310,2018-2019,S,Apadrinem el nostre patrimoni,,,,
 5418,Projecte,1001,43003690,2018-2019,S,Biblioteca Viva,,,,
-5419,Projecte,1001,43004815,2018-2019,S,Coneixement del medi,,,,
+5419,Projecte,1001,43004815,2018-2019,S,Coneixement del medi,,,,43004815_coneixement_medi_ aula_ciencies.pdf
 5420,Projecte,1001,43004864,2018-2019,S,El nostre poble i l'entorn: un projecte col·laboratiu,,,,
 5421,Projecte,1001,43004931,2018-2019,S,Ràdio s@nt@: una ràdio de tots i totes per al món,,,,
 5422,Projecte,1001,43005169,2018-2019,S,L'aula de ciències: Descoberta ed.inf. I laboratori primària,,,,
-5423,Projecte,1001,43005534,2018-2019,S,COPROES: Cooperativa Productiva Escolar,,,,
-5424,Projecte,1001,43005583,2018-2019,S,Les matemàtiques en moviment,,,https://www.youtube.com/watch?v=QJtMQnwQZlc&feature=youtu.be,les_matematiques_en_moviment_escola_els_quatre_vents.pdf
+5423,Projecte,1001,43005534,2018-2019,S,COPROES: Cooperativa Productiva Escolar,,,,43005534_cooperativa_productiva_escolar.pdf
+5424,Projecte,1001,43005583,2018-2019,S,Les matemàtiques en moviment,,,https://vimeo.com/337740682,les_matematiques_en_moviment_escola_els_quatre_vents.pdf
 5425,Projecte,1001,43005911,2018-2019,S,MobileCOM: l'aprenentatge mòbil per a la millora de la comunicació oral,,,,
 5426,Projecte,1001,43006496,2018-2019,S,Sostenibilitat i medi ambient,,,,
-5427,Projecte,1001,43006681,2018-2019,S,Erasmus + A World of Harmony: Art and Sciencie,,,,
+5427,Projecte,1001,43006681,2018-2019,S,Erasmus + A World of Harmony: Art and Sciencie,,,,43006681_erasmus_plus_world_harmony_ art_sciencie.pdf
 5428,Projecte,1001,43007087,2018-2019,S,Cooperativa ecològica,,,,
-5429,Projecte,1001,43008389,2018-2019,S,Espais d'aprenentatge: per un model competencial i inclusiu,,,,
+5429,Projecte,1001,43008389,2018-2019,S,Espais d'aprenentatge: per un model competencial i inclusiu,,,,43008389_espais_aprenentatge_model_competencial_inclusiu.pdf
 5430,Projecte,1001,43008390,2018-2019,S,Cotutoria,,,,
 5431,Projecte,1001,43008535,2018-2019,S,Juguem als escacs (els escacs a l'escola),,,,
 5432,Projecte,1001,43009898,2018-2019,S,Implantació de canvis metodològics i org. per a la millora educativa,,,,
-5433,Projecte,1001,43010581,2018-2019,S,Sistema Amara Berri,,,,
+5433,Projecte,1001,43010581,2018-2019,S,Sistema Amara Berri,,,,43010581_sistema_amara_berri.pdf
 5434,Projecte,1001,43010876,2018-2019,S,Els tallers de descoberta: una eina d'aprenentatge competencial,,,,
 5435,Projecte,1001,43010888,2018-2019,S,Programa Suport Vital als centres educatius (PSVe),,,,
 5436,Projecte,1001,43012976,2018-2019,S,Comunitats d'aprenentatge,,,,
@@ -5450,8 +5450,8 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5449,Programa,42,08046669,2017-2018,N,,,,,
 5450,Programa,42,08046761,2017-2018,N,,,,,
 5451,Programa,42,08054174,2017-2018,N,,,,,
-5452,Programa,42,08059767,2017-2018,N,,,,,
-5453,Programa,42,08072176,2017-2018,N,,,,,
+5452,Programa,42,08059767,2017-2018,N,Participació en el programa Magnet,,,,08059767_participacio_programa_magnet.pdf
+5453,Programa,42,08072176,2017-2018,N,Participació en el programa Magnet,,,,08072176_participacio_programa_magnet.pdf
 5454,Programa,42,17001838,2017-2018,N,,,,,
 5455,Programa,42,17002612,2017-2018,N,,,,,
 5456,Programa,42,25002064,2017-2018,N,,,,,
@@ -5461,6 +5461,6 @@ id,Bloc,id_programa,Codi_centre,Curs,Certificat,Titol,Ambit_innovacio,Ambit_curr
 5460,Programa,44,08001777,2018-2019,N,,,,,
 5461,Programa,44,08001790,2018-2019,N,,,,,
 5462,Programa,44,08002344,2018-2019,N,,,,,
-5463,Programa,44,08002617,2018-2019,N,,,,,
+5463,Programa,44,08002617,2018-2019,N,Participació en el programa Tàndem,,,,08002617_participacio_programa_tandem.pdf
 5464,Programa,44,08034989,2018-2019,N,,,,,
 5465,Programa,44,17008407,2018-2019,N,,,,,

@@ -1,8 +1,5 @@
 ### Temes pendents
 
-- Migrar de `sw-precache` a `workbox`.<br/>
-https://developers.google.com/web/tools/workbox/guides/migrations/migrate-from-sw<br/>
-https://karannagupta.com/using-custom-workbox-service-workers-with-create-react-app/<br/>
 - Fer que l'aplicació sigui multi-idioma
 
 ### Procés d'actualització de les dades
