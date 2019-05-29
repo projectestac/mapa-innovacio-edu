@@ -18,7 +18,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
 
   // Remove extra spaces
   query = query.trim();
-  
+
   const [page, setPage] = React.useState(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
   const [queryResults, setQueryResults] = React.useState([]);
@@ -54,7 +54,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                 {(queryResults.length === 0 && <p>No s'ha trobat cap element coïncident amb el criteri de cerca!</p>) ||
                   <div>
                     <List component="ul">
-                      {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ item: { nom, id, tipus, simbol } }, n) => (
+                      {queryResults.slice(page * itemsPerPage, (page + 1) * itemsPerPage).map(({ nom, id, tipus, simbol }, n) => (
                         <ListItem
                           key={n}
                           button

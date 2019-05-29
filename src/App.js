@@ -246,9 +246,9 @@ class App extends Component {
           shouldSort: true,
           tokenize: true,
           matchAllTokens: true,
-          includeScore: true,
-          includeMatches: true,
-          threshold: 0.3,
+          includeScore: false,
+          includeMatches: false,
+          threshold: 0.2,
           location: 0,
           distance: 4,
           maxPatternLength: 32,
@@ -257,32 +257,40 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, simbol, descripcio, info, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa }) => ({
+            _programes.map(({ id, nom, simbol, descripcio, info, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa, allCentres }) => ({
               id,
               nom,
               simbol,
-              descripcio,
-              info: info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
-              ambCurr: ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
-              ambInn: ambInn.map(a => _estudis.ambitsInn[a]).join(', '),
-              arees: arees.join(', '),
-              objectius,
-              requisits,
-              compromisos,
-              contacte,
-              normativa,
               tipus: 'programa',
+              text: [
+                nom,
+                descripcio,
+                ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
+                ambInn.map(a => _estudis.ambitsInn[a]).join(', '),
+                arees.join(', '),
+                objectius,
+                requisits,
+                compromisos,
+                normativa,
+                contacte,
+                info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
+                allCentres.map(({ nom, municipi, comarca }) => `${nom} - ${municipi} - ${comarca}`).join(', '),
+              ].join(' | ').replace(/['-]/g, ' '),
             })),
-            { ...fuseOptions, keys: ['id', 'nom', 'descripcio', 'info', 'ambCurr', 'ambInn', 'arees', 'objectius', 'requisits', 'compromisos', 'contacte', 'normativa'] }),
+            { ...fuseOptions, keys: ['text'] }),
           new Fuse(
             _centres.map(({ id, nom, municipi, comarca, info }) => ({
               id,
-              nom: `${nom} (${municipi})`,
-              comarca,
-              info: info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
+              nom,
               tipus: 'centre',
+              text: [
+                nom,
+                municipi,
+                comarca,
+                info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
+              ].join(' | ').replace(/['-]/g, ' '),
             })),
-            { ...fuseOptions, keys: ['id', 'nom', 'comarca', 'info'] }),
+            { ...fuseOptions, keys: ['text'] }),
         ];
 
         // Build the main `data` object
