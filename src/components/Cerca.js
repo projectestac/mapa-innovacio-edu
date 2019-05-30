@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContext from '../AppContext';
+import Loading from './Loading';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBack from '@material-ui/icons/ArrowBack';
@@ -23,16 +24,22 @@ function Cerca({ history, match: { params: { query = '' } } }) {
   const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
   const [queryResults, setQueryResults] = React.useState([]);
   const [currentQuery, setCurrentQuery] = React.useState('');
+  const [waiting, setWaiting] = React.useState(false);
 
   return (
     <AppContext.Consumer>
       {({ fuseFuncs }) => {
 
         if (query !== currentQuery) {
-          // Perform full text search using Fuse.js
-          // See `loadData` in App.js for details about how these functions are built
           setCurrentQuery(query);
-          setQueryResults(fuseFuncs.reduce((qr, ff) => qr.concat(ff.search(query)), []));
+          setWaiting(true);          
+          // Pseudo-async function
+          window.requestAnimationFrame(() => {
+            // Perform full text search using Fuse.js
+            // See `loadData` in App.js for details about how these functions are built
+            setQueryResults(fuseFuncs.reduce((qr, ff) => qr.concat(ff.search(query)), []));
+            setWaiting(false);
+          });
         }
 
         const goToElement = (tipus, id) => ev => {
@@ -40,6 +47,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
         };
 
         return (
+          (waiting && <Loading msg="S'està cercant..." />) ||
           <>
             <Button
               className="torna"

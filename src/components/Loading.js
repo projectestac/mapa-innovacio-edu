@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 /**
  * Basic 'loading data...' page
  */
-function Loading() {
+function Loading({ msg = 'S\'estan carregant les dades...' }) {
   return (
     <div className='err-msg'>
-      <Typography>S'estan carregant les dades...</Typography>
+      <Typography>{msg}</Typography>
       <CircularProgress className='progress' />
     </div>
   );

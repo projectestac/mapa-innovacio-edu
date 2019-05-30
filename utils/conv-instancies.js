@@ -68,13 +68,18 @@ const readCSV = (file) => {
         if (err)
           reject(err);
         else {
+
+          // Ajustaments previs
           data.forEach(reg => {
             // Conversió manual
             if (Number(reg.id_programa) === 46)
               reg.id_programa = 39;
             // ----------------
             reg.id_programa = reg.id_programa.toString();
+          });
 
+          // Procés principal
+          data.forEach(reg => {
             const codiCentre = reg.Codi_centre;
             let centre = centresValids.find(c => c.id === codiCentre);
             const programa = reg.id_programa;
@@ -118,6 +123,8 @@ const readCSV = (file) => {
                     centreZer.mail = centreZer.mail || centre.mail || null;
                     const inst = Object.assign({}, instancia);
                     inst.centre = cz.codi;
+                    if (DEBUG)
+                      inst.afegit = true;
                     result.push(inst);
                   }
                 });
@@ -137,11 +144,14 @@ const readCSV = (file) => {
                       centre.logo = `${centre.id}.png`;
                     centres.push(centre);
                   }
-                  // Actualitzar nombre de certificats
-                  if (ins.cert)
-                    certificats++;
-                  // Afegir instància al resultat final
-                  instancies.push(ins);
+                  // Comprovar que la instància no estigui ja registrada
+                  if (!data.find(d => d.id_programa === ins.programa && d.Codi_centre === ins.centre && d.Curs === ins.curs)) {
+                    // Actualitzar nombre de certificats
+                    if (ins.cert)
+                      certificats++;
+                    // Afegir instància al resultat final
+                    instancies.push(ins);
+                  }
                 }
               })
             }

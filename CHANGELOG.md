@@ -1,21 +1,22 @@
-### v1.1.1 (Not yet released)
+### v1.1.2 (2019-30-05)
 #### Improvements
-- Update data, with more external documents
-- Optimize search algorithm
+- Updated data, with more external documents
+- Improved search algorithm, including school data in programs
+- Integrated Vimeo and Youtube players
 
 ### v1.1.0 (2019-29-05)
 #### Improvements
 - Export data to CSV spreadshhets in "Programa", "Centre" and "Zona"
-- Update data
-- Update components
+- Updated data
+- Updated components
 - Service Worker now generated with [Workbox](https://developers.google.com/web/tools/workbox/) instead of [sw-precache](https://github.com/GoogleChromeLabs/sw-precache)
 
 ### v1.0.8 (2019-24-05)
 #### Improvements
 - Avoid unnecessary map updates
-- Improve layout on small screens
-- Improve data in polygons
-- Update README.md
+- Improved layout on small screens
+- Improved data in polygons
+- Updated README.md
 - Project cards, allowing PDF documents and embedded video
 - Use of GA to track page views
 - [Material-UI](https://material-ui.com/) updated to v 4.0

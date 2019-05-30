@@ -24,7 +24,6 @@ import AppContext, { DEFAULT_STATE } from './AppContext';
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
  */
-//const API_ROOT = process.env.REACT_APP_API_ROOT || '../api';
 const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
@@ -68,12 +67,14 @@ if (ANALYTICS_UA)
  */
 class App extends Component {
 
+  // Needed for React Context
+  // See: https://reactjs.org/docs/context.html#classcontexttype
   static contextType = AppContext;
 
   constructor() {
     super();
 
-    // Main sections
+    // Main menu entries
     this.menuItems = [
       {
         id: 'presenta',
@@ -94,6 +95,7 @@ class App extends Component {
 
     // Set the initial state
     this.state = {
+      // 
       ...DEFAULT_STATE,
       // Immutable attributes:
       updateMap: this.updateMap.bind(this),
@@ -399,7 +401,7 @@ class App extends Component {
       ReactGA.pageview(props.location.pathname);
     }
 
-    // Check for layers to be updated and scroll to top of page
+    // Check if layers should be updated and scroll up
     if (haveNewLocation) {
       this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
@@ -457,7 +459,7 @@ class App extends Component {
     // value: school
     const currentCentres = {};
 
-    // For program, fill `estudisBase` and `currentCentres`
+    // For each program, fill `estudisBase` and `currentCentres`
     currentPrograms.forEach(pid => {
       const program = programes.get(pid);
       if (program && program.tipus.length && Object.keys(program.centres).length) {
@@ -532,7 +534,7 @@ class App extends Component {
   }
 
   /**
-   * Builds the App main component
+   * Build the App main component
    */
   render() {
 

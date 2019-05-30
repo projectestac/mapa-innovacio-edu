@@ -1,7 +1,7 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la innovació pedagògica de Catalunya",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Francesc Busquets <francesc@gmail.com>",
   "private": true,
   "homepage": ".",
@@ -21,7 +21,7 @@
     "@material-ui/icons": "^4.0.1",
     "@material-ui/styles": "^4.0.1",
     "fontfaceobserver": "^2.1.0",
-    "fuse.js": "^3.4.4",
+    "fuse.js": "^3.4.5",
     "json2csv": "^4.5.1",
     "leaflet": "^1.5.1",
     "leaflet.markercluster": "^1.4.1",
@@ -39,8 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build-sw": "node ./sw/sw-build.js",
-    "clean-cra-sw": "rm -f build/precache-manifest.*.js",
-    "build": "react-scripts build && npm run build-sw && npm run clean-cra-sw",
+    "build": "react-scripts build && npm run build-sw",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -126,10 +126,10 @@ export function VideoIframe({ url, title = '', width = 800, height = 600, classN
     const youTubeId = matches[2];
     src = `https://www.youtube.com/embed/${youTubeId}?${YOUTUBE_OPTIONS}`;
   }
-  // Check for Vimeo
   else {
+    // Check for Vimeo
     matches = /vimeo\.com\/([\d]+)$/.exec(url);
-    if(matches && matches.length === 2) {
+    if (matches && matches.length === 2) {
       const vimeoId = matches[1];
       src = `https://player.vimeo.com/video/${vimeoId}`;
     }
