@@ -123,9 +123,9 @@ const readCSV = (file) => {
                     centreZer.mail = centreZer.mail || centre.mail || null;
                     const inst = Object.assign({}, instancia);
                     inst.centre = cz.codi;
-                    if (DEBUG)
-                      inst.afegit = true;
-                    result.push(inst);
+                    // Comprovar que la instància no estigui ja registrada
+                    if (!data.find(d => d.id_programa === inst.programa && d.Codi_centre === inst.centre && d.Curs === inst.curs))
+                      result.push(inst);
                   }
                 });
               }
@@ -144,14 +144,11 @@ const readCSV = (file) => {
                       centre.logo = `${centre.id}.png`;
                     centres.push(centre);
                   }
-                  // Comprovar que la instància no estigui ja registrada
-                  if (!data.find(d => d.id_programa === ins.programa && d.Codi_centre === ins.centre && d.Curs === ins.curs)) {
-                    // Actualitzar nombre de certificats
-                    if (ins.cert)
-                      certificats++;
-                    // Afegir instància al resultat final
-                    instancies.push(ins);
-                  }
+                  // Actualitzar nombre de certificats
+                  if (ins.cert)
+                    certificats++;
+                  // Afegir instància al resultat final
+                  instancies.push(ins);
                 }
               })
             }

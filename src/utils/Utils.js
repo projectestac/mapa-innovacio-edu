@@ -78,11 +78,12 @@ export function getInfoSpan(info, proj, centre) {
   return (
     <>
       {info.map(({ titol, fitxa, video, curs }, n) => {
+        const quot = titol.indexOf('"') >= 0 ? '' : '"';
         return (
           <span key={n}>
             {(fitxa || video) ?
-              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`"${titol}"`}</Link>{` (${curs})`}</span> :
-              <span>{`"${titol}" (${curs})`}</span>
+              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})`}</span> :
+              <span>{`${quot}${titol}${quot} (${curs})`}</span>
             }
             {n < info.length - 1 && <span>, </span>}
           </span>
