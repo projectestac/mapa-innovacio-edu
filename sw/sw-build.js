@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Builds the final `sw.js` file, filled with the list of assets to be pre-cached
+ * Builds the final `service-worker.js` file, filled with the list of assets to be pre-cached
  * Based on: https://karannagupta.com/using-custom-workbox-service-workers-with-create-react-app/
  */
 
@@ -24,7 +24,7 @@ function buildSW(globPatterns = ['**/*.{html,js,css,png}'], globIgnores = []) {
   // Check if DEST already exists
   if (fs.existsSync(DEST)) {
     console.log(`WARNING: file "${DEST}" already exists. Will be overwritten.`);
-    fs.unlinkSync(DEST);
+    // TODO: Remove also the file "build/precache-manifest.*.js" (unused, but not critical)
   }
 
   return workboxBuild.injectManifest({
@@ -59,7 +59,9 @@ buildSW(
     'precache-manifest.*.js',
     'service-worker.js'
   ])
-  .then(() => process.exit(0))
+  .then(() => {
+    process.exit(0);
+  })
   .catch(error => {
     console.error(error);
     process.exit(1);

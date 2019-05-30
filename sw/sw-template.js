@@ -83,7 +83,7 @@ if ('function' === typeof importScripts) {
         cacheName: 'school-logos',
         plugins: [
           new workbox.expiration.Plugin({
-            maxEntries: 200,
+            maxEntries: 500,
             maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
           }),
         ],
@@ -92,12 +92,12 @@ if ('function' === typeof importScripts) {
 
     // Cache for map tiles
     workbox.routing.registerRoute(
-      /^https:\/\/maps\.wikimedia\.org\/osm-intl\/.*\.png/,
+      /^https:\/\/(?:maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|[a-z]+\.tile\.openstreetmap\.org)\//,
       new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'maps',
         plugins: [
           new workbox.expiration.Plugin({
-            maxEntries: 600,
+            maxEntries: 2000,
             maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
           }),
         ],
