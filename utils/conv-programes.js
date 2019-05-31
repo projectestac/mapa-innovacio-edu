@@ -9,8 +9,8 @@ const { createReadStream } = require('fs');
 const csv = require('csv');
 const CSV_FILE = 'programes.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
-const instancies = DEBUG ? require('../public/data/instancies.json') : [];
-const centres = DEBUG ? require('../public/data/centres.json') : [];
+const instancies = require('../public/data/instancies.json');
+const centres = require('../public/data/centres.json');
 const estudis = require('../public/data/estudis.json');
 const ch = require('chalk');
 
@@ -55,6 +55,32 @@ const readCSV = (file) => {
               contacte: reg.Contacte || null,
               normativa: reg.Normativa || null,
             };
+
+            const instProg = instancies.filter(ins => ins.programa === programa.id);
+            const info = [];
+            const allCentresMap = new Map();
+            instProg.forEach(ins => {
+              if (ins.titol)
+                info.push(ins.titol);
+              const centre = centres.find(c => c.id === ins.centre);
+              allCentresMap.set(centre.id, centre);
+            });
+
+            programa.text = [
+              programa.nom,
+              programa.descripcio,
+              programa.ambCurr.map(a => estudis.ambitsCurr[a]).join(', '),
+              programa.ambInn.map(a => estudis.ambitsInn[a]).join(', '),
+              programa.arees.join(', '),
+              programa.objectius || '',
+              programa.requisits || '',
+              programa.compromisos || '',
+              programa.normativa || '',
+              programa.contacte || '',
+              info.join(', '),
+              Array.from(allCentresMap.values()).map(({ nom, municipi, comarca }) => `${nom}, ${municipi}, ${comarca}`).join(' | '),
+            ].join(' | ').replace(/([’'\-:]|\n)+/g, ' ').replace(/\s\s+/g, ' ').replace(/\|\s\|+/g, '|');
+
             // Check for inconsistencies
             if (DEBUG) {
 
@@ -66,7 +92,6 @@ const readCSV = (file) => {
               if (programa.tipus.length === 0) {
                 warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té definides les etapes objectiu`);
               } else {
-                const instProg = instancies.filter(ins => ins.programa === programa.id);
                 if (instProg.length === 0)
                   warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té cap centre participant`);
                 else {

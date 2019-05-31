@@ -259,38 +259,20 @@ class App extends Component {
 
         const fuseFuncs = [
           new Fuse(
-            _programes.map(({ id, nom, simbol, descripcio, info, ambCurr, ambInn, arees, objectius, requisits, compromisos, contacte, normativa, allCentres }) => ({
+            _programes.map(({ id, nom, simbol, text }) => ({
               id,
               nom,
               simbol,
+              text,
               tipus: 'programa',
-              text: [
-                nom,
-                descripcio,
-                ambCurr.map(a => _estudis.ambitsCurr[a]).join(', '),
-                ambInn.map(a => _estudis.ambitsInn[a]).join(', '),
-                arees.join(', '),
-                objectius,
-                requisits,
-                compromisos,
-                normativa,
-                contacte,
-                info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
-                allCentres.map(({ nom, municipi, comarca }) => `${nom} - ${municipi} - ${comarca}`).join(', '),
-              ].join(' | ').replace(/['-]/g, ' '),
             })),
             { ...fuseOptions, keys: ['text'] }),
           new Fuse(
-            _centres.map(({ id, nom, municipi, comarca, info }) => ({
+            _centres.map(({ id, nom, text }) => ({
               id,
               nom,
+              text,
               tipus: 'centre',
-              text: [
-                nom,
-                municipi,
-                comarca,
-                info ? Object.values(info).map(infos => infos.map(inf => inf.titol)).join(', ') : '',
-              ].join(' | ').replace(/['-]/g, ' '),
             })),
             { ...fuseOptions, keys: ['text'] }),
         ];

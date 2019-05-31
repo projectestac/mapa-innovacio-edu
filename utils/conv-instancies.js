@@ -147,6 +147,11 @@ const readCSV = (file) => {
                   // Actualitzar nombre de certificats
                   if (ins.cert)
                     certificats++;
+                  // Afegir el títol a la informació del centre
+                  if (ins.titol) {
+                    centre.info = centre.info || [];
+                    centre.info.push(ins.titol);
+                  }
                   // Afegir instància al resultat final
                   instancies.push(ins);
                 }
@@ -154,13 +159,30 @@ const readCSV = (file) => {
             }
           });
 
-          // Change the original SE code of centres, fom short name to "codi"
-          centres.forEach(c => {
-            const se = poligons.find(p => p.nomcurt === c.se);
+          // Fona adjustements for 'centres'
+          centres.forEach(centre => {
+            // Change the original SE code of centres, fom short name to "codi"
+            const se = poligons.find(p => p.nomcurt === centre.se);
             if (se)
-              c.se = se.key;
+              centre.se = se.key;
             else
-              warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre "${c.nom}" (${c.id}) té assignat un SE desconegut: ${c.se}`);
+              warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre "${centre.nom}" (${centre.id}) té assignat un SE desconegut: ${centre.se}`);
+
+            // Compute centre.text
+            const txtArray = [
+              centre.nom,
+              centre.municipi,
+              centre.comarca,
+            ];
+            
+            if (centre.info)
+              txtArray.push(centre.info.join(', '));
+
+            centre.text = txtArray.join(' | ').replace(/([’'\-:]|\n)+/g, ' ').replace(/\s\s+/g, ' ').replace(/\|\s\|+/g, '|');
+
+            // Clear centre.info
+            if (centre.info)
+              delete centre.info;
           });
 
           resolve({ instancies, centres, certificats });
