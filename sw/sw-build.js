@@ -22,10 +22,10 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(path.dirname(DEST)) || !fs.exists
 function buildSW(globPatterns = ['**/*.{html,js,css,png}'], globIgnores = []) {
 
   // Check if DEST already exists
-  if (fs.existsSync(DEST)) {
-    console.log(`WARNING: file "${DEST}" already exists. Will be overwritten.`);
+  // if (fs.existsSync(DEST)) {
+    // console.log(`WARNING: file "${DEST}" already exists. Will be overwritten.`);
     // TODO: Remove also the file "build/precache-manifest.*.js" (unused, but not critical)
-  }
+  // }
 
   return workboxBuild.injectManifest({
     swSrc: TEMPLATE,
