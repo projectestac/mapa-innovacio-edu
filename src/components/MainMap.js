@@ -21,6 +21,7 @@ const MAX_BOUNDS = [[39.50, -0.85], [43.90, 4.34]];
 const MARKERCLUSTER_PROPS = {
   showCoverageOnHover: false, // Default is `true`
   maxClusterRadius: 30, // Default is 80
+  chunkedLoading: false, // Default is `true`
 };
 
 export default function MainMap({ points = [], polygons = [], estudis = [], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {

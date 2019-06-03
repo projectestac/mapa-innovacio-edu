@@ -8,6 +8,25 @@ require('leaflet.markercluster');
 // import 'leaflet.markercluster/dist/MarkerCluster.css';
 // import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
+// Support for bulk adding markers 
+// Based on: https://github.com/olabalboa/react-leaflet-markercluster/blob/master/src/react-leaflet-markercluster.js
+// See: https://github.com/YUzhva/react-leaflet-markercluster/pull/86
+L.MarkerClusterGroup.include({
+  _flushLayerBuffer() {
+    this.addLayers(this._layerBuffer);
+    this._layerBuffer = [];
+  },
+  addLayer(layer) {
+    if (this._layerBuffer.length === 0)
+      setTimeout(this._flushLayerBuffer.bind(this), 0);
+    this._layerBuffer.push(layer);
+  },
+});
+
+L.MarkerClusterGroup.addInitHook(function() {
+  this._layerBuffer = [];
+});
+
 class MarkerClusterGroup extends MapLayer {
 
   createLeafletElement(props) {
