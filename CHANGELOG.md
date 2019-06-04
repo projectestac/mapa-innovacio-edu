@@ -1,6 +1,9 @@
-### v1.1.3 (Not yet released)
+### v1.1.3 (2019-04-06)
 #### Improvements
 - Bulk loading of map markers
+
+#### Bug fixes
+- Some misspellings have been corrected in program descriptions
 
 ### v1.1.2 (2019-31-05)
 #### Improvements
