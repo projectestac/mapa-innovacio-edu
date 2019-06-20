@@ -19,6 +19,7 @@ import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 import AppContext, { DEFAULT_STATE } from './AppContext';
+import { a2hsInit } from './utils/A2HS';
 
 /**
  * Miscellanous values taken from environment variables
@@ -55,6 +56,12 @@ const theme = responsiveFontSizes(
     },
   })
 );
+
+/**
+ * Initialize PWA installer
+ * See: https://developers.google.com/web/fundamentals/app-install-banners/
+ */
+a2hsInit();
 
 /**
  * Initialize GA

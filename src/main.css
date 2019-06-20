@@ -253,6 +253,15 @@ header .top-bar, .nav-bar {
   margin-bottom: 2rem;
 }
 
+.control-group {
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.control-group button {
+  margin: 0 1rem 1rem 0;
+}
+
 /* === Loading === */
 
 .progress {
@@ -279,9 +288,8 @@ header .top-bar, .nav-bar {
 
 /* === Presentacio === */
 
-.presenta .close-intro-btn {
-  display: block;
-  margin: 2rem auto;
+.presenta .pwa-button {
+  display: none;
 }
 
 /* === Programes === */

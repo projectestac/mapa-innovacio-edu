@@ -1,13 +1,18 @@
+### v1.1.4 (not yet released)
+#### Improvements
+- New "Install app" button, to facilitate the use as a Progressive Web App, also when off-line
+- Updated components
+
 ### v1.1.3 (2019-04-06)
 #### Improvements
 - Bulk loading of map markers
 
 #### Bug fixes
-- Some misspellings have been corrected in program descriptions
+- Fixed some misspellings in program descriptions
 
 ### v1.1.2 (2019-31-05)
 #### Improvements
-- Updated data, with more external documents
+- Updated data with more external documents
 - Improved search algorithm, including school data in programs
 - Integrated Vimeo and Youtube players
 
