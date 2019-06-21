@@ -1,6 +1,7 @@
-### v1.1.4 (not yet released)
+### v1.1.4 (2019-06-21)
 #### Improvements
 - New "Install app" button, to facilitate the use as a Progressive Web App, also when off-line
+- Cacheable Google Fonts
 - Updated components
 
 ### v1.1.3 (2019-04-06)
