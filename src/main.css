@@ -288,8 +288,12 @@ header .top-bar, .nav-bar {
 
 /* === Presentacio === */
 
-.presenta .pwa-button {
+.pwa-button {
   display: none;
+}
+
+.pwa-button svg {
+  width: 1.5em;
 }
 
 /* === Programes === */

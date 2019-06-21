@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
@@ -10,10 +9,12 @@ import SvgIcon from '@material-ui/core/SvgIcon';
  * 
  */
 
-// Class name used to identify the A2HS button
-// Only the first object with this class will be used
-export const A2HS_BTN_CLASSNAME = 'pwa-button';
+// CSS class used to identify the A2HS button
+export const PWA_BTN_CLASSNAME = 'pwa-button';
 export const PWA_BTN_SELECTOR = '.pwa-button';
+
+// CSS attributes used to show/hide the A2HS button
+export const DISPLAY_ATTR = 'display';
 export const DISPLAY_ON = 'inline-block';
 export const DISPLAY_OFF = 'none';
 
@@ -35,28 +36,34 @@ export function PWAIcon(props) {
 };
 
 /**
- * Initializes the A2HS process, registering a listener of BeforeInstallPrompt events
+ * Initializes the A2HS process, registering a listener of `BeforeInstallPrompt` events
  * at window level.
- * When this event is triggered, the global variable `window.installPromptEvent` is set,
- * and the A2HS button (if any) switchs from hidden to visible.
+ * When this event is triggered, the global variable `window.__installPromptEvent` is set,
+ * and the A2HS buttons (if any) become visibles.
+ * 
+ * @param {string+} options.attribute - The CSS attribute to be set. Defaults to `display`
+ * @param {string+} options.on        - The CSS value used when buttons are visible. Defaults to `inline-block`
+ * @param {string+} options.off       - The CSS value used when buttons are not visible. Defaults to `none`
  */
-export function a2hsInit() {
+export function webAppInstallInit(options = {}) {
+  
   // Avoid duplicate listeners
-  if (!window.beforeInstallPromptEventListener)
-    window.beforeInstallPromptEventListener = window.addEventListener('beforeinstallprompt', ev => {
+  if (!window.__beforeInstallPromptEventListener)
+    window.__beforeInstallPromptEventListener = window.addEventListener('beforeinstallprompt', ev => {
+
+      console.log('BeforeInstallPrompt event received');
 
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       ev.preventDefault();
 
       // Stash the triggered event, so it can be triggered later
-      window.installPromptEvent = ev;
+      window.__installPromptEvent = ev;
 
-      // Display the A2HS button, if any
-      const btn = document.querySelector(PWA_BTN_SELECTOR);
-      if (btn)
-        btn.style.display = DISPLAY_ON;
+      // Display the A2HS buttons, if any
+      pwaButtonsSetVisible(true, options);
 
-      console.log(`Deferred prompt for PWA set`);
+      // Save options for later use
+      window.__installPromptOptions = options;
     });
 }
 
@@ -64,21 +71,19 @@ export function a2hsInit() {
  * To be called when the user hits the A2HS button
  * @param {event} clickEv
  */
-export function a2hsHandleClick(clickEv) {
+export function installHandleClick(clickEv) {
 
-  console.log('Click on "Add to home screen" button');
+  console.log('User clicked on "Add to home screen"');
 
   // Get the previously saved "BeforeInstallPromptEvent"
-  const ev = window.installPromptEvent;
+  const ev = window.__installPromptEvent;
 
   if (ev) {
     // Clear the global variable
-    window.installPromptEvent = null;
+    window.__installPromptEvent = null;
 
-    // Hide the A2HS button
-    const btn = document.querySelector(PWA_BTN_SELECTOR);
-    if (btn)
-      btn.style.display = DISPLAY_OFF;
+    // Hide the A2HS buttons, if any
+    pwaButtonsSetVisible(false, window.__installPromptOptions);
 
     // Prompt the user about to install this app
     ev.prompt().then(() => {
@@ -93,18 +98,31 @@ export function a2hsHandleClick(clickEv) {
     });
   }
   else
-    console.log('ERROR: Call to "a2hsHandleClick" without BeforeInstallPromptEvent!');
+    console.log('ERROR: Call to "installHandleClick" without BeforeInstallPromptEvent!');
 }
 
 /**
  * Utility function to determine if the A2HS button should be hidden or visible
- * @param {object+} - options - used to set specific CSS settings:
- *                   - attribute (defaults to 'display')
- *                   - on (defaults do 'inline-block')
- *                   - off (defaults to 'none')
+ * @param {string+} options.attribute - The CSS attribute to be set. Defaults to `display`
+ * @param {string+} options.on        - The CSS value used when buttons are visible. Defaults to `inline-block`
+ * @param {string+} options.off       - The CSS value used when buttons are not visible. Defaults to `none`
  */
-export function a2hsButtonStyle(options = {}) {
+export function pwaButtonStyle({ attribute = DISPLAY_ATTR, on = DISPLAY_ON, off = DISPLAY_OFF } = {}) {
   const result = {};
-  result[options.attribute || 'display'] = window.installPromptEvent ? options.on || DISPLAY_ON : options.off || DISPLAY_OFF;
+  result[attribute] = window.__installPromptEvent ? on : off;
   return result;
+}
+
+/** 
+ * Sets/unsets the visibility status of the PWA buttons, if any.
+ * 
+ * @param {boolean} state - `true` when A2HS buttons should be visible.
+ * @param {string+} options.attribute - The CSS attribute to be set. Defaults to `display`
+ * @param {string+} options.on        - The CSS value used when buttons are visible. Defaults to `inline-block`
+ * @param {string+} options.off       - The CSS value used when buttons are not visible. Defaults to `none`
+ */
+export function pwaButtonsSetVisible(state, { attribute = DISPLAY_ATTR, on = DISPLAY_ON, off = DISPLAY_OFF } = {}) {
+  document
+    .querySelectorAll(PWA_BTN_SELECTOR)
+    .forEach(btn => btn.style[attribute] = state ? on : off);
 }

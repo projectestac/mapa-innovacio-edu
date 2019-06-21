@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown/with-html';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import MapIcon from '@material-ui/icons/Map';
-import { A2HS_BTN_CLASSNAME, PWAIcon, a2hsHandleClick, a2hsButtonStyle } from '../utils/A2HS';
+import { PWA_BTN_CLASSNAME, PWAIcon, installHandleClick, pwaButtonStyle } from '../utils/WebAppInstall';
 import { intro } from '../literals';
 
 const MD_OPTIONS = {
@@ -31,12 +31,12 @@ function Presentacio({ history }) {
                   Accés al mapa
                 </Button>
                 <Button
-                  className={A2HS_BTN_CLASSNAME}
+                  className={PWA_BTN_CLASSNAME}
                   variant="contained"
-                  style={a2hsButtonStyle()}
-                  onClick={a2hsHandleClick}
+                  style={pwaButtonStyle()}
+                  onClick={installHandleClick}
                 >
-                  <PWAIcon className="left-icon" />
+                  <PWAIcon className="left-icon" color="secondary" />
                   Instal·la l'aplicació
                   </Button>
               </div>
