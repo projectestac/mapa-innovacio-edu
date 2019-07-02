@@ -70,11 +70,6 @@
         "codi": "08029155",
         "centre": "Escola El Montcau - ZER Subirats",
         "localitat": "Ordal"
-      },
-      {
-        "codi": "08029192",
-        "centre": "Escola Sant Jordi - ZER Subirats",
-        "localitat": "Sant Pau d'Ordal"
       }
     ]
   },
@@ -438,11 +433,6 @@
         "localitat": "Montagut"
       },
       {
-        "codi": "17003461",
-        "centre": "Escola Les Escomes - ZER El Llierca",
-        "localitat": "Sant Jaume de Llierca"
-      },
-      {
         "codi": "17003902",
         "centre": "Escola Joan Roura i Parella - ZER El Llierca",
         "localitat": "Tortellà"
@@ -670,11 +660,6 @@
         "localitat": "Sanaüja"
       },
       {
-        "codi": "25004073",
-        "centre": "Escola Mare de Déu de la Mercè - ZER La Segarra",
-        "localitat": "Sant Ramon"
-      },
-      {
         "codi": "25004085",
         "centre": "Escola Vall Ondara - ZER La Segarra",
         "localitat": "Sant Antolí i Vilanova"
@@ -696,11 +681,6 @@
         "codi": "25003263",
         "centre": "Escola Pere Sarret - ZER Baridà-Batllia",
         "localitat": "Martinet"
-      },
-      {
-        "codi": "25003275",
-        "centre": "Escola Ridolaina - ZER Baridà-Batllia",
-        "localitat": "Montellà"
       },
       {
         "codi": "25003846",
@@ -892,11 +872,6 @@
         "codi": "25001242",
         "centre": "Escola Castell-Ciutat - ZER Urgellet",
         "localitat": "Castellciutat"
-      },
-      {
-        "codi": "25003299",
-        "centre": "Escola Rosa Campà - ZER Urgellet",
-        "localitat": "Montferrer"
       },
       {
         "codi": "25003950",
@@ -1124,11 +1099,6 @@
         "codi": "25001333",
         "centre": "Escola El Cérvol - ZER Riu Set",
         "localitat": "Cervià de les Garrigues"
-      },
-      {
-        "codi": "25003664",
-        "centre": "Escola Josep Espasa - ZER Riu Set",
-        "localitat": "La Pobla de Cérvoles"
       },
       {
         "codi": "25005107",
@@ -1452,11 +1422,6 @@
     "nom": "ZER Montsant-Serra de Prades",
     "localitat": "Cornudella de Montsant",
     "centres": [
-      {
-        "codi": "43000962",
-        "centre": "Escola Dr. Piñol i Aguadé - ZER Montsant-Serra de Prades",
-        "localitat": "Cornudella de Montsant"
-      },
       {
         "codi": "43002053",
         "centre": "Escola Garbí - ZER Montsant-Serra de Prades",
@@ -2036,19 +2001,6 @@
         "codi": "43005339",
         "centre": "Escola Montsant - ZER Montsant",
         "localitat": "La Bisbal de Falset"
-      }
-    ]
-  },
-  {
-    "SSTT": "GIR",
-    "codi": "17007415",
-    "nom": "ZER Les Goges",
-    "localitat": "Porqueres",
-    "centres": [
-      {
-        "codi": "17002818",
-        "centre": "Escola Frigolet",
-        "localitat": "Porqueres"
       }
     ]
   }
