@@ -1,3 +1,8 @@
+### v1.1.5 (not yet released)
+#### Improvements
+- Use of sitemaps for better results on search engines
+- Updated school data
+
 ### v1.1.4 (2019-06-21)
 #### Improvements
 - New "Install app" button, to facilitate the use as a Progressive Web App, also when off-line

@@ -34,3 +34,10 @@ $ ./conv-instancies.js centres > ../public/data/centres.json
 $ ./conv-instancies.js instancies > ../public/data/instancies.json
 ```
 
+Generar sitemaps amb:
+
+```bash
+$ cd utils
+$ ./build-sitemap.js
+```
+

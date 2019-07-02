@@ -55,6 +55,7 @@
   "devDependencies": {
     "chalk": "^2.4.2",
     "csv": "^5.1.1",
-    "workbox-build": "^4.3.1"
+    "workbox-build": "^4.3.1",
+    "xml": "^1.0.1"
   }
 }

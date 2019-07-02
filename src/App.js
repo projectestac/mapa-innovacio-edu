@@ -58,7 +58,7 @@ const theme = responsiveFontSizes(
 );
 
 /**
- * Initialize PWA installer
+ * Initialize the PWA installer
  * See: https://developers.google.com/web/fundamentals/app-install-banners/
  */
 webAppInstallInit();
