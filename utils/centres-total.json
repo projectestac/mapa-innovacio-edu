@@ -80834,15 +80834,16 @@
     "nom": "EASD Escola Sup. de Disseny i d'Arts Plàstiques - ESDAP",
     "municipi": "Barcelona",
     "comarca": "Barcelonès",
-    "lat": 41.40257,
-    "lng": 2.136112,
+    "lat": 41.44424,
+    "lng": 2.167858,
     "sstt": "CEB",
-    "se": "SE Sarrià-Sant Gervasi",
+    "se": "SE Nou Barris",
     "public": true,
     "estudis": [
-      "ESDI"
+      "ESDI",
+      "BATX"
     ],
-    "adreca": "C. de la Ciutat de Balaguer, 17 - 08022 Barcelona",
+    "adreca": "Carrer Ignasi Agustí, 2-4, 08042 Barcelona",
     "web": "",
     "logo": "",
     "nodes": "",
@@ -95931,9 +95932,9 @@
       "EPRI"
     ],
     "adreca": "c. Port Lligat, 11 - 17007 Girona",
-    "web": "http:\/\/agora.xtec.cat\/ceipcarmeauguet",
+    "web": "http:\/\/www.escolacarmeauguet.cat",
     "logo": "https:\/\/drive.google.com\/thumbnail?id=0B8jl-qNBtH8aVWoxbnQ3Y041ajQ",
-    "nodes": "http:\/\/agora.xtec.cat\/ceipcarmeauguet",
+    "nodes": "",
     "web_propi": "",
     "tel": "972212745, 972212745",
     "mail": "b7001887@xtec.cat",
@@ -112960,12 +112961,12 @@
       "TEGM",
       "ADULTS"
     ],
-    "adreca": "av. Alcalde Rovira Roure, 4 - 25006 Lleida",
+    "adreca": "c. La Palma, 33 - 25002 Lleida",
     "web": "https:\/\/www.ilerna.es\/fp-lleida\/ca",
     "logo": "https:\/\/drive.google.com\/thumbnail?id=1PCgaXNs3J-aK_X30fT0uyo-dhgIQYMNO",
     "nodes": "",
     "web_propi": "https:\/\/www.ilerna.es\/fp-lleida\/ca",
-    "tel": "973235986, 973727629",
+    "tel": "973727878",
     "mail": "c5002775@xtec.cat",
     "twitter": "@ILERNAfp"
   },
@@ -130965,7 +130966,7 @@
     "web_propi": "",
     "tel": "977332362, 977315692",
     "mail": "e3005753@xtec.cat",
-    "twitter": ""
+    "twitter": "@Escola_Alberich"
   },
   {
     "id": "43005765",
@@ -131271,13 +131272,9 @@
     "se": "SE del Montsià",
     "public": true,
     "estudis": [
-      "ESO",
-      "BATX",
       "CFPM",
       "CFPS",
-      "PFI",
-      "TEGM",
-      "TEGS"
+      "PFI"
     ],
     "adreca": "c. Madrid, 35-49 - 43870 Amposta",
     "web": "http:\/\/agora.xtec.cat\/insmontsia",
@@ -133966,8 +133963,8 @@
     "nom": "Escola Sant Llatzer",
     "municipi": "Tortosa",
     "comarca": "Baix Ebre",
-    "lat": 40.81776,
-    "lng": 0.525331,
+    "lat": 40.79921,
+    "lng": 0.524464,
     "sstt": "TEB",
     "se": "SE del Baix Ebre",
     "public": true,
@@ -133975,7 +133972,7 @@
       "EINF2C",
       "EPRI"
     ],
-    "adreca": "c. Rubí, 16 - 43500 Tortosa",
+    "adreca": "c. Rubí, 6 - 43500 Tortosa",
     "web": "http:\/\/agora.xtec.cat\/escsantllatzer",
     "logo": "",
     "nodes": "http:\/\/agora.xtec.cat\/escsantllatzer",
@@ -139282,8 +139279,8 @@
     "nom": "Institut Cristòfol Despuig",
     "municipi": "Tortosa",
     "comarca": "Baix Ebre",
-    "lat": 40.81002,
-    "lng": 0.52707,
+    "lat": 40.79921,
+    "lng": 0.524464,
     "sstt": "TEB",
     "se": "SE del Baix Ebre",
     "public": true,
@@ -139291,7 +139288,7 @@
       "ESO",
       "BATX"
     ],
-    "adreca": "c. Rubí, 16 - 43500 Tortosa",
+    "adreca": "c. Rubí, 6 - 43500 Tortosa",
     "web": "http:\/\/agora.xtec.cat\/insdespuig",
     "logo": "https:\/\/drive.google.com\/thumbnail?id=0B8jl-qNBtH8aVzIyVFc5UzF3SWM",
     "nodes": "http:\/\/agora.xtec.cat\/insdespuig",
