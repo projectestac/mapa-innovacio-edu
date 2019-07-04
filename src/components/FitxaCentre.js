@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
@@ -79,6 +80,10 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
 
         return (
           <>
+            <Helmet>
+              <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
+              <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom} (${municipi})`} />
+            </Helmet>
             <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
               <ArrowBack className="left-icon" />
               Torna

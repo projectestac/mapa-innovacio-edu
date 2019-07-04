@@ -1,6 +1,8 @@
-### v1.1.5 (not yet released)
+### v1.1.5 (2019-07-04)
 #### Improvements
 - Use of sitemaps for better results on search engines
+- Update HTML title and description in each page
+- CSS media print directives, for better results when printing pages
 - Updated school data
 
 ### v1.1.4 (2019-06-21)

@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import ReactMarkdown from 'react-markdown/with-html';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
@@ -51,7 +52,7 @@ function exportData(programa) {
     { name: 'PROGRAMA', id: 'programa' },
   ];
 
-  if (info){
+  if (info) {
     fields.push({ name: 'TITOL', id: 'titol' });
     fields.push({ name: 'INFO', id: 'url' });
   }
@@ -128,6 +129,9 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
         return (
           <>
+            <Helmet>
+              <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
+            </Helmet>
             <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
               <ArrowBack className="left-icon" />
               Torna

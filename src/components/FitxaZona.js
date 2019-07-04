@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext';
 import Paper from '@material-ui/core/Paper';
@@ -81,6 +82,10 @@ function FitxaZona({ history, match: { params: { key } } }) {
 
         return (
           <>
+            <Helmet>
+              <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
+              <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom}`} />
+            </Helmet>
             <Button className="torna" aria-label="Torna" onClick={torna} >
               <ArrowBack className="left-icon" />
               Torna
@@ -136,7 +141,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                   const numCentres = centres.length;
                   return (
                     <ExpansionPanel key={n}>
-                      <ExpansionPanelSummary classes={{ root: 'small-padding-h', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
+                      <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
                         <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
                         <Typography className="wider">{prog.nom}</Typography>
                         <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
@@ -146,7 +151,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                           {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
                             const link = (info && hasExtraInfo(info[prog.id])) ? null : `#/centre/${id}`;
                             return (
-                              <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
+                              <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h" >
                                 <ListItemText
                                   primary={`${nom} (${municipi})`}
                                   secondary={info && info[prog.id] && getInfoSpan(info[prog.id], prog.id, id)}

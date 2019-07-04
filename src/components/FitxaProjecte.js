@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { VideoIframe } from '../utils/Utils';
 import AppContext from '../AppContext';
@@ -47,6 +48,10 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
 
         return (
           <>
+            <Helmet>
+              <title>{`${titol} - Mapa de la innovació pedagògica de Catalunya`}</title>
+              <meta name="description" content={`Projecte "${titol}" - ${nomCentre} (${municipi}) - curs ${curs}`}/>
+            </Helmet>
             <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
               <ArrowBack className="left-icon" />
               Torna

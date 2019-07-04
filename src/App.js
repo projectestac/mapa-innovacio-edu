@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
@@ -29,7 +30,7 @@ const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
-const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || '';
+const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || 'UA-140680188-1';
 
 /**
  * Main Material-UI theme
@@ -536,6 +537,10 @@ class App extends Component {
           <CssBaseline>
             <AppContext.Provider value={this.state}>
               <CheckRouteChanges updateHandler={this.contentUpdated.bind(this)}>
+                <Helmet>
+                  <title>Mapa de la innovació pedagògica de Catalunya</title>
+                  <meta name="description" content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya" />
+                </Helmet>
                 <Header />
                 <div className="filler" />
                 <main>
