@@ -15,7 +15,53 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { cursCurt } from '../utils/Utils';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
+import { cursCurt, csvExportToFile } from '../utils/Utils';
+
+/**
+ * Export the list of schools to a CSV spreadsheet
+ */
+function exportData(programesArray, cursos) {
+
+  const fields = [
+    { name: 'CODI', id: 'codi' },
+    { name: 'CENTRE', id: 'centre' },
+    { name: 'SSTT', id: 'sstt' },
+    { name: 'CURS', id: 'curs' },
+    { name: 'PROGRAMA', id: 'programa' },
+    { name: 'TITOL', id: 'titol' },
+    { name: 'INFO', id: 'url' },
+  ];
+
+  const base = `${window.location.origin}${window.location.pathname}#`;
+
+  const data = programesArray.reduce((total, programa) => {
+    const { centres, info } = programa;
+    return Object.keys(centres)
+      .filter(curs => cursos.includes(curs))
+      .reduce((result, curs) => {
+        centres[curs].forEach(centre => {
+          const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+          result.push({
+            centre: `${centre.nom} (${centre.municipi})`,
+            codi: centre.id,
+            sstt: centre.sstt,
+            curs,
+            programa: programa.nom,
+            titol: inf ? inf.titol : '',
+            url: inf ? `${base}/projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+          });
+        });
+        return result;
+      }, total);
+  }, []);
+
+  return csvExportToFile(
+    `programes.csv`,
+    data,
+    fields,
+  );
+}
 
 function Programes({ history }) {
 
@@ -90,6 +136,16 @@ function Programes({ history }) {
                       </ListItem>
                     ))}
                   </List>
+                  <br />
+                  <Button
+                    variant="contained"
+                    className="csv-btn"
+                    title='Relació de centres participants als programes i cursos seleccionats'
+                    onClick={() => exportData(Array.from(programes.values()).filter(p => currentPrograms.has(p.id)), cursos)}
+                  >
+                    <DownloadIcon className="left-icon" />
+                    CSV
+                  </Button>
                 </Paper>
               </section>
             }
