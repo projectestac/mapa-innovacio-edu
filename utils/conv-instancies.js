@@ -110,11 +110,11 @@ const readCSV = (file) => {
               // Comprovar ZERs
               const zer = zers.find(z => z.codi === codiCentre);
               if (zer) {
-                warnings.push(`${ch.bold.green('INFO:')} La instància del programa ${programa} assignada a la ZER ${centre.nom} (${centre.id}) per al curs ${instancia.curs} s'expandeix als ${zer.centres.length} centres de la zona.`);
+                warnings.push(`${ch.bold.green('INFO:')} La instància del programa ${programa} assignada a la ${centre.nom} (${centre.id}) per al curs ${instancia.curs} s'expandeix als ${zer.centres.length} centres de la zona.`);
                 zer.centres.forEach(cz => {
                   const centreZer = centresValids.find(c => c.id === cz.codi);
                   if (!centreZer)
-                    warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre ${cz.centre} (${cz.codi}) pertanyent a la ZER ${zer.nom} no es troba a la llista de centres vàlids!`);
+                    warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre ${cz.centre} (${cz.codi}) pertanyent a la ${zer.nom} no es troba a la llista de centres vàlids!`);
                   else {
                     if (!centreZer.logo && centre.logo)
                       centreZer.logo = `${centre.id}.png`;
@@ -170,6 +170,7 @@ const readCSV = (file) => {
 
             // Compute centre.text
             const txtArray = [
+              centre.id,
               centre.nom,
               centre.municipi,
               centre.comarca,
