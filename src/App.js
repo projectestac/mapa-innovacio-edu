@@ -3,7 +3,6 @@
  *  Created : 10/04/2019
  *  By      : Francesc Busquets <francesc@gmail.com>
  *
- *  App.js
  *  Map of pedagogical innovation in Catalonia 
  *  https://innovacio.xtec.gencat.cat
  *

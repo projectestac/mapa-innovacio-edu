@@ -1,3 +1,10 @@
+### v1.1.6 (2019-07-19)
+#### Improvements
+- Add "School ID" (_codi de centre_) as a field involved in full text searches
+- Allow to export to CSV also from "Programes"
+- Updated code comments
+- Updated components
+
 ### v1.1.5 (2019-07-04)
 #### Improvements
 - Use of sitemaps for better results on search engines

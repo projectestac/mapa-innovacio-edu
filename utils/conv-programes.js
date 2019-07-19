@@ -3,7 +3,6 @@
 // Usage: ./conv-programes.js > ../public/data/programes.json
 // Debug: ./conv-programes.js debug
 
-
 const { sortObjectArrayBy } = require('./utils');
 const { createReadStream } = require('fs');
 const csv = require('csv');
