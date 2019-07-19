@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../AppContext';
+import { AppContext } from '../App';
 import ReactMarkdown from 'react-markdown/with-html';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';

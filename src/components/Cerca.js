@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../AppContext';
+import { AppContext } from '../App';
 import Loading from './Loading';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -32,7 +32,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
 
         if (query !== currentQuery) {
           setCurrentQuery(query);
-          setWaiting(true);          
+          setWaiting(true);
           // Pseudo-async function
           window.requestAnimationFrame(() => {
             // Perform full text search using Fuse.js

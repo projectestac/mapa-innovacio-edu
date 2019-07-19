@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import ReactMarkdown from 'react-markdown/with-html';
-import AppContext from '../AppContext';
+import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';

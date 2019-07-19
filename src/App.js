@@ -1,3 +1,33 @@
+/*!
+ *  File    : App.js
+ *  Created : 10/04/2019
+ *  By      : Francesc Busquets <francesc@gmail.com>
+ *
+ *  App.js
+ *  Map of pedagogical innovation in Catalonia 
+ *  https://innovacio.xtec.gencat.cat
+ *
+ *  @source https://github.com/projectestac/mapa-innovacio-edu
+ *
+ *  @license EUPL-1.2
+ *  @licstart
+ *  (c) 2019 Educational Telematic Network of Catalonia (XTEC)
+ *
+ *  Licensed under the EUPL, Version 1.2 or -as soon they will be approved by
+ *  the European Commission- subsequent versions of the EUPL (the "Licence");
+ *  You may not use this work except in compliance with the Licence.
+ *
+ *  You may obtain a copy of the Licence at:
+ *  https://joinup.ec.europa.eu/software/page/eupl
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the Licence is distributed on an "AS IS" basis, WITHOUT
+ *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ *  Licence for the specific language governing permissions and limitations
+ *  under the Licence.
+ *  @licend
+ */
+
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -19,7 +49,6 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
-import AppContext, { DEFAULT_STATE } from './AppContext';
 import { webAppInstallInit } from './utils/WebAppInstall';
 
 /**
@@ -70,8 +99,17 @@ webAppInstallInit();
 if (ANALYTICS_UA)
   ReactGA.initialize(ANALYTICS_UA);
 
+
 /**
- * Main React component
+ * React [Context](https://reactjs.org/docs/context.html) used to pass data through the component tree
+ * without having to pass props down manually at every level.
+ */
+export const AppContext = React.createContext();
+
+
+/**
+ * This is the main React component of the web app
+ * Its `state` is shared with components through `AppContext`
  */
 class App extends Component {
 
@@ -103,11 +141,33 @@ class App extends Component {
 
     // Set the initial state
     this.state = {
-      // 
-      ...DEFAULT_STATE,
-      // Immutable attributes:
+      
+      // Mutable attributes
+      loading: true,
+      dataLoaded: false,
+      error: false,
+      polygons: [],
+      currentPrograms: new Set(),
+      programa: null,
+      cursos: [],
+      mapChanged: true,
+      tabMode: false,
+      currentTab: 0,
+      currentPrjTab: 0,
+      dlgOpen: false,
+
+      // Immutable attributes (to be filled in `loadData`)
+      data: {
+        programes: new Map(),
+        centres: new Map(),
+        poligons: new Map(),
+        estudis: new Map(),
+        nivells: new Map(),
+        ambitsCurr: new Map(),
+        ambitsInn: new Map(),
+        cursosDisp: [],
+      },
       updateMap: this.updateMap.bind(this),
-      // Functions used to perform full-text search with Fuse.js on 'centres' and 'programes', built after loading
       fuseFuncs: [],
       menuItems: this.menuItems,
     };
@@ -135,7 +195,7 @@ class App extends Component {
   }
 
   /**
-   * Load the datasets from JSON files and arrange internal variables
+   * Loads the datasets from JSON files and arranges internal variables
    * @returns {Promise}
    */
   loadData() {
@@ -285,7 +345,7 @@ class App extends Component {
             { ...fuseOptions, keys: ['text'] }),
         ];
 
-        // Build the main `data` object
+        // Build the main data container
         const data = {
           ...this.state.data,
           programes,
@@ -314,7 +374,6 @@ class App extends Component {
         });
       })
       .catch(error => {
-        // Something wrong happened!
         console.log(error);
         this.setStateMod({ error: error.toString() });
       });
@@ -356,7 +415,7 @@ class App extends Component {
   }
 
   /**
-   * Update the state of the main component and the maps
+   * Updates state and maps
    * @param {object} [state={}] - The new settings for `state`
    * @param {boolean} [mapChanged=true] - `true` when this change involves map points
    * @param {boolean} [currentProgramsChanged=false] - `true` when the list of current programs has changed
@@ -399,7 +458,7 @@ class App extends Component {
   };
 
   /**
-   * Check if the polygons density needs to be recalculated, based on the current path
+   * Checks if the polygons density needs to be recalculated, based on the current path
    * @param {string} pathname - Current path
    */
   checkForLayerUpdate(pathname) {
@@ -411,7 +470,7 @@ class App extends Component {
   };
 
   /**
-   * Update the `density` value on each polygon, based on the number of schools enroled to
+   * Updates the `density` value on each polygon, based on the number of schools enroled to
    * the current programs among the total number of schools on the polygon having at least
    * one of the educational levels targeted by at least one of the current programs.
    * Values can also be filtered by school year.
@@ -524,11 +583,10 @@ class App extends Component {
   }
 
   /**
-   * Build the App main component
+   * Builds the App main component
    */
   render() {
 
-    // Take `error` and `loading` flags from `this.state`
     const { error, loading } = this.state;
 
     return (

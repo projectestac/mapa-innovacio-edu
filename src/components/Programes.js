@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../AppContext';
+import { AppContext } from '../App';
 import MapSection from './MapSection';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
