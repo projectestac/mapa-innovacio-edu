@@ -70,8 +70,8 @@ if ('function' === typeof importScripts) {
         cacheName: 'image-cache',
         plugins: [
           new workbox.expiration.Plugin({
-            maxEntries: 200,
-            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 100,
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days            
           }),
         ],
       })
@@ -84,8 +84,9 @@ if ('function' === typeof importScripts) {
         cacheName: 'school-logos',
         plugins: [
           new workbox.expiration.Plugin({
-            maxEntries: 500,
+            maxEntries: 100,
             maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            purgeOnQuotaError: true,
           }),
         ],
       }),
@@ -101,8 +102,9 @@ if ('function' === typeof importScripts) {
             statuses: [0, 200],
           }),
           new workbox.expiration.Plugin({
-            maxEntries: 2000,
+            maxEntries: 500,
             maxAgeSeconds: 90 * 24 * 60 * 60, // 90 Days
+            purgeOnQuotaError: true,
           }),
         ],
       }),

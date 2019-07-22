@@ -1,3 +1,8 @@
+### v1.1.7 (Not yet released)
+#### Bug fixes
+- Avoid quota errors in service worker caches
+- Map points not displayed when accessing to inner pages with direct URLs
+
 ### v1.1.6 (2019-07-19)
 #### Improvements
 - Add "School ID" (_codi de centre_) as a field involved in full text searches

@@ -74,7 +74,6 @@ function MapSection({ data: { programes, centres, poligons, estudis, cursosDisp 
         result.push(c);
     });
     updateMap({ cursos: result }, true, true);
-
   }
 
   return (

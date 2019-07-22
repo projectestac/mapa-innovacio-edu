@@ -149,7 +149,7 @@ class App extends Component {
       currentPrograms: new Set(),
       programa: null,
       cursos: [],
-      mapChanged: true,
+      mapChanged: false,
       tabMode: false,
       currentTab: 0,
       currentPrjTab: 0,
