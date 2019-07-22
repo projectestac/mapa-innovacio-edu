@@ -2,6 +2,7 @@
 #### Bug fixes
 - Avoid quota errors in service worker caches
 - Map points not displayed when accessing to inner pages with direct URLs
+- Simplify hash routes when deployed on a non-root path
 
 ### v1.1.6 (2019-07-19)
 #### Improvements

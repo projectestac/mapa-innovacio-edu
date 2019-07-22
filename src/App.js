@@ -589,7 +589,7 @@ class App extends Component {
     const { error, loading } = this.state;
 
     return (
-      <Router basename={window.location.pathname}>
+      <Router>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>
