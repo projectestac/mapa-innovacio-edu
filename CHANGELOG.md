@@ -1,6 +1,7 @@
-### v1.1.7 (Not yet released)
+### v1.1.7 (2019-09-03)
 #### Improvements
-- Updated components
+- Updated school data and app components
+- New program "mobils.edu"
 - Simplify hash routes when deployed on a non-root path
 
 #### Bug fixes
