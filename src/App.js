@@ -81,6 +81,11 @@ const theme = responsiveFontSizes(
         completed: {
           color: '#c00000 !important',
         }
+      },
+      MuiStepLabel: {
+        label: {
+          fontSize: '0.8rem',
+        }
       }
     },
   })

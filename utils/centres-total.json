@@ -144254,5 +144254,28 @@
     "tel": "",
     "mail": "",
     "twitter": ""
+  },
+  {
+    "id": "08076108",
+    "tipus": "INS",
+    "nom": "Institut Jaume Cabré",
+    "municipi": "Terrassa",
+    "comarca": "Vallès Occidental",
+    "lat": 41.57917,
+    "lng": 2.027327,
+    "sstt": "VOC",
+    "se": "SE del Vallès Occidental II",
+    "public": true,
+    "estudis": [
+      "ESO"
+    ],
+    "adreca": "av. Vallès, 483 - 08226 Terrassa",
+    "web": "https:\/\/sites.google.com\/xtec.cat\/insjc\/inici",
+    "logo": "https://lh6.googleusercontent.com/iGrfaKbvaPcr3kI-XWRaLeuVIpxGcxZ9CswbahWURD4mlnVAQKqqGmMdlsOmdqZMOYunUxhR=w16383",
+    "nodes": "",
+    "web_propi": "https:\/\/sites.google.com\/xtec.cat\/insjc\/inici",
+    "tel": "667117505",
+    "mail": "a8076108@xtec.cat",
+    "twitter": ""
   }
 ]
