@@ -17,25 +17,25 @@
   ],
   "license": "EUPL-1.2",
   "dependencies": {
-    "@material-ui/core": "^4.3.1",
+    "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.2.1",
-    "@material-ui/styles": "^4.3.0",
+    "@material-ui/styles": "^4.3.3",
     "fontfaceobserver": "^2.1.0",
     "fuse.js": "^3.4.5",
     "json2csv": "^4.5.2",
     "leaflet": "^1.5.1",
     "leaflet.markercluster": "^1.4.1",
-    "mdi-material-ui": "^6.2.0",
+    "mdi-material-ui": "^6.5.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-ga": "^2.6.0",
     "react-helmet": "^5.2.1",
     "react-leaflet": "^2.4.0",
     "react-leaflet-fullscreen": "^1.0.1",
-    "react-markdown": "^4.1.0",
+    "react-markdown": "^4.2.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -55,7 +55,7 @@
   ],
   "devDependencies": {
     "chalk": "^2.4.2",
-    "csv": "^5.1.1",
+    "csv": "^5.1.2",
     "workbox-build": "^4.3.1",
     "xml": "^1.0.1"
   }
