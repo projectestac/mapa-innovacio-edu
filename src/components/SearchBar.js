@@ -62,6 +62,7 @@ function SearchBar({ closeFn = () => null, history, mini = false }) {
         className="search-text"
         value={searchText}
         InputProps={{ disableUnderline: true }}
+        inputProps={{ 'aria-label': 'Cerca text...' }}
         onChange={ev => setSearchText(ev.target.value)}
       />
       {!mini &&
