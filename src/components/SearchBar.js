@@ -57,12 +57,12 @@ function SearchBar({ closeFn = () => null, history, mini = false }) {
         <SearchIcon />
       </IconButton>
       <TextField
-        aria-label="Cerca text..."
+        aria-label="Text a cercar"
         title="Cerca text..."
         className="search-text"
         value={searchText}
         InputProps={{ disableUnderline: true }}
-        inputProps={{ 'aria-label': 'Cerca text...' }}
+        inputProps={{ 'aria-label': 'Text a cercar' }}
         onChange={ev => setSearchText(ev.target.value)}
       />
       {!mini &&
