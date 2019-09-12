@@ -145,7 +145,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ embed, embedMap, data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
         const { programes, estudis, ambitsCurr, ambitsInn } = data;
 
         // Find the specified program
@@ -161,157 +161,161 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
             <Helmet>
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
             </Helmet>
-            <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
-              <ArrowBack className="left-icon" />
-              Torna
+            {!embed &&
+              <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
+                <ArrowBack className="left-icon" />
+                Torna
             </Button>
-            <section className="seccio programa">
-              <Paper className="paper">
-                <div className="logo-nom-seccio">
-                  {simbol && <img className="seccio-logo" src={`logos/${simbol}`} alt={nom} />}
-                  <div className="nom-seccio">
-                    <Typography variant="h4">{nom}</Typography>
-                  </div>
-                </div>
-                <div id="descripcio">
-                  <ReactMarkdown {...MD_OPTIONS}>
-                    {descripcio}
-                  </ReactMarkdown>
-                </div>
-                <div id="info">
-                  {fitxa &&
-                    <Button
-                      variant="contained"
-                      className="info-btn"
-                      href={`${/^http.?:\/\//.test(fitxa) ? '' : FITXA_BASE}${fitxa}`}
-                      title="Descarrega la fitxa del projecte" >
-                      <DocumentIcon className="left-icon" />
-                      Fitxa
-                    </Button>
-                  }
-                  {link &&
-                    <Button
-                      variant="contained"
-                      className="info-btn"
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={link}>
-                      <InfoIcon className="left-icon" />
-                      Web
-                    </Button>
-                  }
-                  {contacte &&
-                    <Button
-                      variant="contained"
-                      className="info-btn"
-                      href={`mailto:${contacte}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={contacte}>
-                      <MailIcon className="left-icon" />
-                      Contacte
-                    </Button>
-                  }
-                  {video &&
-                    <div className="prog-video">
-                      <br />
-                      <ReactMarkdown {...MD_OPTIONS}>
-                        {video}
-                      </ReactMarkdown>
+            }
+            {!embedMap &&
+              <section className="seccio programa">
+                <Paper className="paper">
+                  <div className="logo-nom-seccio">
+                    {simbol && <img className="seccio-logo" src={`logos/${simbol}`} alt={nom} />}
+                    <div className="nom-seccio">
+                      <Typography variant="h4">{nom}</Typography>
                     </div>
-                  }
-                </div>
-                {objectius && createMDExpansionPanel('prog-objectius', 'Objectius', objectius)}
-                {requisits && createMDExpansionPanel('prog-requisits', 'Requisits', requisits)}
-                {compromisos && createMDExpansionPanel('prog-compromisos', 'Compromisos', compromisos)}
-                {normativa && createMDExpansionPanel('prog-normativa', 'Normativa', normativa)}
-                {createExpansionPanel('prog-ambits', 'Àmbits, àrees i nivells', (
-                  <div>
-                    {ambInn.length > 0 &&
-                      <div className="prog_ambits">
-                        <h4>Àmbits d'innovació:</h4>
-                        <ul>
-                          {ambInn.map(a => <li key={a}>{ambitsInn.get(a)}</li>)}
-                        </ul>
-                      </div>
+                  </div>
+                  <div id="descripcio">
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {descripcio}
+                    </ReactMarkdown>
+                  </div>
+                  <div id="info">
+                    {fitxa &&
+                      <Button
+                        variant="contained"
+                        className="info-btn"
+                        href={`${/^http.?:\/\//.test(fitxa) ? '' : FITXA_BASE}${fitxa}`}
+                        title="Descarrega la fitxa del projecte" >
+                        <DocumentIcon className="left-icon" />
+                        Fitxa
+                    </Button>
                     }
-                    {ambCurr.length > 0 &&
-                      <div className="prog_ambits">
-                        <h4>Àmbits curriculars:</h4>
-                        <ul>
-                          {ambCurr.map(a => <li key={a}>{ambitsCurr.get(a)}</li>)}
-                        </ul>
-                      </div>
+                    {link &&
+                      <Button
+                        variant="contained"
+                        className="info-btn"
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={link}>
+                        <InfoIcon className="left-icon" />
+                        Web
+                    </Button>
                     }
-                    {arees.length > 0 &&
-                      <div className="prog_ambits">
-                        <h4>Àrees curriculars:</h4>
-                        <ul>
-                          {arees.map((a, n) => <li key={n}>{a}</li>)}
-                        </ul>
-                      </div>
+                    {contacte &&
+                      <Button
+                        variant="contained"
+                        className="info-btn"
+                        href={`mailto:${contacte}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={contacte}>
+                        <MailIcon className="left-icon" />
+                        Contacte
+                    </Button>
                     }
-                    {tipus.length > 0 &&
-                      <div className="prog_ambits">
-                        <h4>Nivells educatius:</h4>
-                        <ul>
-                          {tipus.map((t, n) => <li key={n}>{estudis.get(t)}</li>)}
-                        </ul>
+                    {video &&
+                      <div className="prog-video">
+                        <br />
+                        <ReactMarkdown {...MD_OPTIONS}>
+                          {video}
+                        </ReactMarkdown>
                       </div>
                     }
                   </div>
-                ))}
-                <br />
-                {Object.keys(centres).sort().map((curs, n) => {
-                  let hasNc = false;
-                  return (
-                    <ExpansionPanel key={n} expanded={expandedPanels[n]}>
-                      <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
-                        <Typography className="wider">{`CURS ${curs}`}</Typography>
-                        <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
-                      </ExpansionPanelSummary>
-                      {expandedPanels[n] &&
-                        <ExpansionPanelDetails className="small-padding-h flow-v">
-                          <List className="wider">
-                            {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                              const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
-                              const nc = notCert.has(`${id}|${curs}`);
-                              hasNc = hasNc || nc;
-                              return (
-                                <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
-                                  <ListItemText
-                                    primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                    secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
-                                  />
-                                </ListItem>
-                              )
-                            }
-                            )}
-                          </List>
-                          {hasNc &&
-                            <>
-                              <Divider />
-                              <Typography color="secondary" className="padding-one">*: Participació en curs, pendent de certificar</Typography>
-                            </>
-                          }
-                        </ExpansionPanelDetails>
+                  {objectius && createMDExpansionPanel('prog-objectius', 'Objectius', objectius)}
+                  {requisits && createMDExpansionPanel('prog-requisits', 'Requisits', requisits)}
+                  {compromisos && createMDExpansionPanel('prog-compromisos', 'Compromisos', compromisos)}
+                  {normativa && createMDExpansionPanel('prog-normativa', 'Normativa', normativa)}
+                  {createExpansionPanel('prog-ambits', 'Àmbits, àrees i nivells', (
+                    <div>
+                      {ambInn.length > 0 &&
+                        <div className="prog_ambits">
+                          <h4>Àmbits d'innovació:</h4>
+                          <ul>
+                            {ambInn.map(a => <li key={a}>{ambitsInn.get(a)}</li>)}
+                          </ul>
+                        </div>
                       }
-                    </ExpansionPanel>
-                  );
-                })}
-                <br />
-                <Button
-                  variant="contained"
-                  className="csv-btn"
-                  title='Descarrega la llista de centres en format CSV'
-                  onClick={() => exportData(programa)}
-                >
-                  <DownloadIcon className="left-icon" />
-                  CSV
+                      {ambCurr.length > 0 &&
+                        <div className="prog_ambits">
+                          <h4>Àmbits curriculars:</h4>
+                          <ul>
+                            {ambCurr.map(a => <li key={a}>{ambitsCurr.get(a)}</li>)}
+                          </ul>
+                        </div>
+                      }
+                      {arees.length > 0 &&
+                        <div className="prog_ambits">
+                          <h4>Àrees curriculars:</h4>
+                          <ul>
+                            {arees.map((a, n) => <li key={n}>{a}</li>)}
+                          </ul>
+                        </div>
+                      }
+                      {tipus.length > 0 &&
+                        <div className="prog_ambits">
+                          <h4>Nivells educatius:</h4>
+                          <ul>
+                            {tipus.map((t, n) => <li key={n}>{estudis.get(t)}</li>)}
+                          </ul>
+                        </div>
+                      }
+                    </div>
+                  ))}
+                  <br />
+                  {Object.keys(centres).sort().map((curs, n) => {
+                    let hasNc = false;
+                    return (
+                      <ExpansionPanel key={n} expanded={expandedPanels[n]}>
+                        <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
+                          <Typography className="wider">{`CURS ${curs}`}</Typography>
+                          <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
+                        </ExpansionPanelSummary>
+                        {expandedPanels[n] &&
+                          <ExpansionPanelDetails className="small-padding-h flow-v">
+                            <List className="wider">
+                              {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
+                                const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
+                                const nc = notCert.has(`${id}|${curs}`);
+                                hasNc = hasNc || nc;
+                                return (
+                                  <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
+                                    <ListItemText
+                                      primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
+                                      secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
+                                    />
+                                  </ListItem>
+                                )
+                              }
+                              )}
+                            </List>
+                            {hasNc &&
+                              <>
+                                <Divider />
+                                <Typography color="secondary" className="padding-one">*: Participació en curs, pendent de certificar</Typography>
+                              </>
+                            }
+                          </ExpansionPanelDetails>
+                        }
+                      </ExpansionPanel>
+                    );
+                  })}
+                  <br />
+                  <Button
+                    variant="contained"
+                    className="csv-btn"
+                    title='Descarrega la llista de centres en format CSV'
+                    onClick={() => exportData(programa)}
+                  >
+                    <DownloadIcon className="left-icon" />
+                    CSV
                 </Button>
-              </Paper>
-            </section>
+                </Paper>
+              </section>
+            }
             <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );

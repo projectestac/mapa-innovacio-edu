@@ -97,7 +97,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ embed, embedMap, data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
         const zona = data.poligons.get(key);
         if (!zona)
@@ -115,97 +115,101 @@ function FitxaZona({ history, match: { params: { key } } }) {
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
               <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom}`} />
             </Helmet>
-            <Button className="torna" aria-label="Torna" onClick={torna} >
-              <ArrowBack className="left-icon" />
-              Torna
+            {!embed &&
+              <Button className="torna" aria-label="Torna" onClick={torna} >
+                <ArrowBack className="left-icon" />
+                Torna
             </Button>
-            <section className="seccio zona">
-              <Paper className="paper">
-                <div className="logo-nom-seccio">
-                  {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={logo} alt={nom} />}
-                  <div className="nom-seccio">
-                    <Typography variant="h4">{nom}</Typography>
+            }
+            {!embedMap &&
+              <section className="seccio zona">
+                <Paper className="paper">
+                  <div className="logo-nom-seccio">
+                    {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={logo} alt={nom} />}
+                    <div className="nom-seccio">
+                      <Typography variant="h4">{nom}</Typography>
+                    </div>
                   </div>
-                </div>
-                <div className="adreca">
-                  <p>
-                    {adreca}<br />
-                    {`${cp} ${municipi} (${comarca})`}<br />
-                    {tel && <>{`Tel. ${tel}`}<br /></>}
-                    {fax && <>{`Fax. ${fax}`}<br /></>}
-                  </p>
-                </div>
-                <div id="info">
-                  {web &&
-                    <Button
-                      variant="contained"
-                      className="info-btn"
-                      href={web}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={web}
-                    >
-                      <WebIcon className="left-icon" />
-                      Web
+                  <div className="adreca">
+                    <p>
+                      {adreca}<br />
+                      {`${cp} ${municipi} (${comarca})`}<br />
+                      {tel && <>{`Tel. ${tel}`}<br /></>}
+                      {fax && <>{`Fax. ${fax}`}<br /></>}
+                    </p>
+                  </div>
+                  <div id="info">
+                    {web &&
+                      <Button
+                        variant="contained"
+                        className="info-btn"
+                        href={web}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={web}
+                      >
+                        <WebIcon className="left-icon" />
+                        Web
                     </Button>
-                  }
-                  {correu &&
-                    <Button
-                      variant="contained"
-                      className="info-btn"
-                      href={`mailto:${correu}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={correu}
-                    >
-                      <MailIcon className="left-icon" />
-                      Contacte
+                    }
+                    {correu &&
+                      <Button
+                        variant="contained"
+                        className="info-btn"
+                        href={`mailto:${correu}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={correu}
+                      >
+                        <MailIcon className="left-icon" />
+                        Contacte
                     </Button>
-                  }
-                </div>
-                <Typography variant="h6">Programes amb presència en aquest territori</Typography>
-                <br />
-                {programesArray.map((prog, n) => {
-                  const centres = prog.allCentres.filter(c => centresInn.has(c));
-                  const numCentres = centres.length;
-                  return (
-                    <ExpansionPanel key={n}>
-                      <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
-                        <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
-                        <Typography className="wider">{prog.nom}</Typography>
-                        <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
-                      </ExpansionPanelSummary>
-                      <ExpansionPanelDetails className="small-padding-h">
-                        <List>
-                          {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
-                            const link = (info && hasExtraInfo(info[prog.id])) ? null : `#/centre/${id}`;
-                            return (
-                              <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h" >
-                                <ListItemText
-                                  primary={`${nom} (${municipi})`}
-                                  secondary={info && info[prog.id] && getInfoSpan(info[prog.id], prog.id, id)}
-                                />
-                              </ListItem>
-                            );
-                          })}
-                        </List>
-                      </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                  )
-                })}
-                <br />
-                <Button
-                  variant="contained"
-                  className="csv-btn"
-                  title='Descarrega la llista de programes i centres en format CSV'
-                  onClick={() => exportData(programesArray, centresInn, nomcurt)}
-                >
-                  <DownloadIcon className="left-icon" />
-                  CSV
+                    }
+                  </div>
+                  <Typography variant="h6">Programes amb presència en aquest territori</Typography>
+                  <br />
+                  {programesArray.map((prog, n) => {
+                    const centres = prog.allCentres.filter(c => centresInn.has(c));
+                    const numCentres = centres.length;
+                    return (
+                      <ExpansionPanel key={n}>
+                        <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
+                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
+                          <Typography className="wider">{prog.nom}</Typography>
+                          <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails className="small-padding-h">
+                          <List>
+                            {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
+                              const link = (info && hasExtraInfo(info[prog.id])) ? null : `#/centre/${id}`;
+                              return (
+                                <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h" >
+                                  <ListItemText
+                                    primary={`${nom} (${municipi})`}
+                                    secondary={info && info[prog.id] && getInfoSpan(info[prog.id], prog.id, id)}
+                                  />
+                                </ListItem>
+                              );
+                            })}
+                          </List>
+                        </ExpansionPanelDetails>
+                      </ExpansionPanel>
+                    )
+                  })}
+                  <br />
+                  <Button
+                    variant="contained"
+                    className="csv-btn"
+                    title='Descarrega la llista de programes i centres en format CSV'
+                    onClick={() => exportData(programesArray, centresInn, nomcurt)}
+                  >
+                    <DownloadIcon className="left-icon" />
+                    CSV
                 </Button>
 
-              </Paper>
-            </section>
+                </Paper>
+              </section>
+            }
             <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
           </>
         );

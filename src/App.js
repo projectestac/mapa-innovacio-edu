@@ -124,6 +124,8 @@ class App extends Component {
   constructor() {
     super();
 
+    const params = new URLSearchParams(window.location.search);
+
     // Main menu entries
     this.menuItems = [
       {
@@ -145,7 +147,7 @@ class App extends Component {
 
     // Set the initial state
     this.state = {
-      
+
       // Mutable attributes
       loading: true,
       dataLoaded: false,
@@ -174,6 +176,8 @@ class App extends Component {
       updateMap: this.updateMap.bind(this),
       fuseFuncs: [],
       menuItems: this.menuItems,
+      embed: params.has('embed') || params.has('embedMap'),
+      embedMap: params.has('embedMap'),
     };
 
     // Flag indicating that the first path should be reported to GA
@@ -591,7 +595,7 @@ class App extends Component {
    */
   render() {
 
-    const { error, loading } = this.state;
+    const { error, loading, embed, embedMap } = this.state;
 
     return (
       <Router>
@@ -603,9 +607,9 @@ class App extends Component {
                   <title>Mapa de la innovació pedagògica de Catalunya</title>
                   <meta name="description" content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya" />
                 </Helmet>
-                <Header />
-                <div className="filler" />
-                <main>
+                {!embed && <Header />}
+                {!embed && <div className="filler" />}
+                <main className={embedMap ? 'single-column' : ''}>
                   {
                     (loading && <Loading />) ||
                     (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
@@ -621,7 +625,7 @@ class App extends Component {
                     </Switch>
                   }
                 </main>
-                <Footer />
+                {!embed && <Footer />}
               </CheckRouteChanges>
             </AppContext.Provider>
           </CssBaseline>

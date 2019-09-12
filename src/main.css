@@ -77,6 +77,10 @@ main {
   padding: 1rem;
 }
 
+.single-column {
+  grid-template-columns: 1fr;
+}
+
 /* Singe column below this with: */
 
 @media (max-width: 840px) {

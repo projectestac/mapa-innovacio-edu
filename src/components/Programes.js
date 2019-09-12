@@ -96,7 +96,7 @@ function Programes({ history }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, data: { programes, ambitsCurr, ambitsInn, nivells }, cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen }) => {
+      {({ embed, embedMap, data, data: { programes, ambitsCurr, ambitsInn, nivells }, cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen }) => {
         const allSelected = currentPrograms.size === programes.size;
 
         // Click on program name
@@ -122,7 +122,7 @@ function Programes({ history }) {
         return (
           <>
             <SelectProgramsDlg {...{ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
-            {tabMode &&
+            {!embedMap && tabMode &&
               <Tabs
                 className="prog-tabs"
                 value={currentTab}
@@ -133,11 +133,11 @@ function Programes({ history }) {
                 <Tab label="Programes" />
               </Tabs>
             }
-            {(!tabMode || currentTab === 1) &&
+            {(!embedMap && (!tabMode || currentTab === 1)) &&
               <section className={`seccio programes`}>
                 <Paper className="paper">
                   <div className="select-progs">
-                    <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>
+                    {!embed && <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>}
                     <FormControlLabel
                       className="select-all"
                       labelPlacement="start"
@@ -178,7 +178,7 @@ function Programes({ history }) {
                 </Paper>
               </section>
             }
-            {(!tabMode || currentTab === 0) &&
+            {(embedMap || !tabMode || currentTab === 0) &&
               <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
             }
           </>

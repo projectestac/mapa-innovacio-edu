@@ -95,7 +95,7 @@ function exportData(centre) {
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
     <AppContext.Consumer>
-      {({ data, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ embed, embedMap, data, currentPrograms, polygons, mapChanged, updateMap }) => {
         // Find the specified program
         const centre = data.centres.get(codi);
         if (!centre)
@@ -113,10 +113,12 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
               <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom} (${municipi})`} />
             </Helmet>
-            <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
-              <ArrowBack className="left-icon" />
-              Torna
+            {!embed &&
+              <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
+                <ArrowBack className="left-icon" />
+                Torna
             </Button>
+            }
             <section className="seccio centre">
               <Paper className="paper">
                 <div className="logo-nom-seccio">
