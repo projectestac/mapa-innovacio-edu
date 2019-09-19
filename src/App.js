@@ -48,6 +48,7 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
+import EmbedLink from './components/EmbedLink';
 import { webAppInstallInit } from './utils/WebAppInstall';
 
 /**
@@ -609,7 +610,7 @@ class App extends Component {
                 </Helmet>
                 {!embed && <Header />}
                 {!embed && <div className="filler" />}
-                <main className={embedMap ? 'single-column' : ''}>
+                <main className={`${embed ? 'embed' : ''} ${embedMap ? 'single-column' : ''}`.trim()}>
                   {
                     (loading && <Loading />) ||
                     (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
@@ -625,6 +626,7 @@ class App extends Component {
                     </Switch>
                   }
                 </main>
+                {embed && <EmbedLink />}
                 {!embed && <Footer />}
               </CheckRouteChanges>
             </AppContext.Provider>

@@ -81,6 +81,14 @@ main {
   grid-template-columns: 1fr;
 }
 
+.embed {
+  margin: inherit;
+}
+
+.embed + .embed-link {
+  margin: 0 1rem;
+}
+
 /* Singe column below this with: */
 
 @media (max-width: 840px) {
