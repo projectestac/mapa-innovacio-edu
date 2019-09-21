@@ -28,23 +28,22 @@
  */
 
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import NavigationIcon from '@material-ui/icons/Navigation';
+import Button from '@material-ui/core/Button';
+import OpenIcon from '@material-ui/icons/OpenInNew';
 
 const APP_BASE_URL = process.env.REACT_APP_BASE_URL || 'https://innovacio.xtec.gencat.cat/';
 
 function EmbedLink() {
   return (
-    <Fab aria-label="Ves al mapa de la innovació"
-      size="small"
-      variant="extended"
-      color="secondary"
-      className="embed-link"
-      onClick={() => window.open(APP_BASE_URL, '_blank')}
-    >
-      <NavigationIcon />
-      Mapa de la Innovació Educativa
-    </Fab>
+    <div className="embed-link-container">
+      <Button aria-label="Obre el mapa de la innovació pedagògica"
+        className="embed-link"
+        onClick={() => window.open(APP_BASE_URL, '_blank')}
+      >
+        Mapa de la Innovació Pedagògica
+      <OpenIcon className="right-icon" />
+      </Button>
+    </div>
   );
 }
 

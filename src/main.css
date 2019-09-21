@@ -85,8 +85,9 @@ main {
   margin: inherit;
 }
 
-.embed + .embed-link {
-  margin: 0 1rem;
+.embed-link-container {
+  width: 100%;
+  text-align: center;
 }
 
 /* Singe column below this with: */
@@ -342,6 +343,11 @@ header .top-bar, .nav-bar {
   vertical-align: bottom;
 }
 
+.right-icon {
+  margin-left: 0.5rem;
+  vertical-align: bottom;
+}
+
 .torna {
   grid-column: 1 / -1;
   justify-self: start;
@@ -398,7 +404,7 @@ header .top-bar, .nav-bar {
 
 .projecte {
   grid-column: 1 / -1;
-  justify-self: start;  
+  justify-self: start;
   max-width: 750px;
 }
 
@@ -588,48 +594,38 @@ footer .copyright {
 /* Small devices */
 
 @media (max-width: 600px) {
-
   #root {
     padding-bottom: 0;
   }
-
   main {
     padding: 0;
   }
-
   footer {
     position: relative;
     margin-top: 1rem;
   }
-
   footer .footer-content {
     grid-template-columns: 1fr;
     padding: 1rem 0;
   }
-
   body .stretch-dlg {
     margin: 0.5rem;
     max-height: calc(100% - 20px);
   }
-
   section .cursos {
     padding: 1rem 0;
   }
-
   section .no-padding-h-small {
     padding-left: 0;
     padding-right: 0;
   }
-
   .zona .small-padding-h {
     padding-left: 0;
     padding-right: 0;
   }
-
   .logo-nom-seccio {
     flex-wrap: wrap;
   }
-
   .seccio-logo {
     max-width: 80px;
     max-height: 80px;
@@ -639,39 +635,31 @@ footer .copyright {
 /* Printed documents */
 
 @media print {
-
   #root header, .filler {
     display: none;
   }
-
   footer {
     position: relative;
     max-width: 800px;
     margin: auto;
     background-color: white;
   }
-
   main .torna, main .csv-btn {
     display: none;
   }
-
   main {
     display: block;
     max-width: 800px;
   }
-
   main .MuiPaper-root {
     box-shadow: none;
   }
-
   section .MuiExpansionPanelSummary-expandIcon {
     display: none;
   }
-
   section {
     margin-bottom: 1rem 0;
   }
-
   .smapa, footer, section li, .no-break {
     page-break-inside: avoid;
   }

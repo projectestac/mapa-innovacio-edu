@@ -1,3 +1,7 @@
+### v1.1.8 (not yet released)
+#### Improvements
+- New query params "embed" and "embedMap", useful for embedding the map in school portals and project sites
+
 ### v1.1.7 (2019-09-03)
 #### Improvements
 - Updated school data and app components
