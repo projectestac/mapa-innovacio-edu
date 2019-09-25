@@ -36,6 +36,6 @@ import '../node_modules/react-leaflet-fullscreen/dist/styles.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('app-root'));
 
 serviceWorker.register();

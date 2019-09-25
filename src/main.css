@@ -54,6 +54,10 @@ a {
   padding-bottom: var(--footer-height);
 }
 
+#root.embed {
+  padding-bottom: 0.5rem;
+}
+
 .filler {
   height: 4rem;
 }
@@ -81,7 +85,7 @@ main {
   grid-template-columns: 1fr;
 }
 
-.embed {
+main.embed {
   margin: inherit;
 }
 

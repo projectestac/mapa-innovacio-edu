@@ -608,26 +608,28 @@ class App extends Component {
                   <title>Mapa de la innovació pedagògica de Catalunya</title>
                   <meta name="description" content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya" />
                 </Helmet>
-                {!embed && <Header />}
-                {!embed && <div className="filler" />}
-                <main className={`${embed ? 'embed' : ''} ${embedMap ? 'single-column' : ''}`.trim()}>
-                  {
-                    (loading && <Loading />) ||
-                    (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
-                    <Switch>
-                      <Route exact path="/" component={Presentacio} />
-                      <Route path="/programes" component={Programes} />
-                      <Route path="/centre/:codi" component={FitxaCentre} />
-                      <Route path="/programa/:id" component={FitxaPrograma} />
-                      <Route path="/projecte/:id" component={FitxaProjecte} />
-                      <Route path="/zona/:key" component={FitxaZona} />
-                      <Route path="/cerca/:query" component={Cerca} />
-                      <Redirect to="/" />
-                    </Switch>
-                  }
-                </main>
-                {embed && <EmbedLink />}
-                {!embed && <Footer />}
+                <div id="root" className={embed ? 'embed' : ''} >
+                  {!embed && <Header />}
+                  {!embed && <div className="filler" />}
+                  <main className={`${embed ? 'embed' : ''} ${embedMap ? 'single-column' : ''}`.trim()}>
+                    {
+                      (loading && <Loading />) ||
+                      (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
+                      <Switch>
+                        <Route exact path="/" component={Presentacio} />
+                        <Route path="/programes" component={Programes} />
+                        <Route path="/centre/:codi" component={FitxaCentre} />
+                        <Route path="/programa/:id" component={FitxaPrograma} />
+                        <Route path="/projecte/:id" component={FitxaProjecte} />
+                        <Route path="/zona/:key" component={FitxaZona} />
+                        <Route path="/cerca/:query" component={Cerca} />
+                        <Redirect to="/" />
+                      </Switch>
+                    }
+                  </main>
+                  {embed && !loading && <EmbedLink />}
+                  {!embed && <Footer />}
+                </div>
               </CheckRouteChanges>
             </AppContext.Provider>
           </CssBaseline>
