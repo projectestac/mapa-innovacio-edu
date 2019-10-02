@@ -47,8 +47,11 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
+import { homepage } from '../package.json';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 /**
  * Export the list of programs to a CSV spreadsheet
@@ -67,7 +70,7 @@ function exportData(centre) {
   if (info)
     fields.push({ name: 'TITOL', id: 'titol' });
 
-  const base = `${window.location.origin}${window.location.pathname}#`;
+  const base = `${window.location.origin}${homepage}/${HASH}`;
   const nomCentre = `${centre.nom} (${centre.municipi})`;
 
   const data = Object.keys(programes).reduce((result, curs) => {
@@ -78,7 +81,7 @@ function exportData(centre) {
         codi: centre.id,
         curs,
         programa: prog.nom,
-        url: inf ? `${base}/projecte/${prog.id}|${centre.id}|${inf.num || 0}` : `${base}/programa/${prog.id}`,
+        url: inf ? `${base}projecte/${prog.id}|${centre.id}|${inf.num || 0}` : `${base}programa/${prog.id}`,
         titol: inf ? inf.titol : '',
       });
     });
@@ -182,18 +185,18 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </ul>
                 <Typography variant="h6">Zones</Typography>
                 <ul>
-                  {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
-                  {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
+                  {servei_territorial && <li><Link to={`${homepage}/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
+                  {servei_educatiu && <li><Link to={`${homepage}/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
                 </ul>
                 <br />
                 <Typography variant="h6">Programes on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
-                    const link = (info && hasExtraInfo(info[id])) ? null : `#/programa/${id}`;
+                    const link = (info && hasExtraInfo(info[id])) ? null : `${homepage}/${HASH}programa/${id}`;
                     return (
                       <ListItem key={n} button className="no-padding-h-small" component={link ? 'a' : 'div'} href={link}>
                         <ListItemAvatar>
-                          <Avatar src={`logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={`${homepage}/logos/mini/${simbol}`} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}

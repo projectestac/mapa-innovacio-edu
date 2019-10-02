@@ -4,7 +4,7 @@
   "version": "1.1.8-beta",
   "author": "Francesc Busquets <francesc@gmail.com>",
   "private": true,
-  "homepage": ".",
+  "homepage": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/projectestac/mapa-innovacio-edu"

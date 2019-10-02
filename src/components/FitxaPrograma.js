@@ -50,8 +50,11 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import Error from './Error';
 import MapSection from './MapSection';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
+import { homepage } from '../package.json';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
@@ -86,7 +89,7 @@ function exportData(programa) {
     fields.push({ name: 'INFO', id: 'url' });
   }
 
-  const base = `${window.location.origin}${window.location.pathname}#`;
+  const base = `${window.location.origin}${homepage}/${HASH}`;
 
   const data = Object.keys(centres).reduce((result, curs) => {
     centres[curs].forEach(centre => {
@@ -97,7 +100,7 @@ function exportData(programa) {
         curs,
         programa: programa.nom,
         titol: inf ? inf.titol : '',
-        url: inf ? `${base}/projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+        url: inf ? `${base}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
       });
     });
     return result;
@@ -171,7 +174,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
               <section className="seccio programa">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {simbol && <img className="seccio-logo" src={`logos/${simbol}`} alt={nom} />}
+                    {simbol && <img className="seccio-logo" src={`${homepage}/logos/${simbol}`} alt={nom} />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>

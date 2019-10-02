@@ -41,9 +41,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import VideoIcon from 'mdi-material-ui/Youtube';
+import { homepage } from '../package.json';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 function FitxaProjecte({ history, match: { params: { id = '' } } }) {
 
@@ -89,10 +92,10 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
               <Paper className="paper">
                 <Typography variant="h4">Projecte "{titol}"</Typography>
                 <div className="info-proj">
-                  <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
+                  <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${homepage}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
-                  <img src={`logos/${simbolProg}`} alt={nomProg} />
-                  <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
+                  <img src={`${homepage}/logos/${simbolProg}`} alt={nomProg} />
+                  <Typography variant="h6"> <Link to={`${homepage}/${HASH}programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
                 </div>
                 <div className="proj-media">
                   {tabMode &&

@@ -50,6 +50,7 @@ import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 import EmbedLink from './components/EmbedLink';
 import { webAppInstallInit } from './utils/WebAppInstall';
+import { homepage } from '../package.json';
 
 /**
  * Miscellanous values taken from environment variables
@@ -60,6 +61,7 @@ const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
 const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || 'UA-140680188-1';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
 
 /**
  * Main Material-UI theme
@@ -214,11 +216,11 @@ class App extends Component {
     return Promise.all(
       // Launch all fetch promises in parallel
       [
-        'data/programes.json',
-        'data/instancies.json',
-        'data/centres.json',
-        'data/poligons.json',
-        'data/estudis.json',
+        `${homepage}/data/programes.json`,
+        `${homepage}/data/instancies.json`,
+        `${homepage}/data/centres.json`,
+        `${homepage}/data/poligons.json`,
+        `${homepage}/data/estudis.json`,
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
           .then(handleFetchErrors)
@@ -599,7 +601,7 @@ class App extends Component {
     const { error, loading, embed, embedMap } = this.state;
 
     return (
-      <Router>
+      <Router basename={homepage} hashType={HASH_TYPE}>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>

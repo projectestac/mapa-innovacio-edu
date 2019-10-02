@@ -41,6 +41,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import TablePagination from "@material-ui/core/TablePagination";
 import ProgramIcon from '@material-ui/icons/Group';
 import SchoolIcon from 'mdi-material-ui/MapMarker';
+import { homepage } from '../package.json';
 
 const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
@@ -72,7 +73,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
         }
 
         const goToElement = (tipus, id) => ev => {
-          history.push(`/${tipus}/${id}`);
+          history.push(`${homepage}/${tipus}/${id}`);
         };
 
         return (
@@ -98,7 +99,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                           onClick={goToElement(tipus, id)}
                         >
                           <ListItemIcon>
-                            {simbol ? <Avatar src={`logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                            {simbol ? <Avatar src={`${homepage}/logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
                           </ListItemIcon>
                           <ListItemText primary={nom} />
                         </ListItem>
