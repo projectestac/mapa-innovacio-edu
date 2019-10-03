@@ -49,7 +49,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
-import { homepage } from '../package.json';
+import { homepage } from '../../package.json';
 
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
 const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
@@ -176,7 +176,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     return (
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
-                          <Link className="zona-prog-logo" to={`${homepage}/programa/${prog.id}`}><Avatar src={`${homepage}/logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
+                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`${homepage}/logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
                         </ExpansionPanelSummary>

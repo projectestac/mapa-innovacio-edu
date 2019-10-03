@@ -47,7 +47,7 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
-import { homepage } from '../package.json';
+import { homepage } from '../../package.json';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
@@ -185,8 +185,8 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </ul>
                 <Typography variant="h6">Zones</Typography>
                 <ul>
-                  {servei_territorial && <li><Link to={`${homepage}/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
-                  {servei_educatiu && <li><Link to={`${homepage}/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
+                  {servei_territorial && <li><Link to={`/zona/${sstt}`}>{servei_territorial.nom}</Link></li>}
+                  {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
                 </ul>
                 <br />
                 <Typography variant="h6">Programes on participa</Typography>

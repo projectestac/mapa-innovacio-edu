@@ -41,12 +41,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import VideoIcon from 'mdi-material-ui/Youtube';
-import { homepage } from '../package.json';
+import { homepage } from '../../package.json';
 
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
-const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 function FitxaProjecte({ history, match: { params: { id = '' } } }) {
 
@@ -95,7 +93,7 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
                   <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${homepage}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
                   <img src={`${homepage}/logos/${simbolProg}`} alt={nomProg} />
-                  <Typography variant="h6"> <Link to={`${homepage}/${HASH}programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
+                  <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
                 </div>
                 <div className="proj-media">
                   {tabMode &&

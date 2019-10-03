@@ -50,7 +50,7 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import Error from './Error';
 import MapSection from './MapSection';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
-import { homepage } from '../package.json';
+import { homepage } from '../../package.json';
 
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
@@ -281,7 +281,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                           <ExpansionPanelDetails className="small-padding-h flow-v">
                             <List className="wider">
                               {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                                const link = (info && hasExtraInfo(info[id])) ? null : `#/centre/${codi}`;
+                                const link = (info && hasExtraInfo(info[id])) ? null : `${homepage}/${HASH}centre/${codi}`;
                                 const nc = notCert.has(`${id}|${curs}`);
                                 hasNc = hasNc || nc;
                                 return (

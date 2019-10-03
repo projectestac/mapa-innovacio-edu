@@ -29,7 +29,12 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
+// Enable only one of this two options:
+// import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import { Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -601,7 +606,7 @@ class App extends Component {
     const { error, loading, embed, embedMap } = this.state;
 
     return (
-      <Router basename={homepage} hashType={HASH_TYPE}>
+      <Router basename={HASH_TYPE === 'no-hash' ? homepage : ''} hashType={HASH_TYPE}>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>

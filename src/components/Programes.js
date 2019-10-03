@@ -46,6 +46,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { cursCurt, csvExportToFile } from '../utils/Utils';
+import { homepage } from '../../package.json';
+
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 /**
  * Export the list of schools to a CSV spreadsheet
@@ -62,7 +66,7 @@ function exportData(programesArray, cursos) {
     { name: 'INFO', id: 'url' },
   ];
 
-  const base = `${window.location.origin}${window.location.pathname}#`;
+  const base = `${window.location.origin}${homepage}/${HASH}`;
 
   const data = programesArray.reduce((total, programa) => {
     const { centres, info } = programa;
@@ -78,7 +82,7 @@ function exportData(programesArray, cursos) {
             curs,
             programa: programa.nom,
             titol: inf ? inf.titol : '',
-            url: inf ? `${base}/projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+            url: inf ? `${base}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
           });
         });
         return result;
@@ -153,7 +157,7 @@ function Programes({ history }) {
                     {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                       <ListItem key={n} button className="list-button">
                         <ListItemAvatar>
-                          <Avatar src={`logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={`${homepage}/logos/mini/${simbol}`} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
