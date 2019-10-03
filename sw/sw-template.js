@@ -63,20 +63,6 @@ if ('function' === typeof importScripts) {
       }
     );
 
-    // Cache for images
-    workbox.routing.registerRoute(
-      /\.(?:png|gif|jpg|jpeg|svg)$/,
-      new workbox.strategies.CacheFirst({
-        cacheName: 'image-cache',
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 100,
-            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days            
-          }),
-        ],
-      })
-    );
-
     // Cache for school logos
     workbox.routing.registerRoute(
       /^https:\/\/clic\.xtec\.cat\/pub\/logos\//,
@@ -85,7 +71,7 @@ if ('function' === typeof importScripts) {
         plugins: [
           new workbox.expiration.Plugin({
             maxEntries: 100,
-            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
             purgeOnQuotaError: true,
           }),
         ],
@@ -103,7 +89,7 @@ if ('function' === typeof importScripts) {
           }),
           new workbox.expiration.Plugin({
             maxEntries: 500,
-            maxAgeSeconds: 90 * 24 * 60 * 60, // 90 Days
+            maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
             purgeOnQuotaError: true,
           }),
         ],
@@ -128,8 +114,22 @@ if ('function' === typeof importScripts) {
             statuses: [0, 200],
           }),
           new workbox.expiration.Plugin({
-            maxAgeSeconds: 60 * 60 * 24 * 365,
+            maxAgeSeconds: 60 * 60 * 24 * 365, // One year
             maxEntries: 30,
+          }),
+        ],
+      })
+    );
+
+    // Cache for big logos and miscellaneous icons (small logos are always pre-cached)
+    workbox.routing.registerRoute(
+      /\/(?:logos|ico)\/[/\w]*\.(?:png|gif|jpg|jpeg|svg)$/,
+      new workbox.strategies.CacheFirst({
+        cacheName: 'image-cache',
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxEntries: 100,
+            maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days            
           }),
         ],
       })
