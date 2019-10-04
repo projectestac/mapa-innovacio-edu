@@ -31,8 +31,8 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
 // Enable only one of this two options:
-// import { HashRouter as Router } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
@@ -55,18 +55,22 @@ import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 import EmbedLink from './components/EmbedLink';
 import { webAppInstallInit } from './utils/WebAppInstall';
-import { homepage } from '../package.json';
 
 /**
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
  */
+import { homepage as HOMEPAGE } from '../package.json';
 const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
 const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || 'UA-140680188-1';
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'slash';
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
+const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
+const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
+const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
 
 /**
  * Main Material-UI theme
@@ -111,13 +115,11 @@ webAppInstallInit();
 if (ANALYTICS_UA)
   ReactGA.initialize(ANALYTICS_UA);
 
-
 /**
  * React [Context](https://reactjs.org/docs/context.html) used to pass data through the component tree
  * without having to pass props down manually at every level.
  */
 export const AppContext = React.createContext();
-
 
 /**
  * This is the main React component of the web app
@@ -170,6 +172,11 @@ class App extends Component {
       currentPrjTab: 0,
       dlgOpen: false,
 
+      // Inner references
+      updateMap: this.updateMap.bind(this),
+      fuseFuncs: [],
+      menuItems: this.menuItems,
+
       // Immutable attributes (to be filled in `loadData`)
       data: {
         programes: new Map(),
@@ -181,11 +188,19 @@ class App extends Component {
         ambitsInn: new Map(),
         cursosDisp: [],
       },
-      updateMap: this.updateMap.bind(this),
-      fuseFuncs: [],
-      menuItems: this.menuItems,
-      embed: params.has('embed') || params.has('embedMap'),
-      embedMap: params.has('embedMap'),
+
+      // Immutable settings
+      settings: {
+        HASH_TYPE,
+        HASH,
+        HOMEPAGE,
+        LOGO_BASE,
+        FITXA_BASE,
+        FITXA_PROJ_BASE,
+        APP_BASE: `${window.location.origin}${HOMEPAGE}/${HASH}`,
+        EMBED: params.has('embed') || params.has('embedMap'),
+        EMBED_MAP: params.has('embedMap'),
+      }
     };
 
     // Flag indicating that the first path should be reported to GA
@@ -221,11 +236,11 @@ class App extends Component {
     return Promise.all(
       // Launch all fetch promises in parallel
       [
-        `${homepage}/data/programes.json`,
-        `${homepage}/data/instancies.json`,
-        `${homepage}/data/centres.json`,
-        `${homepage}/data/poligons.json`,
-        `${homepage}/data/estudis.json`,
+        `${HOMEPAGE}/data/programes.json`,
+        `${HOMEPAGE}/data/instancies.json`,
+        `${HOMEPAGE}/data/centres.json`,
+        `${HOMEPAGE}/data/poligons.json`,
+        `${HOMEPAGE}/data/estudis.json`,
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
           .then(handleFetchErrors)
@@ -603,10 +618,10 @@ class App extends Component {
    */
   render() {
 
-    const { error, loading, embed, embedMap } = this.state;
+    const { error, loading, settings: { EMBED, EMBED_MAP } } = this.state;
 
     return (
-      <Router basename={HASH_TYPE === 'no-hash' ? homepage : ''} hashType={HASH_TYPE}>
+      <Router basename={HASH_TYPE === 'no-hash' ? HOMEPAGE : ''} hashType={HASH_TYPE}>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>
@@ -615,10 +630,10 @@ class App extends Component {
                   <title>Mapa de la innovació pedagògica de Catalunya</title>
                   <meta name="description" content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya" />
                 </Helmet>
-                <div id="root" className={embed ? 'embed' : ''} >
-                  {!embed && <Header />}
-                  {!embed && <div className="filler" />}
-                  <main className={`${embed ? 'embed' : ''} ${embedMap ? 'single-column' : ''}`.trim()}>
+                <div id="root" className={EMBED ? 'embed' : ''} >
+                  {!EMBED && <Header />}
+                  {!EMBED && <div className="filler" />}
+                  <main className={`${EMBED ? 'embed' : ''} ${EMBED_MAP ? 'single-column' : ''}`.trim()}>
                     {
                       (loading && <Loading />) ||
                       (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
@@ -634,8 +649,8 @@ class App extends Component {
                       </Switch>
                     }
                   </main>
-                  {embed && !loading && <EmbedLink />}
-                  {!embed && <Footer />}
+                  {EMBED && !loading && <EmbedLink />}
+                  {!EMBED && <Footer />}
                 </div>
               </CheckRouteChanges>
             </AppContext.Provider>

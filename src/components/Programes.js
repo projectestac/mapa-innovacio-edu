@@ -46,62 +46,59 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { cursCurt, csvExportToFile } from '../utils/Utils';
-import { homepage } from '../../package.json';
 
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
-const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
-
-/**
- * Export the list of schools to a CSV spreadsheet
- */
-function exportData(programesArray, cursos) {
-
-  const fields = [
-    { name: 'CODI', id: 'codi' },
-    { name: 'CENTRE', id: 'centre' },
-    { name: 'SSTT', id: 'sstt' },
-    { name: 'CURS', id: 'curs' },
-    { name: 'PROGRAMA', id: 'programa' },
-    { name: 'TITOL', id: 'titol' },
-    { name: 'INFO', id: 'url' },
-  ];
-
-  const base = `${window.location.origin}${homepage}/${HASH}`;
-
-  const data = programesArray.reduce((total, programa) => {
-    const { centres, info } = programa;
-    return Object.keys(centres)
-      .filter(curs => cursos.includes(curs))
-      .reduce((result, curs) => {
-        centres[curs].forEach(centre => {
-          const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
-          result.push({
-            centre: `${centre.nom} (${centre.municipi})`,
-            codi: centre.id,
-            sstt: centre.sstt,
-            curs,
-            programa: programa.nom,
-            titol: inf ? inf.titol : '',
-            url: inf ? `${base}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
-          });
-        });
-        return result;
-      }, total);
-  }, []);
-
-  return csvExportToFile(
-    `programes.csv`,
-    data,
-    fields,
-  );
-}
 
 function Programes({ history }) {
-
   return (
     <AppContext.Consumer>
-      {({ embed, embedMap, data, data: { programes, ambitsCurr, ambitsInn, nivells }, cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen }) => {
+      {({ data, data: { programes, ambitsCurr, ambitsInn, nivells },
+        cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen,
+        settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP } }) => {
+
         const allSelected = currentPrograms.size === programes.size;
+
+        /**
+         * Export the list of schools into a CSV spreadsheet
+         */
+        function exportData(programesArray, cursos) {
+
+          const fields = [
+            { name: 'CODI', id: 'codi' },
+            { name: 'CENTRE', id: 'centre' },
+            { name: 'SSTT', id: 'sstt' },
+            { name: 'CURS', id: 'curs' },
+            { name: 'PROGRAMA', id: 'programa' },
+            { name: 'TITOL', id: 'titol' },
+            { name: 'INFO', id: 'url' },
+          ];
+
+          const csvData = programesArray.reduce((total, programa) => {
+            const { centres, info } = programa;
+            return Object.keys(centres)
+              .filter(curs => cursos.includes(curs))
+              .reduce((result, curs) => {
+                centres[curs].forEach(centre => {
+                  const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+                  result.push({
+                    centre: `${centre.nom} (${centre.municipi})`,
+                    codi: centre.id,
+                    sstt: centre.sstt,
+                    curs,
+                    programa: programa.nom,
+                    titol: inf ? inf.titol : '',
+                    url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+                  });
+                });
+                return result;
+              }, total);
+          }, []);
+
+          return csvExportToFile(
+            `programes.csv`,
+            csvData,
+            fields,
+          );
+        }
 
         // Click on program name
         const handleProgClick = id => () => history.push(`/programa/${id}`);
@@ -126,7 +123,7 @@ function Programes({ history }) {
         return (
           <>
             <SelectProgramsDlg {...{ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
-            {!embedMap && tabMode &&
+            {!EMBED_MAP && tabMode &&
               <Tabs
                 className="prog-tabs"
                 value={currentTab}
@@ -137,11 +134,11 @@ function Programes({ history }) {
                 <Tab label="Programes" />
               </Tabs>
             }
-            {(!embedMap && (!tabMode || currentTab === 1)) &&
+            {(!EMBED_MAP && (!tabMode || currentTab === 1)) &&
               <section className={`seccio programes`}>
                 <Paper className="paper">
                   <div className="select-progs">
-                    {!embed && <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>}
+                    {!EMBED && <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>}
                     <FormControlLabel
                       className="select-all"
                       labelPlacement="start"
@@ -157,7 +154,7 @@ function Programes({ history }) {
                     {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                       <ListItem key={n} button className="list-button">
                         <ListItemAvatar>
-                          <Avatar src={`${homepage}/logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
@@ -182,12 +179,13 @@ function Programes({ history }) {
                 </Paper>
               </section>
             }
-            {(embedMap || !tabMode || currentTab === 0) &&
+            {(EMBED_MAP || !tabMode || currentTab === 0) &&
               <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
             }
           </>
         );
-      }}
+      }
+      }
     </AppContext.Consumer>
   );
 }

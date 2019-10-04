@@ -49,57 +49,53 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
-import { homepage } from '../../package.json';
 
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
-const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
-
-/**
- * Export the list of schools to a CSV spreadsheet
- */
-function exportData(programesArray, centresInn, nomcurt) {
-
-  const fields = [
-    { name: 'CODI', id: 'codi' },
-    { name: 'CENTRE', id: 'centre' },
-    { name: 'CURS', id: 'curs' },
-    { name: 'PROGRAMA', id: 'programa' },
-    { name: 'TITOL', id: 'titol' },
-    { name: 'INFO', id: 'url' },
-  ];
-
-  const base = `${window.location.origin}${homepage}/${HASH}`;
-
-  const data = programesArray.reduce((total, programa) => {
-    const { centres, info } = programa;
-    return Object.keys(centres).reduce((result, curs) => {
-      centres[curs].filter(c => centresInn.has(c)).forEach(centre => {
-        const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
-        result.push({
-          centre: `${centre.nom} (${centre.municipi})`,
-          codi: centre.id,
-          curs,
-          programa: programa.nom,
-          titol: inf ? inf.titol : '',
-          url: inf ? `${base}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
-        });
-      });
-      return result;
-    }, total);
-  }, []);
-
-  return csvExportToFile(
-    `programes-${nomcurt.trim().replace(/ /g, '_')}.csv`,
-    data,
-    fields,
-  );
-}
 
 function FitxaZona({ history, match: { params: { key } } }) {
-
   return (
     <AppContext.Consumer>
-      {({ embed, embedMap, data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap,
+        settings: { HASH, HOMEPAGE, APP_BASE, EMBED, EMBED_MAP } }) => {
+
+        /**
+         * Export the list of schools into a CSV spreadsheet
+         */
+        function exportData(programesArray, centresInn, nomcurt) {
+
+          const fields = [
+            { name: 'CODI', id: 'codi' },
+            { name: 'CENTRE', id: 'centre' },
+            { name: 'CURS', id: 'curs' },
+            { name: 'PROGRAMA', id: 'programa' },
+            { name: 'TITOL', id: 'titol' },
+            { name: 'INFO', id: 'url' },
+          ];
+
+          const csvData = programesArray.reduce((total, programa) => {
+            const { centres, info } = programa;
+            return Object.keys(centres).reduce((result, curs) => {
+              centres[curs].filter(c => centresInn.has(c)).forEach(centre => {
+                const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+                result.push({
+                  centre: `${centre.nom} (${centre.municipi})`,
+                  codi: centre.id,
+                  curs,
+                  programa: programa.nom,
+                  titol: inf ? inf.titol : '',
+                  url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+                });
+              });
+              return result;
+            }, total);
+          }, []);
+
+          return csvExportToFile(
+            `programes-${nomcurt.trim().replace(/ /g, '_')}.csv`,
+            csvData,
+            fields,
+          );
+        }
+
         // Find the specified program
         const zona = data.poligons.get(key);
         if (!zona)
@@ -117,17 +113,17 @@ function FitxaZona({ history, match: { params: { key } } }) {
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
               <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom}`} />
             </Helmet>
-            {!embed &&
+            {!EMBED &&
               <Button className="torna" aria-label="Torna" onClick={torna} >
                 <ArrowBack className="left-icon" />
                 Torna
             </Button>
             }
-            {!embedMap &&
+            {!EMBED_MAP &&
               <section className="seccio zona">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={`${/^http.?:\/\//.test(logo) ? logo : `${homepage}/${logo}`}`} alt={nom} />}
+                    {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`} alt={nom} />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>
@@ -176,14 +172,14 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     return (
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
-                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`${homepage}/logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
+                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`${HOMEPAGE}/logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails className="small-padding-h">
                           <List>
                             {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
-                              const link = (info && hasExtraInfo(info[prog.id])) ? null : `${homepage}/${HASH}centre/${id}`;
+                              const link = (info && hasExtraInfo(info[prog.id])) ? null : `${HOMEPAGE}/${HASH}centre/${id}`;
                               return (
                                 <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h" >
                                   <ListItemText

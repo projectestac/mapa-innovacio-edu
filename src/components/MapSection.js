@@ -36,7 +36,9 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import { cursCurt } from '../utils/Utils';
 
-function MapSection({ data: { programes, centres, poligons, estudis, cursosDisp }, programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, updateMap }) {
+function MapSection({
+  data: { programes, centres, poligons, estudis, cursosDisp },
+  programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, updateMap }) {
 
   const singleCentre = centre ? centres.get(centre) : null;
   const poli = zona ? poligons.get(zona) : null;

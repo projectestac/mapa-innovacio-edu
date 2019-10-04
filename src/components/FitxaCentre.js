@@ -47,67 +47,64 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
-import { homepage } from '../../package.json';
 
-const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
-const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
-
-/**
- * Export the list of programs to a CSV spreadsheet
- */
-function exportData(centre) {
-  const { programes, info } = centre;
-
-  const fields = [
-    { name: 'CODI', id: 'codi' },
-    { name: 'CENTRE', id: 'centre' },
-    { name: 'CURS', id: 'curs' },
-    { name: 'PROGRAMA', id: 'programa' },
-    { name: 'INFO', id: 'url' }
-  ];
-
-  if (info)
-    fields.push({ name: 'TITOL', id: 'titol' });
-
-  const base = `${window.location.origin}${homepage}/${HASH}`;
-  const nomCentre = `${centre.nom} (${centre.municipi})`;
-
-  const data = Object.keys(programes).reduce((result, curs) => {
-    programes[curs].forEach(prog => {
-      const inf = info && info[prog.id] && info[prog.id].find(i => i.curs === curs);
-      result.push({
-        centre: nomCentre,
-        codi: centre.id,
-        curs,
-        programa: prog.nom,
-        url: inf ? `${base}projecte/${prog.id}|${centre.id}|${inf.num || 0}` : `${base}programa/${prog.id}`,
-        titol: inf ? inf.titol : '',
-      });
-    });
-    return result;
-  }, []);
-
-  return csvExportToFile(
-    `programes-${centre.id}.csv`,
-    data,
-    fields,
-  );
-}
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
     <AppContext.Consumer>
-      {({ embed, embedMap, data, currentPrograms, polygons, mapChanged, updateMap }) => {
+      {({ data, data: { centres, poligons, estudis }, currentPrograms, polygons, mapChanged, updateMap,
+        settings: { HASH, HOMEPAGE, LOGO_BASE, APP_BASE, EMBED } }) => {
+
+        /**
+         * Export the list of programs to a CSV spreadsheet
+         */
+        function exportData(centre) {
+          const { programes, info } = centre;
+
+          const fields = [
+            { name: 'CODI', id: 'codi' },
+            { name: 'CENTRE', id: 'centre' },
+            { name: 'CURS', id: 'curs' },
+            { name: 'PROGRAMA', id: 'programa' },
+            { name: 'INFO', id: 'url' }
+          ];
+
+          if (info)
+            fields.push({ name: 'TITOL', id: 'titol' });
+
+          const nomCentre = `${centre.nom} (${centre.municipi})`;
+
+          const csvData = Object.keys(programes).reduce((result, curs) => {
+            programes[curs].forEach(prog => {
+              const inf = info && info[prog.id] && info[prog.id].find(i => i.curs === curs);
+              result.push({
+                centre: nomCentre,
+                codi: centre.id,
+                curs,
+                programa: prog.nom,
+                url: inf ? `${APP_BASE}projecte/${prog.id}|${centre.id}|${inf.num || 0}` : `${APP_BASE}programa/${prog.id}`,
+                titol: inf ? inf.titol : '',
+              });
+            });
+            return result;
+          }, []);
+
+          return csvExportToFile(
+            `programes-${centre.id}.csv`,
+            csvData,
+            fields,
+          );
+        }
+
         // Find the specified program
-        const centre = data.centres.get(codi);
+        const centre = centres.get(codi);
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        const { nom, municipi, comarca, estudis, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
+        const { nom, municipi, comarca, estudis: estudisCentre, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
         const tancaFitxa = () => history.goBack();
-        const servei_territorial = data.poligons.get(sstt);
-        const servei_educatiu = data.poligons.get(se);
+        const servei_territorial = poligons.get(sstt);
+        const servei_educatiu = poligons.get(se);
         let hasNc = false;
 
         return (
@@ -116,7 +113,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
               <meta name="description" content={`Programes, projectes i pràctiques d'innovació pedagògica - ${nom} (${municipi})`} />
             </Helmet>
-            {!embed &&
+            {!EMBED &&
               <Button className="torna" aria-label="Torna" onClick={tancaFitxa} >
                 <ArrowBack className="left-icon" />
                 Torna
@@ -181,7 +178,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </div>
                 <Typography variant="h6">Estudis</Typography>
                 <ul>
-                  {estudis.map((e, n) => <li key={n}>{data.estudis.get(e)}</li>)}
+                  {estudisCentre.map((e, n) => <li key={n}>{estudis.get(e)}</li>)}
                 </ul>
                 <Typography variant="h6">Zones</Typography>
                 <ul>
@@ -192,11 +189,11 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <Typography variant="h6">Programes on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
-                    const link = (info && hasExtraInfo(info[id])) ? null : `${homepage}/${HASH}programa/${id}`;
+                    const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}programa/${id}`;
                     return (
                       <ListItem key={n} button className="no-padding-h-small" component={link ? 'a' : 'div'} href={link}>
                         <ListItemAvatar>
-                          <Avatar src={`${homepage}/logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}

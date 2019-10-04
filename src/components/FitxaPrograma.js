@@ -50,11 +50,6 @@ import DownloadIcon from '@material-ui/icons/CloudDownload';
 import Error from './Error';
 import MapSection from './MapSection';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
-import { homepage } from '../../package.json';
-
-const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || "slash";
-const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
@@ -69,49 +64,6 @@ const MAX_EXPANSION_PANELS = 25;
 const MD_OPTIONS = {
   escapeHtml: false,
 };
-
-/**
- * Export the list of schools to a CSV spreadsheet
- */
-function exportData(programa) {
-
-  const { centres, info } = programa;
-
-  const fields = [
-    { name: 'CODI', id: 'codi' },
-    { name: 'CENTRE', id: 'centre' },
-    { name: 'CURS', id: 'curs' },
-    { name: 'PROGRAMA', id: 'programa' },
-  ];
-
-  if (info) {
-    fields.push({ name: 'TITOL', id: 'titol' });
-    fields.push({ name: 'INFO', id: 'url' });
-  }
-
-  const base = `${window.location.origin}${homepage}/${HASH}`;
-
-  const data = Object.keys(centres).reduce((result, curs) => {
-    centres[curs].forEach(centre => {
-      const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
-      result.push({
-        centre: `${centre.nom} (${centre.municipi})`,
-        codi: centre.id,
-        curs,
-        programa: programa.nom,
-        titol: inf ? inf.titol : '',
-        url: inf ? `${base}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
-      });
-    });
-    return result;
-  }, []);
-
-  return csvExportToFile(
-    `centres-${programa.nomCurt}.csv`,
-    data,
-    fields,
-  );
-}
 
 // Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
@@ -148,8 +100,50 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ embed, embedMap, data, cursos, currentPrograms, polygons, mapChanged, updateMap }) => {
-        const { programes, estudis, ambitsCurr, ambitsInn } = data;
+      {({ data, data: { programes, estudis, ambitsCurr, ambitsInn },
+        cursos, currentPrograms, polygons, mapChanged, updateMap,
+        settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP } }) => {
+
+        /**
+         * Export the list of schools into a CSV spreadsheet
+         */
+        function exportData(programa) {
+
+          const { centres, info } = programa;
+
+          const fields = [
+            { name: 'CODI', id: 'codi' },
+            { name: 'CENTRE', id: 'centre' },
+            { name: 'CURS', id: 'curs' },
+            { name: 'PROGRAMA', id: 'programa' },
+          ];
+
+          if (info) {
+            fields.push({ name: 'TITOL', id: 'titol' });
+            fields.push({ name: 'INFO', id: 'url' });
+          }
+
+          const csvData = Object.keys(centres).reduce((result, curs) => {
+            centres[curs].forEach(centre => {
+              const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+              result.push({
+                centre: `${centre.nom} (${centre.municipi})`,
+                codi: centre.id,
+                curs,
+                programa: programa.nom,
+                titol: inf ? inf.titol : '',
+                url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+              });
+            });
+            return result;
+          }, []);
+
+          return csvExportToFile(
+            `centres-${programa.nomCurt}.csv`,
+            csvData,
+            fields,
+          );
+        }
 
         // Find the specified program
         const programa = programes.get(id);
@@ -157,24 +151,32 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${id}`, history }} />
 
         // Deconstruct `programa`
-        const { nom, descripcio, link, ambCurr, ambInn, fitxa, video, objectius, requisits, compromisos, contacte, normativa, arees, simbol, tipus, centres } = programa;
+        const {
+          nom, descripcio,
+          link,
+          ambCurr, ambInn,
+          fitxa, video,
+          objectius, requisits, compromisos, contacte, normativa, arees,
+          simbol, tipus,
+          centres
+        } = programa;
 
         return (
           <>
             <Helmet>
               <title>{`${nom} - Mapa de la innovació pedagògica de Catalunya`}</title>
             </Helmet>
-            {!embed &&
+            {!EMBED &&
               <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
                 <ArrowBack className="left-icon" />
                 Torna
             </Button>
             }
-            {!embedMap &&
+            {!EMBED_MAP &&
               <section className="seccio programa">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {simbol && <img className="seccio-logo" src={`${homepage}/logos/${simbol}`} alt={nom} />}
+                    {simbol && <img className="seccio-logo" src={`${HOMEPAGE}/logos/${simbol}`} alt={nom} />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>
@@ -281,7 +283,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                           <ExpansionPanelDetails className="small-padding-h flow-v">
                             <List className="wider">
                               {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                                const link = (info && hasExtraInfo(info[id])) ? null : `${homepage}/${HASH}centre/${codi}`;
+                                const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
                                 const nc = notCert.has(`${id}|${curs}`);
                                 hasNc = hasNc || nc;
                                 return (
@@ -315,7 +317,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   >
                     <DownloadIcon className="left-icon" />
                     CSV
-                </Button>
+                  </Button>
                 </Paper>
               </section>
             }
