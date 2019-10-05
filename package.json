@@ -39,8 +39,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "update-manifest": "node ./utils/update-manifest.js",
     "build-sw": "node ./sw/sw-build.js",
-    "build": "react-scripts build && npm run build-sw",
+    "build": "react-scripts build && npm run build-sw && npm run update-manifest",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
