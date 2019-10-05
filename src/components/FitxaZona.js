@@ -123,7 +123,12 @@ function FitxaZona({ history, match: { params: { key } } }) {
               <section className="seccio zona">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {logo && <img className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`} src={`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`} alt={nom} />}
+                    {logo &&
+                      <img
+                        className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`}
+                        src={`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`}
+                        alt={nom}
+                      />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>
@@ -172,7 +177,9 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     return (
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
-                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}><Avatar src={`${HOMEPAGE}/logos/mini/${prog.simbol}`} alt={prog.nom} /></Link>
+                          <Link className="zona-prog-logo" to={`/programa/${prog.id}`}>
+                            <Avatar src={`${HOMEPAGE}/logos/mini/${prog.simbol}`} alt={prog.nom} />
+                          </Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
                         </ExpansionPanelSummary>
