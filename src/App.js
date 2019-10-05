@@ -131,6 +131,9 @@ class App extends Component {
   // See: https://reactjs.org/docs/context.html#classcontexttype
   static contextType = AppContext;
 
+  // Reference to the router object
+  routerRef = React.createRef();
+
   constructor() {
     super();
 
@@ -440,7 +443,10 @@ class App extends Component {
         window.addEventListener('resize', this.checkTabMode.bind(this));
         // Pseudo-asynchronous checking of map layers
         window.setTimeout(() => {
-          this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
+          // TODO: Avoid direct reference to the Router object. Use of `withRouter` instead.
+          const currentPath = this.routerRef.current && this.routerRef.current.history.location.pathname;
+          console.log(`Current location is: ${currentPath}`);
+          this.checkForLayerUpdate(currentPath);
         }, 0);
       });
   }
@@ -483,6 +489,7 @@ class App extends Component {
 
     // Check if layers should be updated and scroll up
     if (haveNewLocation) {
+      console.log(`New location: ${props.location.pathname}`)
       this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
     }
@@ -621,7 +628,7 @@ class App extends Component {
     const { error, loading, settings: { EMBED, EMBED_MAP } } = this.state;
 
     return (
-      <Router basename={HASH_TYPE === 'no-hash' ? HOMEPAGE : ''} hashType={HASH_TYPE}>
+      <Router basename={HASH_TYPE === 'no-hash' ? HOMEPAGE : ''} hashType={HASH_TYPE} ref={this.routerRef}>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>
