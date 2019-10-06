@@ -33,11 +33,17 @@ $ ./conv-instancies.js debug
 $ ./conv-instancies.js centres > ../public/data/centres.json
 $ ./conv-instancies.js instancies > ../public/data/instancies.json
 ```
+# Configuració amb NGINX
 
-Generar sitemaps amb:
+Quan s'utilitza BrowserRouter cal incloure aquesta directiva a `nginx.conf`:
 
-```bash
-$ cd utils
-$ ./build-sitemap.js
+```nginx
+location / {  
+  if (!-e $request_filename){
+    rewrite ^(.*)$ /index.html break;
+  }
+}
 ```
+
+
 
