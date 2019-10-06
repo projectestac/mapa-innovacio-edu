@@ -259,5 +259,8 @@ fs.unlinkSync(path.join(TEMP_DIR, atomFile));
 files.forEach(f => fs.unlinkSync(path.join(TEMP_DIR, f)));
 fs.rmdirSync(TEMP_DIR);
 
+// Create `robots.txt`
+fs.writeFileSync(path.resolve(DEST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${BASE}sitemap.xml.gz`);
+
 console.log(`INFO: Sitemap files successfully created in ${DEST_DIR}`);
 
