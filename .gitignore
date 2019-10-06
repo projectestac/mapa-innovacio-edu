@@ -11,9 +11,6 @@
 # production
 /build
 
-# working dir for sitemap files
-/utils/sitemap
-
 # misc
 .DS_Store
 .env
