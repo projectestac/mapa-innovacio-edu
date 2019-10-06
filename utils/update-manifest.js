@@ -10,7 +10,7 @@ const { homepage: HOMEPAGE = '' } = require('../package.json');
 
 if (HOMEPAGE === '') {
   // No changes needed when HOMEPAGE is empty
-  console.log('INFO: Application already configured to run at the server root.');
+  console.log('INFO: PWA already configured to be deployed in the root directory: "/"');
 }
 else {
 
@@ -30,5 +30,5 @@ else {
   const manifest = readFileSync(TEMPLATE, 'utf8');
   writeFileSync(DEST, manifest.replace(/"\//g, `"${HOMEPAGE}/`));
 
-  console.log(`INFO: Manifest file successfully updated`);
+  console.log(`INFO: PWA configured to be deployed in: "${HOMEPAGE}/"`);
 }

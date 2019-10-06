@@ -10,16 +10,21 @@
  * SRC_DIR defaults to `../public/data` and DEST_DIR to `../public`
  */
 
+// Read environment variables from .env
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const xml = require('xml');
 const zlib = require('zlib');
 
-const DEST_DIR = (process.argv.length > 3 && path.resolve(process.argv[3])) || path.resolve(process.cwd(), '../public');
-const SRC_DIR = (process.argv.length > 2 && path.resolve(process.argv[2])) || path.resolve(DEST_DIR, 'data');
-const BASE = 'https://innovacio.xtec.gencat.cat';
-const ROOT = `${BASE}/#`;
-const TEMP_DIR = path.resolve(process.cwd(), 'sitemap');
+const SRC_DIR = (process.argv.length > 2 && path.resolve(process.argv[2])) || path.resolve(__dirname, '../public/data');
+const DEST_DIR = (process.argv.length > 3 && path.resolve(process.argv[3])) || path.resolve(__dirname, '../build');
+const BASE = process.env.REACT_APP_BASE_URL || 'https://innovacio.xtec.gencat.cat/';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'slash';
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
+const ROOT = `${BASE}${HASH}`;
+const TEMP_DIR = path.resolve(DEST_DIR, '.tmp');
 const NOW = new Date();
 const TAG_BASE = `tag:innovacio@xtec.cat,${NOW.getFullYear()}`;
 
@@ -61,8 +66,8 @@ function buildAtom({ dataFile, rootPath, section, atomFile, fieldAtom, includeRo
       { _attr: { 'xmlns': 'http://www.w3.org/2005/Atom' } },
       { title: `${DICT[lang].title} | ${section}` },
       { subtitle: DICT[lang].subTitle },
-      { link: [{ _attr: { href: `${ROOT}/${rootPath}`, hreflang: lang } }] },
-      { link: [{ _attr: { href: `${BASE}/${atomFile}`, rel: 'self', hreflang: lang } }] },
+      { link: [{ _attr: { href: `${ROOT}${rootPath}`, hreflang: lang } }] },
+      { link: [{ _attr: { href: `${BASE}${atomFile}`, rel: 'self', hreflang: lang } }] },
       {
         author: [
           { name: DICT[lang].author },
@@ -79,7 +84,7 @@ function buildAtom({ dataFile, rootPath, section, atomFile, fieldAtom, includeRo
     data.feed.push({
       entry: [
         { title: `${DICT[lang].title} | ${section}` },
-        { link: [{ _attr: { href: `${ROOT}/${rootPath}`, rel: 'alternate', hreflang: lang } }] },
+        { link: [{ _attr: { href: `${ROOT}${rootPath}`, rel: 'alternate', hreflang: lang } }] },
         { id: `${TAG_BASE}:${rootPath}:${lang}` },
         { updated: lastModified.toISOString() },
         { summary: DICT[lang].subTitle },
@@ -108,13 +113,13 @@ function buildAtom({ dataFile, rootPath, section, atomFile, fieldAtom, includeRo
  * @param {string} fileName - Path and name of the file to be generated
  * @param {object} data - The node-xml data object
  */
-function writeXMLFile(fileName, data, log = true) {
+function writeXMLFile(fileName, data, log = false) {
   fs.writeFileSync(
     fileName,
     `<?xml version="1.0" encoding="UTF-8"?>\n${xml(data, { indent: '  ' })}`
   );
   if (log)
-    console.log(`File "${fileName}" has been created`);
+    console.log(`INFO: File "${fileName}" has been created`);
 }
 
 /**
@@ -123,13 +128,13 @@ function writeXMLFile(fileName, data, log = true) {
  * @param {string} srcDir - The directory where the file is currently located
  * @param {string} outDir - The directory where to write the compressed file
  */
-function gzipFile(fileName, srcDir, outDir, log = true) {
+function gzipFile(fileName, srcDir, outDir, log = false) {
   const inFileName = path.resolve(srcDir, fileName);
   const outFileName = `${path.resolve(outDir, fileName)}.gz`;
   const buffer = fs.readFileSync(inFileName);
   fs.writeFileSync(outFileName, zlib.gzipSync(buffer));
   if (log)
-    console.log(`File "${inFileName}" has been compressed to "${outFileName}"`);
+    console.log(`INFO: File "${inFileName}" has been compressed to "${outFileName}"`);
 }
 
 /**
@@ -148,7 +153,7 @@ function buildMainIndex(files) {
       },
       ...files.map(file => ({
         sitemap: [
-          { loc: `${BASE}/${file}.gz` },
+          { loc: `${BASE}${file}.gz` },
           { lastmod: NOW.toISOString() },
         ],
       }))
@@ -192,7 +197,7 @@ LANGS.forEach(lang => {
     atomFile,
     fieldAtom: f => ({
       title: `${DICT[lang].titleMin} - ${f.nom}`,
-      href: `${ROOT}/programa/${f.id}`,
+      href: `${ROOT}programa/${f.id}`,
       id: `${TAG_BASE}:programes:${lang}:${f.id}`,
       summary: f.descripcio,
     }),
@@ -211,7 +216,7 @@ LANGS.forEach(lang => {
     atomFile,
     fieldAtom: f => ({
       title: `${DICT[lang].titleMin} - ${f.nom}`,
-      href: `${ROOT}/zona/${f.key}`,
+      href: `${ROOT}zona/${f.key}`,
       id: `${TAG_BASE}:zona:${lang}:${f.key}`,
       summary: `${DICT[lang][`descPoly${f.nom.startsWith('Serveis') ? 's' : ''}`]} ${f.nom}`,
     }),
@@ -230,7 +235,7 @@ LANGS.forEach(lang => {
     atomFile,
     fieldAtom: f => ({
       title: `${DICT[lang].titleMin} - ${f.nom} (${f.municipi})`,
-      href: `${ROOT}/centre/${f.id}`,
+      href: `${ROOT}centre/${f.id}`,
       id: `${TAG_BASE}:centre:${lang}:${f.id}`,
       summary: `${DICT[lang].descCentres} - ${f.nom} (${f.municipi})`,
     }),
@@ -249,5 +254,10 @@ writeXMLFile(fileName, buildMainIndex(files));
 gzipFile(atomFile, TEMP_DIR, DEST_DIR);
 files.forEach(f => gzipFile(f, TEMP_DIR, DEST_DIR));
 
-console.log('Done!');
+// Remove uncompressed files and temp dir
+fs.unlinkSync(path.join(TEMP_DIR, atomFile));
+files.forEach(f => fs.unlinkSync(path.join(TEMP_DIR, f)));
+fs.rmdirSync(TEMP_DIR);
+
+console.log(`INFO: Sitemap files successfully created in ${DEST_DIR}`);
 
