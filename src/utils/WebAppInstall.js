@@ -80,7 +80,7 @@ export function webAppInstallInit(options = {}) {
   if (!window.__beforeInstallPromptEventListener)
     window.__beforeInstallPromptEventListener = window.addEventListener('beforeinstallprompt', ev => {
 
-      console.log('BeforeInstallPrompt event received');
+      console.log('INFO: BeforeInstallPrompt event received');
 
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       ev.preventDefault();
@@ -102,7 +102,7 @@ export function webAppInstallInit(options = {}) {
  */
 export function installHandleClick(clickEv) {
 
-  console.log('User clicked on "Add to home screen"');
+  console.log('INFO: User clicked on "Add to home screen"');
 
   // Get the previously saved "BeforeInstallPromptEvent"
   const ev = window.__installPromptEvent;
@@ -119,15 +119,15 @@ export function installHandleClick(clickEv) {
       ev.userChoice
         .then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
+            console.log('INFO: User accepted the A2HS prompt');
           } else {
-            console.log('User dismissed the A2HS prompt');
+            console.log('INFO: User dismissed the A2HS prompt');
           }
         });
     });
   }
   else
-    console.log('ERROR: Call to "installHandleClick" without BeforeInstallPromptEvent!');
+    console.error('ERROR: Call to "installHandleClick" without BeforeInstallPromptEvent!');
 }
 
 /**

@@ -408,7 +408,7 @@ class App extends Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        console.error('ERROR: Unable to load or process data', error);
         this.setStateMod({ error: error.toString() });
       });
   }
@@ -445,7 +445,7 @@ class App extends Component {
         window.setTimeout(() => {
           // TODO: Avoid direct reference to the Router object. Use of `withRouter` instead.
           const currentPath = this.routerRef.current && this.routerRef.current.history.location.pathname;
-          console.log(`Current location is: ${currentPath}`);
+          console.log(`INFO: Current location is: ${currentPath}`);
           this.checkForLayerUpdate(currentPath);
         }, 0);
       });
@@ -489,7 +489,7 @@ class App extends Component {
 
     // Check if layers should be updated and scroll up
     if (haveNewLocation) {
-      console.log(`New location: ${props.location.pathname}`)
+      console.log(`INFO: New location: ${props.location.pathname}`)
       this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
     }
