@@ -31,6 +31,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
 import { Parser } from 'json2csv';
+import { homepage as HOMEPAGE } from '../../package.json';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE;
 
 /**
  * Asynchronous loading of Google fonts
@@ -45,7 +47,7 @@ export function loadGFont(fontName = 'Roboto', weights = '300,400,500,600') {
   const fontLoader = new FontFaceObserver(fontName);
   fontLoader.load()
     .then(() => document.documentElement.classList.add(fontName.replace(' ', '-').toLowerCase()))
-    .catch(err => console.error(`Unable to load ${fontName} font due to: ${err}`));
+    .catch(err => console.error(`ERROR: Unable to load ${fontName} font due to:`, err));
 }
 
 /**
@@ -225,3 +227,19 @@ export function csvExportToFile(fileName, data, fields) {
   }
 }
 
+/**
+ * Redirect legacy hash routes to browser routes when HASH_TYPE is 'no-hash'
+ * @param {boolean+} redirect - When `true`, navigation will be redirected to the equivalent browser route
+ * @returns {boolean} - `true` when a hash route has been detected in `no-hash` mode, false otherwise
+ */
+export function checkHashRoute(redirect = true) {
+  if (HASH_TYPE === 'no-hash' && window.location.hash && window.location.hash.match(/^[#/!]*(.*)/).length === 2) {
+    if (redirect) {
+      const newUrl = `${window.location.origin}${HOMEPAGE}/${window.location.hash.match(/^[#/!]*(.*)/)[1]}`;
+      console.log(`INFO: Old hash route detected. Redirecting to: ${newUrl}`);
+      window.location.replace(newUrl);
+    }
+    return true;
+  }
+  return false;
+}

@@ -35,7 +35,10 @@ import '../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css';
 import '../node_modules/react-leaflet-fullscreen/dist/styles.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { checkHashRoute } from './utils/Utils';
 
-ReactDOM.render(<App />, document.getElementById('app-root'));
-
-serviceWorker.register();
+// Redirect legacy hash routes
+if (!checkHashRoute(true)) {
+  ReactDOM.render(<App />, document.getElementById('app-root'));
+  serviceWorker.register();
+}
