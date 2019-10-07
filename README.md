@@ -4,24 +4,24 @@ https://innovacio.xtec.gencat.cat
 
 
 ## Description
-This application handles five types of data:
+This application deals with five types of data:
 - The __innovation programs__ promoted or certified by the Departament of Education of the Government of Catalonia.
 - A list of __schools__ participating in these programs since the school year 2015/16.
-- The __relationships__ between schools and innovation programs (school year participating, title of the projects, etc.).
-- The current __school zones__ of Catalonia, organized on two levels: 10 territorial services (_Serveis Territorials_) and 73 school districts (_Serveis Educatius de Zona_).
-- Information about the __educational levels__ involved in the programs, types of schools and other metadata.
+- The __relationships__ between schools and innovation programs (year of participation, project title, etc.).
+- The current __school zones__ of Catalonia, organized on two levels: 10 "local services" (_Serveis Territorials_) and 73 school districts (_Serveis Educatius de Zona_).
+- Information about __educational levels__, school types and other metadata.
 
-All these data are used to build an interactive map and pages with specific information about schools, programs and projects, and their geographic distribution.
+All these data are used to build an interactive map and pages with specific information about schools, programs and projects.
 
 ## Main features
 The main features of this application are:
-- Shows on the map the schools participating on the selected programs, year by year.
-- Allows to select/unselect which programs should be shown on the map, based on their characteristics (educational level, innovation type, subject, etc.)
-- Shows information about a specific innovation program: objectives, rules, agenda, schools involved, etc.
-- Shows information about a specific school: address, location, educational levels, web portal, innovation programs in which the school participates, etc.
-- Shows information about each of the areas: location, web portal, innovation programs, participating schools, etc.
-- Full-text search engine that allows you to search for specific words about program descriptions, school names, zones, etc.
-- Representation of the "intensity of presence" of the selected innovation program(s) in each zone. This "intensity of presence" is calculated by dividing the number of schools participating in the programs by the total number of schools in each zone that have at least one of the educational levels covered by these programs.
+- Show on the map all the schools participating on the selected programs, year by year.
+- Allow to select/unselect which programs should be shown on the map, based on their characteristics (educational level, innovation type, subject, etc.)
+- Show information about a specific innovation program: objectives, rules, agenda, schools involved, etc.
+- Show information about a specific school: address, location, educational levels, website, participation in innovation programs, etc.
+- Show information about school districts and the local impact of each innovation program.
+- Full-text search engine, allowing to search by keywords, program descriptions, school names, districts, etc.
+- Representation of the "presence density" of each innovation program on school districts. This index is calculated by dividing the number of schools participating in each program by the total number of schools having at least one of the educational levels included in it.
 
 ## Components
 This is a [Progressive Web Application](https://en.wikipedia.org/wiki/Progressive_web_applications) built with the following open source components:
@@ -44,7 +44,6 @@ Keep in mind that these components use hundreds of other open source projects to
 
 - [NodeJS](https://nodejs.org/) is needed to build the main application. Linux users are advised to use the [official LTS repositories](https://github.com/nodesource/distributions/blob/master/README.md).
 
-
 ### Setting up
 
 First of all, the [NPM](https://www.npmjs.com/) components must be loaded:
@@ -55,6 +54,87 @@ $ cd path/to/mapa-innovacio-edu
 
 # Install the required npm components:
 $ npm ci
+```
+
+### Basic configuration
+
+The application has different settings that can be adjusted. Many of these adjustements should be set on a file named `.env`, not included on the repository files. In order to generate your own `.env` file, just duplicate `.env.example`:
+
+```bash
+# Make a copy of .env.example
+cp .env.example .env
+```
+
+### Choosing the type of router
+You can choose between two different types of [React Router](https://reacttraining.com/react-router/):
+
+#### HashRouter
+
+[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) (default) uses the "[hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)" part of URLs to identify the specific contents to be displayed on each page. In order to use this type of router:
+
+- Leave uncommented the first of the two options in `src/App.js`:
+
+```es6
+import { HashRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+``` 
+
+- In `.env`, set `REACT_APP_HASH_TYPE` to one of this values: "slash" (#/), "noslash" (#) or "hashbang" (#!/)
+
+```bash
+# hashType param passed to HashRouter
+REACT_APP_HASH_TYPE="hashbang"
+```
+
+#### BrowserRouter
+[BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) uses the "[pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname)" part of URLs. In order to use this type of router:
+
+- Leave uncommented the second option in `src/App.js`:
+
+```es6
+// import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+``` 
+
+- In `.env`, set `REACT_APP_HASH_TYPE` to `no-hash`:
+
+```bash
+# hashType param passed to HashRouter
+REACT_APP_HASH_TYPE="no-hash"
+```
+
+- Configure your web server to redirect all paths to `index.html`, except those that point to real files or directories.
+
+  - With [Apache HTTP server](https://httpd.apache.org/) you must enable [`mod_rewrite`](https://httpd.apache.org/docs/current/rewrite/) and configure your virtual host. If you have `AllowOverride` enabled, the `.htaccess` file provided in `/public` will be used:
+
+```apache
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+```
+
+  - With [NGINX](https://www.nginx.com/resources/wiki/), you must configure your virtual host with a directive like this one:
+
+```nginx
+location / {  
+  if (!-e $request_filename){
+    rewrite ^(.*)$ /index.html break;
+  }
+}
+```
+
+Note: If you are using [Devilbox](http://devilbox.org/) for development, take a look at the file `/.devilbox/nginx.yml`.
+
+
+### Setting up the root directory
+
+By default, the application is configured to be served at the root (`/`) of your HTTP server. Before deploying it on a different directory, the `homepage` value of `package.json` should be modified. This value should be "" for the root, or any absolute path starting (and not ending) with "/" for other locations. For example, this setting will make the final application run on `https://myhost.mydomain.com/mymap/`:
+
+```json
+   "homepage": "/mymap"
 ```
 
 ### Common operations
