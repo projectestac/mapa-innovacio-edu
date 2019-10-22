@@ -10,35 +10,13 @@ const { createReadStream } = require('fs');
 const csv = require('csv');
 const ch = require('chalk');
 
-// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa, i sumaritzar dades
-const centresValids = require('./centres-total.json')
-  .filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0)
-  .map(c => ({
-    id: c.id,
-    nom: c.nom,
-    municipi: c.municipi,
-    comarca: c.comarca,
-    lat: c.lat,
-    lng: c.lng,
-    estudis: c.estudis,
-    adreca: c.adreca,
-    web: c.nodes || c.web || c.web_propi || '', // Just one web!
-    logo: c.logo,
-    tel: c.tel,
-    mail: c.mail,
-    twitter: c.twitter,
-    sstt: c.sstt,
-    se: c.se,
-    pb: c['public'], // Reserved word
-  }));
-
 const programes = require('../public/data/programes.json');
-const poligons = require('../public/data/poligons.json');
 const zers = require('./zer.json');
 const estudis = require('../public/data/estudis.json');
 const logos = require('./logos.json');
 
-const CSV_FILE = 'instancies.csv';
+const DADES_CENTRES = 'dades-centres.csv';
+const MAIN_CSV_FILE = 'instancies.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 
 const DUMP_INSTANCIES = process.argv.length > 2 && process.argv[2] === 'instancies';
@@ -48,16 +26,11 @@ const DUMP_CENTRES = process.argv.length > 2 && process.argv[2] === 'centres';
 const warnings = [];
 
 /**
- * Read the main CSV file
+ * Read and parse a CSV file
  * @param {string} file - The name of the file to read
- * @returns {Promise} - A Promise resolving with a list of `program` objects
+ * @returns {Promise} - A Promise resolving with the resulting array of objects
  */
-const readCSV = (file) => {
-
-  const instancies = [];
-  const centres = [];
-  let certificats = 0;
-
+const readCSVFile = (file) => {
   return new Promise((resolve, reject) => {
     createReadStream(`${__dirname}/${file}`, { encoding: 'utf8' }).pipe(csv.parse(
       {
@@ -67,8 +40,51 @@ const readCSV = (file) => {
       (err, data) => {
         if (err)
           reject(err);
-        else {
+        else
+          resolve(data);
+      }
+    ));
+  });
+}
 
+const readDadesCentres = (file) =>
+  readCSVFile(file)
+    .then(centres => centres
+      .filter(c => c.tipus !== 'BAIXA')
+      .map(c => ({
+        id: c.id,
+        nom: c.nom,
+        municipi: c.municipi,
+        comarca: c.comarca,
+        lat: c.lat,
+        lng: c.lng,
+        estudis: c.estudis.split('|'),
+        adreca: c.adreca,
+        web: c.web || '', // Just one web!
+        logo: c.logo,
+        tel: c.tel,
+        mail: c.mail,
+        twitter: c.twitter,
+        sstt: c.sstt,
+        se: c.se,
+        pb: c['public'], // Reserved word
+      })));
+
+/**
+ * Read the main CSV file
+ * @param {string} file - The name of the file to read
+ * @returns {Promise} - A Promise resolving with a list of `program` objects
+ */
+const readMainCSV = (file) => {
+
+  const instancies = [];
+  const centres = [];
+  let certificats = 0;
+
+  return readDadesCentres(DADES_CENTRES)
+    .then(centresValids =>
+      readCSVFile(file)
+        .then(data => {
           // Ajustaments previs
           data.forEach(reg => {
             // Conversió manual
@@ -80,6 +96,9 @@ const readCSV = (file) => {
 
           // Procés principal
           data.forEach(reg => {
+
+            // TODO: reassignar centres fusionats o transformats!
+
             const codiCentre = reg.Codi_centre;
             let centre = centresValids.find(c => c.id === codiCentre);
             const programa = reg.id_programa;
@@ -161,12 +180,6 @@ const readCSV = (file) => {
 
           // Fona adjustements for 'centres'
           centres.forEach(centre => {
-            // Change the original SE code of centres, fom short name to "codi"
-            const se = poligons.find(p => p.nomcurt === centre.se);
-            if (se)
-              centre.se = se.key;
-            else
-              warnings.push(`${ch.bold.bgRed.white('ERROR:')} El centre "${centre.nom}" (${centre.id}) té assignat un SE desconegut: ${centre.se}`);
 
             // Compute centre.text
             const txtArray = [
@@ -175,7 +188,7 @@ const readCSV = (file) => {
               centre.municipi,
               centre.comarca,
             ];
-            
+
             if (centre.info)
               txtArray.push(centre.info.join(', '));
 
@@ -186,14 +199,16 @@ const readCSV = (file) => {
               delete centre.info;
           });
 
-          resolve({ instancies, centres, certificats });
-        }
-      }
-    ));
-  });
+          return { instancies, centres, certificats };
+        })
+    );
 };
 
-const getDuplicates = instancies => instancies.map(({ centre, programa, curs }) => `${centre}|${programa}|${curs}`).sort().filter((ii, n, arr) => ii === arr[n + 1]);
+const getDuplicates = instancies =>
+  instancies
+    .map(({ centre, programa, curs }) => `${centre}|${programa}|${curs}`)
+    .sort()
+    .filter((ii, n, arr) => ii === arr[n + 1]);
 
 const filterDuplicates = instancies => {
   const duplicates = getDuplicates(instancies);
@@ -207,8 +222,8 @@ const filterDuplicates = instancies => {
   return instancies;
 }
 
-// Main process start here
-readCSV(CSV_FILE)
+// Main process starts here
+readMainCSV(MAIN_CSV_FILE)
   .then(({ instancies, centres, certificats }) => {
     if (DEBUG) {
       // Display the summary and possible warnings
