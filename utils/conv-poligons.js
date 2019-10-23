@@ -8,11 +8,8 @@ const { createReadStream } = require('fs');
 const csv = require('csv');
 const ch = require('chalk');
 
-const centres = require('./centres-total.json');
-// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
-const centresValids = centres.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
-
-const CSV_FILE = 'zones.csv';
+const DADES_CENTRES = 'dades-centres.csv';
+const MAIN_CSV_FILE = 'zones.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 
 // Array of warnings to be displayed at the end
@@ -52,13 +49,13 @@ const COUNT_CENTRES = {
   TEGS: 0,
 };
 
+
 /**
- * Read the main CSV file
+ * Read and parse a CSV file
  * @param {string} file - The name of the file to read
- * @returns {Promise} - A Promise resolving with a list of `program` objects
+ * @returns {Promise} - A Promise resolving with the resulting array of objects
  */
-const readCSV = (file) => {
-  const zones = [];
+const readCSVFile = (file) => {
   return new Promise((resolve, reject) => {
     createReadStream(`${__dirname}/${file}`, { encoding: 'utf8' }).pipe(csv.parse(
       {
@@ -68,55 +65,91 @@ const readCSV = (file) => {
       (err, data) => {
         if (err)
           reject(err);
-        else {
-          data.forEach(reg => {
-            const poligons = JSON.parse(reg.poli);
-            // Calc the bounds of each polygon
-            let bounds = null;
-            poligons.forEach(arr => arr.forEach(([lat, lng]) => {
-              if (!bounds)
-                bounds = [[lat, lng], [lat, lng]];
-              else {
-                bounds[0][0] = Math.min(bounds[0][0], lat);
-                bounds[0][1] = Math.min(bounds[0][1], lng);
-                bounds[1][0] = Math.max(bounds[1][0], lat);
-                bounds[1][1] = Math.max(bounds[1][1], lng);
-              }
-            }));
-
-            const poligon = {
-              key: reg.codi,
-              tipus: reg.tipus,
-              id: reg.id,
-              st: reg.st,
-              nom: reg.nom,
-              nomcurt: reg.key,
-              adreca: reg.adreça,
-              tel: reg.telèfon,
-              fax: reg.fax,
-              cp: reg.cp,
-              municipi: reg.municipi,
-              comarca: reg.comarca,
-              correu: reg.correu,
-              web: reg.web,
-              logo: reg.logo,
-              pos: [Number(reg.lat), Number(reg.lng)],
-              poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
-              bounds,
-              centres: Object.assign({}, COUNT_CENTRES),
-            };
-
-            zones.push(poligon);
-          });
-
-          resolve(countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom'])));
-        }
+        else
+          resolve(data);
       }
     ));
   });
+}
+
+const readDadesCentres = (file) =>
+  readCSVFile(file)
+    .then(centres => centres
+      .filter(c => c.tipus !== 'BAIXA')
+      .map(c => ({
+        id: c.id,
+        nom: c.nom,
+        municipi: c.municipi,
+        comarca: c.comarca,
+        lat: c.lat,
+        lng: c.lng,
+        estudis: c.estudis.split('|'),
+        adreca: c.adreca,
+        web: c.web || '', // Just one web!
+        logo: c.logo,
+        tel: c.tel,
+        mail: c.mail,
+        twitter: c.twitter,
+        sstt: c.sstt,
+        se: c.se,
+        pb: c['public'] === 'TRUE', // Reserved word
+      })));
+
+/**
+ * Read the main CSV file
+ * @param {string} file - The name of the file to read
+ * @returns {Promise} - A Promise resolving with a list of `program` objects
+ */
+const readMainCSV = (file, centresValids) => {
+  const zones = [];
+
+  return readCSVFile(file)
+    .then(data => {
+      data.forEach(reg => {
+        const poligons = JSON.parse(reg.poli);
+        // Calc the bounds of each polygon
+        let bounds = null;
+        poligons.forEach(arr => arr.forEach(([lat, lng]) => {
+          if (!bounds)
+            bounds = [[lat, lng], [lat, lng]];
+          else {
+            bounds[0][0] = Math.min(bounds[0][0], lat);
+            bounds[0][1] = Math.min(bounds[0][1], lng);
+            bounds[1][0] = Math.max(bounds[1][0], lat);
+            bounds[1][1] = Math.max(bounds[1][1], lng);
+          }
+        }));
+
+        const poligon = {
+          key: reg.codi,
+          tipus: reg.tipus,
+          id: reg.id,
+          st: reg.st,
+          nom: reg.nom,
+          nomcurt: reg.key,
+          adreca: reg.adreça,
+          tel: reg.telèfon,
+          fax: reg.fax,
+          cp: reg.cp,
+          municipi: reg.municipi,
+          comarca: reg.comarca,
+          correu: reg.correu,
+          web: reg.web,
+          logo: reg.logo,
+          pos: [Number(reg.lat), Number(reg.lng)],
+          poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
+          bounds,
+          centres: Object.assign({}, COUNT_CENTRES),
+        };
+
+        zones.push(poligon);
+      });
+
+      return countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom']), centresValids);
+    });
 };
 
-const countLevels = zones => {
+const countLevels = (zones, centresValids) => {
 
   const st = {};
   zones.filter(p => p.tipus === 'ST')
@@ -127,9 +160,7 @@ const countLevels = zones => {
   const sez = {};
   zones.filter(p => p.tipus === 'SEZ')
     .forEach(p => {
-      // Revert when using real codes
-      // sez[p.key] = p;
-      sez[p.nomcurt] = p;
+      sez[p.key] = p;
     });
 
   centresValids.forEach(c => {
@@ -138,7 +169,7 @@ const countLevels = zones => {
     if (!cst && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei territorial`);
 
-    const csez = sez[c.se];    
+    const csez = sez[c.se];
     if (!csez && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei educatiu de zona`);
 
@@ -156,12 +187,13 @@ const countLevels = zones => {
     });
   });
 
-  return zones;
+  return { zones, centresValids };
 };
 
 // Main process start here
-readCSV(CSV_FILE)
-  .then(zones => {
+readDadesCentres(DADES_CENTRES)
+  .then(centresValids => readMainCSV(MAIN_CSV_FILE, centresValids))
+  .then(({ zones, centresValids }) => {
     if (DEBUG) {
       // Display the summary and possible warnings
       console.log(ch.bold.green(`S'han processat ${centresValids.length} centres`));

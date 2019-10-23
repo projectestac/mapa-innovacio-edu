@@ -1,4 +1,4 @@
-id,tipus,nom,municipi,adreca,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mail,twitter,pb
+id,tipus,nom,municipi,adreca,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mail,twitter,public
 08000013,ESC,Escola Francesc Platón i Sartí,Abrera,"C. Salvador Espriu, 3",Baix Llobregat,41.515049613,1.900457916,EINF2C|EPRI,BLL,08870310,https://blocs.xtec.cat/platonabrera,08000013.png,937700381,a8000013@xtec.cat,,TRUE
 08000049,ESC,Escola Fabra,Alella,"Av. del Bosquet, 1",Maresme,41.494473072,2.297838496,EINF2C|EPRI,MVO,08870205,https://agora.xtec.cat/escfabra/moodle,08000049.png,935557803,a8000049@xtec.cat,,TRUE
 08000086,ESC,Escola La Forja - ZER Alt Lluçanès,Alpens,"Ctra. Lluçanesa, 8",Osona,42.120485359,2.10010879,EINF2C|EPRI,CCE,08870208,,08000086.png,938527007,a8000086@xtec.cat,,TRUE

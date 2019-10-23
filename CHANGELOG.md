@@ -3,6 +3,7 @@
 - New query params `?embed` and "`?embedMap`, useful for embedding the app (or just a map) in school portals and project sites.
 - [Sitemap files](https://en.wikipedia.org/wiki/Sitemaps) are now automatically generated on each build.
 - Allow for two different routing methods: [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter), now in three possible modes (_slash_, _noslash_ and _hashbang_), and [BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter), based on the HTML5 history API, for plain URL paths.
+- Updated school data and app components
 
 ### v1.1.7 (2019-09-03)
 #### Improvements
