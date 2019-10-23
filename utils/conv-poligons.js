@@ -3,9 +3,7 @@
 // Usage: ./conv-poligons.js > ../public/data/poligons.json
 // Debug: ./conv-poligons.js debug
 
-const { sortObjectArrayBy } = require('./utils');
-const { createReadStream } = require('fs');
-const csv = require('csv');
+const { sortObjectArrayBy, readCSVFile, readDadesCentres } = require('./utils');
 const ch = require('chalk');
 
 const DADES_CENTRES = 'dades-centres.csv';
@@ -49,105 +47,57 @@ const COUNT_CENTRES = {
   TEGS: 0,
 };
 
-
-/**
- * Read and parse a CSV file
- * @param {string} file - The name of the file to read
- * @returns {Promise} - A Promise resolving with the resulting array of objects
- */
-const readCSVFile = (file) => {
-  return new Promise((resolve, reject) => {
-    createReadStream(`${__dirname}/${file}`, { encoding: 'utf8' }).pipe(csv.parse(
-      {
-        delimiter: ',',
-        columns: true,
-      },
-      (err, data) => {
-        if (err)
-          reject(err);
-        else
-          resolve(data);
-      }
-    ));
-  });
-}
-
-const readDadesCentres = (file) =>
-  readCSVFile(file)
-    .then(centres => centres
-      .filter(c => c.tipus !== 'BAIXA')
-      .map(c => ({
-        id: c.id,
-        nom: c.nom,
-        municipi: c.municipi,
-        comarca: c.comarca,
-        lat: c.lat,
-        lng: c.lng,
-        estudis: c.estudis.split('|'),
-        adreca: c.adreca,
-        web: c.web || '', // Just one web!
-        logo: c.logo,
-        tel: c.tel,
-        mail: c.mail,
-        twitter: c.twitter,
-        sstt: c.sstt,
-        se: c.se,
-        pb: c['public'] === 'TRUE', // Reserved word
-      })));
-
 /**
  * Read the main CSV file
  * @param {string} file - The name of the file to read
  * @returns {Promise} - A Promise resolving with a list of `program` objects
  */
-const readMainCSV = (file, centresValids) => {
+async function readMainCSV(file, centresValids) {
+
   const zones = [];
+  const data = await readCSVFile(file);
 
-  return readCSVFile(file)
-    .then(data => {
-      data.forEach(reg => {
-        const poligons = JSON.parse(reg.poli);
-        // Calc the bounds of each polygon
-        let bounds = null;
-        poligons.forEach(arr => arr.forEach(([lat, lng]) => {
-          if (!bounds)
-            bounds = [[lat, lng], [lat, lng]];
-          else {
-            bounds[0][0] = Math.min(bounds[0][0], lat);
-            bounds[0][1] = Math.min(bounds[0][1], lng);
-            bounds[1][0] = Math.max(bounds[1][0], lat);
-            bounds[1][1] = Math.max(bounds[1][1], lng);
-          }
-        }));
+  data.forEach(reg => {
+    const poligons = JSON.parse(reg.poli);
+    // Calc the bounds of each polygon
+    let bounds = null;
+    poligons.forEach(arr => arr.forEach(([lat, lng]) => {
+      if (!bounds)
+        bounds = [[lat, lng], [lat, lng]];
+      else {
+        bounds[0][0] = Math.min(bounds[0][0], lat);
+        bounds[0][1] = Math.min(bounds[0][1], lng);
+        bounds[1][0] = Math.max(bounds[1][0], lat);
+        bounds[1][1] = Math.max(bounds[1][1], lng);
+      }
+    }));
 
-        const poligon = {
-          key: reg.codi,
-          tipus: reg.tipus,
-          id: reg.id,
-          st: reg.st,
-          nom: reg.nom,
-          nomcurt: reg.key,
-          adreca: reg.adreça,
-          tel: reg.telèfon,
-          fax: reg.fax,
-          cp: reg.cp,
-          municipi: reg.municipi,
-          comarca: reg.comarca,
-          correu: reg.correu,
-          web: reg.web,
-          logo: reg.logo,
-          pos: [Number(reg.lat), Number(reg.lng)],
-          poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
-          bounds,
-          centres: Object.assign({}, COUNT_CENTRES),
-        };
+    const poligon = {
+      key: reg.codi,
+      tipus: reg.tipus,
+      id: reg.id,
+      st: reg.st,
+      nom: reg.nom,
+      nomcurt: reg.key,
+      adreca: reg.adreça,
+      tel: reg.telèfon,
+      fax: reg.fax,
+      cp: reg.cp,
+      municipi: reg.municipi,
+      comarca: reg.comarca,
+      correu: reg.correu,
+      web: reg.web,
+      logo: reg.logo,
+      pos: [Number(reg.lat), Number(reg.lng)],
+      poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
+      bounds,
+      centres: Object.assign({}, COUNT_CENTRES),
+    };
+    zones.push(poligon);
+  });
 
-        zones.push(poligon);
-      });
-
-      return countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom']), centresValids);
-    });
-};
+  return countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom']), centresValids);
+}
 
 const countLevels = (zones, centresValids) => {
 
@@ -187,26 +137,32 @@ const countLevels = (zones, centresValids) => {
     });
   });
 
-  return { zones, centresValids };
+  return zones;
 };
 
-// Main process start here
-readDadesCentres(DADES_CENTRES)
-  .then(centresValids => readMainCSV(MAIN_CSV_FILE, centresValids))
-  .then(({ zones, centresValids }) => {
-    if (DEBUG) {
-      // Display the summary and possible warnings
-      console.log(ch.bold.green(`S'han processat ${centresValids.length} centres`));
-      console.log(ch.bold.green(`\nS'han detectat ${Object.keys(tipus).length} tipus d'estudis:`));
-      Object.keys(tipus).sort().forEach(k => console.log(`${ch.bold.green('-')} ${k}: ${tipus[k]}`));
-      console.log(ch.bold.green(`\nS'han comprovat ${zones.length} polígons:`));
-      zones.forEach(z => console.log(`${ch.bold.green('✔')} ${z.nom}`));
-      warnings.forEach(inc => console.log(inc));
-    }
-    else
-      // Send the resulting JSON to the standard output (usually redirected to '../public/data/programes.json' )
-      console.log(JSON.stringify(zones, 1));
-  })
-  .catch(err => {
-    console.log(ch.bold.red(`ERROR: ${err}`));
-  });
+async function main() {
+
+  const centresValids = await readDadesCentres(DADES_CENTRES);
+  const zones = await readMainCSV(MAIN_CSV_FILE, centresValids);
+
+  if (DEBUG) {
+    // Display the summary and possible warnings
+    console.log(ch.bold.green(`S'han processat ${centresValids.length} centres`));
+    console.log(ch.bold.green(`\nS'han detectat ${Object.keys(tipus).length} tipus d'estudis:`));
+    Object.keys(tipus).sort().forEach(k => console.log(`${ch.bold.green('-')} ${k}: ${tipus[k]}`));
+    console.log(ch.bold.green(`\nS'han comprovat ${zones.length} polígons:`));
+    zones.forEach(z => console.log(`${ch.bold.green('✔')} ${z.nom}`));
+    warnings.forEach(inc => console.log(inc));
+  }
+  else
+    // Send the resulting JSON to the standard output (usually redirected to '../public/data/programes.json' )
+    console.log(JSON.stringify(zones, 1));
+}
+
+
+// Main process starts here
+try {
+  main();
+} catch (err) {
+  console.log(ch.bold.red(`ERROR: ${err}`));
+}
