@@ -100,11 +100,29 @@ export function cursCurt(curs) {
 }
 
 /**
+ * Utility function for getInfoSpan
+ * @param {Object} inf - An object of type `info`
+ * @returns {string} - String representing the object without the 'curs' attribute, useful for comparisions
+ */
+export function infoTag(inf) {
+  return JSON.stringify((({ titol, fitxa, video }) => ({ titol, fitxa, video }))(inf))
+};
+
+/**
  * Builds a `span` with all the information related to a specific project (titles, courses, cards. videos)
  * @param {Object} info - Array of objects with mandatory fields `titol` and `curs`, and optional fields `video` and `fitxa`
  * @returns {React.Component}
  */
 export function getInfoSpan(info, proj, centre) {
+
+  // If all the elements of `info` have the same content, then reduce it at one element
+  if (info.length > 1 && !info.find((inf, n) => n > 0 && infoTag(inf) !== infoTag(info[n - 1]))) {
+    // Same infos!
+    const courses = info.map(inf => inf.curs).join(', ');
+    info = [Object.assign({}, info[0])];
+    info[0].curs = courses;
+  }
+
   return (
     <>
       {info.map(({ titol, fitxa, video, curs }, n) => {
@@ -112,10 +130,9 @@ export function getInfoSpan(info, proj, centre) {
         return (
           <span key={n}>
             {(fitxa || video) ?
-              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})`}</span> :
-              <span>{`${quot}${titol}${quot} (${curs})`}</span>
+              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</span> :
+              <span>{`${quot}${titol}${quot} (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
             }
-            {n < info.length - 1 && <span>, </span>}
           </span>
         );
       })}

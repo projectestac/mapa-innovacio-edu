@@ -286,7 +286,7 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
-        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video }) => {
+        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video, comentari }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
           if (prog && cent) {
@@ -303,6 +303,9 @@ class App extends Component {
               const p = poligons.get(cent.se);
               p.centresInn.add(cent);
               p.programes.add(prog);
+            }
+            if (comentari) {
+              titol = `${titol || ''} ${comentari}`.trim();
             }
             if (titol) {
               const info = {

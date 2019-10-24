@@ -53,11 +53,12 @@ async function readMainCSV(file, programes, centresValids) {
 
     // Check if school id has been re-assigned
     if (instanciesMod[codiCentre]) {
-      codiCentre = instanciesMod[codiCentre].becomes;
+      const mod = instanciesMod[codiCentre];
+      codiCentre = mod.becomes;
       // Becomes nothing? then skip!
       if (!codiCentre)
         return;
-      comment = instanciesMod[codiCentre] || '';
+      comment = mod.comment || '';
     }
 
     const zer = zers.find(z => z.codi === codiCentre);
