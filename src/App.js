@@ -29,12 +29,7 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-
-// Enable only one of this two options:
-import { HashRouter as Router } from 'react-router-dom';
-// import { BrowserRouter as Router } from 'react-router-dom';
-
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -71,6 +66,9 @@ const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : H
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
+
+// Set the appropiate Router, based on HASH_TYPE
+const Router = HASH_TYPE === 'no-hash' ? BrowserRouter : HashRouter;
 
 /**
  * Main Material-UI theme
