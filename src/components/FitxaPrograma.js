@@ -300,7 +300,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                             {hasNc &&
                               <>
                                 <Divider />
-                                <Typography color="secondary" className="padding-one">*: Participació en curs, pendent de certificar</Typography>
+                                <Typography color="secondary" className="padding-one">*: Participació en curs</Typography>
                               </>
                             }
                           </ExpansionPanelDetails>

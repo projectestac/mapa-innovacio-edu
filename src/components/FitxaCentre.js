@@ -210,7 +210,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 {hasNc &&
                   <>
                     <br />
-                    <Typography color="secondary">*: Participació en curs, pendent de certificar</Typography>
+                    <Typography color="secondary">*: Participació en curs</Typography>
                   </>
                 }
                 <br />
