@@ -71,7 +71,6 @@ function createExpansionPanel(className, title, content) {
     <ExpansionPanel className={className}>
       <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
         <Typography variant="h6">{title}</Typography>
-        {/*<h3 style={{ margin: 0 }}>{title}</h3>*/}
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className="small-padding-h">
         {content}
@@ -93,10 +92,9 @@ function createMDExpansionPanel(className, title, mdContent) {
 
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
-  const [expandedPanels, setExpandedPanels] = React.useState((new Array(MAX_EXPANSION_PANELS)).fill(EXPANDED_PROGS.includes(id), 0, 10));
-  const expandPanel = n => ev => {
-    setExpandedPanels(expandedPanels.map((p, i) => (i === n) ? !p : p));
-  }
+  const SMALL_SCREEN = window.matchMedia('(max-width: 840px)').matches;
+  const [expandedPanels, setExpandedPanels] = React.useState((new Array(MAX_EXPANSION_PANELS)).fill(!SMALL_SCREEN && EXPANDED_PROGS.includes(id), 0, 10));
+  const expandPanel = n => _ev => setExpandedPanels(expandedPanels.map((p, i) => (i === n) ? !p : p));
 
   return (
     <AppContext.Consumer>
