@@ -46,8 +46,8 @@ async function readDadesCentres(file) {
       nom: c.nom,
       municipi: c.municipi,
       comarca: c.comarca,
-      lat: c.lat,
-      lng: c.lng,
+      lat: c.lat.toString().replace(',', '.'),
+      lng: c.lng.toString().replace(',', '.'),
       estudis: c.estudis.split('|'),
       adreca: c.adreca,
       web: c.web || '', // Just one web!
