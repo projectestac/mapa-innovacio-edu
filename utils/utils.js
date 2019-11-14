@@ -50,6 +50,7 @@ async function readDadesCentres(file) {
       lng: c.lng.toString().replace(',', '.'),
       estudis: c.estudis.split('|'),
       adreca: c.adreca,
+      cp: c.cp,
       web: c.web || '', // Just one web!
       logo: c.logo,
       tel: c.tel,

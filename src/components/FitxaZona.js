@@ -137,8 +137,8 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     <p>
                       {adreca}<br />
                       {`${cp} ${municipi} (${comarca})`}<br />
-                      {tel && <>{`Tel. ${tel}`}<br /></>}
-                      {fax && <>{`Fax. ${fax}`}<br /></>}
+                      {tel && <>Tel: <a href={`tel:+34 ${tel}`} rel="nofollow">{tel}</a><br /></>}
+                      {fax && <>{`Fax: ${fax}`}<br /></>}
                     </p>
                   </div>
                   <div id="info">

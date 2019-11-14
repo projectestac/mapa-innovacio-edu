@@ -147,6 +147,7 @@ async function readMainCSV(file, programes, centresValids) {
     const txtArray = [
       centre.id,
       centre.nom,
+      centre.cp,
       centre.municipi,
       centre.comarca,
     ];

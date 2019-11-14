@@ -101,7 +101,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         if (!centre)
           return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
 
-        const { nom, municipi, comarca, estudis: estudisCentre, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
+        const { nom, municipi, comarca, estudis: estudisCentre, cp, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
         const tancaFitxa = () => history.goBack();
         const servei_territorial = poligons.get(sstt);
         const servei_educatiu = poligons.get(se);
@@ -131,8 +131,8 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <div className="adreca">
                   <p>
                     {adreca}<br />
-                    {`${municipi} (${comarca})`}<br />
-                    {tel && <>{`Tel. ${tel}`}</>}
+                    {`${cp} ${municipi} (${comarca})`}<br />
+                    {tel && <>Tel.: <a href={`tel:+34 ${tel}`} rel="nofollow">{tel}</a></>}
                   </p>
                 </div>
                 <div id="info">
