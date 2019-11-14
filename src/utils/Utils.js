@@ -260,3 +260,19 @@ export function checkHashRoute(redirect = true) {
   }
   return false;
 }
+
+
+/**
+ * Combines town names with conty names, taking in account if town name already includes a sub-expression
+ * enclosed by parenthesis 
+ * @param {string} municipi - Town name
+ * @param {string} comarca - County name
+ * @returns {string} - A text literal combining town and county names
+ */
+export function muniComarca(municipi, comarca = '') {
+  municipi = municipi.trim();
+  if (municipi.endsWith(')'))
+    return `${municipi.substr(0, municipi.length - 1)}, ${comarca})`;
+  else
+    return `${municipi} (${comarca})`;
+}

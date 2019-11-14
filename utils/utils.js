@@ -39,7 +39,7 @@ function readCSVFile(file) {
 
 async function readDadesCentres(file) {
   const centres = await readCSVFile(file);
-  return centres
+  const result = centres
     .filter(c => c.tipus !== 'BAIXA')
     .map(c => ({
       id: c.id,
@@ -60,6 +60,15 @@ async function readDadesCentres(file) {
       se: c.se,
       pb: c['public'] === 'TRUE', // Reserved word
     }));
+
+  // Manual corrections
+  const deia = result.find(c => c.id === '08044156');
+  if (deia) {
+    deia.lat = '41.444515';
+    deia.lng = '2.167170';
+  }
+
+  return result;
 }
 
 

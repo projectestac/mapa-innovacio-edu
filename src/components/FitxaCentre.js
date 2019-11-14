@@ -44,7 +44,7 @@ import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
-import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
+import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
@@ -131,7 +131,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <div className="adreca">
                   <p>
                     {adreca}<br />
-                    {`${cp} ${municipi} (${comarca})`}<br />
+                    {`${cp} ${muniComarca(municipi, comarca)}`}<br />
                     {tel && <>Tel.: <a href={`tel:+34 ${tel}`} rel="nofollow">{tel}</a></>}
                   </p>
                 </div>

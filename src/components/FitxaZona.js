@@ -48,7 +48,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
-import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
+import { getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 
 
 function FitxaZona({ history, match: { params: { key } } }) {
@@ -136,7 +136,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                   <div className="adreca">
                     <p>
                       {adreca}<br />
-                      {`${cp} ${municipi} (${comarca})`}<br />
+                      {`${cp} ${muniComarca(municipi, comarca)}`}<br />
                       {tel && <>Tel: <a href={`tel:+34 ${tel}`} rel="nofollow">{tel}</a><br /></>}
                       {fax && <>{`Fax: ${fax}`}<br /></>}
                     </p>

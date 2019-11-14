@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Collect fresh data
-read -p "Download CSV files from origin? (y/n) " -n 1 -r
+read -p "Download CSV files from origin? (y/n) "
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -15,7 +15,7 @@ fi
 echo "INFO: Processing polygons"
 ./conv-poligons.js debug
 
-read -p "Update poligons.json? (y/n) " -n 1 -r
+read -p "Update poligons.json? (y/n) "
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -25,7 +25,7 @@ fi
 echo "INFO: Processing instances and schools"
 ./conv-instancies.js debug
 
-read -p "Update instancies.json and centres.json? (y/n) " -n 1 -r
+read -p "Update instancies.json and centres.json? (y/n) "
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -36,7 +36,7 @@ fi
 echo "INFO: Processing programs"
 ./conv-programes.js debug
 
-read -p "Update programes.json? (y/n) " -n 1 -r
+read -p "Update programes.json? (y/n) "
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
