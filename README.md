@@ -70,35 +70,19 @@ You can choose between two different types of [React Router](https://reacttraini
 
 #### HashRouter
 
-[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) (default) uses the "[hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)" part of URLs to identify the specific contents to be displayed on each page. In order to use this type of router:
-
-- Leave uncommented the first of the two options in `src/App.js`:
-
-```es6
-import { HashRouter as Router } from 'react-router-dom';
-// import { BrowserRouter as Router } from 'react-router-dom';
-``` 
-
-- In `.env`, set `REACT_APP_HASH_TYPE` to one of this values: "slash" (#/), "noslash" (#) or "hashbang" (#!/)
+[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) (default) uses the "[hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)" part of URLs to identify the specific contents to be displayed on each page. In order to use this type of router set `REACT_APP_HASH_TYPE` to one of this values: "slash" (#/), "noslash" (#) or "hashbang" (#!/) in `.env`:
 
 ```bash
+# File .env (or .env.production)
 # hashType param passed to HashRouter
 REACT_APP_HASH_TYPE="hashbang"
 ```
 
 #### BrowserRouter
-[BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) uses the "[pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname)" part of URLs. In order to use this type of router:
-
-- Leave uncommented the second option in `src/App.js`:
-
-```es6
-// import { HashRouter as Router } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-``` 
-
-- In `.env`, set `REACT_APP_HASH_TYPE` to `no-hash`:
+[BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) uses the "[pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname)" part of URLs. In order to use this type of router, set `REACT_APP_HASH_TYPE` to `no-hash` in `.env`:
 
 ```bash
+# File .env (or .env.production)
 # hashType param passed to HashRouter
 REACT_APP_HASH_TYPE="no-hash"
 ```
