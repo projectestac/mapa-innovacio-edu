@@ -1,8 +1,9 @@
 ### v1.1.8 (not yet released)
 #### Improvements
 - New query params `?embed` and "`?embedMap`, useful for embedding the app (or just a map) in school portals and project sites.
+- The top bar is now auto-hidden when scrolling down on small screen devices.
 - [Sitemap files](https://en.wikipedia.org/wiki/Sitemaps) are now automatically generated on each build.
-- Allow for two different routing methods: [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter), now in three possible modes (_slash_, _noslash_ and _hashbang_), and [BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter), based on the HTML5 history API, for plain URL paths.
+- Allow for two different routing methods: [HashRouter](https://reacttraining.com/react-router/web/api/HashRouter), now in three possible modes (_slash_, _noslash_ and _hashbang_), and [BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) (_no-hash_), based on the HTML5 history API, for plain URL paths. Default is now _no-hash_.
 - Updated school data and app components
 - Allow direct phone dialing to schools
 - New big schools (_Instituts Escola_) inherit the history of former small schools, when available
