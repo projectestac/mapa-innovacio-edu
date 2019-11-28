@@ -64,8 +64,8 @@ async function readDadesCentres(file) {
   // Manual corrections
   const deia = result.find(c => c.id === '08044156');
   if (deia) {
-    deia.lat = '41.444515';
-    deia.lng = '2.167170';
+    deia.lat = '41.444561';
+    deia.lng = '2.167783';
   }
 
   return result;

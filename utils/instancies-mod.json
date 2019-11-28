@@ -30,5 +30,10 @@
   "17007415": {
     "becomes": "17002818",
     "comment": "Participació com a \"ZER Les Goges\""
+  },
+  "08076443": {
+    "becomes": "08039422",
+    "comment": "",
+    "warning": "Treure l'excepció quan Intitut Escola Rafael Alberti aparegui al dataset oficial"
   }
 }
