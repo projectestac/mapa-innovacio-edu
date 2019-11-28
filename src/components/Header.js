@@ -43,11 +43,26 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
 
-function Header({ history, location }) {
 
+function Header(props) {
+
+  const { history, location } = props;
   const [drawerOpened, setDrawerOpened] = React.useState(false);
   const [searchOpened, setSearchOpened] = React.useState(false);
+
+  function HideOnScroll(props) {
+    const { children, window } = props;
+    const trigger = useScrollTrigger({ target: window ? window() : undefined, threshold: 50 });
+
+    return (
+      <Slide appear={false} direction="down" in={!trigger}>
+        {children}
+      </Slide>
+    );
+  }
 
   return (
     <AppContext.Consumer>
@@ -65,52 +80,54 @@ function Header({ history, location }) {
 
         return (
           <>
-            <AppBar
-              className="header"
-              position="fixed"
-            >
-              <ToolBar
-                disableGutters={true}
+            <HideOnScroll {...props}>
+              <AppBar
+                className="header"
+                position="fixed"
               >
-                {hasDrawer &&
-                  <IconButton
-                    className="main-menu-button"
-                    color="inherit"
-                    aria-label="Seccions"
-                    title="Seccions"
-                    onClick={() => setDrawerOpened(true)}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                }
-                <div className="main-header-block">
-                  <div className="top-bar">
-                    <a className="logo-gencat" href="https://web.gencat.cat/" title="Generalitat de Catalunya" target="_top">gencat.cat</a>
-                    <SearchBar {...{ className: 'search-bar', history, mini: true }} />
-                  </div>
-                  <Typography className="main-title" variant="h6" color="inherit" noWrap>
-                    Mapa de la innovació pedagògica
-                </Typography>
-                  <ul className="nav-bar">
-                    {menuItems.map(item => (
-                      <li key={item.id}>
-                        <div className="nav-label" role="button" current={item.current ? 'true' : 'false'} onClick={itemAction(item)}>{item.name}</div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <IconButton
-                  className="search-btn-small"
-                  color="inherit"
-                  aria-label="Cerca"
-                  title="Cerca"
-                  onClick={() => setSearchOpened(!searchOpened)}
+                <ToolBar
+                  disableGutters={true}
                 >
-                  <SearchIcon />
-                </IconButton>
-              </ToolBar>
-              {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), history }} />}
-            </AppBar>
+                  {hasDrawer &&
+                    <IconButton
+                      className="main-menu-button"
+                      color="inherit"
+                      aria-label="Seccions"
+                      title="Seccions"
+                      onClick={() => setDrawerOpened(true)}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  }
+                  <div className="main-header-block">
+                    <div className="top-bar">
+                      <a className="logo-gencat" href="https://web.gencat.cat/" title="Generalitat de Catalunya" target="_top">gencat.cat</a>
+                      <SearchBar {...{ className: 'search-bar', history, mini: true }} />
+                    </div>
+                    <Typography className="main-title" variant="h6" color="inherit" noWrap>
+                      Mapa de la innovació pedagògica
+                    </Typography>
+                    <ul className="nav-bar">
+                      {menuItems.map(item => (
+                        <li key={item.id}>
+                          <div className="nav-label" role="button" current={item.current ? 'true' : 'false'} onClick={itemAction(item)}>{item.name}</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <IconButton
+                    className="search-btn-small"
+                    color="inherit"
+                    aria-label="Cerca"
+                    title="Cerca"
+                    onClick={() => setSearchOpened(!searchOpened)}
+                  >
+                    <SearchIcon />
+                  </IconButton>
+                </ToolBar>
+                {searchOpened && <SearchBar {...{ closeFn: () => setSearchOpened(false), history }} />}
+              </AppBar>
+            </HideOnScroll>
             {
               hasDrawer &&
               <Drawer
