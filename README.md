@@ -70,7 +70,7 @@ You can choose between two different types of [React Router](https://reacttraini
 
 #### HashRouter
 
-[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) (default) uses the "[hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)" part of URLs to identify the specific contents to be displayed on each page. In order to use this type of router set `REACT_APP_HASH_TYPE` to one of this values: "slash" (#/), "noslash" (#) or "hashbang" (#!/) in `.env`:
+[HashRouter](https://reacttraining.com/react-router/web/api/HashRouter) uses the "[hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)" part of URLs to identify the specific contents to be displayed on each page. In order to use this type of router set `REACT_APP_HASH_TYPE` to one of this values: "slash" (#/), "noslash" (#) or "hashbang" (#!/) in `.env`:
 
 ```bash
 # File .env (or .env.production)
@@ -79,7 +79,7 @@ REACT_APP_HASH_TYPE="hashbang"
 ```
 
 #### BrowserRouter
-[BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) uses the "[pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname)" part of URLs. In order to use this type of router, set `REACT_APP_HASH_TYPE` to `no-hash` in `.env`:
+[BrowserRouter](https://reacttraining.com/react-router/web/api/BrowserRouter) can also use the "[pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname)" part of URLs. In order to use this type of router, set `REACT_APP_HASH_TYPE` to `no-hash` in `.env`:
 
 ```bash
 # File .env (or .env.production)
@@ -89,7 +89,7 @@ REACT_APP_HASH_TYPE="no-hash"
 
 - Configure your web server to redirect all paths to `index.html`, except those that point to real files or directories.
 
-  - With [Apache HTTP server](https://httpd.apache.org/) you must enable [`mod_rewrite`](https://httpd.apache.org/docs/current/rewrite/) and configure your virtual host. If you have `AllowOverride` enabled, the `.htaccess` file provided in `/public` will be used:
+  - With [Apache HTTP server](https://httpd.apache.org/) you must enable [`mod_rewrite`](https://httpd.apache.org/docs/current/rewrite/) and configure your virtual host. If you have `AllowOverride All` set, the `.htaccess` file provided in `/public` will be used:
 
 ```apache
 Options -MultiViews
@@ -104,9 +104,7 @@ RewriteRule ^ index.html [QSA,L]
 
 ```nginx
 location / {  
-  if (!-e $request_filename){
-    rewrite ^(.*)$ /index.html break;
-  }
+  try_files $uri $uri/ /index.html;
 }
 ```
 
