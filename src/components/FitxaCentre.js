@@ -43,7 +43,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
+import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';

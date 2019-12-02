@@ -46,7 +46,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
+import DownloadIcon from 'mdi-material-ui/FileDownload';
 import Error from './Error';
 import MapSection from './MapSection';
 import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';

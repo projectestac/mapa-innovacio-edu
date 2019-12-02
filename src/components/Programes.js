@@ -44,7 +44,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
+import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { cursCurt, csvExportToFile } from '../utils/Utils';
 
 

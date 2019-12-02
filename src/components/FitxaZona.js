@@ -47,7 +47,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
+import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 
 
