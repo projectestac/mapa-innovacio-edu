@@ -3,16 +3,11 @@
 // Usage: ./conv-poligons.js > ../public/data/poligons.json
 // Debug: ./conv-poligons.js debug
 
-const { sortObjectArrayBy } = require('./utils');
-const { createReadStream } = require('fs');
-const csv = require('csv');
+const { sortObjectArrayBy, readCSVFile, readDadesCentres } = require('./utils');
 const ch = require('chalk');
 
-const centres = require('./centres-total.json');
-// Saltar-se els "centres" que no imparteixen estudis o estan donats de baixa
-const centresValids = centres.filter(c => c.tipus !== 'BAIXA' && c.estudis && c.estudis.length > 0);
-
-const CSV_FILE = 'zones.csv';
+const DADES_CENTRES = 'dades-centres.csv';
+const MAIN_CSV_FILE = 'zones.csv';
 const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 
 // Array of warnings to be displayed at the end
@@ -57,66 +52,54 @@ const COUNT_CENTRES = {
  * @param {string} file - The name of the file to read
  * @returns {Promise} - A Promise resolving with a list of `program` objects
  */
-const readCSV = (file) => {
+async function readMainCSV(file, centresValids) {
+
   const zones = [];
-  return new Promise((resolve, reject) => {
-    createReadStream(`${__dirname}/${file}`, { encoding: 'utf8' }).pipe(csv.parse(
-      {
-        delimiter: ',',
-        columns: true,
-      },
-      (err, data) => {
-        if (err)
-          reject(err);
-        else {
-          data.forEach(reg => {
-            const poligons = JSON.parse(reg.poli);
-            // Calc the bounds of each polygon
-            let bounds = null;
-            poligons.forEach(arr => arr.forEach(([lat, lng]) => {
-              if (!bounds)
-                bounds = [[lat, lng], [lat, lng]];
-              else {
-                bounds[0][0] = Math.min(bounds[0][0], lat);
-                bounds[0][1] = Math.min(bounds[0][1], lng);
-                bounds[1][0] = Math.max(bounds[1][0], lat);
-                bounds[1][1] = Math.max(bounds[1][1], lng);
-              }
-            }));
+  const data = await readCSVFile(file);
 
-            const poligon = {
-              key: reg.codi,
-              tipus: reg.tipus,
-              id: reg.id,
-              st: reg.st,
-              nom: reg.nom,
-              nomcurt: reg.key,
-              adreca: reg.adreça,
-              tel: reg.telèfon,
-              fax: reg.fax,
-              cp: reg.cp,
-              municipi: reg.municipi,
-              comarca: reg.comarca,
-              correu: reg.correu,
-              web: reg.web,
-              logo: reg.logo,
-              pos: [Number(reg.lat), Number(reg.lng)],
-              poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
-              bounds,
-              centres: Object.assign({}, COUNT_CENTRES),
-            };
-
-            zones.push(poligon);
-          });
-
-          resolve(countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom'])));
-        }
+  data.forEach(reg => {
+    const poligons = JSON.parse(reg.poli);
+    // Calc the bounds of each polygon
+    let bounds = null;
+    poligons.forEach(arr => arr.forEach(([lat, lng]) => {
+      if (!bounds)
+        bounds = [[lat, lng], [lat, lng]];
+      else {
+        bounds[0][0] = Math.min(bounds[0][0], lat);
+        bounds[0][1] = Math.min(bounds[0][1], lng);
+        bounds[1][0] = Math.max(bounds[1][0], lat);
+        bounds[1][1] = Math.max(bounds[1][1], lng);
       }
-    ));
-  });
-};
+    }));
 
-const countLevels = zones => {
+    const poligon = {
+      key: reg.codi,
+      tipus: reg.tipus,
+      id: reg.id,
+      st: reg.st,
+      nom: reg.nom,
+      nomcurt: reg.key,
+      adreca: reg.adreça,
+      tel: reg.telèfon,
+      fax: reg.fax,
+      cp: reg.cp,
+      municipi: reg.municipi,
+      comarca: reg.comarca,
+      correu: reg.correu,
+      web: reg.web,
+      logo: reg.logo,
+      pos: [Number(reg.lat), Number(reg.lng)],
+      poligons: poligons.map(arr => arr.map(([lat, lng]) => `${lat}|${lng}`).join(',')),
+      bounds,
+      centres: Object.assign({}, COUNT_CENTRES),
+    };
+    zones.push(poligon);
+  });
+
+  return countLevels(sortObjectArrayBy(zones, ['tipus', 'st', 'nom']), centresValids);
+}
+
+const countLevels = (zones, centresValids) => {
 
   const st = {};
   zones.filter(p => p.tipus === 'ST')
@@ -127,9 +110,7 @@ const countLevels = zones => {
   const sez = {};
   zones.filter(p => p.tipus === 'SEZ')
     .forEach(p => {
-      // Revert when using real codes
-      // sez[p.key] = p;
-      sez[p.nomcurt] = p;
+      sez[p.key] = p;
     });
 
   centresValids.forEach(c => {
@@ -138,7 +119,7 @@ const countLevels = zones => {
     if (!cst && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei territorial`);
 
-    const csez = sez[c.se];    
+    const csez = sez[c.se];
     if (!csez && DEBUG)
       warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El centre ${c.id} ${c.nom} no té indicat el servei educatiu de zona`);
 
@@ -159,22 +140,29 @@ const countLevels = zones => {
   return zones;
 };
 
-// Main process start here
-readCSV(CSV_FILE)
-  .then(zones => {
-    if (DEBUG) {
-      // Display the summary and possible warnings
-      console.log(ch.bold.green(`S'han processat ${centresValids.length} centres`));
-      console.log(ch.bold.green(`\nS'han detectat ${Object.keys(tipus).length} tipus d'estudis:`));
-      Object.keys(tipus).sort().forEach(k => console.log(`${ch.bold.green('-')} ${k}: ${tipus[k]}`));
-      console.log(ch.bold.green(`\nS'han comprovat ${zones.length} polígons:`));
-      zones.forEach(z => console.log(`${ch.bold.green('✔')} ${z.nom}`));
-      warnings.forEach(inc => console.log(inc));
-    }
-    else
-      // Send the resulting JSON to the standard output (usually redirected to '../public/data/programes.json' )
-      console.log(JSON.stringify(zones, 1));
-  })
-  .catch(err => {
-    console.log(ch.bold.red(`ERROR: ${err}`));
-  });
+async function main() {
+
+  const centresValids = await readDadesCentres(DADES_CENTRES);
+  const zones = await readMainCSV(MAIN_CSV_FILE, centresValids);
+
+  if (DEBUG) {
+    // Display the summary and possible warnings
+    console.log(ch.bold.green(`S'han processat ${centresValids.length} centres`));
+    console.log(ch.bold.green(`\nS'han detectat ${Object.keys(tipus).length} tipus d'estudis:`));
+    Object.keys(tipus).sort().forEach(k => console.log(`${ch.bold.green('-')} ${k}: ${tipus[k]}`));
+    console.log(ch.bold.green(`\nS'han comprovat ${zones.length} polígons:`));
+    zones.forEach(z => console.log(`${ch.bold.green('✔')} ${z.nom}`));
+    warnings.forEach(inc => console.log(inc));
+  }
+  else
+    // Send the resulting JSON to the standard output (usually redirected to '../public/data/programes.json' )
+    console.log(JSON.stringify(zones, 1));
+}
+
+
+// Main process starts here
+try {
+  main();
+} catch (err) {
+  console.log(ch.bold.red(`ERROR: ${err}`));
+}

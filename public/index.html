@@ -27,14 +27,16 @@
     content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya">
 
   <!-- import leaflet CSS with images -->
-  <link rel="stylesheet" href="leaflet.css" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/leaflet.css" />
+  <!-- avoid auto-detection of phone numbers -->
+  <meta name="format-detection" content="telephone=no">
 </head>
 
 <body>
   <noscript>
     Per utilitzar aquesta aplicació heu d'activar el JavaScript!
   </noscript>
-  <div id="root"></div>
+  <div id="app-root"></div>
 </body>
 
 </html>

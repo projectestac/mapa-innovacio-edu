@@ -57,7 +57,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ fuseFuncs }) => {
+      {({ fuseFuncs, settings: { HOMEPAGE } }) => {
 
         if (query !== currentQuery) {
           setCurrentQuery(query);
@@ -98,7 +98,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                           onClick={goToElement(tipus, id)}
                         >
                           <ListItemIcon>
-                            {simbol ? <Avatar src={`logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                            {simbol ? <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
                           </ListItemIcon>
                           <ListItemText primary={nom} />
                         </ListItem>

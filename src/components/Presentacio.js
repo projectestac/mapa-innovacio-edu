@@ -33,7 +33,8 @@ import ReactMarkdown from 'react-markdown/with-html';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import MapIcon from '@material-ui/icons/Map';
-import { PWA_BTN_CLASSNAME, PWAIcon, installHandleClick, pwaButtonStyle } from '../utils/WebAppInstall';
+import { PWA_BTN_CLASSNAME, installHandleClick, pwaButtonStyle } from '../utils/WebAppInstall';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import { intro } from '../literals';
 
 const MD_OPTIONS = {
@@ -44,7 +45,8 @@ function Presentacio({ history }) {
 
   return (
     <AppContext.Consumer>
-      {({ data }) => {
+      {({ data: { programes }, settings: { HOMEPAGE } }) => {
+
         return (
           <section className="seccio presenta">
             <Paper className="paper">
@@ -56,7 +58,7 @@ function Presentacio({ history }) {
                   variant="contained"
                   onClick={() => history.push('/programes')}
                 >
-                  <MapIcon className="left-icon" color="secondary" />
+                  <MapIcon className="left-icon" color="primary" />
                   Accés al mapa
                 </Button>
                 <Button
@@ -65,14 +67,14 @@ function Presentacio({ history }) {
                   style={pwaButtonStyle()}
                   onClick={installHandleClick}
                 >
-                  <PWAIcon className="left-icon" color="secondary" />
+                  <CloudDownloadIcon className="left-icon" color="primary" />
                   Instal·la l'aplicació
-                  </Button>
+                </Button>
               </div>
               <div className="hidden">
                 { /* Preload icons in a hidden div */
-                  data.programes && Array.from(data.programes.values()).map((p, n) => (
-                    <img alt="" key={n} src={`logos/${p.simbol}`} />
+                  programes && Array.from(programes.values()).map((p, n) => (
+                    <img alt="" key={n} src={`${HOMEPAGE}/logos/${p.simbol}`} />
                   ))
                 }
               </div>

@@ -42,15 +42,12 @@ import Tab from '@material-ui/core/Tab';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import VideoIcon from 'mdi-material-ui/Youtube';
 
-const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
-const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
 
 function FitxaProjecte({ history, match: { params: { id = '' } } }) {
-
   return (
     <AppContext.Consumer>
-      {({ data, currentPrjTab, updateMap }) => {
-        const { programes, centres } = data;
+      {({ data: { programes, centres }, currentPrjTab, updateMap,
+        settings: { HOMEPAGE, LOGO_BASE, FITXA_PROJ_BASE } }) => {
 
         // Find the specified project
         const [prg, codi, projNum] = id.split('|');
@@ -89,9 +86,9 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
               <Paper className="paper">
                 <Typography variant="h4">Projecte "{titol}"</Typography>
                 <div className="info-proj">
-                  <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
+                  <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${HOMEPAGE}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
-                  <img src={`logos/${simbolProg}`} alt={nomProg} />
+                  <img src={`${HOMEPAGE}/logos/${simbolProg}`} alt={nomProg} />
                   <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
                 </div>
                 <div className="proj-media">

@@ -29,7 +29,7 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -48,17 +48,27 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
 import Cerca from './components/Cerca';
+import EmbedLink from './components/EmbedLink';
 import { webAppInstallInit } from './utils/WebAppInstall';
 
 /**
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
  */
+import { homepage as HOMEPAGE } from '../package.json';
 const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;
 const DEBUG_GLOBAL_VAR = process.env.REACT_APP_DEBUG_GLOBAL_VAR || '';
 const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || 'UA-140680188-1';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'no-hash';
+const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
+const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
+const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
+const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
+
+// Set the appropiate Router, based on HASH_TYPE
+const Router = HASH_TYPE === 'no-hash' ? BrowserRouter : HashRouter;
 
 /**
  * Main Material-UI theme
@@ -103,13 +113,11 @@ webAppInstallInit();
 if (ANALYTICS_UA)
   ReactGA.initialize(ANALYTICS_UA);
 
-
 /**
  * React [Context](https://reactjs.org/docs/context.html) used to pass data through the component tree
  * without having to pass props down manually at every level.
  */
 export const AppContext = React.createContext();
-
 
 /**
  * This is the main React component of the web app
@@ -121,8 +129,13 @@ class App extends Component {
   // See: https://reactjs.org/docs/context.html#classcontexttype
   static contextType = AppContext;
 
+  // Reference to the router object
+  routerRef = React.createRef();
+
   constructor() {
     super();
+
+    const params = new URLSearchParams(window.location.search);
 
     // Main menu entries
     this.menuItems = [
@@ -145,7 +158,7 @@ class App extends Component {
 
     // Set the initial state
     this.state = {
-      
+
       // Mutable attributes
       loading: true,
       dataLoaded: false,
@@ -160,6 +173,11 @@ class App extends Component {
       currentPrjTab: 0,
       dlgOpen: false,
 
+      // Inner references
+      updateMap: this.updateMap.bind(this),
+      fuseFuncs: [],
+      menuItems: this.menuItems,
+
       // Immutable attributes (to be filled in `loadData`)
       data: {
         programes: new Map(),
@@ -171,9 +189,19 @@ class App extends Component {
         ambitsInn: new Map(),
         cursosDisp: [],
       },
-      updateMap: this.updateMap.bind(this),
-      fuseFuncs: [],
-      menuItems: this.menuItems,
+
+      // Immutable settings
+      settings: {
+        HASH_TYPE,
+        HASH,
+        HOMEPAGE,
+        LOGO_BASE,
+        FITXA_BASE,
+        FITXA_PROJ_BASE,
+        APP_BASE: `${window.location.origin}${HOMEPAGE}/${HASH}`,
+        EMBED: params.has('embed') || params.has('embedMap'),
+        EMBED_MAP: params.has('embedMap'),
+      }
     };
 
     // Flag indicating that the first path should be reported to GA
@@ -209,11 +237,11 @@ class App extends Component {
     return Promise.all(
       // Launch all fetch promises in parallel
       [
-        'data/programes.json',
-        'data/instancies.json',
-        'data/centres.json',
-        'data/poligons.json',
-        'data/estudis.json',
+        `${HOMEPAGE}/data/programes.json`,
+        `${HOMEPAGE}/data/instancies.json`,
+        `${HOMEPAGE}/data/centres.json`,
+        `${HOMEPAGE}/data/poligons.json`,
+        `${HOMEPAGE}/data/estudis.json`,
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
           .then(handleFetchErrors)
@@ -258,7 +286,7 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
-        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video }) => {
+        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video, comentari }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
           if (prog && cent) {
@@ -275,6 +303,9 @@ class App extends Component {
               const p = poligons.get(cent.se);
               p.centresInn.add(cent);
               p.programes.add(prog);
+            }
+            if (comentari) {
+              titol = `${titol || ''} ${comentari}`.trim();
             }
             if (titol) {
               const info = {
@@ -378,7 +409,7 @@ class App extends Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        console.error('ERROR: Unable to load or process data', error);
         this.setStateMod({ error: error.toString() });
       });
   }
@@ -413,7 +444,10 @@ class App extends Component {
         window.addEventListener('resize', this.checkTabMode.bind(this));
         // Pseudo-asynchronous checking of map layers
         window.setTimeout(() => {
-          this.checkForLayerUpdate(window.location.hash ? window.location.hash.substr(1) : '/');
+          // TODO: Avoid direct reference to the Router object. Use of `withRouter` instead.
+          const currentPath = this.routerRef.current && this.routerRef.current.history.location.pathname;
+          console.log(`INFO: Current location is: ${currentPath}`);
+          this.checkForLayerUpdate(currentPath);
         }, 0);
       });
   }
@@ -456,6 +490,7 @@ class App extends Component {
 
     // Check if layers should be updated and scroll up
     if (haveNewLocation) {
+      console.log(`INFO: New location: ${props.location.pathname}`)
       this.checkForLayerUpdate(props.location.pathname);
       window.scrollTo(0, 0);
     }
@@ -591,10 +626,10 @@ class App extends Component {
    */
   render() {
 
-    const { error, loading } = this.state;
+    const { error, loading, settings: { EMBED, EMBED_MAP } } = this.state;
 
     return (
-      <Router>
+      <Router basename={HASH_TYPE === 'no-hash' ? HOMEPAGE : ''} hashType={HASH_TYPE} ref={this.routerRef}>
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <AppContext.Provider value={this.state}>
@@ -603,25 +638,28 @@ class App extends Component {
                   <title>Mapa de la innovació pedagògica de Catalunya</title>
                   <meta name="description" content="Projectes d'innovació educativa certificats pel Departament d'Educació de la Generalitat de Catalunya" />
                 </Helmet>
-                <Header />
-                <div className="filler" />
-                <main>
-                  {
-                    (loading && <Loading />) ||
-                    (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
-                    <Switch>
-                      <Route exact path="/" component={Presentacio} />
-                      <Route path="/programes" component={Programes} />
-                      <Route path="/centre/:codi" component={FitxaCentre} />
-                      <Route path="/programa/:id" component={FitxaPrograma} />
-                      <Route path="/projecte/:id" component={FitxaProjecte} />
-                      <Route path="/zona/:key" component={FitxaZona} />
-                      <Route path="/cerca/:query" component={Cerca} />
-                      <Redirect to="/" />
-                    </Switch>
-                  }
-                </main>
-                <Footer />
+                <div id="root" className={EMBED ? 'embed' : ''} >
+                  {!EMBED && <Header />}
+                  {!EMBED && <div className="filler" />}
+                  <main className={`${EMBED ? 'embed' : ''} ${EMBED_MAP ? 'single-column' : ''}`.trim()}>
+                    {
+                      (loading && <Loading />) ||
+                      (error && <Error {...{ error, refetch: this.loadData.bind(this) }} />) ||
+                      <Switch>
+                        <Route exact path="/" component={Presentacio} />
+                        <Route path="/programes" component={Programes} />
+                        <Route path="/centre/:codi" component={FitxaCentre} />
+                        <Route path="/programa/:id" component={FitxaPrograma} />
+                        <Route path="/projecte/:id" component={FitxaProjecte} />
+                        <Route path="/zona/:key" component={FitxaZona} />
+                        <Route path="/cerca/:query" component={Cerca} />
+                        <Redirect to="/" />
+                      </Switch>
+                    }
+                  </main>
+                  {EMBED && !loading && <EmbedLink />}
+                  {!EMBED && <Footer />}
+                </div>
               </CheckRouteChanges>
             </AppContext.Provider>
           </CssBaseline>

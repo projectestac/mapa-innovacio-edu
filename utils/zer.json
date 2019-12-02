@@ -4,6 +4,9 @@
     "codi": "08056729",
     "nom": "ZER El Moianès Ponent",
     "localitat": "Calders",
+    "web": "https://agora.xtec.cat/zermoianes",
+    "logo": "08056729.png",
+    "mail": "a8056729@xtec.cat",
     "centres": [
       {
         "codi": "08015107",
@@ -32,6 +35,9 @@
     "codi": "08056742",
     "nom": "ZER Alt Lluçanès",
     "localitat": "Sant Boi de Lluçanès",
+    "web": "https://agora.xtec.cat/zer-altllucanes",
+    "logo": "08056742.png",
+    "mail": "a8056742@xtec.cat",
     "centres": [
       {
         "codi": "08000086",
@@ -60,6 +66,9 @@
     "codi": "08056766",
     "nom": "ZER Subirats",
     "localitat": "Subirats",
+    "web": "https://agora.xtec.cat/zer-subirats-altpenedes",
+    "logo": "08056766.png",
+    "mail": "a8056766@xtec.cat",
     "centres": [
       {
         "codi": "08029143",
@@ -78,6 +87,9 @@
     "codi": "08056781",
     "nom": "ZER Serra d'Ancosa",
     "localitat": "Cabrera d'Anoia",
+    "web": "",
+    "logo": "",
+    "mail": "a8056781@xtec.cat",
     "centres": [
       {
         "codi": "08014841",
@@ -96,6 +108,9 @@
     "codi": "08056791",
     "nom": "ZER Vent d'Avall",
     "localitat": "Castellfollit de Riubregós",
+    "web": "https://zerventdavall.wordpress.com",
+    "logo": "08056791.png",
+    "mail": "a8056791@xtec.cat",
     "centres": [
       {
         "codi": "08016082",
@@ -124,6 +139,9 @@
     "codi": "08056811",
     "nom": "ZER Alt Berguedà",
     "localitat": "Vallcebre",
+    "web": "http://zeraltbergueda.blogspot.com",
+    "logo": "08056811.png",
+    "mail": "a8056811@xtec.cat",
     "centres": [
       {
         "codi": "08018017",
@@ -147,6 +165,9 @@
     "codi": "08056833",
     "nom": "ZER Baix Montseny",
     "localitat": "Santa Maria de Palautordera",
+    "web": "https://agora.xtec.cat/zer-baixmontseny",
+    "logo": "",
+    "mail": "a8056833@xtec.cat",
     "centres": [
       {
         "codi": "08015259",
@@ -170,6 +191,9 @@
     "codi": "08056857",
     "nom": "ZER Gavarresa",
     "localitat": "Sant Feliu Sasserra",
+    "web": "https://agora.xtec.cat/zergavarresa",
+    "logo": "08056857.png",
+    "mail": "a8056857@xtec.cat",
     "centres": [
       {
         "codi": "08022549",
@@ -188,6 +212,9 @@
     "codi": "08057281",
     "nom": "ZER Cep de Sis",
     "localitat": "Santa Fe del Penedès",
+    "web": "",
+    "logo": "",
+    "mail": "a8057281@xtec.cat",
     "centres": [
       {
         "codi": "08023359",
@@ -206,6 +233,9 @@
     "codi": "08058076",
     "nom": "ZER Els Castells",
     "localitat": "Vidrà",
+    "web": "https://agora.xtec.cat/zerelscastells",
+    "logo": "08058076.png",
+    "mail": "a8058076@xtec.cat",
     "centres": [
       {
         "codi": "08021961",
@@ -229,6 +259,9 @@
     "codi": "08058088",
     "nom": "ZER Berguedà Centre",
     "localitat": "Vilada",
+    "web": "",
+    "logo": "",
+    "mail": "a8058088@xtec.cat",
     "centres": [
       {
         "codi": "08014796",
@@ -247,6 +280,9 @@
     "codi": "08058091",
     "nom": "ZER Baix Berguedà",
     "localitat": "Olvan",
+    "web": "",
+    "logo": "",
+    "mail": "a8058091@xtec.cat",
     "centres": [
       {
         "codi": "08021983",
@@ -265,6 +301,9 @@
     "codi": "08058817",
     "nom": "ZER Tres Branques",
     "localitat": "Carme",
+    "web": "https://agora.xtec.cat/zer-tresbranques",
+    "logo": "08058817.png",
+    "mail": "a8058817@xtec.cat",
     "centres": [
       {
         "codi": "08016069",
@@ -288,6 +327,9 @@
     "codi": "08059287",
     "nom": "ZER Guilleries",
     "localitat": "Viladrau",
+    "web": "https://agora.xtec.cat/zerguilleries",
+    "logo": "08059287.png",
+    "mail": "a8059287@xtec.cat",
     "centres": [
       {
         "codi": "08029283",
@@ -306,6 +348,9 @@
     "codi": "08068197",
     "nom": "ZER El Cardener",
     "localitat": "Sant Mateu de Bages",
+    "web": "https://agora.xtec.cat/zerelcardener",
+    "logo": "",
+    "mail": "a8068197@xtec.cat",
     "centres": [
       {
         "codi": "08015612",
@@ -324,6 +369,9 @@
     "codi": "08071421",
     "nom": "ZER El Moianès Llevant",
     "localitat": "L'Estany",
+    "web": "https://agora.xtec.cat/zermoianesllevant",
+    "logo": "08071421.png",
+    "mail": "a8071421@xtec.cat",
     "centres": [
       {
         "codi": "08015831",
@@ -352,6 +400,9 @@
     "codi": "17007427",
     "nom": "ZER Tramuntana",
     "localitat": "Vilamacolum",
+    "web": "",
+    "logo": "17007427.png",
+    "mail": "b7007427@xtec.cat",
     "centres": [
       {
         "codi": "17004049",
@@ -375,6 +426,9 @@
     "codi": "17007439",
     "nom": "ZER Cerdanya",
     "localitat": "Ger",
+    "web": "https://agora.xtec.cat/zerlacerdanya",
+    "logo": "17007439.png",
+    "mail": "b7007439@xtec.cat",
     "centres": [
       {
         "codi": "17001395",
@@ -398,6 +452,9 @@
     "codi": "17007440",
     "nom": "ZER Vall de Ter",
     "localitat": "Sant Pau de Segúries",
+    "web": "https://agora.xtec.cat/zer-la-vall-del-ter",
+    "logo": "17007440.png",
+    "mail": "b7007440@xtec.cat",
     "centres": [
       {
         "codi": "17002065",
@@ -426,6 +483,9 @@
     "codi": "17007452",
     "nom": "ZER El Llierca",
     "localitat": "Sant Jaume de Llierca",
+    "web": "https://agora.xtec.cat/zerelllierca",
+    "logo": "17007452.png",
+    "mail": "b7007452@xtec.cat",
     "centres": [
       {
         "codi": "17002247",
@@ -449,6 +509,9 @@
     "codi": "17007464",
     "nom": "ZER Comte Arnau",
     "localitat": "Vallfogona de Ripollès",
+    "web": "",
+    "logo": "",
+    "mail": "b7007464@xtec.cat",
     "centres": [
       {
         "codi": "17002764",
@@ -467,6 +530,9 @@
     "codi": "17007488",
     "nom": "ZER Requesens",
     "localitat": "Capmany",
+    "web": "https://agora.xtec.cat/zer-requesens",
+    "logo": "",
+    "mail": "b7007488@xtec.cat",
     "centres": [
       {
         "codi": "17000822",
@@ -495,6 +561,9 @@
     "codi": "17007518",
     "nom": "ZER Les Salines",
     "localitat": "Agullana",
+    "web": "https://agora.xtec.cat/zer-les-salines",
+    "logo": "17007518.png",
+    "mail": "b7007518@xtec.cat",
     "centres": [
       {
         "codi": "17000019",
@@ -523,6 +592,9 @@
     "codi": "17007531",
     "nom": "ZER Montgrí",
     "localitat": "Albons",
+    "web": "https://agora.xtec.cat/zermontgri",
+    "logo": "17007531.png",
+    "mail": "b7007531@xtec.cat",
     "centres": [
       {
         "codi": "17000056",
@@ -546,6 +618,9 @@
     "codi": "17007695",
     "nom": "ZER Empordà",
     "localitat": "Santa Llogaia d'Àlguema",
+    "web": "",
+    "logo": "",
+    "mail": "b7007695@xtec.cat",
     "centres": [
       {
         "codi": "17000937",
@@ -574,6 +649,9 @@
     "codi": "17009473",
     "nom": "ZER Empordanet-Gavarres",
     "localitat": "Cruïlles, Monells i Sant Sadurní l'Heura",
+    "web": "https://agora.xtec.cat/zeremga",
+    "logo": "17009473.png",
+    "mail": "b7009473@xtec.cat",
     "centres": [
       {
         "codi": "17001024",
@@ -602,6 +680,9 @@
     "codi": "17009631",
     "nom": "ZER Cap de Creus",
     "localitat": "El Port de la Selva",
+    "web": "https://agora.xtec.cat/zer-capdecreus",
+    "logo": "17009631.png",
+    "mail": "b7009631@xtec.cat",
     "centres": [
       {
         "codi": "17000950",
@@ -620,6 +701,9 @@
     "codi": "25007761",
     "nom": "ZER Guicivervi",
     "localitat": "Ciutadilla",
+    "web": "https://agora.xtec.cat/zerguicivervi",
+    "logo": "25007761.png",
+    "mail": "c5007761@xtec.cat",
     "centres": [
       {
         "codi": "25001357",
@@ -648,6 +732,9 @@
     "codi": "25007773",
     "nom": "ZER La Segarra",
     "localitat": "Els Plans de Sió",
+    "web": "https://agora.xtec.cat/zerlasegarra",
+    "logo": "25007773.png",
+    "mail": "c5007773@xtec.cat",
     "centres": [
       {
         "codi": "25003500",
@@ -671,6 +758,9 @@
     "codi": "25007797",
     "nom": "ZER Baridà-Batllia",
     "localitat": "Montellà i Martinet",
+    "web": "https://agora.xtec.cat/zerbarida-batllia",
+    "logo": "25007797.png",
+    "mail": "c5007797@xtec.cat",
     "centres": [
       {
         "codi": "25003056",
@@ -699,6 +789,9 @@
     "codi": "25007803",
     "nom": "ZER Alt Pallars Sobirà",
     "localitat": "Vall de Cardós",
+    "web": "https://agora.xtec.cat/zeraltpallarssobira",
+    "logo": "25007803.png",
+    "mail": "c5007803@xtec.cat",
     "centres": [
       {
         "codi": "25000316",
@@ -732,6 +825,9 @@
     "codi": "25007815",
     "nom": "ZER Elaia",
     "localitat": "Bellaguarda",
+    "web": "https://agora.xtec.cat/zerelaia",
+    "logo": "25007815.png",
+    "mail": "c5007815@xtec.cat",
     "centres": [
       {
         "codi": "25001126",
@@ -755,6 +851,9 @@
     "codi": "25007827",
     "nom": "ZER Narieda",
     "localitat": "Organyà",
+    "web": "https://agora.xtec.cat/zernarieda",
+    "logo": "25007827.png",
+    "mail": "c5007827@xtec.cat",
     "centres": [
       {
         "codi": "25001400",
@@ -778,6 +877,9 @@
     "codi": "25007839",
     "nom": "ZER Pallars Jussà",
     "localitat": "Abella de la Conca",
+    "web": "https://agora.xtec.cat/zerpallarsjussa",
+    "logo": "25007839.png",
+    "mail": "c5007839@xtec.cat",
     "centres": [
       {
         "codi": "25001886",
@@ -801,6 +903,9 @@
     "codi": "25007840",
     "nom": "ZER Montsec",
     "localitat": "Les Avellanes i Santa Linya",
+    "web": "https://agora.xtec.cat/zer-montsec",
+    "logo": "25007840.png",
+    "mail": "c5007840@xtec.cat",
     "centres": [
       {
         "codi": "25000031",
@@ -834,6 +939,9 @@
     "codi": "25007852",
     "nom": "ZER El Sió",
     "localitat": "Montgai",
+    "web": "https://agora.xtec.cat/zerelsio",
+    "logo": "25007852.png",
+    "mail": "c5007852@xtec.cat",
     "centres": [
       {
         "codi": "25003238",
@@ -862,6 +970,9 @@
     "codi": "25007864",
     "nom": "ZER Urgellet",
     "localitat": "Ribera d'Urgellet",
+    "web": "https://agora.xtec.cat/zer-urgellet",
+    "logo": "",
+    "mail": "c5007864@xtec.cat",
     "centres": [
       {
         "codi": "25000122",
@@ -890,6 +1001,9 @@
     "codi": "25007876",
     "nom": "ZER Riu Corb",
     "localitat": "Maldà",
+    "web": "https://agora.xtec.cat/zerriucorb",
+    "logo": "25007876.png",
+    "mail": "c5007876@xtec.cat",
     "centres": [
       {
         "codi": "25000951",
@@ -923,6 +1037,9 @@
     "codi": "25007888",
     "nom": "ZER Garrigues Altes",
     "localitat": "Juncosa",
+    "web": "https://agora.xtec.cat/zergarriguesaltes",
+    "logo": "25007888.png",
+    "mail": "c5007888@xtec.cat",
     "centres": [
       {
         "codi": "25001916",
@@ -941,6 +1058,9 @@
     "codi": "25007891",
     "nom": "ZER Alta Ribagorça",
     "localitat": "La Vall de Boí",
+    "web": "https://agora.xtec.cat/zeralta",
+    "logo": "25007891.png",
+    "mail": "c5007891@xtec.cat",
     "centres": [
       {
         "codi": "25004981",
@@ -964,6 +1084,9 @@
     "codi": "25007906",
     "nom": "ZER Serra Llarga",
     "localitat": "Algerri",
+    "web": "https://agora.xtec.cat/zerserrallarga",
+    "logo": "25007906.png",
+    "mail": "c5007906@xtec.cat",
     "centres": [
       {
         "codi": "25000286",
@@ -987,6 +1110,9 @@
     "codi": "25007918",
     "nom": "ZER L'Oliver",
     "localitat": "Llardecans",
+    "web": "https://agora.xtec.cat/zeroliver",
+    "logo": "25007918.png",
+    "mail": "c5007918@xtec.cat",
     "centres": [
       {
         "codi": "25001722",
@@ -1015,6 +1141,9 @@
     "codi": "25007921",
     "nom": "ZER L'Horta de Lleida",
     "localitat": "Lleida",
+    "web": "https://agora.xtec.cat/zer-horta-lleida",
+    "logo": "25007921.png",
+    "mail": "c5007921@xtec.cat",
     "centres": [
       {
         "codi": "25000110",
@@ -1043,6 +1172,9 @@
     "codi": "25007931",
     "nom": "ZER Val d'Aran",
     "localitat": "Naut Aran",
+    "web": "https://agora.xtec.cat/zervaldaran",
+    "logo": "25007931.png",
+    "mail": "c5007931@xtec.cat",
     "centres": [
       {
         "codi": "25000535",
@@ -1071,6 +1203,9 @@
     "codi": "25007943",
     "nom": "ZER Plaurcén",
     "localitat": "Bellvís",
+    "web": "https://agora.xtec.cat/zer-plaurcen",
+    "logo": "25007943.png",
+    "mail": "c5007943@xtec.cat",
     "centres": [
       {
         "codi": "25003652",
@@ -1089,6 +1224,9 @@
     "codi": "25008042",
     "nom": "ZER Riu Set",
     "localitat": "L'Albi",
+    "web": "https://agora.xtec.cat/zerriuset",
+    "logo": "25008042.png",
+    "mail": "c5008042@xtec.cat",
     "centres": [
       {
         "codi": "25000171",
@@ -1112,6 +1250,9 @@
     "codi": "25008054",
     "nom": "ZER Vall de l'Aranyó",
     "localitat": "Castelldans",
+    "web": "https://agora.xtec.cat/zervallaranyo",
+    "logo": "25008054.png",
+    "mail": "c5008054@xtec.cat",
     "centres": [
       {
         "codi": "25000146",
@@ -1130,6 +1271,9 @@
     "codi": "25008066",
     "nom": "ZER Espernallac",
     "localitat": "Bellmunt d'Urgell",
+    "web": "https://agora.xtec.cat/zerespernallac",
+    "logo": "25008066.png",
+    "mail": "c5008066@xtec.cat",
     "centres": [
       {
         "codi": "25001001",
@@ -1153,6 +1297,9 @@
     "codi": "25008078",
     "nom": "ZER El Romaní",
     "localitat": "Montgai",
+    "web": "https://agora.xtec.cat/zerelromani",
+    "logo": "25008078.png",
+    "mail": "c5008078@xtec.cat",
     "centres": [
       {
         "codi": "25000675",
@@ -1181,6 +1328,9 @@
     "codi": "25008081",
     "nom": "ZER El Jonc",
     "localitat": "Camarasa",
+    "web": "https://agora.xtec.cat/zereljonc",
+    "logo": "25008081.png",
+    "mail": "c5008081@xtec.cat",
     "centres": [
       {
         "codi": "25001229",
@@ -1204,6 +1354,9 @@
     "codi": "25008091",
     "nom": "ZER Vent Serè",
     "localitat": "Vilanova de Bellpuig",
+    "web": "https://agora.xtec.cat/zerventsere",
+    "logo": "25008091.png",
+    "mail": "c5008091@xtec.cat",
     "centres": [
       {
         "codi": "25001266",
@@ -1222,6 +1375,9 @@
     "codi": "25008108",
     "nom": "ZER L'Eral",
     "localitat": "Sarroca de Lleida",
+    "web": "https://agora.xtec.cat/zereral",
+    "logo": "25008108.png",
+    "mail": "c5008108@xtec.cat",
     "centres": [
       {
         "codi": "25000183",
@@ -1255,6 +1411,9 @@
     "codi": "25008111",
     "nom": "ZER La Coma",
     "localitat": "Sudanell",
+    "web": "https://agora.xtec.cat/zerlacoma",
+    "logo": "25008111.png",
+    "mail": "c5008111@xtec.cat",
     "centres": [
       {
         "codi": "25003305",
@@ -1273,6 +1432,9 @@
     "codi": "25008133",
     "nom": "ZER Ponent",
     "localitat": "Lleida",
+    "web": "https://agora.xtec.cat/zerponent",
+    "logo": "25008133.png",
+    "mail": "c5008133@xtec.cat",
     "centres": [
       {
         "codi": "25000481",
@@ -1301,6 +1463,9 @@
     "codi": "25008145",
     "nom": "ZER Alt Segrià",
     "localitat": "Benavent de Segrià",
+    "web": "https://agora.xtec.cat/zeraltsegria",
+    "logo": "25008145.png",
+    "mail": "c5008145@xtec.cat",
     "centres": [
       {
         "codi": "25003792",
@@ -1324,6 +1489,9 @@
     "codi": "25008157",
     "nom": "ZER Riu Ondara",
     "localitat": "Tornabous",
+    "web": "https://agora.xtec.cat/zerriuondara",
+    "logo": "25008157.png",
+    "mail": "c5008157@xtec.cat",
     "centres": [
       {
         "codi": "25000869",
@@ -1342,6 +1510,9 @@
     "codi": "25008224",
     "nom": "ZER Argelaga",
     "localitat": "Corbins",
+    "web": "https://agora.xtec.cat/zerargelaga",
+    "logo": "25008224.png",
+    "mail": "c5008224@xtec.cat",
     "centres": [
       {
         "codi": "25005090",
@@ -1360,6 +1531,9 @@
     "codi": "25008236",
     "nom": "ZER Pedrera",
     "localitat": "Els Omellons",
+    "web": "https://agora.xtec.cat/zer-pedrera",
+    "logo": "25008236.png",
+    "mail": "c5008236@xtec.cat",
     "centres": [
       {
         "codi": "25001473",
@@ -1378,6 +1552,9 @@
     "codi": "25009009",
     "nom": "ZER El Solsonès",
     "localitat": "Llobera",
+    "web": "https://agora.xtec.cat/zer-solsones",
+    "logo": "25009009.png",
+    "mail": "c5009009@xtec.cat",
     "centres": [
       {
         "codi": "25002982",
@@ -1421,6 +1598,9 @@
     "codi": "43009001",
     "nom": "ZER Montsant-Serra de Prades",
     "localitat": "Cornudella de Montsant",
+    "web": "https://agora.xtec.cat/zermsp",
+    "logo": "",
+    "mail": "e3009001@xtec.cat",
     "centres": [
       {
         "codi": "43002053",
@@ -1444,6 +1624,9 @@
     "codi": "43009011",
     "nom": "ZER Riu Avall",
     "localitat": "Tivenys",
+    "web": "https://agora.xtec.cat/zerriuavall",
+    "logo": "",
+    "mail": "e3009011@xtec.cat",
     "centres": [
       {
         "codi": "43003801",
@@ -1462,6 +1645,9 @@
     "codi": "43009023",
     "nom": "ZER L'Aglà",
     "localitat": "La Figuera",
+    "web": "https://agora.xtec.cat/zerlagla",
+    "logo": "",
+    "mail": "e3009023@xtec.cat",
     "centres": [
       {
         "codi": "43001310",
@@ -1485,6 +1671,9 @@
     "codi": "43009035",
     "nom": "ZER Atzavara",
     "localitat": "Vilabella",
+    "web": "https://agora.xtec.cat/zeratzavara",
+    "logo": "",
+    "mail": "e3009035@xtec.cat",
     "centres": [
       {
         "codi": "43000226",
@@ -1513,6 +1702,9 @@
     "codi": "43009047",
     "nom": "ZER Baix Priorat",
     "localitat": "Bellmunt del Priorat",
+    "web": "https://agora.xtec.cat/zerbaixpriorat",
+    "logo": "",
+    "mail": "e3009047@xtec.cat",
     "centres": [
       {
         "codi": "43000512",
@@ -1536,6 +1728,9 @@
     "codi": "43009059",
     "nom": "ZER Baix Camp Nord",
     "localitat": "Vilaplana",
+    "web": "https://agora.xtec.cat/zer-baix-camp-nord",
+    "logo": "",
+    "mail": "e3009059@xtec.cat",
     "centres": [
       {
         "codi": "43000184",
@@ -1554,6 +1749,9 @@
     "codi": "43009072",
     "nom": "ZER Conca de Barberà",
     "localitat": "Rocafort de Queralt",
+    "web": "https://agora.xtec.cat/zerconca",
+    "logo": "43009072.png",
+    "mail": "e3009072@xtec.cat",
     "centres": [
       {
         "codi": "43000470",
@@ -1582,6 +1780,9 @@
     "codi": "43009084",
     "nom": "ZER Montsià",
     "localitat": "Mas de Barberans",
+    "web": "https://agora.xtec.cat/zermontsia",
+    "logo": "",
+    "mail": "e3009084@xtec.cat",
     "centres": [
       {
         "codi": "43001395",
@@ -1615,6 +1816,9 @@
     "codi": "43009096",
     "nom": "ZER Els Ceps",
     "localitat": "Masllorenç",
+    "web": "https://agora.xtec.cat/zerelsceps",
+    "logo": "",
+    "mail": "e3009096@xtec.cat",
     "centres": [
       {
         "codi": "43000615",
@@ -1633,6 +1837,9 @@
     "codi": "43009114",
     "nom": "ZER El Francolí",
     "localitat": "Vallmoll",
+    "web": "https://agora.xtec.cat/zerelfrancoli",
+    "logo": "",
+    "mail": "e3009114@xtec.cat",
     "centres": [
       {
         "codi": "43001462",
@@ -1661,6 +1868,9 @@
     "codi": "43009126",
     "nom": "ZER Baix Camp Sud",
     "localitat": "Botarell",
+    "web": "https://agora.xtec.cat/zerbaixcampsud",
+    "logo": "",
+    "mail": "e3009126@xtec.cat",
     "centres": [
       {
         "codi": "43004888",
@@ -1679,6 +1889,9 @@
     "codi": "43009138",
     "nom": "ZER La Parellada",
     "localitat": "Aiguamúrcia",
+    "web": "",
+    "logo": "",
+    "mail": "e3009138@xtec.cat",
     "centres": [
       {
         "codi": "43000688",
@@ -1702,6 +1915,9 @@
     "codi": "43009141",
     "nom": "ZER Poblet",
     "localitat": "Vimbodí i Poblet",
+    "web": "https://agora.xtec.cat/zerpoblet",
+    "logo": "",
+    "mail": "e3009141@xtec.cat",
     "centres": [
       {
         "codi": "43000603",
@@ -1725,6 +1941,9 @@
     "codi": "43009229",
     "nom": "ZER Ports-Algars",
     "localitat": "Arnes",
+    "web": "https://agora.xtec.cat/zer-ports-algars",
+    "logo": "",
+    "mail": "e3009229@xtec.cat",
     "centres": [
       {
         "codi": "43000421",
@@ -1748,6 +1967,9 @@
     "codi": "43009308",
     "nom": "ZER Mediterrània",
     "localitat": "Alcanar",
+    "web": "",
+    "logo": "",
+    "mail": "e3009308@xtec.cat",
     "centres": [
       {
         "codi": "43005613",
@@ -1771,6 +1993,9 @@
     "codi": "43009311",
     "nom": "ZER Mont Caro",
     "localitat": "Roquetes",
+    "web": "https://agora.xtec.cat/zermontcaro",
+    "logo": "",
+    "mail": "e3009311@xtec.cat",
     "centres": [
       {
         "codi": "43005315",
@@ -1794,6 +2019,9 @@
     "codi": "43009321",
     "nom": "ZER Riu i Serra",
     "localitat": "Benifallet",
+    "web": "https://agora.xtec.cat/zer-riuiserra",
+    "logo": "43009321.png",
+    "mail": "e3009321@xtec.cat",
     "centres": [
       {
         "codi": "43000551",
@@ -1817,6 +2045,9 @@
     "codi": "43009345",
     "nom": "ZER Ribera d'Ebre Nord",
     "localitat": "Garcia",
+    "web": "https://agora.xtec.cat/zerren",
+    "logo": "43009345.png",
+    "mail": "e3009345@xtec.cat",
     "centres": [
       {
         "codi": "43005108",
@@ -1840,6 +2071,9 @@
     "codi": "43009370",
     "nom": "ZER Terra Alta Nord",
     "localitat": "Vilalba dels Arcs",
+    "web": "https://agora.xtec.cat/zerterraaltanord",
+    "logo": "",
+    "mail": "e3009370@xtec.cat",
     "centres": [
       {
         "codi": "43001097",
@@ -1863,6 +2097,9 @@
     "codi": "43009394",
     "nom": "ZER La Font de l'Aiguadí",
     "localitat": "Rasquera",
+    "web": "https://agora.xtec.cat/zer-fontdelaiguadi",
+    "logo": "43009394.png",
+    "mail": "e3009394@xtec.cat",
     "centres": [
       {
         "codi": "43001280",
@@ -1881,6 +2118,9 @@
     "codi": "43009461",
     "nom": "ZER Terra Alta-Centre",
     "localitat": "El Pinell de Brai",
+    "web": "",
+    "logo": "",
+    "mail": "e3009461@xtec.cat",
     "centres": [
       {
         "codi": "43000639",
@@ -1904,6 +2144,9 @@
     "codi": "43009606",
     "nom": "ZER Benissanet-Miravet",
     "localitat": "Benissanet",
+    "web": "https://agora.xtec.cat/zerbenmir",
+    "logo": "",
+    "mail": "e3009606@xtec.cat",
     "centres": [
       {
         "codi": "43000561",
@@ -1922,6 +2165,9 @@
     "codi": "43009618",
     "nom": "ZER Mestral",
     "localitat": "Tortosa",
+    "web": "https://agora.xtec.cat/zermestral",
+    "logo": "43009618.png",
+    "mail": "e3009618@xtec.cat",
     "centres": [
       {
         "codi": "43003987",
@@ -1945,6 +2191,9 @@
     "codi": "43010554",
     "nom": "ZER Les Vinyes",
     "localitat": "Marçà",
+    "web": "https://agora.xtec.cat/zerlesvinyes",
+    "logo": "43010554.png",
+    "mail": "e3010554@xtec.cat",
     "centres": [
       {
         "codi": "43000792",
@@ -1973,6 +2222,9 @@
     "codi": "43011029",
     "nom": "ZER Ebre",
     "localitat": "Riba-roja d'Ebre",
+    "web": "https://agora.xtec.cat/zerebre",
+    "logo": "",
+    "mail": "e3011029@xtec.cat",
     "centres": [
       {
         "codi": "43002661",
@@ -1991,6 +2243,9 @@
     "codi": "43011303",
     "nom": "ZER Montsant",
     "localitat": "Cabacés",
+    "web": "",
+    "logo": "",
+    "mail": "e3011303@xtec.cat",
     "centres": [
       {
         "codi": "43000676",

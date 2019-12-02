@@ -1,43 +1,48 @@
+### Fonts de dades
+
+Les dades originals es troben a:
+`dades-centres.csv`
+https://docs.google.com/spreadsheets/d/e/2PACX-1vT7QVrFcb6c42LesPCMQvrrDoEWBAhZIBQoQTYfVZ6XcUqaJ_Rd7Uj9dtPY5EfGavBNy1P8Lyuj-2WV/pub?gid=1542544478&single=true&output=csv
+
+`utils/programes.csv`
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQltu0ck-HrUcJKN_-5wbsKW84LwnSZn9zIUZoRA4JGtE2fRqEbrdVn6KzjQWtCsja3MMEeNcS5yIAg/pub?gid=0&single=true&output=csv
+
+
+`utils/zones.csv`
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQltu0ck-HrUcJKN_-5wbsKW84LwnSZn9zIUZoRA4JGtE2fRqEbrdVn6KzjQWtCsja3MMEeNcS5yIAg/pub?gid=1406508845&single=true&output=csv
+
+
+`utils/instancies.csv`
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQltu0ck-HrUcJKN_-5wbsKW84LwnSZn9zIUZoRA4JGtE2fRqEbrdVn6KzjQWtCsja3MMEeNcS5yIAg/pub?gid=836258250&single=true&output=csv
+
+
 ### Temes pendents
 
 - Fer que l'aplicació sigui multi-idioma
 
 ### Procés d'actualització de les dades
-Partir del full de càlcul:<br/>
-https://docs.google.com/spreadsheets/d/1nl7Mnwlg6uqaQj-gZ0ajAx7l-zh-VOQh2F_JbMhf314/edit#gid=0
 
-Exportar el primer full a `utils/programes.csv` i executar:
+Actualitzar dades amb:
 
 ```bash
 $ cd utils
-$ ./conv-programes.js debug
-# Si tot éstà OK:
-$ ./conv-programes.js > ../public/data/programes.json
+$ ./update-data.sh
 ```
 
-Exportar el full "Zones" a `utils/zones.csv` i executar:
+Comprovar que no es mostrin errors i respondre 'y' a tot.
 
-```bash
-$ cd utils
-$ ./conv-poligons.js debug
-# Si tot éstà OK:
-$ ./conv-poligons.js > ../public/data/poligons.json
+
+# Configuració amb NGINX
+
+Quan s'utilitza BrowserRouter cal incloure aquesta directiva a `nginx.conf`:
+
+```nginx
+location / {  
+  if (!-e $request_filename){
+    rewrite ^(.*)$ /index.html break;
+  }
+}
 ```
 
-Exportar el full "Instàncies" a `utils/instancies.csv` i executar:
 
-```bash
-$ cd utils
-$ ./conv-instancies.js debug
-# Si tot éstà OK:
-$ ./conv-instancies.js centres > ../public/data/centres.json
-$ ./conv-instancies.js instancies > ../public/data/instancies.json
-```
-
-Generar sitemaps amb:
-
-```bash
-$ cd utils
-$ ./build-sitemap.js
-```
 

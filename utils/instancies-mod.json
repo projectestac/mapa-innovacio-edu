@@ -1,0 +1,39 @@
+{
+  "08002228": {
+    "becomes": "08075669",
+    "comment": "Participació com a \"Escola Bernat de Boïl\""
+  },
+  "08002289": {
+    "becomes": "08075670",
+    "comment": "Participació com a \"Escola Sant Jordi\""
+  },
+  "08021296": {
+    "becomes": "08076145",
+    "comment": "Participació com a \"Escola Tomàs Viñas\""
+  },
+  "08061075": {
+    "becomes": "08075293",
+    "comment": "Participació com a \"Escola Gavà Mar\""
+  },
+  "08074690": {
+    "becomes": null,
+    "comment": "Centre desaparegut"
+  },
+  "25000471": {
+    "becomes": "25005703",
+    "comment": ""
+  },
+  "43000937": {
+    "becomes": "43005820",
+    "comment": ""
+  },
+  "17007415": {
+    "becomes": "17002818",
+    "comment": "Participació com a \"ZER Les Goges\""
+  },
+  "08076443": {
+    "becomes": "08039422",
+    "comment": "",
+    "warning": "Treure l'excepció quan Intitut Escola Rafael Alberti aparegui al dataset oficial"
+  }
+}
