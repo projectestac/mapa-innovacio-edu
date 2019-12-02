@@ -46,6 +46,10 @@ async function readCSV(file) {
     };
 
     const instProg = instancies.filter(ins => ins.programa === programa.id);
+
+    // Ignore programs without participants
+    let valid = instProg.length > 0;
+
     const info = [];
     const allCentresMap = new Map();
     instProg.forEach(ins => {
@@ -82,7 +86,7 @@ async function readCSV(file) {
         warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té definides les etapes objectiu`);
       } else {
         if (instProg.length === 0)
-          warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${ch.italic(programa.nom)}) no té cap centre participant`);
+          warnings.push(`${ch.bold.bgYellowBright.red('ATENCIÓ:')} El programa ${programa.id} (${ch.italic(programa.nom)}) serà exclòs per no tenir cap centre participant`);
         else {
           const warned = [];
           instProg.forEach(ins => {
@@ -105,7 +109,9 @@ async function readCSV(file) {
         }
       }
     }
-    programes.push(programa);
+
+    if (valid)
+      programes.push(programa);
   });
 
   return sortObjectArrayBy(programes, 'nom');
