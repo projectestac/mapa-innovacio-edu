@@ -44,15 +44,33 @@ import SchoolIcon from 'mdi-material-ui/MapMarker';
 
 const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
+/**
+ * Component used to display search results
+ * 
+ * @param {object} param
+ * @param {object} param.history - Current router's `history` component
+ * @param {object} param.match
+ * @param {object} param.match.params
+ * @param {string} [param.match.params.query=''] - The text to query for
+ */
 function Cerca({ history, match: { params: { query = '' } } }) {
 
   // Remove extra spaces
   query = query.trim();
 
+  // Current page
   const [page, setPage] = React.useState(0);
+  
+  // Number of items per page
   const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
+  
+  // Array of query results
   const [queryResults, setQueryResults] = React.useState([]);
+  
+  // Current query
   const [currentQuery, setCurrentQuery] = React.useState('');
+  
+  // Waiting state flag
   const [waiting, setWaiting] = React.useState(false);
 
   return (
@@ -71,6 +89,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
           });
         }
 
+        // Jump to a specific result
         const goToElement = (tipus, id) => ev => {
           history.push(`/${tipus}/${id}`);
         };

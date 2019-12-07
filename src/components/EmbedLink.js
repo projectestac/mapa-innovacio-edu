@@ -33,6 +33,10 @@ import OpenIcon from '@material-ui/icons/OpenInNew';
 
 const APP_BASE_URL = process.env.REACT_APP_BASE_URL || 'https://innovacio.xtec.gencat.cat/';
 
+/**
+ * Special button used in `embed` mode in order to provide an easy way to
+ * go to the app root.
+ */
 function EmbedLink() {
   return (
     <div className="embed-link-container">

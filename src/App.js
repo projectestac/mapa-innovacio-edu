@@ -135,6 +135,7 @@ class App extends Component {
   constructor() {
     super();
 
+    // Get search params from current URL
     const params = new URLSearchParams(window.location.search);
 
     // Main menu entries
@@ -178,7 +179,7 @@ class App extends Component {
       fuseFuncs: [],
       menuItems: this.menuItems,
 
-      // Immutable attributes (to be filled in `loadData`)
+      // Immutable attributes (to be filled by `loadData`)
       data: {
         programes: new Map(),
         centres: new Map(),
@@ -227,7 +228,7 @@ class App extends Component {
   }
 
   /**
-   * Loads the datasets from JSON files and arranges internal variables
+   * Load the datasets from JSON files and makes some arrangements with internal variables
    * @returns {Promise}
    */
   loadData() {
@@ -393,7 +394,7 @@ class App extends Component {
           cursosDisp: _estudis.cursos,
         };
 
-        // Update the main state
+        // Finally, update the main state
         this.setStateMod({
           data,
           dataLoaded: true,
@@ -438,14 +439,14 @@ class App extends Component {
     // Load datasets
     this.loadData()
       .then(() => {
-        // Check if tabs should be used
+        // Check if tabs should be used in main screen
         this.checkTabMode();
-        // Check the tabs mode when window resizes
+        // Recheck the `tabs` mode when window resizes
         window.addEventListener('resize', this.checkTabMode.bind(this));
         // Pseudo-asynchronous checking of map layers
         window.setTimeout(() => {
           // TODO: Avoid direct reference to the Router object. Use of `withRouter` instead.
-          const currentPath = this.routerRef.current && this.routerRef.current.history.location.pathname;
+          const currentPath = this.routerRef.current?.history.location.pathname;
           console.log(`INFO: Current location is: ${currentPath}`);
           this.checkForLayerUpdate(currentPath);
         }, 0);
@@ -501,7 +502,7 @@ class App extends Component {
    * @param {string} pathname - Current path
    */
   checkForLayerUpdate(pathname) {
-    if (/^\/(programes|programa\/|centre\/|zona\/)/.test(pathname)) {
+    if (/^\/(programes|programa\/|centre\/|zona\/)/.test(pathname || '')) {
       const check = /^\/programa\/(.*)$/.exec(pathname);
       const programa = check && check.length === 2 ? check[1] : null;
       this.updateMap({ programa }, true, true);
