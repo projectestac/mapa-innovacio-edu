@@ -152,25 +152,23 @@ For more information about this and other available scripts check the [Create Re
 
 ## Deploying with Docker
 
-You can build your own docker image with:
+You can choose to build your own image from source code, or download a pre-built image from [DockerHub](https://hub.docker.com/r/projectestac).
+
+To build and launch your own docker image on port 8000:
 
 ```bash
+$ cd /path/to/mapa/innovacio
 $ docker build . -t mapa-innovacio
-```
-
-... or just download the pre-built image from the [Docker Hub](https://hub.docker.com/r/projectestac) with:
-
-```bash
-$ docker pull projectestac/mapa-innovacio
-```
-
-Then, launch the docker container with:
-
-```bash
 $ docker run -d -p 8000:80 --name mapa-innovacio mapa-innovacio
 ```
 
-The app will be available on: http://localhost:8000/
+To use the pre-built docker image just launch:
+
+```bash
+$ docker run -d -p 8000:80 --name mapa-innovacio projectestac/mapa-innovacio
+```
+
+In both cases the app will be available at: http://localhost:8000/ (of course, you can choose any other port!)
 
 
 ## License
