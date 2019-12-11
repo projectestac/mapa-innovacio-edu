@@ -1,3 +1,7 @@
+### v1.1.9 (2019-12-11)
+#### Improvements
+- Dockerfile provided for easy deployments on the cloud
+
 ### v1.1.8 (2019-12-02)
 #### Improvements
 - New query params `?embed` and "`?embedMap`, useful for embedding the app (or just a map) in school portals and project sites.

@@ -149,5 +149,29 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 For more information about this and other available scripts check the [Create React App](https://facebook.github.io/create-react-app/) site.
 
+
+## Deploying with Docker
+
+You can build your own docker image with:
+
+```bash
+$ docker build . -t mapa-innovacio
+```
+
+... or just download the pre-built image from the [Docker Hub](https://hub.docker.com/r/projectestac) with:
+
+```bash
+$ docker pull projectestac/mapa-innovacio
+```
+
+Then, launch the docker container with:
+
+```bash
+$ docker run -d -p 8000:80 --name mapa-innovacio mapa-innovacio
+```
+
+The app will be available on: http://localhost:8000/
+
+
 ## License
 "Map of pedagogical innovation in Catalonia" is an open source development made by the Department of Education of the Government of Catalonia, released under the terms of the [European Union Public Licence v. 1.2](https://eupl.eu/1.2/en/).
