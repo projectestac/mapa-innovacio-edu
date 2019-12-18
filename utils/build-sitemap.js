@@ -21,7 +21,7 @@ const zlib = require('zlib');
 const SRC_DIR = (process.argv.length > 2 && path.resolve(process.argv[2])) || path.resolve(__dirname, '../public/data');
 const DEST_DIR = (process.argv.length > 3 && path.resolve(process.argv[3])) || path.resolve(__dirname, '../build');
 const BASE = process.env.REACT_APP_BASE_URL || 'https://innovacio.xtec.gencat.cat/';
-const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'slash';
+const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'no-hash';
 const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 const ROOT = `${BASE}${HASH}`;
 const TEMP_DIR = path.resolve(DEST_DIR, '.tmp');
