@@ -1,3 +1,7 @@
+### v1.2.0 (not yet released)
+#### Bug fixes
+- Corrected an error related to the router mode in sitemaps
+
 ### v1.1.9 (2019-12-11)
 #### Improvements
 - Dockerfile provided for easy deployments on the cloud
