@@ -28,12 +28,17 @@
  */
 
 import React from 'react';
-import { TileLayer } from 'react-leaflet';
+import { TileLayer, WMSTileLayer } from 'react-leaflet';
+import 'proj4leaflet';
+
+const crs25831 = new window['L'].Proj.CRS('EPSG:25831',
+  '+proj=utm +zone=31 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
+  { resolutions: [1100, 550, 275, 100, 50, 25, 10, 5, 2, 1, 0.5, 0.25] });
 
 const LAYERS = {
   // Original OpenStreetMap
   osm: {
-    attribution: '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   },
   // Mapbox.com
@@ -49,14 +54,46 @@ const LAYERS = {
     url: 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png',
     minZoom: 1,
     maxZoom: 19,
-  }
+  },
+  // ICGC Topo
+  ICGCTopo: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: "http://mapcache.icc.cat/map/bases/service?",
+    layers: 'topo',
+    format: 'image/jpeg',
+    continuousWorld: true,
+    crs: crs25831,
+    wms: true,
+  },
+  // ICGC Orto
+  ICGCOrto: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: "http://mapcache.icc.cat/map/bases/service?",
+    layers: 'orto',
+    format: 'image/jpeg',
+    crs: crs25831,
+    continuousWorld: true,
+    wms: true,
+  },
+  // ICGC Topo gris
+  ICGCTopoGris: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: "http://mapcache.icc.cat/map/bases/service?",
+    layers: 'topogris',
+    format: 'image/jpeg',
+    crs: crs25831,
+    continuousWorld: true,
+    wms: true,
+  },
 };
 
 const BUILT_LAYERS = {};
 
-function getTileLayer({ type = 'wikimedia' }) {
+function getTileLayer({ type = 'osm' }) {
   if (!BUILT_LAYERS[type])
-    BUILT_LAYERS[type] = <TileLayer {...LAYERS[type]} />
+    BUILT_LAYERS[type] = LAYERS[type].wms
+      ? <WMSTileLayer {...LAYERS[type]} />
+      : <TileLayer {...LAYERS[type]} />
   return BUILT_LAYERS[type];
 }
 

@@ -3,7 +3,7 @@
 
 if ('function' === typeof importScripts) {
   importScripts(
-    'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js'
+    'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js'
   );
 
   // Catch possible "SKIP_WAITING" events
@@ -52,16 +52,27 @@ if ('function' === typeof importScripts) {
     // workbox.core.clientsClaim();
 
     // injection point for manifest files
-    workbox.precaching.precacheAndRoute([], {});
+    //workbox.precaching.precacheAndRoute([], {});
+    workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
     // custom cache rules
+
+    /* SW 4
+    // was '/index.html',
+    const appShellCacheKey = workbox.precaching.getCacheKeyForURL('./index.html');
     workbox.routing.registerNavigationRoute(
-      // was '/index.html',
-      workbox.precaching.getCacheKeyForURL('./index.html'),
+      appShellCacheKey,
       {
         blacklist: [/^\/_/, /\/[^/]+\.[^/]+$/],
       }
     );
+    */
+
+    const handler = workbox.precaching.createHandlerBoundToURL('./index.html');
+    const navigationRoute = new workbox.routing.NavigationRoute(handler, {
+      denylist: [/^\/_/, /\/[^/]+\.[^/]+$/],
+    });
+    workbox.routing.registerRoute(navigationRoute);
 
     // Cache for school logos
     workbox.routing.registerRoute(
@@ -69,7 +80,7 @@ if ('function' === typeof importScripts) {
       new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'school-logos',
         plugins: [
-          new workbox.expiration.Plugin({
+          new workbox.expiration.ExpirationPlugin({
             maxEntries: 100,
             maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
             purgeOnQuotaError: true,
@@ -80,14 +91,14 @@ if ('function' === typeof importScripts) {
 
     // Cache for map tiles
     workbox.routing.registerRoute(
-      /^https:\/\/(?:maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|[a-z]+\.tile\.openstreetmap\.org)\//,
+      /^https?:\/\/(?:maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|[a-z]+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
       new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'maps',
         plugins: [
-          new workbox.cacheableResponse.Plugin({
+          new workbox.cacheableResponse.CacheableResponsePlugin({
             statuses: [0, 200],
           }),
-          new workbox.expiration.Plugin({
+          new workbox.expiration.ExpirationPlugin({
             maxEntries: 500,
             maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
             purgeOnQuotaError: true,
@@ -110,10 +121,10 @@ if ('function' === typeof importScripts) {
       new workbox.strategies.CacheFirst({
         cacheName: 'google-fonts-webfonts',
         plugins: [
-          new workbox.cacheableResponse.Plugin({
+          new workbox.cacheableResponse.CacheableResponsePlugin({
             statuses: [0, 200],
           }),
-          new workbox.expiration.Plugin({
+          new workbox.expiration.ExpirationPlugin({
             maxAgeSeconds: 60 * 60 * 24 * 365, // One year
             maxEntries: 30,
           }),
@@ -127,7 +138,7 @@ if ('function' === typeof importScripts) {
       new workbox.strategies.CacheFirst({
         cacheName: 'image-cache',
         plugins: [
-          new workbox.expiration.Plugin({
+          new workbox.expiration.ExpirationPlugin({
             maxEntries: 100,
             maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days            
           }),
