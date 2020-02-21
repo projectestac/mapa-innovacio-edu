@@ -31,6 +31,8 @@ import React from 'react';
 import { TileLayer, WMSTileLayer } from 'react-leaflet';
 import 'proj4leaflet';
 
+const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'cartoDB';
+
 const LAYERS = {
   // Original OpenStreetMap
   osm: {
@@ -90,7 +92,7 @@ const LAYERS = {
 
 const BUILT_LAYERS = {};
 
-function getTileLayer({ type = 'cartoDB' }) {
+function getTileLayer({ type = TILE_LAYER }) {
   if (!BUILT_LAYERS[type]) {
     if (LAYERS[type].wms) {
       LAYERS[type].crs = new window['L'].Proj.CRS(

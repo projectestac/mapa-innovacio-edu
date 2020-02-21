@@ -37,8 +37,6 @@ import MarkerClusterGroup from '../utils/MarkerClusterGroup';
 import FullscreenControl from 'react-leaflet-fullscreen';
 import { sumAll } from '../utils/Utils';
 
-// See ../utils/TileLayer for all available options
-const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'wikimedia';
 const PRESERVE_MAP_BOUNDS = (process.env.REACT_APP_PRESERVE_MAP_BOUNDS || 'true') === 'true';
 
 // Enlarge map bounds to make space for popups
@@ -180,7 +178,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
         onMoveEnd: boundsChanged,
       }}
     >
-      <TileLayer type={TILE_LAYER} />
+      <TileLayer />
       <LayersControl position="topright">
         {polygons.map((p, i) => (
           <LayersControl.BaseLayer name={p.name} key={i} checked={poli !== null ? i === (poli.tipus === 'SEZ' ? 1 : 0) : i === currentLayer}>
