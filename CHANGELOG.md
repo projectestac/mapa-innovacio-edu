@@ -1,7 +1,7 @@
 ### v1.2.0 (not yet released)
 #### Improvements
 - Service worker built with WorkBox V5
-- New tile layer options: ICGC (topo, topo gray and orto)
+- New tile layer options: ICGC (topo, topo gray and orto) and CartoDB
 
 #### Bug fixes
 - Corrected an error related to the router mode in sitemaps

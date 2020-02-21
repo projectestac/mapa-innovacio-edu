@@ -31,10 +31,6 @@ import React from 'react';
 import { TileLayer, WMSTileLayer } from 'react-leaflet';
 import 'proj4leaflet';
 
-const crs25831 = new window['L'].Proj.CRS('EPSG:25831',
-  '+proj=utm +zone=31 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
-  { resolutions: [1100, 550, 275, 100, 50, 25, 10, 5, 2, 1, 0.5, 0.25] });
-
 const LAYERS = {
   // Original OpenStreetMap
   osm: {
@@ -55,6 +51,14 @@ const LAYERS = {
     minZoom: 1,
     maxZoom: 19,
   },
+  // CartoDB
+  cartoDB: {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    subdomains: 'abcd',
+    minZoom: 1,
+    maxZoom: 19,
+  },
   // ICGC Topo
   ICGCTopo: {
     attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
@@ -62,7 +66,6 @@ const LAYERS = {
     layers: 'topo',
     format: 'image/jpeg',
     continuousWorld: true,
-    crs: crs25831,
     wms: true,
   },
   // ICGC Orto
@@ -71,7 +74,6 @@ const LAYERS = {
     url: "http://mapcache.icc.cat/map/bases/service?",
     layers: 'orto',
     format: 'image/jpeg',
-    crs: crs25831,
     continuousWorld: true,
     wms: true,
   },
@@ -81,7 +83,6 @@ const LAYERS = {
     url: "http://mapcache.icc.cat/map/bases/service?",
     layers: 'topogris',
     format: 'image/jpeg',
-    crs: crs25831,
     continuousWorld: true,
     wms: true,
   },
@@ -89,11 +90,19 @@ const LAYERS = {
 
 const BUILT_LAYERS = {};
 
-function getTileLayer({ type = 'osm' }) {
-  if (!BUILT_LAYERS[type])
-    BUILT_LAYERS[type] = LAYERS[type].wms
-      ? <WMSTileLayer {...LAYERS[type]} />
-      : <TileLayer {...LAYERS[type]} />
+function getTileLayer({ type = 'cartoDB' }) {
+  if (!BUILT_LAYERS[type]) {
+    if (LAYERS[type].wms) {
+      LAYERS[type].crs = new window['L'].Proj.CRS(
+        'EPSG:25831',
+        '+proj=utm +zone=31 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
+        { resolutions: [1100, 550, 275, 100, 50, 25, 10, 5, 2, 1, 0.5, 0.25] }
+      );
+      BUILT_LAYERS[type] = <WMSTileLayer {...LAYERS[type]} />;
+    }
+    else
+      BUILT_LAYERS[type] = <TileLayer {...LAYERS[type]} />
+  }
   return BUILT_LAYERS[type];
 }
 

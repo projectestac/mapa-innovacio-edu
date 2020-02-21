@@ -85,7 +85,7 @@ if ('function' === typeof importScripts) {
 
     // Cache for map tiles
     registerRoute(
-      /^https?:\/\/(?:maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|[a-z]+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
+      /^https?:\/\/(?:\w+\.basemaps\.cartocdn\.com|maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|\w+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
       new StaleWhileRevalidate({
         cacheName: 'maps',
         plugins: [
