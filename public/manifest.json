@@ -2,6 +2,7 @@
   "lang": "ca",
   "short_name": "Innovació",
   "name": "Mapa de la Innovació Pedagògica",
+  "description": "L'aplicació situa en el territori i visibilitza totes les iniciatives vinculades a la innovació i a la recerca educativa que es desenvolupa en els centres educatius i que han estat reconegudes pel Departament d’Educació des del 2015, d’acord amb el Marc de la Innovació Pedagògica de Catalunya.",
   "icons": [
     {
       "src": "/ico/icon16.png",
@@ -60,11 +61,12 @@
     },
     {
       "src": "/ico/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
       "src": "/ico/icon.svg",
+      "sizes": "145x145",
       "type": "image/svg+xml"
     }
   ],
