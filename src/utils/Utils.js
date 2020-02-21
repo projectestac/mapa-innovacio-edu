@@ -40,7 +40,7 @@ const HASH_TYPE = process.env.REACT_APP_HASH_TYPE;
  */
 export function loadGFont(fontName = 'Roboto', weights = '300,400,500,600') {
   const link = document.createElement('link');
-  link.href = `https://fonts.googleapis.com/css?family=${fontName}:${weights}`;
+  link.href = `https://fonts.googleapis.com/css?family=${fontName}:${weights}&display=swap`;
   link.rel = 'stylesheet';
 
   document.head.appendChild(link);

@@ -85,6 +85,7 @@ const theme = responsiveFontSizes(
     },
     typography: {
       fontFamily: '"Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif',
+      fontDisplay: 'swap',
     },
     overrides: {
       MuiStepIcon: {
