@@ -39,48 +39,42 @@ if ('function' === typeof importScripts) {
     const debug = url.searchParams.has('debug');
     workbox.setConfig({ debug });
 
+    // Import statements
+    const {
+      core: { setCacheNameDetails, clientsClaim },
+      precaching: { precacheAndRoute, createHandlerBoundToURL },
+      routing: { NavigationRoute, registerRoute },
+      strategies: { StaleWhileRevalidate, CacheFirst },
+      expiration: { ExpirationPlugin },
+      cacheableResponse: { CacheableResponsePlugin },
+    } = workbox;
+
     // Set a specific prefix for this SW, used in cache names
-    workbox.core.setCacheNameDetails({
+    setCacheNameDetails({
       prefix: 'mapa',
     });
 
-    // use Google Analytics also when off-line
-    // DISABLED because of errors when loading "analytics.js"
-    // workbox.googleAnalytics.initialize();
+    // Take control immediatly
+    clientsClaim();
 
-    // Take control immediatly (not needed)
-    // workbox.core.clientsClaim();
-
-    // injection point for manifest files
-    //workbox.precaching.precacheAndRoute([], {});
-    workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
+    // Injection point for manifest files
+    precacheAndRoute(self.__WB_MANIFEST);
 
     // custom cache rules
 
-    /* SW 4
-    // was '/index.html',
-    const appShellCacheKey = workbox.precaching.getCacheKeyForURL('./index.html');
-    workbox.routing.registerNavigationRoute(
-      appShellCacheKey,
-      {
-        blacklist: [/^\/_/, /\/[^/]+\.[^/]+$/],
-      }
-    );
-    */
-
-    const handler = workbox.precaching.createHandlerBoundToURL('./index.html');
-    const navigationRoute = new workbox.routing.NavigationRoute(handler, {
+    const handler = createHandlerBoundToURL('./index.html');
+    const navigationRoute = new NavigationRoute(handler, {
       denylist: [/^\/_/, /\/[^/]+\.[^/]+$/],
     });
-    workbox.routing.registerRoute(navigationRoute);
+    registerRoute(navigationRoute);
 
     // Cache for school logos
-    workbox.routing.registerRoute(
+    registerRoute(
       /^https:\/\/clic\.xtec\.cat\/pub\/logos\//,
-      new workbox.strategies.StaleWhileRevalidate({
+      new StaleWhileRevalidate({
         cacheName: 'school-logos',
         plugins: [
-          new workbox.expiration.ExpirationPlugin({
+          new ExpirationPlugin({
             maxEntries: 100,
             maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
             purgeOnQuotaError: true,
@@ -90,15 +84,15 @@ if ('function' === typeof importScripts) {
     );
 
     // Cache for map tiles
-    workbox.routing.registerRoute(
+    registerRoute(
       /^https?:\/\/(?:maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|[a-z]+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
-      new workbox.strategies.StaleWhileRevalidate({
+      new StaleWhileRevalidate({
         cacheName: 'maps',
         plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
+          new CacheableResponsePlugin({
             statuses: [0, 200],
           }),
-          new workbox.expiration.ExpirationPlugin({
+          new ExpirationPlugin({
             maxEntries: 500,
             maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
             purgeOnQuotaError: true,
@@ -108,23 +102,23 @@ if ('function' === typeof importScripts) {
     );
 
     // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
-    workbox.routing.registerRoute(
+    registerRoute(
       /^https:\/\/fonts\.googleapis\.com/,
-      new workbox.strategies.StaleWhileRevalidate({
+      new StaleWhileRevalidate({
         cacheName: 'google-fonts-stylesheets',
       })
     );
 
     // Cache the underlying font files with a cache-first strategy for 1 year.
-    workbox.routing.registerRoute(
+    registerRoute(
       /^https:\/\/fonts\.gstatic\.com/,
-      new workbox.strategies.CacheFirst({
+      new CacheFirst({
         cacheName: 'google-fonts-webfonts',
         plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
+          new CacheableResponsePlugin({
             statuses: [0, 200],
           }),
-          new workbox.expiration.ExpirationPlugin({
+          new ExpirationPlugin({
             maxAgeSeconds: 60 * 60 * 24 * 365, // One year
             maxEntries: 30,
           }),
@@ -133,12 +127,12 @@ if ('function' === typeof importScripts) {
     );
 
     // Cache for big logos and miscellaneous icons (small logos are always pre-cached)
-    workbox.routing.registerRoute(
+    registerRoute(
       /\/(?:logos|ico)\/[/\w]*\.(?:png|gif|jpg|jpeg|svg)$/,
-      new workbox.strategies.CacheFirst({
+      new CacheFirst({
         cacheName: 'image-cache',
         plugins: [
-          new workbox.expiration.ExpirationPlugin({
+          new ExpirationPlugin({
             maxEntries: 100,
             maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days            
           }),
