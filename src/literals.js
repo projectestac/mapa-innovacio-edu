@@ -31,7 +31,7 @@
 // Textos utilitzats a l'aplicació
 
 export const intro = `
-<img src="logos/portada.png" style="max-width:100%;text-align:center;" alt="Mapa de la innovació pedagògica" />
+<picture><source srcset="logos/portada.webp" type="image/webp"/><source srcset="logos/portada.png" type="image/png"/><img src="logos/portada.png" style="max-width:100%;text-align:center;" alt="Mapa de la innovació pedagògica" /></picture>
 
 És voluntat del Departament d’Educació acompanyar els centres educatius del país en el procés de
 transformació educativa per donar resposta a les necessitats del segle XXI i reconèixer els esforços

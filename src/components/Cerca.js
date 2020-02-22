@@ -41,6 +41,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import TablePagination from "@material-ui/core/TablePagination";
 import ProgramIcon from '@material-ui/icons/Group';
 import SchoolIcon from 'mdi-material-ui/MapMarker';
+import { getOptimalSrc } from '../utils/Utils';
 
 const DEFAULT_ITEMS_PER_PAGE = Number(process.env.REACT_APP_ITEMS_PER_PAGE || 25);
 
@@ -60,16 +61,16 @@ function Cerca({ history, match: { params: { query = '' } } }) {
 
   // Current page
   const [page, setPage] = React.useState(0);
-  
+
   // Number of items per page
   const [itemsPerPage, setItemsPerPage] = React.useState(DEFAULT_ITEMS_PER_PAGE);
-  
+
   // Array of query results
   const [queryResults, setQueryResults] = React.useState([]);
-  
+
   // Current query
   const [currentQuery, setCurrentQuery] = React.useState('');
-  
+
   // Waiting state flag
   const [waiting, setWaiting] = React.useState(false);
 
@@ -117,7 +118,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                           onClick={goToElement(tipus, id)}
                         >
                           <ListItemIcon>
-                            {simbol ? <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                            {simbol ? <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
                           </ListItemIcon>
                           <ListItemText primary={nom} />
                         </ListItem>

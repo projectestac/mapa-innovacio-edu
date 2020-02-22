@@ -1,10 +1,12 @@
 ### v1.2.0 (not yet released)
 #### Improvements
-- Service worker built with WorkBox V5
-- New tile layer options: ICGC (topo, topo gray and orto) and CartoDB
+- Service worker optimized and built with WorkBox V5
+- New tile layer options: CartoDB and ICGC (topo, topo gray and orto)
+- Use of the [WebP](https://developers.google.com/speed/webp) image format with browsers that support it.
 
 #### Bug fixes
 - Corrected an error related to the router mode in sitemaps
+- Resized some big logos
 
 ### v1.1.9 (2019-12-11)
 #### Improvements

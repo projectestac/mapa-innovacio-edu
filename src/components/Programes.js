@@ -45,7 +45,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
-import { cursCurt, csvExportToFile } from '../utils/Utils';
+import { getOptimalSrc, cursCurt, csvExportToFile } from '../utils/Utils';
 
 
 function Programes({ history }) {
@@ -154,7 +154,7 @@ function Programes({ history }) {
                     {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                       <ListItem key={n} button className="list-button">
                         <ListItemAvatar>
-                          <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}

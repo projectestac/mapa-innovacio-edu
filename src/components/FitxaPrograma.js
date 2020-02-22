@@ -49,7 +49,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
 import Error from './Error';
 import MapSection from './MapSection';
-import { getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
+import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
 
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
@@ -174,7 +174,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
               <section className="seccio programa">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {simbol && <img className="seccio-logo" src={`${HOMEPAGE}/logos/${simbol}`} alt={nom} />}
+                    {simbol && <img className="seccio-logo" src={getOptimalSrc(`${HOMEPAGE}/logos/${simbol}`)} alt={nom} />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>

@@ -30,7 +30,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { VideoIframe } from '../utils/Utils';
+import { getOptimalSrc, VideoIframe } from '../utils/Utils';
 import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -86,9 +86,9 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
               <Paper className="paper">
                 <Typography variant="h4">Projecte "{titol}"</Typography>
                 <div className="info-proj">
-                  <img src={logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${HOMEPAGE}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`} alt={nomCentre} />
+                  <img src={getOptimalSrc(logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${HOMEPAGE}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`)} alt={nomCentre} />
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
-                  <img src={`${HOMEPAGE}/logos/${simbolProg}`} alt={nomProg} />
+                  <img src={getOptimalSrc(`${HOMEPAGE}/logos/${simbolProg}`)} alt={nomProg} />
                   <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
                 </div>
                 <div className="proj-media">

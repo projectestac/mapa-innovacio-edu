@@ -40,13 +40,12 @@ buildSW(
   // Included paths
   [
     '*.{html,css,json}',
-    'static/**/*.{js,css,html,png}',
-    'data/*',
+    'static/**/*.{js,css,html}',
+    'data/*.json',
     'ico/favicon.ico',
     'ico/icon144.png',
-    'images/*.{png,jpg,svg}',
-    'logos/mini/*.png',
-    'logos/portada.png',
+    'images/*.{png,jpg,webp,svg}',
+    'logos/portada.{png,webp}',
   ],
   // Ignored paths
   [

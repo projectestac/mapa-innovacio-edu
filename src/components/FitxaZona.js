@@ -48,7 +48,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
-import { getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
+import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 
 
 function FitxaZona({ history, match: { params: { key } } }) {
@@ -126,7 +126,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     {logo &&
                       <img
                         className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`}
-                        src={`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`}
+                        src={getOptimalSrc(`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`)}
                         alt={nom}
                       />}
                     <div className="nom-seccio">
@@ -178,7 +178,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       <ExpansionPanel key={n}>
                         <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
                           <Link className="zona-prog-logo" to={`/programa/${prog.id}`}>
-                            <Avatar src={`${HOMEPAGE}/logos/mini/${prog.simbol}`} alt={prog.nom} />
+                            <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${prog.simbol}`)} alt={prog.nom} />
                           </Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>

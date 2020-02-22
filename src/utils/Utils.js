@@ -34,6 +34,48 @@ import { Parser } from 'json2csv';
 import { homepage as HOMEPAGE } from '../../package.json';
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE;
 
+// Detect if webp format is supported
+// See: https://developers.google.com/speed/webp/faq#how_can_i_detect_browser_support_for_webp
+let webpSupported = false;
+
+// check_webp_feature:
+//   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
+//   'callback(feature, isSupported)' will be passed back the detection result (in an asynchronous way!)
+function check_webp_feature(feature, callback) {
+  var kTestImages = {
+    lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
+    lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
+    alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+    animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+  };
+  var img = new Image();
+  img.onload = function () {
+    var result = (img.width > 0) && (img.height > 0);
+    callback(feature, result);
+  };
+  img.onerror = function () {
+    callback(feature, false);
+  };
+  img.src = "data:image/webp;base64," + kTestImages[feature];
+}
+
+// Perform check, updating `webpSupported`
+check_webp_feature('lossy', function (_feature, isSupported) {
+  webpSupported = isSupported;
+  console.log(`Webp format ${webpSupported ? '' : 'not'} supported!`);
+});
+
+/**
+ * Converts the provided `src` param from .jpg or .png to .webp if WebP is supported and src is not an absolute URL
+ * @param {String} src 
+ */
+export function getOptimalSrc(src) {
+  // Dont't convert unknown file formats or absolute URLs
+  return (!webpSupported || /^https?:\/\//.test(src) || !(/(.png|.jpg)$/.test(src)))
+    ? src
+    : src.replace(/(.png|.jpg)$/, '.webp');
+}
+
 /**
  * Asynchronous loading of Google fonts
  * Based on: https://github.com/zeit/next.js/issues/512#issuecomment-322026199

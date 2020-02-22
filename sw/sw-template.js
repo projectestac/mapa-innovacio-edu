@@ -70,7 +70,7 @@ if ('function' === typeof importScripts) {
 
     // Cache for school logos
     registerRoute(
-      /^https:\/\/clic\.xtec\.cat\/pub\/logos\//,
+      /^https:\/\/(?:clic|serveiseducatius)\.xtec\.cat\//,
       new StaleWhileRevalidate({
         cacheName: 'school-logos',
         plugins: [
@@ -93,7 +93,7 @@ if ('function' === typeof importScripts) {
             statuses: [0, 200],
           }),
           new ExpirationPlugin({
-            maxEntries: 500,
+            maxEntries: 1000,
             maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
             purgeOnQuotaError: true,
           }),
@@ -128,7 +128,7 @@ if ('function' === typeof importScripts) {
 
     // Cache for big logos and miscellaneous icons (small logos are always pre-cached)
     registerRoute(
-      /\/(?:logos|ico)\/[/\w]*\.(?:png|gif|jpg|jpeg|svg)$/,
+      /\/(?:logos|ico)\/[/\w]*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
       new CacheFirst({
         cacheName: 'image-cache',
         plugins: [

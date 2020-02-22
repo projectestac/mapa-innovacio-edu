@@ -36,6 +36,7 @@ import MapIcon from '@material-ui/icons/Map';
 import { PWA_BTN_CLASSNAME, installHandleClick, pwaButtonStyle } from '../utils/WebAppInstall';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import { intro } from '../literals';
+import { getOptimalSrc } from '../utils/Utils';
 
 const MD_OPTIONS = {
   escapeHtml: false,
@@ -74,7 +75,7 @@ function Presentacio({ history }) {
               <div className="hidden">
                 { /* Preload icons in a hidden div */
                   programes && Array.from(programes.values()).map((p, n) => (
-                    <img alt="" key={n} src={`${HOMEPAGE}/logos/${p.simbol}`} />
+                    <img alt="" key={n} src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${p.simbol}`)} />
                   ))
                 }
               </div>

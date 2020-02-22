@@ -44,7 +44,7 @@ import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
-import { plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
+import { getOptimalSrc, plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
@@ -122,7 +122,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
             <section className="seccio centre">
               <Paper className="paper">
                 <div className="logo-nom-seccio">
-                  {logo && <img className="seccio-logo" src={`${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}`} alt={nom} />}
+                  {logo && <img className="seccio-logo" src={getOptimalSrc(`${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}`)} alt={nom} />}
                   <div className="nom-seccio">
                     <Typography variant="h4">{nom}</Typography>
                     <div id="tipus">Centre {pb ? 'públic' : 'privat concertat'}</div>
@@ -193,7 +193,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                     return (
                       <ListItem key={n} button className="no-padding-h-small" component={link ? 'a' : 'div'} href={link}>
                         <ListItemAvatar>
-                          <Avatar src={`${HOMEPAGE}/logos/mini/${simbol}`} alt={nom} />
+                          <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}
