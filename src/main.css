@@ -583,7 +583,7 @@ footer .logo-gencat {
 
 footer .copyright {
   font-size: 0.7rem;
-  color: var(--gencat-gray-text);
+  color: #666;
 }
 
 .copyright a {

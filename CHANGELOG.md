@@ -1,4 +1,4 @@
-### v1.2.0 (not yet released)
+### v1.2.0 (2020-02-24)
 #### Improvements
 - Service worker optimized and built with WorkBox V5
 - New tile layer options: CartoDB and ICGC (topo, topo gray and orto)
@@ -7,6 +7,7 @@
 #### Bug fixes
 - Corrected an error related to the router mode in sitemaps
 - Resized some big logos
+- Corrected an accessibility issue on the footer due to lack of color contrast
 
 ### v1.1.9 (2019-12-11)
 #### Improvements
