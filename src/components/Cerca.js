@@ -85,7 +85,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
           window.requestAnimationFrame(() => {
             // Perform full text search using Fuse.js
             // See `loadData` in App.js for details about how these functions are built
-            setQueryResults(fuseFuncs.reduce((qr, ff) => qr.concat(ff.search(query)), []));
+            setQueryResults(fuseFuncs.reduce((qr, ff) => qr.concat(ff.search(query).map(match => match.item)), []));
             setWaiting(false);
           });
         }

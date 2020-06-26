@@ -349,17 +349,25 @@ class App extends Component {
         // Build the Fuse.js objects
         // See: https://fusejs.io/
         const fuseOptions = {
-          caseSensitive: false,
-          shouldSort: true,
-          tokenize: true,
-          matchAllTokens: true,
+          isCaseSensitive: false,
+          //shouldSort: true,
+          //tokenize: true,
+          //matchAllTokens: true,
           includeScore: false,
           includeMatches: false,
-          threshold: 0.2,
-          location: 0,
-          distance: 4,
-          maxPatternLength: 32,
+          //threshold: 0.2,
           minMatchCharLength: 2,
+          shouldSort: true,
+          findAllMatches: true,
+          location: 0,
+          threshold: 0.2,
+          // Provide a big distance to avoid null matches!
+          distance: 100000,
+          useExtendedSearch: false,
+          tokenize: true,
+          matchAllTokens: true,
+          maxPatternLength: 32,
+          // minMatchCharLength: 2,
         };
 
         const fuseFuncs = [
