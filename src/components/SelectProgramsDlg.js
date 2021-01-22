@@ -64,7 +64,7 @@ function SelectProgramsDlg({ dlgOpen, data: { programes, ambitsCurr, ambitsInn, 
     // TODO: Comptar centres!
   };
 
-  React.useMemo(updateCurrentPrograms, [ambitInn, ambitCurr, nivellsChk]);
+  React.useMemo(updateCurrentPrograms, [ambitInn, ambitCurr, nivellsChk, nivells, programes]);
 
   const listSelection = handle => ev => {
     handle(ev.target.value);

@@ -43,9 +43,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import Error from './Error';
 import MapSection from './MapSection';
 import Typography from '@material-ui/core/Typography';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
@@ -175,15 +175,15 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     const centres = prog.allCentres.filter(c => centresInn.has(c));
                     const numCentres = centres.length;
                     return (
-                      <ExpansionPanel key={n}>
-                        <ExpansionPanelSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
+                      <Accordion key={n}>
+                        <AccordionSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
                           <Link className="zona-prog-logo" to={`/programa/${prog.id}`}>
                             <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${prog.simbol}`)} alt={prog.nom} />
                           </Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails className="small-padding-h">
+                        </AccordionSummary>
+                        <AccordionDetails className="small-padding-h">
                           <List>
                             {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
                               const link = (info && hasExtraInfo(info[prog.id])) ? null : `${HOMEPAGE}/${HASH}centre/${id}`;
@@ -197,8 +197,8 @@ function FitxaZona({ history, match: { params: { key } } }) {
                               );
                             })}
                           </List>
-                        </ExpansionPanelDetails>
-                      </ExpansionPanel>
+                        </AccordionDetails>
+                      </Accordion>
                     )
                   })}
                   <br />

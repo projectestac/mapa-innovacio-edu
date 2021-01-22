@@ -36,9 +36,9 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -68,14 +68,14 @@ const MD_OPTIONS = {
 // Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
   return (
-    <ExpansionPanel className={className}>
-      <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
+    <Accordion className={className}>
+      <AccordionSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />}>
         <Typography variant="h6">{title}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className="small-padding-h">
+      </AccordionSummary>
+      <AccordionDetails className="small-padding-h">
         {content}
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 }
 
@@ -272,13 +272,13 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                   {Object.keys(centres).sort().map((curs, n) => {
                     let hasNc = false;
                     return (
-                      <ExpansionPanel key={n} expanded={expandedPanels[n]}>
-                        <ExpansionPanelSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
+                      <Accordion key={n} expanded={expandedPanels[n]}>
+                        <AccordionSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
                           <Typography className="wider">{`CURS ${curs}`}</Typography>
                           <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
-                        </ExpansionPanelSummary>
+                        </AccordionSummary>
                         {expandedPanels[n] &&
-                          <ExpansionPanelDetails className="small-padding-h flow-v">
+                          <AccordionDetails className="small-padding-h flow-v">
                             <List className="wider">
                               {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
                                 const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
@@ -301,9 +301,9 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                                 <Typography color="secondary" className="padding-one">*: Participació en curs</Typography>
                               </>
                             }
-                          </ExpansionPanelDetails>
+                          </AccordionDetails>
                         }
-                      </ExpansionPanel>
+                      </Accordion>
                     );
                   })}
                   <br />
