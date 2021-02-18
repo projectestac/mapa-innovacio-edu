@@ -71,7 +71,7 @@ async function readMainCSV(file, programes, centresValids) {
       warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un centre inexistent: ${codiCentre}`);
     else if (!prog)
       warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància d'un programa inexistent (${programa}) assignada a "${centre ? centre.nom : zer.nom}" (${codiCentre})`);
-    else if (!estudis.cursos.includes(reg.Curs))
+    else if (!checkCursos(reg.Curs))
       warnings.push(`${ch.bold.bgRed.white('ERROR:')} Instància del programa ${programa} assignada a un curs fora de rang: ${reg.Curs || '???'}`);
     else {
       const instancia = {
@@ -182,6 +182,23 @@ const filterDuplicates = instancies => {
     }
   });
   return instancies;
+}
+
+const checkCursos = courseRange => {
+  if (estudis.cursos.indexOf(courseRange) >= 0)
+    // Single course
+    return true;
+
+  // Multiple courses
+  const iniYear = Number(courseRange.substring(0, 4));
+  const endYear = Number(courseRange.substring(5, 9));
+  if (isNaN(iniYear) || isNaN(endYear) || iniYear < 2015 || endYear <= iniYear)
+    return false;
+  for (let y = iniYear; y < endYear; y++)
+    if (estudis.cursos.indexOf(`${y}-${y + 1}`) < 0)
+      return false;
+      
+  return true;
 }
 
 async function main() {

@@ -156,6 +156,11 @@ class App extends Component {
         name: 'Projectes',
         path: '/programa/1001',
       },
+      {
+        id: 'practiques',
+        name: 'Pràctiques',
+        path: '/programa/2001',
+      },
     ];
 
     // Set the initial state
@@ -270,6 +275,9 @@ class App extends Component {
           p.centresPart = new Set();
         });
 
+        // Read current school courses
+        const cursosDisp = _estudis.cursos;
+
         // Prepare sets for auto-detected data
         const currentPrograms = new Set();
 
@@ -288,55 +296,80 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
-        _instancies.forEach(({ programa, centre, curs, titol, cert, fitxa, video, comentari }) => {
+        _instancies.forEach(({ programa, centre, curs: courseRange, titol, cert, fitxa, video, comentari }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
-          if (prog && cent) {
-            (prog.centres[curs] = prog.centres[curs] || []).push(cent);
-            prog.allCentres.add(cent);
-            (cent.programes[curs] = cent.programes[curs] || []).push(prog);
-            cent.allPrograms.add(prog);
-            if (cent.sstt) {
-              const p = poligons.get(cent.sstt);
-              p.centresInn.add(cent);
-              p.programes.add(prog);
-            }
-            if (cent.se) {
-              const p = poligons.get(cent.se);
-              p.centresInn.add(cent);
-              p.programes.add(prog);
-            }
-            if (comentari) {
-              titol = `${titol || ''} ${comentari}`.trim();
-            }
-            if (titol) {
-              const info = {
-                titol,
-                curs,
-              };
-              if (fitxa)
-                info.fitxa = fitxa;
-              if (video)
-                info.video = video;
 
-              if (!prog.info)
-                prog.info = {};
-              if (!prog.info[cent.id])
-                prog.info[cent.id] = [];
-              prog.info[cent.id].push(info);
-
-              if (!cent.info)
-                cent.info = {};
-              if (!cent.info[prog.id])
-                cent.info[prog.id] = [];
-              cent.info[prog.id].push(info);
-            }
-            if (!cert)
-              cent.notCert.add(`${programa}|${curs}`);
+          // Process a range of courses
+          const courses = [];
+          const k = cursosDisp.indexOf(courseRange);
+          if (k >= 0)
+            courses.push(cursosDisp[k]);
+          else {
+            const iniYear = Number(courseRange.substring(0, 4));
+            const endYear = Number(courseRange.substring(5, 9));
+            let err = isNaN(iniYear) || isNaN(endYear) || iniYear < 2015 || endYear <= iniYear;
+            if (!err)
+              for (let y = iniYear; y < endYear && !err; y++) {
+                const k = cursosDisp.indexOf(`${y}-${y + 1}`);
+                if (k < 0)
+                  err = true;
+                else
+                  courses.push(cursosDisp[k]);
+              }
+            if (err)
+              console.log(`ERROR: Instància amb indicació de cursos incorrecta: ${programa} - ${centre} - ${courseRange}`);
           }
-          else
-            console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${curs}`);
+
+          courses.forEach(curs => {
+            if (prog && cent) {
+              (prog.centres[curs] = prog.centres[curs] || []).push(cent);
+              prog.allCentres.add(cent);
+              (cent.programes[curs] = cent.programes[curs] || []).push(prog);
+              cent.allPrograms.add(prog);
+              if (cent.sstt) {
+                const p = poligons.get(cent.sstt);
+                p.centresInn.add(cent);
+                p.programes.add(prog);
+              }
+              if (cent.se) {
+                const p = poligons.get(cent.se);
+                p.centresInn.add(cent);
+                p.programes.add(prog);
+              }
+              if (comentari) {
+                titol = `${titol || ''} ${comentari}`.trim();
+              }
+              if (titol) {
+                const info = {
+                  titol,
+                  curs,
+                };
+                if (fitxa)
+                  info.fitxa = fitxa;
+                if (video)
+                  info.video = video;
+
+                if (!prog.info)
+                  prog.info = {};
+                if (!prog.info[cent.id])
+                  prog.info[cent.id] = [];
+                prog.info[cent.id].push(info);
+
+                if (!cent.info)
+                  cent.info = {};
+                if (!cent.info[prog.id])
+                  cent.info[prog.id] = [];
+                cent.info[prog.id].push(info);
+              }
+              if (!cert)
+                cent.notCert.add(`${programa}|${curs}`);
+            }
+            else
+              console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${curs}`);
+          });
         });
+
 
         // Summarize and put in order programs and schools
         centres.forEach(c => {
@@ -400,7 +433,7 @@ class App extends Component {
           nivells: new Map(Object.entries(_estudis.nivells)),
           ambitsCurr: new Map(Object.entries(_estudis.ambitsCurr)),
           ambitsInn: new Map(Object.entries(_estudis.ambitsInn)),
-          cursosDisp: _estudis.cursos,
+          cursosDisp,
         };
 
         // Finally, update the main state
@@ -411,7 +444,7 @@ class App extends Component {
             { name: 'Serveis Territorials', shapes: _poligons.filter(p => p.tipus === 'ST') },
             { name: 'Serveis Educatius de Zona', shapes: _poligons.filter(p => p.tipus === 'SEZ') },
           ],
-          cursos: [...data.cursosDisp],
+          cursos: [...cursosDisp],
           fuseFuncs,
           currentPrograms,
           loading: false,
