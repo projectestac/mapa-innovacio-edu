@@ -102,6 +102,17 @@ main.embed {
   }
 }
 
+/* Small text on year labels */
+
+@media (max-width: 440px), (min-width: 840px) and (max-width: 1020px) {
+  main .MuiStepLabel-label {
+    font-size: 0.6rem;
+  }
+  main .MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    margin-top: 8px;
+  }
+}
+
 /* === Search bar === */
 
 .search-bar {
