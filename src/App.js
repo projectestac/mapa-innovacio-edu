@@ -87,7 +87,7 @@ const theme = responsiveFontSizes(
       fontFamily: '"Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif',
       fontDisplay: 'swap',
     },
-    overrides: {
+    overrides: {      
       MuiStepIcon: {
         completed: {
           color: '#c00000 !important',
@@ -276,7 +276,7 @@ class App extends Component {
         });
 
         // Read current school courses
-        const cursosDisp = _estudis.cursos;
+        const { cursos: cursosDisp, cursMin, cursMax } = _estudis;
 
         // Prepare sets for auto-detected data
         const currentPrograms = new Set();
@@ -308,9 +308,9 @@ class App extends Component {
           else {
             const iniYear = Number(courseRange.substring(0, 4));
             const endYear = Number(courseRange.substring(5, 9));
-            let err = isNaN(iniYear) || isNaN(endYear) || iniYear < 2015 || endYear <= iniYear;
+            let err = isNaN(iniYear) || isNaN(endYear) || endYear <= iniYear;
             if (!err)
-              for (let y = iniYear; y < endYear && !err; y++) {
+              for (let y = Math.max(cursMin, iniYear); y < Math.min(cursMax, endYear) && !err; y++) {
                 const k = cursosDisp.indexOf(`${y}-${y + 1}`);
                 if (k < 0)
                   err = true;

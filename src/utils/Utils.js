@@ -157,13 +157,29 @@ export function infoTag(inf) {
  */
 export function getInfoSpan(info, proj, centre) {
 
+  if (info.length > 0) {
+    const infoTags = new Set(info.map(infoTag));
+    const groupedInfos = [];
+    infoTags.forEach(tag => {
+      const tagInfos = info.filter(inf => infoTag(inf) === tag);
+      const years = tagInfos.map(inf => Number(inf.curs.substr(0, 4)));
+      const n = years.length;
+      const consecutive = (years[n - 1] === years[0] + n - 1)
+      const curs = consecutive ? `${years[0]}-${years[0] + n}` : tagInfos.map(inf => inf.curs).join(', ');
+      groupedInfos.push({ ...tagInfos[0], curs });
+    })
+    info = groupedInfos;
+  }
+
   // If all the elements of `info` have the same content, then reduce it at one element
+  /*
   if (info.length > 1 && !info.find((inf, n) => n > 0 && infoTag(inf) !== infoTag(info[n - 1]))) {
     // Same infos!
     const courses = info.map(inf => inf.curs).join(', ');
     info = [Object.assign({}, info[0])];
     info[0].curs = courses;
   }
+  */
 
   return (
     <>

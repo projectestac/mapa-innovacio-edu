@@ -9,7 +9,7 @@ const { sortObjectArrayBy, readCSVFile, readDadesCentres } = require('./utils');
 const ch = require('chalk');
 
 const zers = require('./zer.json');
-const estudis = require('../public/data/estudis.json');
+const { cursos: cursosDisp, cursMin, cursMax } = require('../public/data/estudis.json');
 const logos = require('./logos.json');
 const instanciesMod = require('./instancies-mod.json');
 
@@ -168,7 +168,7 @@ async function readMainCSV(file, programes, centresValids) {
 
 const getDuplicates = instancies =>
   instancies
-    .map(({ centre, programa, curs }) => `${centre}|${programa}|${curs}`)
+    .map(({ centre, programa, curs, titol = '' }) => `${centre}|${programa}|${curs}|${titol}`)
     .sort()
     .filter((ii, n, arr) => ii === arr[n + 1]);
 
@@ -185,19 +185,19 @@ const filterDuplicates = instancies => {
 }
 
 const checkCursos = courseRange => {
-  if (estudis.cursos.indexOf(courseRange) >= 0)
+  if (cursosDisp.indexOf(courseRange) >= 0)
     // Single course
     return true;
 
   // Multiple courses
   const iniYear = Number(courseRange.substring(0, 4));
   const endYear = Number(courseRange.substring(5, 9));
-  if (isNaN(iniYear) || isNaN(endYear) || iniYear < 2015 || endYear <= iniYear)
+  if (isNaN(iniYear) || isNaN(endYear) || endYear <= iniYear)
     return false;
-  for (let y = iniYear; y < endYear; y++)
-    if (estudis.cursos.indexOf(`${y}-${y + 1}`) < 0)
+  for (let y = Math.max(cursMin, iniYear); y < Math.min(cursMax, endYear); y++)
+    if (cursosDisp.indexOf(`${y}-${y + 1}`) < 0)
       return false;
-      
+
   return true;
 }
 

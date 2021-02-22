@@ -1,4 +1,24 @@
 {
+  "08000323": {
+    "becomes": "08076613",
+    "comment": "Participació com a \"Escola Barnola\""
+  },
+  "08000372": {
+    "becomes": "08076455",
+    "comment": "Participació com a \"Escola Sant Jordi\""
+  },
+  "08000414": {
+    "becomes": "08076901",
+    "comment": "Participació com a \"Escola Alexandre Galí\""
+  },
+  "08001534": {
+    "becomes": "08076959",
+    "comment": "Participació com a \"Escola Joan XXIII\""
+  },
+  "08002034": {
+    "becomes": "08076509",
+    "comment": "Participació com a \"Escola Miquel Bleach\""
+  },
   "08002228": {
     "becomes": "08075669",
     "comment": "Participació com a \"Escola Bernat de Boïl\""
@@ -7,33 +27,284 @@
     "becomes": "08075670",
     "comment": "Participació com a \"Escola Sant Jordi\""
   },
+  "08002447": {
+    "becomes": "08072310",
+    "comment": "Participació com a \"Escola Ramón y Cajal\""
+  },
+  "08002678": {
+    "becomes": null,
+    "comment": "Participació com a \"Escola Ausiàs March\""
+  },
+  "08013081": {
+    "becomes": "08077010",
+    "comment": "Participació com a \"Escola Coves d'en Cimany\""
+  },
+  "08013123": {
+    "becomes": "08076391",
+    "comment": "Participació com a \"Institut Joan Boscà\""
+  },
+  "08013172": {
+    "becomes": "08076391",
+    "comment": "Participació com a \"Institut Ausiàs March\""
+  },
+  "08017207": {
+    "becomes": "08076996",
+    "comment": "Participació com a \"Escola Mossèn Cinto\""
+  },
+  "08019368": {
+    "becomes": "08076467",
+    "comment": "Participació com a \"Escola Pere Lliscart\""
+  },
   "08021296": {
     "becomes": "08076145",
     "comment": "Participació com a \"Escola Tomàs Viñas\""
+  },
+  "08021636": {
+    "becomes": "08076561",
+    "comment": "Participació com a \"Escola El Viver\""
+  },
+  "08022321": {
+    "becomes": "08077009",
+    "comment": "Participació com a \"Escola Castell d'Òdena\""
+  },
+  "08022793": {
+    "becomes": "08076960",
+    "comment": "Participació com a \"Escola Renaixença\""
+  },
+  "08023657": {
+    "becomes": "08076492",
+    "comment": "Participació com a \"Escola Pompeu Fabra\""
+  },
+  "08023992": {
+    "becomes": "08077046",
+    "comment": "Participació com a \"Escola Joan Sallarès i Pla\""
+  },
+  "08025770": {
+    "becomes": "08076522",
+    "comment": "Participació com a \"Escola Josep Pallerola i Roca\""
+  },
+  "08025800": {
+    "becomes": "08077034",
+    "comment": "Participació com a \"Escola El Pi Gros\""
+  },
+  "08026521": {
+    "becomes": "08077113",
+    "comment": "Participació com a \"Escola Abat Oliba\""
+  },
+  "08027171": {
+    "becomes": "08076984",
+    "comment": "Participació com a \"Escola Josep Maria Xandri\""
+  },
+  "08027237": {
+    "becomes": "08076479",
+    "comment": "Participació com a \"Escola Antoni Grau Minguell\""
+  },
+  "08027468": {
+    "becomes": "08076480",
+    "comment": "Participació com a \"Escola Pallaresa\""
+  },
+  "08027936": {
+    "becomes": "08076947",
+    "comment": "Participació com a \"Escola Lluís Millet\""
+  },
+  "08028254": {
+    "becomes": "08076546",
+    "comment": "Participació com a \"Escola Can Llobet\""
+  },
+  "08030194": {
+    "becomes": "08076601",
+    "comment": "Participació com a \"Escola Pere Viver i Aymerich\""
+  },
+  "08030224": {
+    "becomes": "08077125",
+    "comment": "Participació com a \"Escola Antoni Ubach i Soler\""
+  },
+  "08030807": {
+    "becomes": "08077022",
+    "comment": "Participació com a \"Escola Els Tres Pins\""
+  },
+  "08032488": {
+    "becomes": "08076935",
+    "comment": "Participació com a \"Escola Puig i Gairalt\""
+  },
+  "08033857": {
+    "becomes": "08076431",
+    "comment": "Participació com a \"Escola Baldomer Solà\""
+  },
+  "08034394": {
+    "becomes": "08076595",
+    "comment": "Participació com a \"Escola Teresa Altet\""
+  },
+  "08034692": {
+    "becomes": "08077058",
+    "comment": "Participació com a \"Escola Catalunya\""
+  },
+  "08034898": {
+    "becomes": "08076558",
+    "comment": "Participació com a \"Escola Sant Esteve\""
+  },
+  "08034953": {
+    "becomes": "08076923",
+    "comment": "Participació com a \"Escola Llibertat\""
+  },
+  "08036998": {
+    "becomes": "08077174",
+    "comment": "Participació com a \"Institut La Vall de Tenes\""
+  },
+  "08037802": {
+    "becomes": "08077101",
+    "comment": "Participació com a \"Escola Les Corts\""
+  },
+  "08039422": {
+    "becomes": "08076443",
+    "comment": "Participació com a \"Escola Rafael Alberti\""
+  },
+  "08054836": {
+    "becomes": "08077061",
+    "comment": "Participació com a \"Escola Onze de Setembre\""
+  },
+  "08056122": {
+    "becomes": "08076972",
+    "comment": "Participació com a \"Escola Les Flandes\""
+  },
+  "08057746": {
+    "becomes": "08076901",
+    "comment": "Participació com a \"Institut Baetulo\""
+  },
+  "08059779": {
+    "becomes": "08076510",
+    "comment": "Participació com a \"Escola Pla de l'Avellà\""
+  },
+  "08059883": {
+    "becomes": "08076571",
+    "comment": "Participació com a \"Escola El Martinet\""
   },
   "08061075": {
     "becomes": "08075293",
     "comment": "Participació com a \"Escola Gavà Mar\""
   },
+  "08062821": {
+    "becomes": "08076534",
+    "comment": "Participació com a \"Escola Montagut\""
+  },
+  "08063746": {
+    "becomes": "08076972",
+    "comment": "Participació com a \"Institut Salvador Claramunt\""
+  },
+  "08064052": {
+    "becomes": "08077071",
+    "comment": "Participació com a \"Escola Mas Rampinyo\""
+  },
+  "08064064": {
+    "becomes": "08073119",
+    "comment": "Participació com a \"Escola Can Periquet\""
+  },
+  "08066051": {
+    "becomes": "08076583",
+    "comment": "Participació com a \"Escola Els Pinetons\""
+  },
+  "08066371": {
+    "becomes": null,
+    "comment": "Participació com a \"Escola El Despujol\""
+  },
+  "08070040": {
+    "becomes": "08076820",
+    "comment": "Participació com a \"Escola Sala i Badrinas\""
+  },
+  "08071317": {
+    "becomes": "08076479",
+    "comment": "Participació com a \"Institut Vall del Mediona\""
+  },
+  "08074483": {
+    "becomes": "08076421",
+    "comment": "Participació com a \"Escola Pepa Colomer\""
+  },
   "08074690": {
     "becomes": null,
-    "comment": "Centre desaparegut"
+    "comment": "Participació com a \"ICARTH Institució Cultural d'Arts i Humanitats\""
   },
-  "25000471": {
-    "becomes": "25005703",
-    "comment": ""
+  "17000627": {
+    "becomes": "17010797",
+    "comment": "Participació com a \"Escola Caritat Serinyana\""
   },
-  "43000937": {
-    "becomes": "43005820",
-    "comment": ""
+  "17002302": {
+    "becomes": "17010827",
+    "comment": "Participació com a \"Escola Llar Lluís Maria Mestres i Martí\""
+  },
+  "17002958": {
+    "becomes": "17010803",
+    "comment": "Participació com a \"Escola Mare de Déu de Núria\""
+  },
+  "17006678": {
+    "becomes": "17010797",
+    "comment": "Participació com a \"Institut Cap de Creus\""
+  },
+  "17006794": {
+    "becomes": "17010803",
+    "comment": "Participació com a \"Institut Joan Triadú\""
   },
   "17007415": {
     "becomes": "17002818",
     "comment": "Participació com a \"ZER Les Goges\""
   },
-  "08076443": {
-    "becomes": "08039422",
-    "comment": "",
-    "warning": "Treure l'excepció quan Intitut Escola Rafael Alberti aparegui al dataset oficial"
+  "17008663": {
+    "becomes": "17010694",
+    "comment": "Participació com a \"Escola El Bruel\""
+  },
+  "17008729": {
+    "becomes": "17010694",
+    "comment": "Participació com a \"Institut Empuriabrava\""
+  },
+  "25000471": {
+    "becomes": "25005703",
+    "comment": "Participació com a \"Terraferma\""
+  },
+  "25004048": {
+    "becomes": "25010358",
+    "comment": "Participació com a \"Escola Vall de Lord\""
+  },
+  "25005491": {
+    "becomes": "25010334",
+    "comment": "Participació com a \"Escola Magraners\""
+  },
+  "25008248": {
+    "becomes": "25010358",
+    "comment": "Participació com a \"Institut de Sant Llorenç de Morunys\""
+  },
+  "43000731": {
+    "becomes": "43013130",
+    "comment": "Participació com a \"Escola Joan Ardèvol\""
+  },
+  "43000937": {
+    "becomes": "43005820",
+    "comment": "Participació com a \"Turó\""
+  },
+  "43000962": {
+    "becomes": "43013087",
+    "comment": "Participació com a \"Escola Dr. Piñol i Aguadé - ZER Montsant-Serra de Prades\""
+  },
+  "43004244": {
+    "becomes": "43013142",
+    "comment": "Participació com a \"Escola El Temple\""
+  },
+  "43004736": {
+    "becomes": "43013129",
+    "comment": "Participació com a \"Escola Els Secallets\""
+  },
+  "43005224": {
+    "becomes": "43013099",
+    "comment": "Participació com a \"Escola Mestre Agustí Barberà\""
+  },
+  "43008699": {
+    "becomes": "43013087",
+    "comment": "Participació com a \"Institut Montsant\""
+  },
+  "43008924": {
+    "becomes": "43013075",
+    "comment": "Participació com a \"Escola Teresina Martorell\""
+  },
+  "43010177": {
+    "becomes": "43013129",
+    "comment": "Participació com a \"Escola Pla de Mar\""
   }
 }

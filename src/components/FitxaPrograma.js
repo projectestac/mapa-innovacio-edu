@@ -280,20 +280,23 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         {expandedPanels[n] &&
                           <AccordionDetails className="small-padding-h flow-v">
                             <List className="wider">
-                              {centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)).map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                                const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
-                                const nc = notCert.has(`${id}|${curs}`);
-                                hasNc = hasNc || nc;
-                                return (
-                                  <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
-                                    <ListItemText
-                                      primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                      secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
-                                    />
-                                  </ListItem>
-                                )
-                              }
-                              )}
+                              {centres[curs]
+                                .sort((a, b) => a.nom.localeCompare(b.nom))
+                                .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id)
+                                .map(({ id: codi, nom, municipi, info, notCert }, c) => {
+                                  const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
+                                  const nc = notCert.has(`${id}|${curs}`);
+                                  hasNc = hasNc || nc;
+                                  return (
+                                    <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
+                                      <ListItemText
+                                        primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
+                                        secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
+                                      />
+                                    </ListItem>
+                                  )
+                                }
+                                )}
                             </List>
                             {hasNc &&
                               <>
