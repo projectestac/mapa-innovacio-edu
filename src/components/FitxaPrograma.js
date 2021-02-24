@@ -33,14 +33,10 @@ import ReactMarkdown from 'react-markdown/with-html';
 import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
@@ -49,11 +45,17 @@ import MailIcon from '@material-ui/icons/Mail';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
 import Error from './Error';
 import MapSection from './MapSection';
-import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile } from '../utils/Utils';
+import LlistaCentres from './LlistaCentres';
+import { getOptimalSrc, csvExportToFile } from '../utils/Utils';
 
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
-  "1001" // "Reconeixement de projectes d'innovació pedagògica"
+  "1001", // "Reconeixement de projectes d'innovació pedagògica"
+  "2001", // "Reconeixement de pràctiques educatives de referència d'innovació pedagògica"
+];
+
+const SINGLE_LIST_PROGS = [
+  "2001", // "Reconeixement de pràctiques educatives de referència d'innovació pedagògica"
 ];
 
 // Maximum number of expected expansion panels (increase it if needed!)
@@ -95,6 +97,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
   const SMALL_SCREEN = window.matchMedia('(max-width: 840px)').matches;
   const [expandedPanels, setExpandedPanels] = React.useState((new Array(MAX_EXPANSION_PANELS)).fill(!SMALL_SCREEN && EXPANDED_PROGS.includes(id), 0, 10));
   const expandPanel = n => _ev => setExpandedPanels(expandedPanels.map((p, i) => (i === n) ? !p : p));
+  const singleList = SINGLE_LIST_PROGS.includes(id);
 
   return (
     <AppContext.Consumer>
@@ -269,9 +272,9 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </div>
                   ))}
                   <br />
-                  {Object.keys(centres).sort().map((curs, n) => {
-                    let hasNc = false;
-                    return (
+                  {singleList
+                    ? <LlistaCentres {...{ id, centres, HOMEPAGE, HASH }} />
+                    : Object.keys(centres).sort().map((curs, n) => (
                       <Accordion key={n} expanded={expandedPanels[n]}>
                         <AccordionSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
                           <Typography className="wider">{`CURS ${curs}`}</Typography>
@@ -279,36 +282,11 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         </AccordionSummary>
                         {expandedPanels[n] &&
                           <AccordionDetails className="small-padding-h flow-v">
-                            <List className="wider">
-                              {centres[curs]
-                                .sort((a, b) => a.nom.localeCompare(b.nom))
-                                .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id)
-                                .map(({ id: codi, nom, municipi, info, notCert }, c) => {
-                                  const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
-                                  const nc = notCert.has(`${id}|${curs}`);
-                                  hasNc = hasNc || nc;
-                                  return (
-                                    <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
-                                      <ListItemText
-                                        primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                                        secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
-                                      />
-                                    </ListItem>
-                                  )
-                                }
-                                )}
-                            </List>
-                            {hasNc &&
-                              <>
-                                <Divider />
-                                <Typography color="secondary" className="padding-one">*: Participació en curs</Typography>
-                              </>
-                            }
+                            <LlistaCentres {...{ id, centres, curs, HOMEPAGE, HASH }} />
                           </AccordionDetails>
                         }
                       </Accordion>
-                    );
-                  })}
+                    ))}
                   <br />
                   <Button
                     variant="contained"
