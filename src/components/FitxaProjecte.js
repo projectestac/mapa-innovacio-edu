@@ -30,7 +30,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { getOptimalSrc, VideoIframe } from '../utils/Utils';
+import { getOptimalSrc, VideoIframe, groupInfosByTitle } from '../utils/Utils';
 import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -59,7 +59,7 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
           !(centre = centres.get(codi)) ||
           !(infoGroup = programa.info[codi]) ||
           (infoGroup.length <= infoIndex) ||
-          !(info = infoGroup[infoIndex])
+          !(info = groupInfosByTitle(infoGroup)[infoIndex])
         )
           return <Error {...{ error: `No hi ha cap projecte amb el codi "${id}"`, history }} />
 

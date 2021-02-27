@@ -338,7 +338,7 @@ class App extends Component {
                 p.programes.add(prog);
               }
               if (comentari) {
-                titol = `${titol || ''} ${comentari}`.trim();
+                titol = titol ? `${titol} (${comentari})` : comentari;
               }
               if (titol) {
                 const info = {

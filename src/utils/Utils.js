@@ -178,9 +178,9 @@ export function getInfoSpan(info, proj, centre) {
         const quot = titol.indexOf('"') >= 0 ? '' : '"';
         return (
           <span key={n}>
-            {(fitxa || video) ?
-              <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</span> :
-              <span>{`${quot}${titol}${quot} (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
+            {(fitxa || video)
+              ? <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
+              : <span>{`${quot}${titol}${quot} (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
             }
           </span>
         );
@@ -194,6 +194,28 @@ export function getInfoSpan(info, proj, centre) {
  */
 export function hasExtraInfo(info) {
   return (info && info.find(inf => inf.fitxa || inf.video)) ? true : false;
+}
+
+/**
+ * Based on an array of "info" objects (objects with title, course and additional properties of a specific project),
+ * builds a simplified array, grouping all projects with same "title" into single "info" objects with course intervals.
+ * @param {object[]} infoGroup 
+ */
+export function groupInfosByTitle(infoGroup) {
+  const map = new Map();
+  infoGroup.forEach(info => {
+    const { titol = '*', curs } = info;
+    const year = Number(curs.substr(0, 4));
+    let prj = map.get(titol);
+    if (!prj)
+      map.set(titol, { ...info, minYear: year, maxYear: year });
+    else {
+      prj.minYear = Math.min(year, prj.minYear);
+      prj.maxYear = Math.max(year, prj.maxYear);
+      prj.curs = `${prj.minYear}-${prj.maxYear + 1}`
+    }
+  });
+  return [...map.values()];
 }
 
 /**

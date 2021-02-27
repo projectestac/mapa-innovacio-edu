@@ -125,15 +125,20 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
           }
 
           const csvData = Object.keys(centres).reduce((result, curs) => {
+            //if (!info) {
             centres[curs].forEach(centre => {
-              const inf = info && info[centre.id] && info[centre.id].find(i => i.curs === curs);
+              // Does this roject have extra info?
+              const infos = info && info[centre.id] && info[centre.id].filter(i => i.curs === curs);
+              // Count previous occurrences of this school and program in result, and take the next one
+              const infoIndex = infos && result.filter(p => p.codi === centre.id && p.curs === curs).length;
+              const inf = infos && infos[infoIndex];
               result.push({
                 centre: `${centre.nom} (${centre.municipi})`,
                 codi: centre.id,
                 curs,
                 programa: programa.nom,
                 titol: inf ? inf.titol : '',
-                url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+                url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || infoIndex}` : '',
               });
             });
             return result;
