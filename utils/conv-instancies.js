@@ -89,6 +89,8 @@ async function readMainCSV(file, programes, centresValids) {
         instancia.fitxa = reg.Nom_Fitxa;
       if (reg.URL_Video)
         instancia.video = reg.URL_Video;
+      if (reg.URL_web)
+        instancia.url = reg.URL_web;
 
       // Comprovar ZERs
       if (zer) {

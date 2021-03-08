@@ -41,6 +41,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DocumentIcon from 'mdi-material-ui/FileDocument';
 import VideoIcon from 'mdi-material-ui/Youtube';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 function FitxaProjecte({ history, match: { params: { id = '' } } }) {
@@ -64,7 +65,7 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
           return <Error {...{ error: `No hi ha cap projecte amb el codi "${id}"`, history }} />
 
         // Deconstruct main objects
-        const { titol, fitxa, video, curs } = info;
+        const { titol, fitxa, video, url, curs } = info;
         const { id: codiCentre, nom: nomCentre, municipi, logo } = centre;
         const { id: idProg, nom: nomProg, simbol: simbolProg } = programa;
 
@@ -90,6 +91,18 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
                   <img src={getOptimalSrc(`${HOMEPAGE}/logos/${simbolProg}`)} alt={nomProg} />
                   <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
+                  {url &&
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={url}>
+                      <InfoIcon className="left-icon" />
+                        Més informació sobre el projecte
+                    </Button>
+                  }
                 </div>
                 <div className="proj-media">
                   {tabMode &&

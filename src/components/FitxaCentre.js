@@ -50,6 +50,12 @@ import MapSection from './MapSection';
 
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
+
+  const jumpTo = href => ev => {
+    ev.preventDefault();
+    history.push(href);
+  };
+
   return (
     <AppContext.Consumer>
       {({ data, data: { centres, poligons, estudis }, currentPrograms, polygons, mapChanged, updateMap,
@@ -105,7 +111,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         const tancaFitxa = () => history.goBack();
         const servei_territorial = poligons.get(sstt);
         const servei_educatiu = poligons.get(se);
-        let hasNc = false;
+        const hasNc = notCert.size > 0;
 
         return (
           <>
@@ -189,9 +195,10 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <Typography variant="h6">Programes on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
-                    const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}programa/${id}`;
+                    const link = `${HOMEPAGE}/${HASH}programa/${id}`;
+                    const withInfo = info && hasExtraInfo(info[id]);
                     return (
-                      <ListItem key={n} button className="no-padding-h-small" component={link ? 'a' : 'div'} href={link}>
+                      <ListItem key={n} button component={withInfo ? 'div' : 'a'} className="no-padding-h-small" href={link} onClick={withInfo ? jumpTo(link) : null}>
                         <ListItemAvatar>
                           <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>
@@ -199,7 +206,6 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                           primary={nom}
                           secondary={(info && info[id] && getInfoSpan(info[id], id, codi)) || `${cursos.length === 1 ? 'Curs' : 'Cursos'} ${cursos.sort().map(c => {
                             const nc = notCert.has(`${id}|${c}`);
-                            hasNc = hasNc || nc;
                             return `${c}${nc ? ' *' : ''}`;
                           }).join(', ')}`}
                         />

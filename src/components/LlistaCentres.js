@@ -28,6 +28,7 @@
  */
 
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -35,36 +36,43 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
 
-
 function LlistaCentres({ id, centres, curs = null, HOMEPAGE, HASH }) {
-  let hasNc = false;
-  const base = curs
+  const history = useHistory();
+  const jumpTo = href => ev => {
+    ev.preventDefault();
+    history.push(href);
+  };
+
+  const base = (curs
     ? centres[curs]
-    : Object.values(Object.values(centres).reduce((acc, arr) => {
-      arr.forEach(el => { acc[el.id] = el; })
-      return acc;
-    }, {}));
+    : Object.values(
+      Object.values(centres).reduce((acc, arr) => {
+        arr.forEach(el => { acc[el.id] = el; })
+        return acc;
+      }, {}))
+  )
+    .sort((a, b) => a.nom.localeCompare(b.nom))
+    .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id);
+
+  const token = `${id}|${curs}`;
+  const hasNc = base.find(({ notCert }) => notCert.has(token));
 
   return (
     <>
       <List className="wider">
-        {base
-          .sort((a, b) => a.nom.localeCompare(b.nom))
-          .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id)
-          .map(({ id: codi, nom, municipi, info, notCert }, c) => {
-            const link = (info && hasExtraInfo(info[id])) ? null : `${HOMEPAGE}/${HASH}centre/${codi}`;
-            const nc = notCert.has(`${id}|${curs}`);
-            hasNc = hasNc || nc;
-            return (
-              <ListItem key={c} button component={link ? 'a' : 'div'} href={link} className="small-padding-h">
-                <ListItemText
-                  primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
-                  secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
-                />
-              </ListItem>
-            )
-          }
-          )}
+        {base.map(({ id: codi, nom, municipi, info, notCert }, c) => {
+          const link = `${HOMEPAGE}/${HASH}centre/${codi}`;
+          const withInfo = info && hasExtraInfo(info[id]);
+          const nc = notCert.has(token);
+          return (
+            <ListItem key={c} button component={withInfo ? 'div' : 'a'} href={link} className="small-padding-h" onClick={withInfo ? jumpTo(link) : null}>
+              <ListItemText
+                primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
+                secondary={info && info[id] && getInfoSpan(info[id], id, codi)}
+              />
+            </ListItem>
+          )
+        })}
       </List>
       {hasNc &&
         <>

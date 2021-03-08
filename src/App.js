@@ -87,7 +87,7 @@ const theme = responsiveFontSizes(
       fontFamily: '"Open Sans", Roboto, "Helvetica Neue", Arial, sans-serif',
       fontDisplay: 'swap',
     },
-    overrides: {      
+    overrides: {
       MuiStepIcon: {
         completed: {
           color: '#c00000 !important',
@@ -296,9 +296,14 @@ class App extends Component {
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
-        _instancies.forEach(({ programa, centre, curs: courseRange, titol, cert, fitxa, video, comentari }) => {
+        _instancies.forEach(({ programa, centre, curs: courseRange, titol, cert, fitxa, video, url, comentari }) => {
           const prog = programes.get(programa);
           const cent = centres.get(centre);
+
+          if (!prog || !cent) {
+            console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${courseRange}`);
+            return;
+          }
 
           // Process a range of courses
           const courses = [];
@@ -322,51 +327,68 @@ class App extends Component {
           }
 
           courses.forEach(curs => {
-            if (prog && cent) {
-              (prog.centres[curs] = prog.centres[curs] || []).push(cent);
-              prog.allCentres.add(cent);
-              (cent.programes[curs] = cent.programes[curs] || []).push(prog);
-              cent.allPrograms.add(prog);
-              if (cent.sstt) {
-                const p = poligons.get(cent.sstt);
-                p.centresInn.add(cent);
-                p.programes.add(prog);
-              }
-              if (cent.se) {
-                const p = poligons.get(cent.se);
-                p.centresInn.add(cent);
-                p.programes.add(prog);
-              }
-              if (comentari) {
-                titol = titol ? `${titol} (${comentari})` : comentari;
-              }
-              if (titol) {
-                const info = {
-                  titol,
-                  curs,
-                };
-                if (fitxa)
-                  info.fitxa = fitxa;
-                if (video)
-                  info.video = video;
+            // Add cent to prog course map
+            if (!prog.centres[curs])
+              prog.centres[curs] = [];
+            prog.centres[curs].push(cent);
+            prog.allCentres.add(cent);
 
-                if (!prog.info)
-                  prog.info = {};
-                if (!prog.info[cent.id])
-                  prog.info[cent.id] = [];
-                prog.info[cent.id].push(info);
+            // Add prog to cent course map
+            if (!cent.programes[curs])
+              cent.programes[curs] = [];
+            cent.programes[curs].push(prog);
+            cent.allPrograms.add(prog);
 
-                if (!cent.info)
-                  cent.info = {};
-                if (!cent.info[prog.id])
-                  cent.info[prog.id] = [];
-                cent.info[prog.id].push(info);
-              }
-              if (!cert)
-                cent.notCert.add(`${programa}|${curs}`);
+            // Add prog and cent to SSTT
+            if (cent.sstt) {
+              const p = poligons.get(cent.sstt);
+              p.centresInn.add(cent);
+              p.programes.add(prog);
             }
-            else
-              console.log(`WARNING: Instància amb programa o centre desconegut: ${programa} - ${centre} - ${curs}`);
+
+            // Add prog and cent to SE
+            if (cent.se) {
+              const p = poligons.get(cent.se);
+              p.centresInn.add(cent);
+              p.programes.add(prog);
+            }
+
+            // Build complex title when comentari exists
+            if (comentari) {
+              titol = titol ? `${titol} (${comentari})` : comentari;
+            }
+
+            // Build info object
+            if (titol) {
+              const info = {
+                titol,
+                curs,
+              };
+              if (fitxa)
+                info.fitxa = fitxa;
+              if (video)
+                info.video = video;
+              if (url)
+                info.url = url;
+
+              // Add info to prog
+              if (!prog.info)
+                prog.info = {};
+              if (!prog.info[cent.id])
+                prog.info[cent.id] = [];
+              prog.info[cent.id].push(info);
+
+              // Add info to cent
+              if (!cent.info)
+                cent.info = {};
+              if (!cent.info[prog.id])
+                cent.info[prog.id] = [];
+              cent.info[prog.id].push(info);
+            }
+
+            // Set 'not cert' info
+            if (!cert)
+              cent.notCert.add(`${programa}|${curs}`);
           });
         });
 

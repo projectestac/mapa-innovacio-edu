@@ -172,15 +172,19 @@ export function getInfoSpan(info, proj, centre) {
     info = groupedInfos;
   }
 
+  const stopProp = ev => ev.stopPropagation();
+
   return (
     <>
-      {info.map(({ titol, fitxa, video, curs }, n) => {
+      {info.map(({ titol, fitxa, video, curs, url }, n) => {
         const quot = titol.indexOf('"') >= 0 ? '' : '"';
         return (
           <span key={n}>
             {(fitxa || video)
-              ? <span><Link to={`/projecte/${proj}|${centre}|${n}`}>{`${quot}${titol}${quot}`}</Link>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
-              : <span>{`${quot}${titol}${quot} (${curs})${n < info.length - 1 ? ', ' : ''}`}</span>
+              ? <><Link to={`/projecte/${proj}|${centre}|${n}`} onClick={stopProp}>{`${quot}${titol}${quot}`}</Link>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</>
+              : url
+                ? <><a href={url} target="_blank" rel="noopener noreferrer" title={url} onClick={stopProp}>{`${quot}${titol}${quot}`}</a>{` (${curs})${n < info.length - 1 ? ', ' : ''}`}</>
+                : <>{`${quot}${titol}${quot} (${curs})${n < info.length - 1 ? ', ' : ''}`}</>
             }
           </span>
         );
@@ -193,7 +197,7 @@ export function getInfoSpan(info, proj, centre) {
  * Checks if at least one of the elements of a "info" group has `fitxa` or `video`
  */
 export function hasExtraInfo(info) {
-  return (info && info.find(inf => inf.fitxa || inf.video)) ? true : false;
+  return (info && info.find(inf => inf.fitxa || inf.video || inf.url)) ? true : false;
 }
 
 /**
