@@ -28,7 +28,6 @@
  */
 
 import React from 'react';
-import { useHistory } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -36,31 +35,20 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
 
-function LlistaCentres({ id, centres, curs = null, HOMEPAGE, HASH }) {
-  const history = useHistory();
+function LlistaCentres({ id, llista, curs = null, HOMEPAGE, HASH, history }) {
+
   const jumpTo = href => ev => {
     ev.preventDefault();
     history.push(href);
   };
 
-  const base = (curs
-    ? centres[curs]
-    : Object.values(
-      Object.values(centres).reduce((acc, arr) => {
-        arr.forEach(el => { acc[el.id] = el; })
-        return acc;
-      }, {}))
-  )
-    .sort((a, b) => a.nom.localeCompare(b.nom))
-    .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id);
-
   const token = `${id}|${curs}`;
-  const hasNc = base.find(({ notCert }) => notCert.has(token));
+  const hasNc = llista.find(({ notCert }) => notCert.has(token));
 
   return (
     <>
       <List className="wider">
-        {base.map(({ id: codi, nom, municipi, info, notCert }, c) => {
+        {llista.map(({ id: codi, nom, municipi, info, notCert }, c) => {
           const link = `${HOMEPAGE}/${HASH}centre/${codi}`;
           const withInfo = info && hasExtraInfo(info[id]);
           const nc = notCert.has(token);

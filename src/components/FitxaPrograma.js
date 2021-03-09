@@ -51,7 +51,7 @@ import { getOptimalSrc, csvExportToFile } from '../utils/Utils';
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
   "1001", // "Reconeixement de projectes d'innovació pedagògica"
-  "2001", // "Reconeixement de pràctiques educatives de referència d'innovació pedagògica"
+  //"2001", // "Reconeixement de pràctiques educatives de referència d'innovació pedagògica"
 ];
 
 const SINGLE_LIST_PROGS = [
@@ -167,6 +167,20 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
           centres
         } = programa;
 
+        // Build lists
+        const llistes = singleList
+          ? [{
+            // TODO: Avoid hard-coding this label!
+            curs: 'Primera edició',
+            llista: Object.values(Object.values(centres).reduce((acc, arr) => { arr.forEach(el => { acc[el.id] = el; }); return acc; }, {}))
+              .sort((a, b) => a.nom.localeCompare(b.nom))
+              .filter(({ id }, n, arr) => n === 0 || id !== arr[n - 1].id),
+          }]
+          : Object.keys(centres).sort().map(curs => ({
+            curs,
+            llista: centres[curs].sort((a, b) => a.nom.localeCompare(b.nom)),
+          }));
+
         return (
           <>
             <Helmet>
@@ -277,21 +291,19 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                     </div>
                   ))}
                   <br />
-                  {singleList
-                    ? <LlistaCentres {...{ id, centres, HOMEPAGE, HASH }} />
-                    : Object.keys(centres).sort().map((curs, n) => (
-                      <Accordion key={n} expanded={expandedPanels[n]}>
-                        <AccordionSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
-                          <Typography className="wider">{`CURS ${curs}`}</Typography>
-                          <Typography>{`${centres[curs].length} ${centres[curs].length === 1 ? 'centre' : 'centres'}`}</Typography>
-                        </AccordionSummary>
-                        {expandedPanels[n] &&
-                          <AccordionDetails className="small-padding-h flow-v">
-                            <LlistaCentres {...{ id, centres, curs, HOMEPAGE, HASH }} />
-                          </AccordionDetails>
-                        }
-                      </Accordion>
-                    ))}
+                  {llistes.map(({ curs, llista }, n) => (
+                    <Accordion key={n} expanded={expandedPanels[n]}>
+                      <AccordionSummary className="small-padding-h" expandIcon={<ExpandMoreIcon />} onClick={expandPanel(n)}>
+                        <Typography className="wider">{singleList ? curs : `CURS ${curs}`}</Typography>
+                        <Typography>{`${llista.length} ${llista.length === 1 ? 'centre' : 'centres'}`}</Typography>
+                      </AccordionSummary>
+                      {expandedPanels[n] &&
+                        <AccordionDetails className="small-padding-h flow-v">
+                          <LlistaCentres {...{ id, llista, curs, HOMEPAGE, HASH, history }} />
+                        </AccordionDetails>
+                      }
+                    </Accordion>
+                  ))}
                   <br />
                   <Button
                     variant="contained"
