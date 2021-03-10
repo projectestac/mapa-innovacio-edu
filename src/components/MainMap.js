@@ -56,7 +56,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
   // Optional overlays
   const OVERLAYS = [
     {
-      name: 'Mostra la participació per zones',
+      name: 'Mostra l\'índex de participació',
       flag: 'showDensity',
       default: false,
     },

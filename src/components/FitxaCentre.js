@@ -44,17 +44,12 @@ import WebIcon from 'mdi-material-ui/Web';
 import MailIcon from '@material-ui/icons/Mail';
 import TwitterIcon from 'mdi-material-ui/Twitter';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
-import { getOptimalSrc, plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
+import { getOptimalSrc, plainArray, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca, jumpTo } from '../utils/Utils';
 import Error from './Error';
 import MapSection from './MapSection';
 
 
 function FitxaCentre({ history, match: { params: { codi } } }) {
-
-  const jumpTo = href => ev => {
-    ev.preventDefault();
-    history.push(href);
-  };
 
   return (
     <AppContext.Consumer>
@@ -195,10 +190,13 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 <Typography variant="h6">Programes on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
-                    const link = `${HOMEPAGE}/${HASH}programa/${id}`;
+                    const link = `/${HASH}programa/${id}`;
                     const withInfo = info && hasExtraInfo(info[id]);
                     return (
-                      <ListItem key={n} button component={withInfo ? 'div' : 'a'} className="no-padding-h-small" href={link} onClick={withInfo ? jumpTo(link) : null}>
+                      <ListItem key={n} button className="no-padding-h-small"
+                        component={withInfo ? 'div' : 'a'}
+                        href={`${HOMEPAGE}${link}`}
+                        onClick={withInfo ? jumpTo(link, history) : null}>
                         <ListItemAvatar>
                           <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>

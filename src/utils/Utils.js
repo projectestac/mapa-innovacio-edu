@@ -351,3 +351,16 @@ export function muniComarca(municipi, comarca = '') {
   else
     return `${municipi} (${comarca})`;
 }
+
+/**
+ * Builds a handler function useful to redirect the navigation to a specific target
+ * @param {string} href - The target page
+ * @param {object} history - A valid [ReactRouter `history`]{@link https://reactrouter.com/web/api/history} object
+ * @returns function
+ */
+export function jumpTo(href, history) {
+  return ev => {
+    ev.preventDefault();
+    history.push(href);
+  }
+}

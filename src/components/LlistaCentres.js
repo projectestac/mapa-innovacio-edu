@@ -33,14 +33,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import { getInfoSpan, hasExtraInfo } from '../utils/Utils';
+import { getInfoSpan, hasExtraInfo, jumpTo } from '../utils/Utils';
 
 function LlistaCentres({ id, llista, curs = null, HOMEPAGE, HASH, history }) {
-
-  const jumpTo = href => ev => {
-    ev.preventDefault();
-    history.push(href);
-  };
 
   const token = `${id}|${curs}`;
   const hasNc = llista.find(({ notCert }) => notCert.has(token));
@@ -49,11 +44,14 @@ function LlistaCentres({ id, llista, curs = null, HOMEPAGE, HASH, history }) {
     <>
       <List className="wider">
         {llista.map(({ id: codi, nom, municipi, info, notCert }, c) => {
-          const link = `${HOMEPAGE}/${HASH}centre/${codi}`;
+          const link = `/${HASH}centre/${codi}`;
           const withInfo = info && hasExtraInfo(info[id]);
           const nc = notCert.has(token);
           return (
-            <ListItem key={c} button component={withInfo ? 'div' : 'a'} href={link} className="small-padding-h" onClick={withInfo ? jumpTo(link) : null}>
+            <ListItem key={c} button className="small-padding-h"
+              component={withInfo ? 'div' : 'a'}
+              href={`${HOMEPAGE}${link}`}
+              onClick={withInfo ? jumpTo(link, history) : null}>
               <ListItemText
                 primary={`${nom} (${municipi})${nc ? ' *' : ''}`}
                 secondary={info && info[id] && getInfoSpan(info[id], id, codi)}

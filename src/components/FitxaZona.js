@@ -48,10 +48,11 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
-import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca } from '../utils/Utils';
+import { getOptimalSrc, getInfoSpan, hasExtraInfo, csvExportToFile, muniComarca, jumpTo } from '../utils/Utils';
 
 
 function FitxaZona({ history, match: { params: { key } } }) {
+
   return (
     <AppContext.Consumer>
       {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap,
@@ -186,9 +187,13 @@ function FitxaZona({ history, match: { params: { key } } }) {
                         <AccordionDetails className="small-padding-h">
                           <List>
                             {centres.map(({ id, nom, municipi, info, allPrograms }, n) => {
-                              const link = (info && hasExtraInfo(info[prog.id])) ? null : `${HOMEPAGE}/${HASH}centre/${id}`;
+                              const link = `/${HASH}centre/${id}`;
+                              const withInfo = info && hasExtraInfo(info[prog.id]);
                               return (
-                                <ListItem key={n} button component={link ? 'a' : 'div'} href={link} className="small-padding-h" >
+                                <ListItem key={n} button className="small-padding-h"
+                                  component={withInfo ? 'div' : 'a'}
+                                  href={`${HOMEPAGE}${link}`}
+                                  onClick={withInfo ? jumpTo(link, history) : null} >
                                   <ListItemText
                                     primary={`${nom} (${municipi})`}
                                     secondary={info && info[prog.id] && getInfoSpan(info[prog.id], prog.id, id)}
