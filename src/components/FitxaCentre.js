@@ -100,7 +100,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
         // Find the specified program
         const centre = centres.get(codi);
         if (!centre)
-          return <Error {...{ error: `No hi ha cap programa amb el codi: ${codi}`, history }} />
+          return <Error {...{ error: `No hi ha cap centre amb el codi: ${codi}`, history }} />
 
         const { nom, municipi, comarca, estudis: estudisCentre, cp, adreca, web, logo, tel, mail, twitter, sstt, se, pb, programes, info, notCert } = centre;
         const tancaFitxa = () => history.goBack();

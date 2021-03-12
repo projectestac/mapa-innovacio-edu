@@ -2,9 +2,7 @@
 /* global importScripts */
 
 if ('function' === typeof importScripts) {
-  importScripts(
-    'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js'
-  );
+  importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js');
 
   // Catch possible "SKIP_WAITING" events
   self.addEventListener('message', event => {
@@ -47,6 +45,7 @@ if ('function' === typeof importScripts) {
       strategies: { StaleWhileRevalidate, CacheFirst },
       expiration: { ExpirationPlugin },
       cacheableResponse: { CacheableResponsePlugin },
+      recipes: { googleFontsCache },
     } = workbox;
 
     // Set a specific prefix for this SW, used in cache names
@@ -101,30 +100,9 @@ if ('function' === typeof importScripts) {
       }),
     );
 
-    // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
-    registerRoute(
-      /^https:\/\/fonts\.googleapis\.com/,
-      new StaleWhileRevalidate({
-        cacheName: 'google-fonts-stylesheets',
-      })
-    );
 
-    // Cache the underlying font files with a cache-first strategy for 1 year.
-    registerRoute(
-      /^https:\/\/fonts\.gstatic\.com/,
-      new CacheFirst({
-        cacheName: 'google-fonts-webfonts',
-        plugins: [
-          new CacheableResponsePlugin({
-            statuses: [0, 200],
-          }),
-          new ExpirationPlugin({
-            maxAgeSeconds: 60 * 60 * 24 * 365, // One year
-            maxEntries: 30,
-          }),
-        ],
-      })
-    );
+    // Use the new recipe for Google Fonts in WorkBox 6, instead of the full pattern
+    googleFontsCache();
 
     // Cache for big logos and miscellaneous icons (small logos are always pre-cached)
     registerRoute(
