@@ -3495,8 +3495,8 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 08074987,LLA,LLI privada El Gall i la Gallina II,Barcelona,"Rbla. Badal, 53",08014,Barcelonès,"41,367788271","2,133185177",EINF1C,CEB,08870103,,,,a8074987@xtec.cat,,FALSE
 08074999,FP,Campus Professional U Manresa,Manresa,"Av. Bases de Manresa, 1",08242,Bages,"41,735107818","1,824398847",CFPS,CCE,08870201,https://www.umanresa.cat/ca/campus-professional,08074999.png,938 774 180,a8074999@xtec.cat,,FALSE
 08075013,BAIXA,Centre de les Arts del Circ Rogelio Rivel,Barcelona,"C. Portlligat, 11-15",08042,Barcelonès,"41,448742312","2,180393289",,CEB,08870109,,,933 506 165,a8075013@xtec.cat,,FALSE
-08075025,BAIXA,Centre de Teatre de Barcelona - CTB,Barcelona,"Av. Francesc Ferrer i Guàrdia, 13",08038,Barcelonès,"41,369116603","2,146724957",,CEB,08870103,,,,a8075025@xtec.cat,,FALSE
-08075037,BAIXA,"El Timbal, Centre de formació i creació escènica",Barcelona,"C. Roger de Flor, 85",08013,Barcelonès,"41,394183135","2,178544501",,CEB,08870104,,,,a8075037@xtec.cat,,FALSE
+08075025,FP,Centre de Teatre de Barcelona - CTB,Barcelona,"Av. Francesc Ferrer i Guàrdia, 13",08038,Barcelonès,"41,369116603","2,146724957",ESCS,CEB,08870103,,,,a8075025@xtec.cat,,FALSE
+08075037,FP,"El Timbal, Centre de formació i creació escènica",Barcelona,"C. Roger de Flor, 85",08013,Barcelonès,"41,394183135","2,178544501",ESCS,CEB,08870104,,,,a8075037@xtec.cat,,FALSE
 08075049,BAIXA,La Casona formació investigació teatral,Barcelona,"C. Càceres, 8",08028,Barcelonès,"41,375004928","2,133338236",,CEB,08870103,,,934 226 922,a8075049@xtec.cat,,FALSE
 08075050,FP,Centre de Formació d'Entrenadors de la F.C.F.,Sabadell,"C. Apúlia, 40",08206,Vallès Occidental,"41,555838505","2,092110758",TEGM|TEGS,VOC,08870404,https://agora.xtec.cat/centre-fcf,08075050.png,,a8075050@xtec.cat,,FALSE
 08075062,LLA,Llar d'infants Les Oliveres,Santa Coloma de Gramenet,"Ptge. Tarragona, s/n",08924,Barcelonès,"41,459798616","2,198562615",EINF1C,BCO,08870206,,,935 972 062,a8075062@xtec.cat,,TRUE
@@ -3560,7 +3560,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 08075700,ESC,Escola Xirinacs,Barcelona,"C. Entença, 155",08009,Barcelonès,"41,383435157","2,145366679",EINF2C|EPRI,CEB,08870107,https://escolaeixample1blog.wordpress.com,08075700.png,,a8075700@xtec.cat,,TRUE
 08075712,INS,Institut Les Cinc Sénies,Mataró,"Rda. de Rafael Estrany, 60",08304,Maresme,"41,551446791","2,449530095",ESO,MVO,08870207,,08075712.png,937 964 394,a8075712@xtec.cat,,TRUE
 08075724,ESC,Escola Norai,Montgat,"Rda. dels Països Catalans, 30",08390,Maresme,"41,468998689","2,273515818",EINF2C|EPRI,MVO,08870205,https://agora.xtec.cat/escola-norai-montgat,08075724.png,627 558 497,a8075724@xtec.cat,@escolanorai,TRUE
-08075736,BAIXA,Arsènic,Granollers,"Av. Prat de la Riba, 77",08401,Vallès Oriental,"41,60272346","2,28467099",,MVO,08870202,,,,a8075736@xtec.cat,,FALSE
+08075736,FP,Arsènic,Granollers,"Av. Prat de la Riba, 77",08401,Vallès Oriental,"41,60272346","2,28467099",ESCS,MVO,08870202,,,,a8075736@xtec.cat,,FALSE
 08075748,LLA,Llar d'infants PETIT KÍNDER,Barcelona,"Av. República Argentina, 1 A",08023,Barcelonès,"41,407228604","2,1484534",EINF1C,CEB,08870108,,,,a8075748@xtec.cat,,FALSE
 08075751,LLA,Llar d'infants Tipi's,Cardedeu,"C. Esteve Barange, 21",08440,Vallès Oriental,"41,637762946","2,360479448",EINF1C,MVO,08870204,,,938 713 397,a8075751@xtec.cat,,FALSE
 08075785,BAIXA,LAZZIGAGS - Escola d'arts escèniques,Barcelona,"C. Vallespir, 32",08014,Barcelonès,"41,379157142","2,137368298",,CEB,08870103,,,,a8075785@xtec.cat,,FALSE

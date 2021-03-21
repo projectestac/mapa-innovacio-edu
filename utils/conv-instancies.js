@@ -61,6 +61,9 @@ async function readMainCSV(file, programes, centresValids) {
       comment = mod.comment || '';
     }
 
+    // Build curs from Curs_ini and Curs_fin
+    reg.Curs = `${reg.Curs_ini.trim().substring(0, 4)}-${reg.Curs_fin.trim().substring(5, 9)}`;
+
     const zer = zers.find(z => z.codi === codiCentre);
     let centre = centresValids.find(c => c.id === codiCentre);
     const programa = reg.id_programa;
@@ -170,7 +173,7 @@ async function readMainCSV(file, programes, centresValids) {
 
 const getDuplicates = instancies =>
   instancies
-    .map(({ centre, programa, curs, titol = '' }) => `${centre}|${programa}|${curs}|${titol}`)
+    .map(({ centre, programa, curs, titol = '', comentari = '' }) => `${centre}|${programa}|${curs}|${titol}|${comentari}`)
     .sort()
     .filter((ii, n, arr) => ii === arr[n + 1]);
 
