@@ -66,6 +66,8 @@ const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : H
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
+const JSON_BASE = process.env.REACT_APP_JSON_BASE || 'https://clic.xtec.cat/pub/innovacio/data/';
+const DATA_PATH = `${JSON_BASE.startsWith('/') ? HOMEPAGE : ''}${JSON_BASE}`;
 
 // Set the appropiate Router, based on HASH_TYPE
 const Router = HASH_TYPE === 'no-hash' ? BrowserRouter : HashRouter;
@@ -244,11 +246,11 @@ class App extends Component {
     return Promise.all(
       // Launch all fetch promises in parallel
       [
-        `${HOMEPAGE}/data/programes.json`,
-        `${HOMEPAGE}/data/instancies.json`,
-        `${HOMEPAGE}/data/centres.json`,
-        `${HOMEPAGE}/data/poligons.json`,
-        `${HOMEPAGE}/data/estudis.json`,
+        `${DATA_PATH}programes.json`,
+        `${DATA_PATH}instancies.json`,
+        `${DATA_PATH}centres.json`,
+        `${DATA_PATH}poligons.json`,
+        `${DATA_PATH}estudis.json`,
       ].map(uri => {
         return fetch(uri, { method: 'GET', credentials: 'same-origin' })
           .then(handleFetchErrors)
