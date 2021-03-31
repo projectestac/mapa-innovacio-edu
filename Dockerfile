@@ -3,7 +3,7 @@
 FROM node:lts as mapa-innovacio-build
 WORKDIR /app
 COPY . ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 RUN npm run build
 
 # Stage 2 - The production environment
