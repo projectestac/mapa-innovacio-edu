@@ -67,15 +67,30 @@ if ('function' === typeof importScripts) {
     });
     registerRoute(navigationRoute);
 
+    // Cache for app dynamic data
+    registerRoute(
+      /^https:\/\/clic\.xtec\.cat\/pub\/innovacio\//,
+      new StaleWhileRevalidate({
+        cacheName: 'app-data',
+        plugins: [
+          new ExpirationPlugin({
+            maxEntries: 100,
+            maxAgeSeconds: 60 * 60 * 24 * 7, // 7 Days
+            purgeOnQuotaError: true,
+          }),
+        ],
+      }),
+    );
+
     // Cache for school logos
     registerRoute(
-      /^https:\/\/(?:clic|serveiseducatius)\.xtec\.cat\//,
-      new StaleWhileRevalidate({
+      /^https:\/\/clic\.xtec\.cat\/pub\/logos\//,
+      new CacheFirst({
         cacheName: 'school-logos',
         plugins: [
           new ExpirationPlugin({
             maxEntries: 100,
-            maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+            maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
             purgeOnQuotaError: true,
           }),
         ],

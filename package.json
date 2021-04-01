@@ -1,7 +1,7 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la innovació pedagògica de Catalunya",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": {
     "name": "Departament d'Educació de la Generalitat de Catalunya",
     "email": "innovacio@xtec.cat",
@@ -30,6 +30,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.3",
+    "dotenv-flow": "^3.2.0",
     "fontfaceobserver": "^2.1.0",
     "fuse.js": "^6.4.6",
     "json2csv": "^5.0.6",

@@ -5,6 +5,10 @@
  * Based on: https://karannagupta.com/using-custom-workbox-service-workers-with-create-react-app/
  */
 
+// Read environment variables from .env, taking production settings by default
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+require('dotenv-flow').config();
+
 const path = require('path');
 const fs = require('fs');
 const workboxBuild = require('workbox-build');
@@ -18,44 +22,45 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(path.dirname(DEST)) || !fs.exists
   process.exit(1);
 }
 
-// Generate the service worker, injecting the list of files to be precached
-function buildSW(globPatterns = ['**/*.{html,js,css,png}'], globIgnores = []) {
+// Default globPattern was: ['**/*.{html,js,css,png}']
+// Data files from '/data/*.json' only when JSON_BASE env starts with '/'
+const GLOB_PATTERNS = [
+  '*.{html,css,json}',
+  'static/**/*.{js,css,html}',
+  'ico/favicon.ico',
+  'ico/icon144.png',
+  'images/*.{png,jpg,webp,svg}',
+  'logos/portada.{png,webp}',
+];
 
-  return workboxBuild.injectManifest({
-    swSrc: TEMPLATE,
-    swDest: DEST,
-    globDirectory: BUILD_DIR,
-    globPatterns,
-    globIgnores,
-  })
-    .then(({ count, size, warnings }) => {
-      console.log(`Created "${DEST}" from template "${TEMPLATE}"`);
-      warnings.forEach(console.warn);
-      console.log(`${count} files will be precached, totaling ${size} bytes.`);
-    })
+const JSON_BASE = process.env.REACT_APP_JSON_BASE || 'https://clic.xtec.cat/pub/innovacio/data/';
+if (JSON_BASE.startsWith('/')) {
+  GLOB_PATTERNS.push(`${JSON_BASE.substr(1)}*.json`);
+  console.log(`Caching local data files from: ${JSON_BASE}`);
+} else {
+  console.log(`Data files will be loaded from: ${JSON_BASE}`);
 }
 
-// Launch the main process
-buildSW(
-  // Included paths
-  [
-    '*.{html,css,json}',
-    'static/**/*.{js,css,html}',
-    'data/*.json',
-    'ico/favicon.ico',
-    'ico/icon144.png',
-    'images/*.{png,jpg,webp,svg}',
-    'logos/portada.{png,webp}',
-  ],
-  // Ignored paths
-  [
-    'precache-manifest.*.js',
-    'service-worker.js'
-  ])
-  .then(() => {
+const GLOB_IGNORES = [
+  'precache-manifest.*.js',
+  'service-worker.js'
+];
+
+// Generate the service worker, injecting the list of files to be precached
+workboxBuild.injectManifest({
+  swSrc: TEMPLATE,
+  swDest: DEST,
+  globDirectory: BUILD_DIR,
+  globPatterns: GLOB_PATTERNS,
+  globIgnores: GLOB_IGNORES,
+})
+  .then(({ count, size, warnings }) => {
+    console.log(`Created "${DEST}" from template "${TEMPLATE}"`);
+    warnings.forEach(console.warn);
+    console.log(`${count} files will be precached, totaling ${size} bytes.`);
     process.exit(0);
   })
-  .catch(error => {
-    console.error(error);
+  .catch(err => {
+    console.error(err);
     process.exit(1);
   });

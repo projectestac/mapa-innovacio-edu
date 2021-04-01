@@ -10,8 +10,9 @@
  * SRC_DIR defaults to `../public/data` and DEST_DIR to `../public`
  */
 
-// Read environment variables from .env
-require('dotenv').config();
+// Read environment variables from .env, taking production settings by default
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+require('dotenv-flow').config();
 
 const fs = require('fs');
 const path = require('path');

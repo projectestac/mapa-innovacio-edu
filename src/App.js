@@ -64,8 +64,8 @@ const ANALYTICS_UA = process.env.REACT_APP_ANALYTICS_UA || 'UA-140680188-1';
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE || 'no-hash';
 const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : HASH_TYPE === 'slash' ? '#/' : '#';
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
-const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/fitxes/';
-const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/projectes/';
+const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/innovacio/fitxes/';
+const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/innovacio/projectes/';
 const JSON_BASE = process.env.REACT_APP_JSON_BASE || 'https://clic.xtec.cat/pub/innovacio/data/';
 const DATA_PATH = `${JSON_BASE.startsWith('/') ? HOMEPAGE : ''}${JSON_BASE}`;
 
