@@ -84,13 +84,13 @@ if ('function' === typeof importScripts) {
 
     // Cache for school logos
     registerRoute(
-      /^https:\/\/clic\.xtec\.cat\/pub\/logos\//,
+      /^https:\/\/(?:clic\.xtec\.cat\/pub\/logos\/|serveiseducatius\.xtec\.cat\/).+\.(?:jpg|gif|png|svg|jpeg|webp|avif)$/,
       new CacheFirst({
         cacheName: 'school-logos',
         plugins: [
           new ExpirationPlugin({
             maxEntries: 100,
-            maxAgeSeconds: 60 * 60 * 24 * 90, // 90 Days
+            maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
             purgeOnQuotaError: true,
           }),
         ],
@@ -100,11 +100,11 @@ if ('function' === typeof importScripts) {
     // Cache for map tiles
     registerRoute(
       /^https?:\/\/(?:\w+\.basemaps\.cartocdn\.com|maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|\w+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
-      new StaleWhileRevalidate({
+      new CacheFirst({
         cacheName: 'maps',
         plugins: [
           new CacheableResponsePlugin({
-            statuses: [0, 200],
+            statuses: [200],
           }),
           new ExpirationPlugin({
             maxEntries: 1000,
@@ -121,7 +121,7 @@ if ('function' === typeof importScripts) {
 
     // Cache for big logos and miscellaneous icons (small logos are always pre-cached)
     registerRoute(
-      /\/(?:logos|ico)\/[/\w]*\.(?:png|gif|jpg|jpeg|webp|svg)$/,
+      /\/(?:logos|ico)\/[/\w]*\.(?:jpg|gif|png|svg|jpeg|webp|avif)$/,
       new CacheFirst({
         cacheName: 'image-cache',
         plugins: [
