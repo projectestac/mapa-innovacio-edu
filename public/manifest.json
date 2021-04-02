@@ -68,6 +68,12 @@
       "src": "/ico/icon.svg",
       "sizes": "24x24",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/ico/mascable_icon192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/",
