@@ -66,6 +66,8 @@ const HASH = HASH_TYPE === 'no-hash' ? '' : HASH_TYPE === 'hashbang' ? '#!/' : H
 const LOGO_BASE = process.env.REACT_APP_LOGO_BASE || 'https://clic.xtec.cat/pub/logos/';
 const FITXA_BASE = process.env.REACT_APP_FITXA_BASE || 'https://clic.xtec.cat/pub/innovacio/fitxes/';
 const FITXA_PROJ_BASE = process.env.REACT_APP_FITXA_PROJ_BASE || 'https://clic.xtec.cat/pub/innovacio/projectes/';
+const PRJLOGOS_BASE = process.env.REACT_APP_PRJLOGOS_BASE || 'https://clic.xtec.cat/pub/innovacio/logos/';
+const PRJLOGOS_PATH = `${PRJLOGOS_BASE.startsWith('/') ? HOMEPAGE : ''}${PRJLOGOS_BASE}`;
 const JSON_BASE = process.env.REACT_APP_JSON_BASE || 'https://clic.xtec.cat/pub/innovacio/data/';
 const DATA_PATH = `${JSON_BASE.startsWith('/') ? HOMEPAGE : ''}${JSON_BASE}`;
 
@@ -205,6 +207,7 @@ class App extends Component {
         HASH,
         HOMEPAGE,
         LOGO_BASE,
+        PRJLOGOS_PATH,
         FITXA_BASE,
         FITXA_PROJ_BASE,
         APP_BASE: `${window.location.origin}${HOMEPAGE}/${HASH}`,

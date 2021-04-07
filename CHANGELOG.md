@@ -1,3 +1,10 @@
+### v1.3.1 (not yet released)
+#### Improvements
+- New section with "good pedagogical practices"
+- Data can be now loaded from external sources
+- Updated data about schools and innovation programs
+- Service worker optimized and built with WorkBox V6
+
 ### v1.2.0 (2020-02-24)
 #### Improvements
 - Service worker optimized and built with WorkBox V5

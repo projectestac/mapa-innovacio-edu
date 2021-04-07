@@ -53,7 +53,7 @@ function Programes({ history }) {
     <AppContext.Consumer>
       {({ data, data: { programes, ambitsCurr, ambitsInn, nivells },
         cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen,
-        settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP } }) => {
+        settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
 
         const allSelected = currentPrograms.size === programes.size;
 
@@ -154,7 +154,7 @@ function Programes({ history }) {
                     {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
                       <ListItem key={n} button className="list-button">
                         <ListItemAvatar>
-                          <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
+                          <Avatar src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}

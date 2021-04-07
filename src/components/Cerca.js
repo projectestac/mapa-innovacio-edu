@@ -76,7 +76,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ fuseFuncs, settings: { HOMEPAGE } }) => {
+      {({ fuseFuncs, settings: { HOMEPAGE, PRJLOGOS_PATH } }) => {
 
         if (query !== currentQuery) {
           setCurrentQuery(query);
@@ -118,7 +118,7 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                           onClick={goToElement(tipus, id)}
                         >
                           <ListItemIcon>
-                            {simbol ? <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
+                            {simbol ? <Avatar src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${simbol}`)} alt={nom} /> : tipus === 'programa' ? <ProgramIcon /> : <SchoolIcon />}
                           </ListItemIcon>
                           <ListItemText primary={nom} />
                         </ListItem>

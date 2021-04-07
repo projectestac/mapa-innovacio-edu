@@ -70,8 +70,8 @@ check_webp_feature('lossy', function (_feature, isSupported) {
  * @param {String} src 
  */
 export function getOptimalSrc(src) {
-  // Dont't convert unknown file formats or absolute URLs
-  return (!webpSupported || /^https?:\/\//.test(src) || !(/(.png|.jpg)$/.test(src)))
+  // Dont't convert unknown file formats or absolute URLs not pointing to remote image repository
+  return (!webpSupported || /^https?:\/\/((?!clic.xtec.cat\/pub\/innovacio).)*$/.test(src) || !(/(.png|.jpg)$/.test(src)))
     ? src
     : src.replace(/(.png|.jpg)$/, '.webp');
 }

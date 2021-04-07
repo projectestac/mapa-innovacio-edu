@@ -48,7 +48,7 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
   return (
     <AppContext.Consumer>
       {({ data: { programes, centres }, currentPrjTab, updateMap,
-        settings: { HOMEPAGE, LOGO_BASE, FITXA_PROJ_BASE } }) => {
+        settings: { HOMEPAGE, LOGO_BASE, FITXA_PROJ_BASE, PRJLOGOS_PATH } }) => {
 
         // Find the specified project
         const [prg, codi, projNum] = id.split('|');
@@ -87,9 +87,9 @@ function FitxaProjecte({ history, match: { params: { id = '' } } }) {
               <Paper className="paper">
                 <Typography variant="h4">Projecte "{titol}"</Typography>
                 <div className="info-proj">
-                  <img src={getOptimalSrc(logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${HOMEPAGE}/logos/logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`)} alt={nomCentre} />
+                  <img src={getOptimalSrc(logo ? `${/^http.?:\/\//.test(logo) ? '' : LOGO_BASE}${logo}` : `${PRJLOGOS_PATH}logo_${nomCentre.startsWith('Escola') ? 'cole' : 'insti'}.png`)} alt={nomCentre} />
                   <Typography variant="h6"> <Link to={`/centre/${codiCentre}`}>{nomCentre}</Link><br />{municipi}</Typography>
-                  <img src={getOptimalSrc(`${HOMEPAGE}/logos/${simbolProg}`)} alt={nomProg} />
+                  <img src={getOptimalSrc(`${PRJLOGOS_PATH}${simbolProg}`)} alt={nomProg} />
                   <Typography variant="h6"> <Link to={`/programa/${idProg}`}>{nomProg}</Link><br />Curs {curs}</Typography>
                   {url &&
                     <Button

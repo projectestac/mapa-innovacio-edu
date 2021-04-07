@@ -30,8 +30,13 @@
 
 // Textos utilitzats a l'aplicació
 
+import { homepage as HOMEPAGE } from '../package.json';
+const PRJLOGOS_BASE = process.env.REACT_APP_PRJLOGOS_BASE || 'https://clic.xtec.cat/pub/innovacio/logos/';
+const PRJLOGOS_PATH = `${PRJLOGOS_BASE.startsWith('/') ? HOMEPAGE : ''}${PRJLOGOS_BASE}`;
+
+
 export const intro = `
-<picture><source srcset="logos/portada.webp" type="image/webp"/><source srcset="logos/portada.png" type="image/png"/><img src="logos/portada.png" style="max-width:100%;text-align:center;" alt="Mapa de la innovació pedagògica" /></picture>
+<picture><source srcset="${PRJLOGOS_PATH}portada.webp" type="image/webp"/><source srcset="${PRJLOGOS_PATH}portada.png" type="image/png"/><img src="${PRJLOGOS_PATH}portada.png" style="max-width:100%;text-align:center;" alt="Mapa de la innovació pedagògica" /></picture>
 
 És voluntat del Departament d’Educació acompanyar els centres educatius del país en el procés de
 transformació educativa per donar resposta a les necessitats del segle XXI i reconèixer els esforços
@@ -49,4 +54,3 @@ permetre promoure la inclusió, la cohesió i l’equitat, i facilitar la partic
 en l’èxit educatiu i la innovació per a la millora.
 
 `;
-

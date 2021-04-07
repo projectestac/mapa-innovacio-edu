@@ -46,7 +46,7 @@ function Presentacio({ history }) {
 
   return (
     <AppContext.Consumer>
-      {({ data: { programes }, settings: { HOMEPAGE } }) => {
+      {({ data: { programes }, settings: { HOMEPAGE, PRJLOGOS_PATH } }) => {
 
         return (
           <section className="seccio presenta">
@@ -75,7 +75,7 @@ function Presentacio({ history }) {
               <div className="hidden">
                 { /* Preload icons in a hidden div */
                   programes && Array.from(programes.values()).map((p, n) => (
-                    <img alt="" key={n} src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${p.simbol}`)} />
+                    <img alt="" key={n} src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${p.simbol}`)} />
                   ))
                 }
               </div>

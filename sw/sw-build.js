@@ -24,22 +24,28 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(path.dirname(DEST)) || !fs.exists
 
 // Default globPattern was: ['**/*.{html,js,css,png}']
 // Data files from '/data/*.json' only when JSON_BASE env starts with '/'
+// Main logo from '/logos/portada.{png,webp}' only when JSON_BASE env starts with '/'
 const GLOB_PATTERNS = [
   '*.{html,css,json}',
   'static/**/*.{js,css,html}',
   'ico/favicon.ico',
   'ico/icon144.png',
   'images/*.{png,jpg,webp,svg}',
-  'logos/portada.{png,webp}',
 ];
+
+const PRJLOGOS_BASE = process.env.REACT_APP_PRJLOGOS_BASE || 'https://clic.xtec.cat/pub/innovacio/logos/';
+if (PRJLOGOS_BASE.startsWith('/')) {
+  GLOB_PATTERNS.push(`${PRJLOGOS_BASE.substr(1)}logos/portada.{png,webp}`);
+  console.log(`Caching local main logo from: ${PRJLOGOS_BASE}`);
+} else
+  console.log(`Main logo will be loaded from: ${PRJLOGOS_BASE}`);
 
 const JSON_BASE = process.env.REACT_APP_JSON_BASE || 'https://clic.xtec.cat/pub/innovacio/data/';
 if (JSON_BASE.startsWith('/')) {
   GLOB_PATTERNS.push(`${JSON_BASE.substr(1)}*.json`);
   console.log(`Caching local data files from: ${JSON_BASE}`);
-} else {
+} else
   console.log(`Data files will be loaded from: ${JSON_BASE}`);
-}
 
 const GLOB_IGNORES = [
   'precache-manifest.*.js',

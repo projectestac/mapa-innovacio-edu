@@ -54,7 +54,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
   return (
     <AppContext.Consumer>
       {({ data, data: { centres, poligons, estudis }, currentPrograms, polygons, mapChanged, updateMap,
-        settings: { HASH, HOMEPAGE, LOGO_BASE, APP_BASE, EMBED } }) => {
+        settings: { HASH, HOMEPAGE, LOGO_BASE, APP_BASE, EMBED, PRJLOGOS_PATH } }) => {
 
         /**
          * Export the list of programs to a CSV spreadsheet
@@ -198,7 +198,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                         href={`${HOMEPAGE}${link}`}
                         onClick={withInfo ? jumpTo(link, history) : null}>
                         <ListItemAvatar>
-                          <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${simbol}`)} alt={nom} />
+                          <Avatar src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${simbol}`)} alt={nom} />
                         </ListItemAvatar>
                         <ListItemText
                           primary={nom}

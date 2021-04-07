@@ -103,7 +103,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
     <AppContext.Consumer>
       {({ data, data: { programes, estudis, ambitsCurr, ambitsInn },
         cursos, currentPrograms, polygons, mapChanged, updateMap,
-        settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP } }) => {
+        settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
 
         /**
          * Export the list of schools into a CSV spreadsheet
@@ -196,7 +196,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
               <section className="seccio programa">
                 <Paper className="paper">
                   <div className="logo-nom-seccio">
-                    {simbol && <img className="seccio-logo" src={getOptimalSrc(`${HOMEPAGE}/logos/${simbol}`)} alt={nom} />}
+                    {simbol && <img className="seccio-logo" src={getOptimalSrc(`${PRJLOGOS_PATH}${simbol}`)} alt={nom} />}
                     <div className="nom-seccio">
                       <Typography variant="h4">{nom}</Typography>
                     </div>

@@ -56,7 +56,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
   return (
     <AppContext.Consumer>
       {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap,
-        settings: { HASH, HOMEPAGE, APP_BASE, EMBED, EMBED_MAP } }) => {
+        settings: { HASH, HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
 
         /**
          * Export the list of schools into a CSV spreadsheet
@@ -127,7 +127,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                     {logo &&
                       <img
                         className={`seccio-logo ${tipus === 'ST' ? '' : 'se-logo'}`}
-                        src={getOptimalSrc(`${/^http.?:\/\//.test(logo) ? logo : `${HOMEPAGE}/${logo}`}`)}
+                        src={getOptimalSrc(`${/^http.?:\/\//.test(logo) ? logo : `${PRJLOGOS_PATH}${logo}`}`)}
                         alt={nom}
                       />}
                     <div className="nom-seccio">
@@ -179,7 +179,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       <Accordion key={n}>
                         <AccordionSummary classes={{ root: 'small-padding-h no-break', content: 'zona-prog' }} expandIcon={<ExpandMoreIcon />}>
                           <Link className="zona-prog-logo" to={`/programa/${prog.id}`}>
-                            <Avatar src={getOptimalSrc(`${HOMEPAGE}/logos/mini/${prog.simbol}`)} alt={prog.nom} />
+                            <Avatar src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${prog.simbol}`)} alt={prog.nom} />
                           </Link>
                           <Typography className="wider">{prog.nom}</Typography>
                           <Typography>{`${numCentres} centre${numCentres === 1 ? '' : 's'}`}</Typography>
