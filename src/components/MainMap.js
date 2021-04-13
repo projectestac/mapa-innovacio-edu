@@ -29,12 +29,16 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Map, Polygon, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
+import { MapContainer, Polygon, Marker, Popup, LayersControl, LayerGroup } from 'react-leaflet';
 import TileLayer from '../utils/TileLayer';
-import MarkerClusterGroup from '../utils/MarkerClusterGroup';
+
+//import MarkerClusterGroup from '../utils/MarkerClusterGroup';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+
 // Moved to `index.js`:
 // import 'react-leaflet-fullscreen/dist/styles.css';
-import FullscreenControl from 'react-leaflet-fullscreen';
+// TODO: ADD FULLSCREEN!
+// import FullscreenControl from 'react-leaflet-fullscreen';
 import { sumAll } from '../utils/Utils';
 
 const PRESERVE_MAP_BOUNDS = (process.env.REACT_APP_PRESERVE_MAP_BOUNDS || 'true') === 'true';
@@ -164,7 +168,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
   };
 
   return (
-    <Map
+    <MapContainer
       className="mapa markercluster-map"
       {...{
         maxZoom,
@@ -199,7 +203,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
           </LayerGroup>
         </LayersControl.Overlay>
         <LayersControl.Overlay name={OVERLAYS[1].name} checked={poli !== null || getBool(OVERLAYS[1].flag)}>
-          <MarkerClusterGroup clusterProps={MARKERCLUSTER_PROPS}>
+          <MarkerClusterGroup clusterProps={MARKERCLUSTER_PROPS} {...MARKERCLUSTER_PROPS}>
             {points.map(pt => (
               <Marker key={pt.id} position={[pt.lat, pt.lng]}>
                 {popupCentre(pt)}
@@ -208,11 +212,13 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
           </MarkerClusterGroup>
         </LayersControl.Overlay>
       </LayersControl>
+      {/*
       <FullscreenControl
         position="topleft"
         title="Mostra el mapa a pantalla completa"
         titleCancel="Surt de la pantalla completa"
       />
-    </Map>
+      */}
+    </MapContainer>
   )
 }

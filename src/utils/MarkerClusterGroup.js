@@ -30,7 +30,8 @@
 // Workaround to erors in `react-leaflet-markercluster`
 // From: https://github.com/YUzhva/react-leaflet-markercluster/issues/71#issuecomment-466393028
 
-import { MapLayer, withLeaflet } from 'react-leaflet';
+import React from 'react';
+import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 require('leaflet.markercluster');
 
@@ -55,6 +56,8 @@ L.MarkerClusterGroup.include({
   },
 });
 
+
+/*
 class MarkerClusterGroup extends MapLayer {
   createLeafletElement(props) {
     const { clusterProps = {} } = props;
@@ -66,5 +69,36 @@ class MarkerClusterGroup extends MapLayer {
     return el;
   }
 }
+*/
 
-export default withLeaflet(MarkerClusterGroup);
+class MarkerClusterGroup extends React.Component {
+  createControl() {
+    const { clusterProps = {} } = this.props;
+    const el = new L.markerClusterGroup({ ...this.props, ...clusterProps });
+    this.contextValue = {
+      ...this.props.leaflet,
+      layerContainer: el
+    };
+    return el;
+  }
+
+  componentDidMount() {
+    const { map } = this.props;
+    const control = this.createControl();
+    control.addTo(map);
+  }
+
+  render() {
+    return null;
+  }
+}
+
+//export default withLeaflet(MarkerClusterGroup);
+function withMap(Component) {
+  return function WrappedComponent(props) {
+    const map = useMap();
+    return <Component {...props} map={map} />
+  }
+}
+
+export default withMap(MarkerClusterGroup);
