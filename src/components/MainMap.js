@@ -53,6 +53,7 @@ const MARKERCLUSTER_PROPS = {
   showCoverageOnHover: false, // Default is `true`
   maxClusterRadius: 30, // Default is 80
   chunkedLoading: false, // Default is `true`
+  removeOutsideVisibleBounds: true,
 };
 
 export default function MainMap({ points = [], polygons = [], estudis = [], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {
@@ -197,13 +198,13 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
         <LayersControl.Overlay name={OVERLAYS[0].name} checked={poli === null && getBool(OVERLAYS[0].flag)}>
           <LayerGroup>
             {polygons[currentLayer].shapes.filter(sh => poli === null || poli === sh).map((sh, n) => (
-              <Polygon key={n} positions={sh.poligons} weight={0} fillOpacity={sh.density}>
+              <Polygon key={n} positions={sh.poligons} pathOptions={{ fillOpacity: sh.density, weight: 0 }}>
                 {popupZona(sh)}
               </Polygon>))}
           </LayerGroup>
         </LayersControl.Overlay>
         <LayersControl.Overlay name={OVERLAYS[1].name} checked={poli !== null || getBool(OVERLAYS[1].flag)}>
-          <MarkerClusterGroup clusterProps={MARKERCLUSTER_PROPS} {...MARKERCLUSTER_PROPS}>
+          <MarkerClusterGroup {...MARKERCLUSTER_PROPS}>
             {points.map(pt => (
               <Marker key={pt.id} position={[pt.lat, pt.lng]}>
                 {popupCentre(pt)}
