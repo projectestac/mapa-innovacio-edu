@@ -1,4 +1,4 @@
-### v1.3.1 (not yet released)
+### v1.3.1 (2021-04-15)
 #### Improvements
 - New section with "good pedagogical practices"
 - Data can be now loaded from external sources

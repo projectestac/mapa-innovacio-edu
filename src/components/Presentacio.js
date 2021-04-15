@@ -29,7 +29,8 @@
 
 import React from 'react';
 import { AppContext } from '../App';
-import ReactMarkdown from 'react-markdown/with-html';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import MapIcon from '@material-ui/icons/Map';
@@ -39,7 +40,7 @@ import { intro } from '../literals';
 import { getOptimalSrc } from '../utils/Utils';
 
 const MD_OPTIONS = {
-  escapeHtml: false,
+  rehypePlugins: [rehypeRaw],
 };
 
 function Presentacio({ history }) {

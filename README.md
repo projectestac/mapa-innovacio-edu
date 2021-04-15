@@ -159,10 +159,10 @@ To build and launch your own docker image on port 8000:
 ```bash
 $ cd /path/to/mapa/innovacio
 $ docker build . -t mapa-innovacio
-$ docker run -d -p 8000:80 --name mapa-innovacio mapa-innovacio
+$ docker run -d -p 8000:80 mapa-innovacio
 ```
 
-To use the pre-built docker image just launch:
+To use the pre-build image stored in [Docker Hub](https://hub.docker.com/r/projectestac/mapa-innovacio), just launch:
 
 ```bash
 $ docker run -d -p 8000:80 --name mapa-innovacio projectestac/mapa-innovacio

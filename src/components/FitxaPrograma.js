@@ -29,7 +29,8 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
-import ReactMarkdown from 'react-markdown/with-html';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -64,7 +65,7 @@ const MAX_EXPANSION_PANELS = 25;
 // Options for React-Markdown
 // See: https://github.com/rexxars/react-markdown#options
 const MD_OPTIONS = {
-  escapeHtml: false,
+  rehypePlugins: [rehypeRaw],
 };
 
 // Creates a Material-UI expansion panel with the provided title and content
