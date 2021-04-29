@@ -8,7 +8,7 @@
     "url": "http://xtec.gencat.cat/ca/innovacio/"
   },
   "private": true,
-  "homepage": "https://innovacio.xtec.gencat.cat/",
+  "homepage": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/projectestac/mapa-innovacio-edu"
