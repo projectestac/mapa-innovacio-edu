@@ -1,14 +1,14 @@
 {
   "name": "mapa-innovacio",
   "title": "Mapa de la innovació pedagògica de Catalunya",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": {
     "name": "Departament d'Educació de la Generalitat de Catalunya",
     "email": "innovacio@xtec.cat",
     "url": "http://xtec.gencat.cat/ca/innovacio/"
   },
   "private": true,
-  "homepage": "",
+  "homepage": "https://innovacio.xtec.gencat.cat/",
   "repository": {
     "type": "git",
     "url": "https://github.com/projectestac/mapa-innovacio-edu"
