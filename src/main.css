@@ -217,7 +217,7 @@ header .top-bar, .nav-bar {
     font-weight: 600;
   }
   header .logo-gencat {
-    background: url("assets/NG_logo_generalitat.png") no-repeat 0 0;
+    background: url("assets/gencat_blanc.png") no-repeat 0 0;
     width: 170px;
     height: 2em;
     text-indent: -555em;
