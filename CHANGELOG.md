@@ -1,3 +1,7 @@
+### v1.3.2 (2021-11-18)
+#### Bug fixes
+- Avoid duplicate comments in instance titles
+
 ### v1.3.1 (2021-04-15)
 #### Improvements
 - New section with "good pedagogical practices"

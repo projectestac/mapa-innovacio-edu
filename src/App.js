@@ -360,7 +360,10 @@ class App extends Component {
 
             // Build complex title when comentari exists
             if (comentari) {
-              titol = titol ? `${titol} (${comentari})` : comentari;
+              titol = titol || comentari;
+              // Avoid duplicate comments
+              if (!titol.includes(comentari))
+                titol = `${titol} (${comentari})`;
             }
 
             // Build info object
