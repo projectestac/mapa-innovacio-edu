@@ -306,5 +306,77 @@
   "43010177": {
     "becomes": "43013129",
     "comment": "Participació com a \"Escola Pla de Mar\""
+  },
+  "08001583": {
+    "becomes": "08077401",
+    "comment": "Participació com a \"Escola Guillem de Balsareny\""
+  },
+  "08013305": {
+    "becomes": "08072310",
+    "comment": "Participació com a \"Escola Ramon Berenguer III\""
+  },
+  "08032701": {
+    "becomes": "08077393",
+    "comment": "Participació com a \"Escola Lluís Millet\""
+  },
+  "08039513": {
+    "becomes": "08077095",
+    "comment": "Participació com a \"Escola Taxonera\""
+  },
+  "08044442": {
+    "becomes": "08077460",
+    "comment": "Participació com a \"Escola Santa Anna\""
+  },
+  "08047698": {
+    "becomes": "08041933",
+    "comment": "Participació com a \"Institut Cristòfol Colom\""
+  },
+  "08053418": {
+    "becomes": "08077371",
+    "comment": "Participació com a \"Escola El Morsell\""
+  },
+  "08061181": {
+    "becomes": "08077459",
+    "comment": "Participació com a \"Escola Santiga\""
+  },
+  "08071172": {
+    "becomes": "08077381",
+    "comment": "Participació com a \"Escola Virolet\""
+  },
+  "17000585": {
+    "becomes": "17010921",
+    "comment": "Participació com a \"Escola Montseny\""
+  },
+  "17002612": {
+    "becomes": "17010815",
+    "comment": "Participació com a \"Escola Vila-romà\""
+  },
+  "43001929": {
+    "becomes": "43012319",
+    "comment": "Participació com a \"Escola Jaume II\""
+  },
+  "43007211": {
+    "becomes": "43012319",
+    "comment": "Participació com a \"Institut Blanca d'Anjou\""
+  },
+  "08060125": {
+    "becomes": "08076650",
+    "comment": "Participació com a \"CFA Manuel Fernández\""
+  },
+  "08062134": {
+    "becomes": "08076650",
+    "comment": "Participació com a \"CFA Pla de Besòs\""
+  },
+  "08005990": {
+    "becomes": "08077149",
+    "comment": "Participació com a \"Immaculada Concepció Barcelona\""
+  },
+  "08006313": {
+    "becomes": "08076509",
+    "comment": "Participació com a \"Sant Vicenç de Paül\""
+  },
+  "08036962": {
+    "becomes": "08077162",
+    "comment": "Participació com a \"Ateneu Igualadí\""
   }
 }

@@ -5491,20 +5491,20 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43013075,IE,Institut Escola Teresina Martorell,El Vendrell,"Partida Botafoc, Ctra. de Valls, s/n",43700,Baix Penedès,"41,225938","1,530326",EINF2C|EPRI|ESO,TAR,43870703,https://agora.xtec.cat/ieangeldetobies,43013075.png,,e3013075@xtec.cat,,TRUE
 43013087,IE,Institut Escola Montsant,Cornudella de Montsant,"C. Comte de Rius, s/n",43360,Priorat,"41,264226673","0,90608193",EINF2C|EPRI|ESO,TAR,43870704,https://agora.xtec.cat/iemontsant,,,e3013087@xtec.cat,,TRUE
 43013099,IE,Institut Escola Agustí Barberà,Amposta,"C. Madrid, 55",43870,Montsià,"40,708626952","0,584012046",EINF2C|EPRI|ESO,TEB,43870802,,,,e3013099@xtec.cat,,TRUE
-08072310,IE,Institut Escola Rec Comtal,Barcelona,"c. Mare de Déu de Lorda, 25",08033,Barcelonès,"41,45125301","2,191911877",EINF2C|EPRI|ESO,CEB,08870110,https://agora.xtec.cat/iereccomtal,,933 451 731,a8002447@xtec.cat,,FALSE
+08072310,IE,Institut Escola Rec Comtal,Barcelona,"c. Mare de Déu de Lorda, 25",08033,Barcelonès,"41,45125301","2,191911877",EINF2C|EPRI|ESO,CEB,08870110,https://agora.xtec.cat/iereccomtal,,933 451 731,a8002447@xtec.cat,,TRUE
 08074203,LLA,EB privada Petits Artistes,Cardedeu,"c. Donants de Sang, 24",08440,Vallès Oriental,"41,630325945","2,359455328",EINF1C,MVO,08870204,,,938 418 895,a8074203@xtec.cat,,FALSE
 08075979,FP,International Rural School,Llinars del Vallès,"c. Josep Argila, 39 (Can Lletres)",08450,Vallès Oriental,"41,637684735","2,398089366",ESTR,MVO,08870204,,,607 924 572,a8075979@xtec.cat,,FALSE
-08076285,LLA,Escola Bressol Municipal Encants,Barcelona,"c. Cartagena, 159",08025,Barcelonès,"41,403684","2,183962",EINF1C,CEB,08870107,,,,a8076285@xtec.cat,,FALSE
-08076297,LLA,Escola Bressol Municipal Canòdrom,Barcelona,"c. Cardenal Tedeschini, 24",08027,Barcelonès,"41,425633","2,183939",EINF1C,CEB,08870110,,,,a8076297@xtec.cat,,FALSE
-08076443,IE,Institut Escola Rafael Alberti,Badalona,"av. Pius XIII, s/n",08911,Barcelonès,"41,436526439","2,214273494",EINF2C|EPRI|ESO,BCO,08870209,https://agora.xtec.cat/ierafaelalberti,,933 993 451,a8076443@xtec.cat,,FALSE
+08076285,LLA,Escola Bressol Municipal Encants,Barcelona,"c. Cartagena, 159",08025,Barcelonès,"41,403684","2,183962",EINF1C,CEB,08870107,,,,a8076285@xtec.cat,,TRUE
+08076297,LLA,Escola Bressol Municipal Canòdrom,Barcelona,"c. Cardenal Tedeschini, 24",08027,Barcelonès,"41,425633","2,183939",EINF1C,CEB,08870110,,,,a8076297@xtec.cat,,TRUE
+08076443,IE,Institut Escola Rafael Alberti,Badalona,"av. Pius XIII, s/n",08911,Barcelonès,"41,436526439","2,214273494",EINF2C|EPRI|ESO,BCO,08870209,https://agora.xtec.cat/ierafaelalberti,,933 993 451,a8076443@xtec.cat,,TRUE
 08076698,LLA,LLI privada L'Estrella,L'Hospitalet de Llobregat,"c. L'Estrella, 37",08902,Barcelonès,"41,363835","2,107218",EINF1C,BCO,08870210,,,602 197 029,a8076698@xtec.cat,,FALSE
-08076716,LLA,Escola Bressol Encants,Barcelona,"c. Cartagena, 157-159",08018,Barcelonès,"41,403684","2,183962",EINF1C,CEB,08870107,,,,a8076716@xtec.cat,,FALSE
-08076728,LLA,Escola Bressol Municipal Aurora,Barcelona,"c. Aurora, 24",08001,Barcelonès,"41,378109","2,167109",EINF1C,CEB,08870106,,,,a8076728@xtec.cat,,FALSE
+08076716,LLA,Escola Bressol Encants,Barcelona,"c. Cartagena, 157-159",08018,Barcelonès,"41,403684","2,183962",EINF1C,CEB,08870107,,,,a8076716@xtec.cat,,TRUE
+08076728,LLA,Escola Bressol Municipal Aurora,Barcelona,"c. Aurora, 24",08001,Barcelonès,"41,378109","2,167109",EINF1C,CEB,08870106,,,,a8076728@xtec.cat,,TRUE
 08076753,LLA,Llar d'infants La Granota,Barcelona,"c. València, 500",08013,Barcelonès,"41,404791512","2,179612311",EINF1C,CEB,08870107,,,,a8076753@xtec.cat,,FALSE
 08076777,ESC,Anne Sullivan,Pallejà,"Gran Via Fontpineda, 2",08780,Baix Llobregat,"41,418473","1,966794",EINF2C|EPRI,BLL,17870505,,,,a8076777@xtec.cat,,FALSE
 08076820,IE,Institut Escola Sala i Badrinas,Terrassa,"ctra. de Rubí, 227/c.Germà Joaquim, 128",08222,Vallès Occidental,"41,554578","2,020981",EINF2C|EPRI|ESO,VOC,08870405,,,,a8076820@xtec.cat,,TRUE
 08076868,CFA,ISC,Barcelona,"c. Marquès de Setmenat, 35-37",08014,Barcelonès,"41,385224637","2,135323319",ADULTS,CEB,08870102,,,,a8076868@xtec.cat,,FALSE
-08076871,LLA,Llar d'infants de Sora,Sora,"c. de l'Església, 1",08589,Osona,"42,112311","2,161105",EINF1C,CCE,08870208,,,,a8076871@xtec.cat,,FALSE
+08076871,LLA,Llar d'infants de Sora,Sora,"c. de l'Església, 1",08589,Osona,"42,112311","2,161105",EINF1C,CCE,08870208,,,,a8076871@xtec.cat,,TRUE
 08076893,INS,Institut Vilafranca 2,Vilafranca del Penedès,c. de la vinya / Carrer núm 2,08720,Alt Penedès,"41,346552","1,711046",ESO,BCO,08870212,https://agora.xtec.cat/insvilafranca2,,,a8076893@xtec.cat,,TRUE
 08076901,IE,Institut Escola de Badalona,Badalona,"av. del Marquès de Sant Morí, 251",08914,Barcelonès,"41,44427","2,225801",EINF2C|EPRI|ESO,BCO,08870209,https://agora.xtec.cat/ienoudebadalona,,,a8076901@xtec.cat,,TRUE
 08076923,IE,Institut Escola Llibertat,Badalona,"av. Puigfred, 13",08917,Barcelonès,"41,45431","2,232858",EINF2C|EPRI|ESO,BCO,08870209,,,,a8076923@xtec.cat,,TRUE
@@ -5527,15 +5527,15 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 08077101,IE,Institut Escola Plaça Comas,Barcelona,"c. Eugeni d'Ors, 2",08028,Barcelonès,"41,38421","2,128661",EINF2C|EPRI|ESO,CEB,08870102,https://agora.xtec.cat/iecomas,,,a8077101@xtec.cat,,TRUE
 08077113,ESC,Escola Voltregà,Sant Hipòlit de Voltregà,"c. Balmes, 1",08512,Osona,"42,012152","2,238236",EINF2C|EPRI,CCE,08870208,https://agora.xtec.cat/esc-voltrega,,,a8077113@xtec.cat,,TRUE
 08077125,IE,Institut Escola Antoni Ubach i Soler,Terrassa,"c. Dr. Aymerich i Gilabertó, 35",08224,Vallès Occidental,"41,566028","2,028619",EINF2C|EPRI|ESO,VOC,08870405,,,,a8077125@xtec.cat,,TRUE
-08077137,FP,Institut d'Ensenyaments Esportius de Barcelona,Barcelona,"Av. Francesc Ferrer i Guàrdia, 16",08038,Barcelonès,"41,370326","2,149123",IFE,CEB,08870103,https://agora.xtec.cat/ins-esport,,,a8077137@xtec.cat,,FALSE
+08077137,FP,Institut d'Ensenyaments Esportius de Barcelona,Barcelona,"Av. Francesc Ferrer i Guàrdia, 16",08038,Barcelonès,"41,370326","2,149123",IFE,CEB,08870103,https://agora.xtec.cat/ins-esport,,,a8077137@xtec.cat,,TRUE
 08077149,IE,Institut Escola Eixample,Barcelona,"c. València, 252",08007,Barcelonès,"41,391385","2,161762",EINF2C|EPRI|ESO,CEB,08870107,https://agora.xtec.cat/ie-eixample,,,a8077149@xtec.cat,,TRUE
 08077162,ESC,Escola Ateneu Igualadí,Igualada,"c. de Esquiladors, 13",08700,Anoia,"41,579497","1,620168",EINF2C|EPRI,CCE,08870301,https://agora.xtec.cat/escola-ateneu-igualadi,,,a8077162@xtec.cat,,TRUE
 08077174,INS,Institut La Vall de Tenes,Santa Eulàlia de Ronçana,"Camí de la Rovira, s/n",08187,Vallès Oriental,"41,649254","2,22079",ESO|BATX,MVO,08870216,,,938 448 225,a8077174@xtec.cat,,TRUE
 08077198,LLA,Escola Bressol Montessori Granollers,Granollers,"c. Corró, 187",08402,Vallès Oriental,"41,614404","2,289877",EINF1C,MVO,08870202,,,661 319 861,a8077198@xtec.cat,,FALSE
 08077216,FP,Actua! Studio,Barcelona,"c. Londres, 9, baixos",08029,Barcelonès,"41,388613","2,143995",ESCS,CEB,08870107,,,,a8077216@xtec.cat,,FALSE
-08077231,IE,A. Hospitalària La Llacuna,Barcelona,"c. Davant del Portal Nou, s/n",08003,Barcelonès,"41,390218","2,180528",EINF2C|EPRI|ESO,CEB,08870104,,,,a8077231@xtec.cat,,FALSE
+08077231,IE,A. Hospitalària La Llacuna,Barcelona,"c. Davant del Portal Nou, s/n",08003,Barcelonès,"41,390218","2,180528",EINF2C|EPRI|ESO,CEB,08870104,,,,a8077231@xtec.cat,,TRUE
 08077241,FP,Campusnet,Barcelona,"Travessera de les Corts, 331",08029,Barcelonès,"41,388829","2,138117",CFPS|CFAM|CFAS,CEB,08870102,,,,a8077241@xtec.cat,,FALSE
-17010611,ART,Esc. de Música Municipal Pere Mercader,Cassà de la Selva,"c. Molí, 9",17244,Gironès,"41,889053","2,875128",MUSE,GIR,17870501,,,,b7010611@xtec.cat,,FALSE
+17010611,ART,Esc. de Música Municipal Pere Mercader,Cassà de la Selva,"c. Molí, 9",17244,Gironès,"41,889053","2,875128",MUSE,GIR,17870501,,,,b7010611@xtec.cat,,TRUE
 17010736,ART,Escola de Dansa Dans,Banyoles,"c. Conill, 20-22",17820,Pla de l'Estany,"42,11894","2,762565",DANE,GIR,17870508,,,,b7010736@xtec.cat,,FALSE
 17010761,LLA,LLI privada Petit Regne,Girona,"c. Universitat de Montpeller, 3",17003,Gironès,"41,97238","2,815695",EINF1C,GIR,17870501,,,,b7010761@xtec.cat,,FALSE
 17010797,IE,Institut Escola Caritat Serinyana - Cap de Creus,Cadaqués,"c. Teresa Miramont, s/n",17488,Alt Empordà,"42,291697","3,275679",EINF2C|EPRI|ESO,GIR,17870505,https://agora.xtec.cat/iecadaques,,,b7010797@xtec.cat,,TRUE
@@ -5544,7 +5544,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 17010827,IE,Institut Escola Greda,Olot,"c. dels Garganta, 11",17800,Garrotxa,"42,197842","2,497203",EINF2C|EPRI|ESO,GIR,17870507,,,,b7010827@xtec.cat,,TRUE
 17010839,IE,Institut de Peralada,Peralada,"Camí de la Garriga, 4",17491,Alt Empordà,"42,308945","3,012927",EINF2C|EPRI|ESO,GIR,17870505,https://agora.xtec.cat/insperalada,,,b7010839@xtec.cat,,TRUE
 17010840,IE,Institut Nou Palafrugell,Palafrugell,"c. de Pals, 91",17200,Baix Empordà,"41,92166","3,162635",EINF2C|EPRI|ESO,GIR,17870504,https://agora.xtec.cat/insnoupalafrugell,,,b7010840@xtec.cat,,TRUE
-25010346,LLA,Llar d'infants municipal de Corbins,Corbins,"pl. de la Vila, s/n",25137,Segrià,"41,690601379","0,693011093",EINF1C,LLE,25870608,,,,c5010346@xtec.cat,,FALSE
+25010346,LLA,Llar d'infants municipal de Corbins,Corbins,"pl. de la Vila, s/n",25137,Segrià,"41,690601379","0,693011093",EINF1C,LLE,25870608,,,,c5010346@xtec.cat,,TRUE
 25010358,IE,Institut Escola Vall de Lord,Sant Llorenç de Morunys,"c. de la Creueta, s/n",25282,Solsonès,"42,13406","1,590837",EINF2C|EPRI|ESO,CCE,25870604,https://agora.xtec.cat/ievalldelord,,,c5010358@xtec.cat,,TRUE
 43013051,FP,Saba Verda International School,Tortosa,"Camí de Mianes, 3",43500,Baix Ebre,"40,772502891","0,514592632",ESTR,TEB,43870801,,,,e3013051@xtec.cat,,FALSE
 43013117,FP,Institut d'Est. Profes. Aqüícoles i Ambientals de Catalunya,Sant Carles de la Ràpita,"ctra. Poble Nou, km. 6,435",43540,Montsià,"40,629662","0,658753",CFPM|CFPS,TEB,43870802,,,,e3013117@xtec.cat,,TRUE
@@ -5552,3 +5552,65 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43013130,IE,Institut Escola Joan Ardèvol,Cambrils,"c. Joan Ardèvol, 1",43850,Baix Camp,"41,075429","1,046662",EINF2C|EPRI|ESO,TAR,43870707,https://agora.xtec.cat/ieja,,,e3013130@xtec.cat,,TRUE
 43013142,IE,Institut Escola El Temple,Tortosa,"pg. de Jaume I, 19",43500,Baix Ebre,"40,803353","0,522304",EINF2C|EPRI|ESO,TEB,43870801,https://agora.xtec.cat/ietemple,,,e3013142@xtec.cat,,TRUE
 43013154,ART,Banda i escola de Música La Ginesta,Ginestar,"c. Reus, 52",43748,Ribera d'Ebre,"41,043207","0,638266",MUSE,TEB,43870803,,,,e3013154@xtec.cat,,FALSE
+08064192,INS,Institut Angeleta Ferrer,Barcelona,"c. Viladomat, 244-268",08029,Barcelonès,"41,387121","2,147838",ESO,CEB,08870107,https://agora.xtec.cat/insaferrer,08064192.png,,a8064192@xtec.cat,@insaferrer,TRUE
+08076340,ART,Esc. de Música Municipal del Masnou,El Masnou,"c. de la Segarra, 12",08320,Maresme,"41,48521","2,307283",MUSE,MVO,08870205,,,,a8076340@xtec.cat,,TRUE
+08076364,ART,Esc. de Música Municipal de Sant Esteve de Palautordera,Sant Esteve de Palautordera,"c. Pare Casals, 2",08461,Vallès Oriental,"41,613623","2,136416",MUSE,MVO,08870204,,,,a8076364@xtec.cat,,TRUE
+08076790,LLA,LLI privada Nemomarlin Maresme,Mataró,"c. Vallespir, 2, local 3",08304,Maresme,"41,554631","2,460210",EINF1C,MVO,08870207,,,651143333,a8076790@xtec.cat,,FALSE
+08076807,FP,GBSB Global Buiness School,Barcelona,"c. Aragó, 179, baixos",08011,Barcelonès,"41,387212","2,157934",ESTR,CEB,08870107,,,,a8076807@xtec.cat,,FALSE
+08076832,FP,International School of Catalunya (ISCAT) Maresme,Canet de Mar,"av. dels Llimoners, 34",08360,Maresme,"41,593865","2,589656",ESTR,MVO,08870215,,,,a8076832@xtec.cat,,FALSE
+08077095,IE,Institut Escola Mirades,Barcelona,"c. Farners, 60-72",08032,Barcelonès,"41,426163","2,152905",EINF2C|EPRI|ESO,CEB,08870101,,,,a8077095@xtec.cat,,TRUE
+08077150,FP,CEES,Vic,"rda. Francesc Camprodon, 2",08500,Osona,"41,935978","2,256954",ESCS,CCE,08870208,,,,a8077150@xtec.cat,,FALSE
+08077204,EE,Les Girafes Blaves,Barcelona,"c. Escorial, 169",08024,Barcelonès,"41,410393","2,158238",EE,CEB,08870105,,,,a8077204@xtec.cat,,FALSE
+08077228,FP,Institut Professional de Turisme Eqüestre del Maresme,Santa Susanna,"c. Montseny, 1 (Masia de Can Ratés)",08398,Maresme,"41,639484","2,709319",CFPM|TEGM,MVO,08870215,https://agora.xtec.cat/ins-iptem,08077228.png,677270494,a8077228@xtec.cat,,TRUE
+08077253,LLA,Escola Bressol municipal Germanetes,Barcelona,"c. Comte Borrell, 159 ",08015,Barcelonès,41.382790,2.155233,EINF1C,CEB,08870107,,,,a8077253@xtec.cat,,TRUE
+08077290,FP,Monlau Motorsport,Barcelona,"c. Potosí, 38",08030,Barcelonès,"41,44333","2,205351",CFPM,CEB,08870103,,,,a8077290@xtec.cat,,FALSE
+08077319,ART,Escola de Dansa Ma. Cinta,Manlleu,"c. Josep Serra i Sió, 20",08560,Osona,"41,999275","2,276106",DANE,CCE,08870208,,,,a8077319@xtec.cat,,FALSE
+08077320,ART,Escola de Dansa TLS Escola de Dansa,Vic,"c. Costa d'en Paratge, 16",08500,Osona,"41,938397","2,252204",DANE,CCE,08870208,,,,a8077320@xtec.cat,,FALSE
+08077356,ESC,Escola Nova,Sentmenat,"pg. de la Torre Roja, s/n",08181,Vallès Occidental,"41,613623","2,136416",EINF2C|EPRI,VOC,08870408,https://agora.xtec.cat/escolalesfiladores,,,a8077356@xtec.cat,,TRUE
+08077371,IE,Institut Escola El Morsell,Olivella,"av. Mas Milà, s/n",08818,Garraf,"41,298596","1,7787",EINF2C|EPRI|ESO,BCO,08870214,,,,a8077371@xtec.cat,,TRUE
+08077381,IE,Institut Escola Virolet,Sabadell,"c. Berlín, 2",08202,Vallès Occidental,"41,558402","2,080768",EINF2C|EPRI|ESO,VOC,08870404,,,,a8077381@xtec.cat,,TRUE
+08077393,IE,Institut Escola Lluís Millet,El Masnou,"c. Constitució, s/n",08320,Maresme,"41,477462","2,302798",EINF2C|EPRI|ESO,MVO,08870205,,,935554938,a8077393@xtec.cat,,TRUE
+08077401,IE,Institut Escola Guillem de Balsareny,Balsareny,"c. del Carrilet, 8",08660,Bages,"41,861342461","1,876363761",EINF2C|EPRI|ESO,CCE,08870201,https://agora.xtec.cat/iebalsareny,08077401.png,938396188,a8077401@xtec.cat,,TRUE
+08077435,FP,Institut dels Aliments de Barcelona,Barcelona,"c. Longitudinal 4, 22 ",08040,Barcelonès,"41,331862","2,113743",AA01|CFPM|CFPS|PFI,CEB,08870106,https://agora.xtec.cat/iabarcelona,08077435.png,,a8077435@xtec.cat,,FALSE
+08077447,ESC,Institut de formació professional Antoni Algueró,Sant Just Desvern,"c. Parlament Català, 1-3",08960,Baix Llobregat,"41,377855","2,0753",EPRI|CFPM|CFPS|CFAS,BLL,08870306,https://agora.xtec.cat/ifp-alguero,08077447.png,,a8077447@xtec.cat,,TRUE
+08077459,IE,Institut Escola Santiga,Santa Perpètua de Mogoda,"av. Sabadell, 3",08130,Vallès Occidental,"41,533651781","2,175490632",EINF2C|EPRI|ESO,VOC,08870403,,,,a8077459@xtec.cat,,TRUE
+08077460,IE,Institut Escola Santa Anna,Premià de Dalt,"Torrent de Santa Anna, 44",08338,Maresme,"41,500651771","2,359897349",EINF2C|EPRI|ESO,MVO,08870205,https://agora.xtec.cat/iesantanna-premiadedalt,08077460.png,937516968,a8077460@xtec.cat,,TRUE
+08077472,INS,Institut Escola Intermunicipal del Penedès,Sant Sadurní d'Anoia,"pça. Santiago Rusinyol, s/n ",08770,Alt Penedès,"41,423076065","1,78109682",ESO|BATX|CFPM|CFPS,BCO,08870212,,,,a8077472@xtec.cat,,TRUE
+08077484,IE,Institut Escola Elisabets,Barcelona,"c. Elisabets, 8-10 ",08001,Barcelonès,"41,383427096","2,168633261",EINF2C|EPRI|ESO,CEB,08870106,https://agora.xtec.cat/ieelisabets,08077484.png,,a8077484@xtec.cat,,TRUE
+08077496,IE,Institut Escola Sicília,Barcelona,"c. Sicília, 249",08025,Barcelonès,"41,402400929","2,171506363",EINF2C|EPRI|ESO,CEB,08870107,https://agora.xtec.cat/iesicilia,08077496.png,,a8077496@xtec.cat,,TRUE
+08077502,FP,Institut Escola Londres,Barcelona,"c. Comte d'Urgell, 262",08036,Barcelonès,"41,391027987","2,147037981",EINF2C,CEB,08870107,,,,a8077502@xtec.cat,,TRUE
+08077514,ESC,Escola Aldana,Barcelona,"c. Aldana, 1",08015,Barcelonès,"41,37549681","2,165668071",EINF2C|EPRI,CEB,08870103,https://agora.xtec.cat/escaldana,,,a8077514@xtec.cat,,TRUE
+08077538,ESC,Hospital de Dia per a Adolescents de Collblanc,L'Hospitalet de Llobregat,"c. de la Vinyeta, 15-17",08904,Barcelonès,"41,371345","2,115972",EINF1C|EPRI,BCO,08870210,,,,a8077538@xtec.cat,,TRUE
+08077541,FP,Aspire Business School,Barcelona,"av. Paral·lel, 54",08001,Barcelonès,"41,375064","2,170719",ESTR,CEB,08870103,,,,a8077541@xtec.cat,,FALSE
+08077563,ART,Escola de Dansa La Fàbrica de les Arts,Sant Vicenç de Torelló,"Polígon Coats Fabra, s/n",08571,Osona,"42,063824","2,243488",DANE,CCE,08870208,,,,a8077563@xtec.cat,,FALSE
+08077575,FP,L'Idem Creative Arts School,Barcelona,"c. de la Ciutat de Granada, 53-57",08005,Barcelonès,"41,398328","2,19786",ESTR,CEB,08870104,,,,a8077575@xtec.cat,,FALSE
+08077587,FP,Campusnet Sant Andreu,Barcelona,"c. Sant Sebastià, 55",08030,Barcelonès,"41,428564805","2,191468472",CFPS,CEB,08870110,,,,a8077587@xtec.cat,,FALSE
+08077599,ART,Escola de Dansa Som-hi dansa,Barcelona,"c. Comte Borrell, 334-336",08029,Barcelonès,"41,391182","2,144427",MUSE,CEB,08870107,,,934448042,a8077599@xtec.cat,,FALSE
+08077605,ART,Escola de Dansa Sa nau dansa i altres arts,Barcelona,"c. Gabriel i Galán, 28, baixos B",08026,Barcelonès,"41,411892","2,187463",DANE,CEB,08870104,,,,a8077605@xtec.cat,,FALSE
+08077617,ART,Esc. de Música Sona Espai Musical,Barcelona,"c. Comercial, 17",08003,Barcelonès,"41,385769","2,184614",MUSE,CEB,08870106,,,,a8077617@xtec.cat,,FALSE
+08077629,ART,Poblenou Escola de dansa,Barcelona,"c. Espronceda, 171",08018,Barcelonès,"41,408629","2,200071",DANE,CEB,08870110,,,,a8077629@xtec.cat,,FALSE
+08077630,ART,Cent.Sup.Música SAE Centre privat d'ens.art.sup. de Musica,Barcelona,"c. Perú, 176",08020,Barcelonès,"41,41219","2,201316",MUSS,CEB,08870104,,,,a8077630@xtec.cat,,FALSE
+08077642,FP,Fundació Obicex Esplugues,Esplugues de Llobregat,"c. Sant Mateu, 34-38",08950,Baix Llobregat,"41,378864","2,096482",CFPS,BLL,08870306,,,,a8077642@xtec.cat,,FALSE
+08077681,FP,Gresol International-American School,Terrassa,ctra.Sabadell a Matadepera (BV-1248) Km6,08227,Vallès Occidental,"41,589785","2,046813",ESTR,VOC,08870405,,,,a8077681@xtec.cat,,FALSE
+08077733,IE,HDA de TEA de l'Hospital Univers.Mútua de Terrassa,Terrassa,"c. del Castell 25, baixos",08221,Vallès Occidental,"41,564644","2,017823",EINF2C|EPRI|ESO,VOC,08870405,,,,a8077733@xtec.cat,,FALSE
+17010566,LLA,Llar d'infants Forallac,Forallac,"c. Empordà, 29",17110,Baix Empordà,"41,951771","3,055419",EINF1C,GIR,17870504,,,972642306,b7010566@xtec.cat,,FALSE
+17010751,FP,Centre Politècnic Comas,Blanes,"av. Estació, 54",17300,Selva,"41,676326","2,777936",CFPS,GIR,17870502,,,,b7010751@xtec.cat,,FALSE
+17010773,FP,CNTEC,Girona,"c. Marquès de Caldes de Montbuí, 7-9",17003,Gironès,"41,97004","2,81509",CFPM|CFPS,GIR,17870501,,,,b7010773@xtec.cat,,FALSE
+17010785,LLA,Escola Bressol Petit Món,Palamós,"c. Josep Joan, 27",17230,Baix Empordà,"41,852169","3,128974",EINF1C,GIR,17870504,,,,b7010785@xtec.cat,,FALSE
+17010852,ART,Escola de Dansa Daina,Blanes,"av. de la Pau, 18",17300,Selva,"41,67962","2,78997",DANE,GIR,17870502,,,,b7010852@xtec.cat,,FALSE
+17010891,FP,International School of Costa Brava,Castell-Platja d'Aro,"av. Fanals, 70",17250,Baix Empordà,"41,825403","3,058088",ESTR,GIR,17870504,,,,b7010891@xtec.cat,,FALSE
+17010906,ART,Escola de Dansa Fitdanstudio,Blanes,"av. Estació, 15, 1r.",17300,Selva,"41,67702","2,78228",DANE,GIR,17870502,,,,b7010906@xtec.cat,,FALSE
+17010918,FP,Centre educatiu privat ACADEF TD Girona,Girona,"c. Santa Coloma, 115",17005,Gironès,"41,958097","2,801476",TEGM,GIR,17870501,,,,b7010918@xtec.cat,,FALSE
+17010921,IE,Institut Escola Montseny,Breda,"pg. de les Escoles, 28",17400,Selva,"41,748233",2.553854,EPRI|ESO,GIR,17870503,https://agora.xtec.cat/iemontseny,17010921.png,,b7010921@xtec.cat,,TRUE
+17010931,ESC,Escola de Palau de Santa Eulàlia,Palau de Santa Eulàlia,"pça. de l'1 d'octubre de 2017, 1",17476,Alt Empordà,"42,173866","2,964362",EINF2C|EPRI,GIR,17870505,,,,b7010931@xtec.cat,,TRUE
+17010943,ART,Esc. de Música Sarriart,Sarrià de Ter,"c. del Firal, 22",17840,Gironès,"42,016796","2,823953",MUSE,GIR,17870501,,,,b7010943@xtec.cat,,FALSE
+17010955,ART,Esc. de Música Preludi,Girona,"c. Marquès de Caldes de Montbui, 111-113",17003,Gironès,"41,968233","2,821903",MUSE,GIR,17870501,,,972203936,b7010955@xtec.cat,,FALSE
+17010979,IE,UTCA Parc Hospitalari Martí Julià,Salt,C. Ramón i Cajal s/n (ed. La República),17190,Gironès,"41,969883","2,795559",EINF2C|EPRI|ESO,GIR,17870501,,,,b7010979@xtec.cat,,FALSE
+25010176,ART,Escola de Dansa de Solsona,Solsona,"c. Camp del Molí, 15",25280,Solsonès,"41,993934","1,521899",DANE,CCE,25870604,,,973483943,c5010176@xtec.cat,,FALSE
+25010361,FP,Institut Centre d'Esports de Muntanya del Pallars,La Pobla de Segur,"pça. de les Pobles, s/n",25500,Pallars Jussà,"42,240015","0,967197",BATX|AA03|TEGM|TEGS,LLE,25870610,,,,c5010361@xtec.cat,,TRUE
+25010383,IE,Institut Escola d'Oliana,Oliana,"c. Germà Frederic, s/n",25790,Alt Urgell,"42,069766","1,315339",EPRI|ESO|CFPS,LLE,25870605,https://agora.xtec.cat/institutescolaoliana,,,c5010383@xtec.cat,,TRUE
+43012319,IE,Institut Escola El Perelló,El Perelló,"av. Sant Jordi, 1",43519,Baix Ebre,"40,875939","0,710049",EINF2C|EPRI|ESO|BATX,TEB,43870801,https://agora.xtec.cat/ieelperello,43012319.png,,e3012319@xtec.cat,,TRUE
+43012964,ART,Cent.Prof.Mús. La Unió Filharmònica d'Amposta,Amposta,"c. Navarra, 5-7",43870,Montsià,"40,713885","0,578860",MUSP,TEB,43870802,,,,e3012964@xtec.cat,,FALSE
+43013166,FP,Centre de Formació CBS,Tarragona,"c. Ventallols, 5",43003,Tarragonès,"41,117479","1,258375",CFPS,TAR,43870705,,,,e3013166@xtec.cat,,FALSE
+43013211,FP,CAT Sports Formació Reus,Reus,"c. Joan Maragall, 6-8",43202,Baix Camp,"41,164725","1,087132",TEGM|TEGS,TAR,43870707,,,,e3013211@xtec.cat,,FALSE
+43013245,IE,URPI de l'Institut Pere Mata,Reus,ctra. Institut Pere Mata,43206,Baix Camp,"41,164725","1,087132",EINF2C|EPRI|ESO,TAR,43870707,,,,e3013245@xtec.cat,,FALSE
