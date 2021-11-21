@@ -30,7 +30,11 @@
 import React from 'react';
 import { AppContext } from '../App';
 import MapSection from './MapSection';
+import ReactMarkdown from 'react-markdown';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import InfoIcon from '@material-ui/icons/Info';
+import MailIcon from '@material-ui/icons/Mail';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -46,14 +50,15 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { getOptimalSrc, cursCurt, csvExportToFile } from '../utils/Utils';
+import { progDesc } from '../literals';
 
 
 function Programes({ history }) {
   return (
     <AppContext.Consumer>
-      {({ data, data: { programes, ambitsCurr, ambitsInn, nivells },
+      {({ data, data: { onlyProgs: programes, ambitsCurr, ambitsInn, nivells },
         cursos, currentPrograms, polygons, mapChanged, updateMap, tabMode, currentTab, dlgOpen,
-        settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
+        settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH, MD_OPTIONS } }) => {
 
         const allSelected = currentPrograms.size === programes.size;
 
@@ -120,6 +125,8 @@ function Programes({ history }) {
 
         const tabSelected = (_ev, value) => updateMap({ currentTab: value });
 
+        const { nom, descripcio, simbol, link, contacte } = progDesc;
+
         return (
           <>
             <SelectProgramsDlg {...{ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
@@ -137,6 +144,39 @@ function Programes({ history }) {
             {(!EMBED_MAP && (!tabMode || currentTab === 1)) &&
               <section className={`seccio programes`}>
                 <Paper className="paper">
+                  <div className="logo-nom-seccio">
+                    <img className="seccio-logo" src={getOptimalSrc(`${PRJLOGOS_PATH}${simbol}`)} alt={nom} />
+                    <div className="nom-seccio">
+                      <Typography variant="h4">{nom}</Typography>
+                    </div>
+                  </div>
+                  <div id="descripcio">
+                    <ReactMarkdown {...MD_OPTIONS}>
+                      {descripcio}
+                    </ReactMarkdown>
+                  </div>
+                  <div id="info">
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={link}>
+                      <InfoIcon className="left-icon" />
+                      Web
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className="info-btn"
+                      href={`mailto:${contacte}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={contacte}>
+                      <MailIcon className="left-icon" />
+                      Contacte
+                    </Button>
+                  </div>
                   <div className="select-progs">
                     {!EMBED && <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>}
                     <FormControlLabel

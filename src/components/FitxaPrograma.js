@@ -30,7 +30,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
 import { AppContext } from '../App';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
@@ -51,7 +50,7 @@ import { getOptimalSrc, csvExportToFile } from '../utils/Utils';
 
 // Programs with schools list expanded by default
 const EXPANDED_PROGS = [
-  "1001", // "Reconeixement de projectes d'innovació pedagògica"
+  //"1001", // "Reconeixement de projectes d'innovació pedagògica"
   //"2001", // "Reconeixement de pràctiques educatives de referència d'innovació pedagògica"
 ];
 
@@ -61,12 +60,6 @@ const SINGLE_LIST_PROGS = [
 
 // Maximum number of expected expansion panels (increase it if needed!)
 const MAX_EXPANSION_PANELS = 25;
-
-// Options for React-Markdown
-// See: https://github.com/rexxars/react-markdown#options
-const MD_OPTIONS = {
-  rehypePlugins: [rehypeRaw],
-};
 
 // Creates a Material-UI expansion panel with the provided title and content
 function createExpansionPanel(className, title, content) {
@@ -82,17 +75,6 @@ function createExpansionPanel(className, title, content) {
   );
 }
 
-// Same as `createExpansionPanel`, but with Markdown content
-function createMDExpansionPanel(className, title, mdContent) {
-  return createExpansionPanel(className, title,
-    <div>
-      <ReactMarkdown {...MD_OPTIONS}>
-        {mdContent}
-      </ReactMarkdown>
-    </div>
-  );
-}
-
 function FitxaPrograma({ history, match: { params: { id } } }) {
 
   const SMALL_SCREEN = window.matchMedia('(max-width: 840px)').matches;
@@ -104,7 +86,18 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
     <AppContext.Consumer>
       {({ data, data: { programes, estudis, ambitsCurr, ambitsInn },
         cursos, currentPrograms, polygons, mapChanged, updateMap,
-        settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
+        settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH, MD_OPTIONS } }) => {
+
+        // Same as `createExpansionPanel`, but with Markdown content
+        function createMDExpansionPanel(className, title, mdContent) {
+          return createExpansionPanel(className, title,
+            <div>
+              <ReactMarkdown {...MD_OPTIONS}>
+                {mdContent}
+              </ReactMarkdown>
+            </div>
+          );
+        }
 
         /**
          * Export the list of schools into a CSV spreadsheet
@@ -191,7 +184,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
               <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
                 <ArrowBack className="left-icon" />
                 Torna
-            </Button>
+              </Button>
             }
             {!EMBED_MAP &&
               <section className="seccio programa">
@@ -216,7 +209,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         title="Descarrega la fitxa del projecte" >
                         <DocumentIcon className="left-icon" />
                         Fitxa
-                    </Button>
+                      </Button>
                     }
                     {link &&
                       <Button
@@ -228,7 +221,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         title={link}>
                         <InfoIcon className="left-icon" />
                         Web
-                    </Button>
+                      </Button>
                     }
                     {contacte &&
                       <Button
@@ -240,7 +233,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                         title={contacte}>
                         <MailIcon className="left-icon" />
                         Contacte
-                    </Button>
+                      </Button>
                     }
                     {video &&
                       <div className="prog-video">

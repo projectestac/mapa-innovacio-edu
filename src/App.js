@@ -34,7 +34,7 @@ import CheckRouteChanges from './utils/CheckRouteChanges';
 import ReactGA from 'react-ga';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Fuse from 'fuse.js';
 import { handleFetchErrors, loadGFont } from './utils/Utils';
 import Header from './components/Header';
@@ -50,6 +50,7 @@ import Footer from './components/Footer';
 import Cerca from './components/Cerca';
 import EmbedLink from './components/EmbedLink';
 import { webAppInstallInit } from './utils/WebAppInstall';
+import rehypeRaw from 'rehype-raw';
 
 /**
  * Miscellanous values taken from environment variables
@@ -78,7 +79,7 @@ const Router = HASH_TYPE === 'no-hash' ? BrowserRouter : HashRouter;
  * Main Material-UI theme
  */
 const theme = responsiveFontSizes(
-  createMuiTheme({
+  createTheme({
     palette: {
       // Gencat dark gray
       primary: { main: '#333' },
@@ -192,6 +193,7 @@ class App extends Component {
       // Immutable attributes (to be filled by `loadData`)
       data: {
         programes: new Map(),
+        onlyProgs: new Map(),
         centres: new Map(),
         poligons: new Map(),
         estudis: new Map(),
@@ -213,6 +215,11 @@ class App extends Component {
         APP_BASE: `${window.location.origin}${HOMEPAGE}/${HASH}`,
         EMBED: params.has('embed') || params.has('embedMap'),
         EMBED_MAP: params.has('embedMap'),
+        // Options for React-Markdown
+        // See: https://github.com/rexxars/react-markdown#options
+        MD_OPTIONS: {
+          rehypePlugins: [rehypeRaw],
+        },
       }
     };
 
@@ -297,7 +304,10 @@ class App extends Component {
 
         // Convert arrays to maps
         const centres = new Map(_centres.map(c => [c.id, c]));
+        // 'programes' should contain 'programes', 'pràctiques' and 'experiencies'
         const programes = new Map(_programes.map(p => [p.id, p]));
+        // 'onlyProgs' contains only 'programes' 
+        const onlyProgs = new Map(_programes.filter(p => p.id.length < 4).map(p => [p.id, p]))
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
@@ -457,6 +467,7 @@ class App extends Component {
         const data = {
           ...this.state.data,
           programes,
+          onlyProgs,
           centres,
           poligons,
           estudis: new Map(Object.entries(_estudis.estudis)),

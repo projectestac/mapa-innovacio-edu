@@ -1,7 +1,12 @@
-### v1.3.2 (2021-11-18)
+### v1.3.2 (2021-11-21)
 #### Bug fixes
 - Avoid duplicate comments in instance titles
-- Avoid small viewports for PDF files
+- Avoid small viewports when embedding PDF files
+
+#### Improvements
+- Added description and logo to the 'Programes' tab
+- 'Pràctiques' and 'Projectes' are now real different things, not a special type of 'Programes'
+- Transition to MaterialUI 5.0 completed
 
 ### v1.3.1 (2021-04-15)
 #### Improvements

@@ -81,7 +81,9 @@ function SelectProgramsDlg({ dlgOpen, data: { programes, ambitsCurr, ambitsInn, 
   return (
     <Dialog
       open={dlgOpen}
-      onEnter={updateCurrentPrograms}
+      TransitionProps={{
+        onEnter: updateCurrentPrograms,
+      }}
       aria-labelledby="dialog-title"
       classes={{ paper: 'stretch-dlg' }}
     >

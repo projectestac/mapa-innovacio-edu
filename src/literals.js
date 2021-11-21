@@ -54,3 +54,16 @@ permetre promoure la inclusió, la cohesió i l’equitat, i facilitar la partic
 en l’èxit educatiu i la innovació per a la millora.
 
 `;
+
+export const progDesc = {
+  nom: 'Programes d\'innovacio',
+  descripcio: `
+  Els programes d’innovació consisteixen en plans d’acció que el Departament d’Educació prioritza i impulsa, i que tenen com a finalitat
+  millorar els resultats del sistema educatiu adequant-lo al canvi i a l’evolució social.
+  Amb la mateixa finalitat també s’inclouen les iniciatives d’altres institucions amb les quals el Departament col·labora mitjançant acords
+  o convenis. (Article 2 Ordre Ens/303/2015)  
+  `,
+  simbol: 'programes.png',
+  link: 'http://xtec.gencat.cat/ca/innovacio/programes_innovacio/',
+  contacte: 'innovacio@xtec.cat',
+};
