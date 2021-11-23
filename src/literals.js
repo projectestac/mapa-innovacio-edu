@@ -61,7 +61,7 @@ export const progDesc = {
   Els programes d’innovació consisteixen en plans d’acció que el Departament d’Educació prioritza i impulsa, i que tenen com a finalitat
   millorar els resultats del sistema educatiu adequant-lo al canvi i a l’evolució social.
   Amb la mateixa finalitat també s’inclouen les iniciatives d’altres institucions amb les quals el Departament col·labora mitjançant acords
-  o convenis. (Article 2 Ordre Ens/303/2015)  
+  o convenis. (Article 2 [Ordre Ens/303/2015](https://dogc.gencat.cat/ca/document-del-dogc/?documentId=704108))  
   `,
   simbol: 'programes.png',
   link: 'http://xtec.gencat.cat/ca/innovacio/programes_innovacio/',
