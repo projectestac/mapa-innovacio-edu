@@ -295,8 +295,9 @@ class App extends Component {
 
         // Initialize transient properties
         _programes.forEach(p => {
-          // Set all programs initially selected
-          currentPrograms.add(p.id);
+          // Set all programs initially selected, excluding `projectes` and `pràctiques`
+          if (p.id.length < 4)
+            currentPrograms.add(p.id);
           // Initialize `centres` and `allCentres` (to be filled later)
           p.centres = {};
           p.allCentres = new Set();
