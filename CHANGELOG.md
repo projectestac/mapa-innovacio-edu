@@ -1,7 +1,8 @@
-### v1.3.2 (2021-11-21)
+### v1.3.2 (2021-11-23)
 #### Bug fixes
 - Avoid duplicate comments in instance titles
 - Avoid small viewports when embedding PDF files
+- Avoid sync errors on hyperlinks in full screen mode
 
 #### Improvements
 - Added description and logo to the 'Programes' tab

@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "chalk": "^4.1.2",
-    "csv": "^6.0.2",
+    "csv": "^6.0.4",
     "dotenv-flow": "^3.2.0",
     "workbox-build": "^6.4.1",
     "xml": "^1.0.1",

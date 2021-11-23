@@ -137,9 +137,26 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
     setVal(ov.flag, stored === null ? ov.default : stored);
   });
 
+  // Avoid Link errors in full screen mode
+  const checkFullScreen = (ev) => {
+    if (document.fullscreenElement) {
+      const target = ev.target;
+      // Clone event for later use
+      const evClone = new MouseEvent(ev.type, ev);
+      ev.preventDefault();
+      const fullScreenButton = document.querySelector('.leaflet-control-zoom-fullscreen');
+      if (fullScreenButton) {
+        // Simulate click on 'toggle fullscreen' button
+        fullScreenButton.dispatchEvent(new MouseEvent('click'));
+        // Dispatch the clone of the original event
+        target.dispatchEvent(evClone);
+      }
+    }
+  }
+
   const popupCentre = (centre) => (
     <Popup>
-      <h4><Link to={`/centre/${centre.id}`}>{centre.nom}</Link></h4>
+      <h4><Link to={`/centre/${centre.id}`} onClick={checkFullScreen}>{centre.nom}</Link></h4>
       <p>{centre.adreca}<br />
         <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a></p>
       <p>{`${centre.estudis.map(e => estudis.get(e)).join(', ')}.`}</p>
@@ -152,7 +169,7 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
     const estudisBase = sumAll(zona.estudisBase);
     const perCent = (estudisBase > 0 ? (estudisPart / estudisBase) * 100 : 0).toFixed(1);
     return <Popup>
-      <h4><Link to={`/zona/${zona.key}`}>{zona.nom}</Link></h4>
+      <h4><Link to={`/zona/${zona.key}`} onClick={checkFullScreen}>{zona.nom}</Link></h4>
       {(centresPart &&
         <p>
           <span>{`Centres participants ${programa ? 'al programa seleccionat' : 'als programes seleccionats'}: ${centresPart}`}</span><br />
