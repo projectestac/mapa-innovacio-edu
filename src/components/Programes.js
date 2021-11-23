@@ -35,6 +35,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -130,6 +131,12 @@ function Programes({ history }) {
         return (
           <>
             <SelectProgramsDlg {...{ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
+            {!EMBED &&
+              <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
+                <ArrowBack className="left-icon" />
+                Torna
+              </Button>
+            }
             {!EMBED_MAP && tabMode &&
               <Tabs
                 className="prog-tabs"
