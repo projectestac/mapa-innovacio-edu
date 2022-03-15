@@ -29,7 +29,8 @@
 
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { title, author, version, repository, license } from '../../package.json';
+import info from '../../package.json';
+const { title, author, version, repository, license } = info;
 
 function Footer() {
   return (

@@ -31,7 +31,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
 import { Parser } from 'json2csv';
-import { homepage as HOMEPAGE } from '../../package.json';
+import info from '../../package.json';
+const HOMEPAGE = info.homepage;
 const HASH_TYPE = process.env.REACT_APP_HASH_TYPE;
 
 // Detect if webp format is supported

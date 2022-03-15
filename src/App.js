@@ -56,7 +56,8 @@ import rehypeRaw from 'rehype-raw';
  * Miscellanous values taken from environment variables
  * and from files: `.env`, `.env.development` and `.env.production`
  */
-import { homepage as HOMEPAGE } from '../package.json';
+import info from '../package.json';
+const { homepage: HOMEPAGE = '' } = info;
 const MAX_DENSITY = process.env.REACT_APP_MAX_DENSITY || 0.8;
 const MIN_DENSITY = process.env.REACT_APP_MIN_DENSITY || 0.000001;
 const MINMAX_DENSITY = process.env.REACT_APP_MINMAX_DENSITY || 0.4;

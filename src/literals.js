@@ -30,7 +30,8 @@
 
 // Textos utilitzats a l'aplicació
 
-import { homepage as HOMEPAGE } from '../package.json';
+import info from '../package.json';
+const { homepage: HOMEPAGE = '' } = info;
 const PRJLOGOS_BASE = process.env.REACT_APP_PRJLOGOS_BASE || 'https://clic.xtec.cat/pub/innovacio/logos/';
 const PRJLOGOS_PATH = `${PRJLOGOS_BASE.startsWith('/') ? HOMEPAGE : ''}${PRJLOGOS_BASE}`;
 
