@@ -1,3 +1,8 @@
+### v1.3.3 (Not yet released)
+#### Improvements
+- Upgrade dependencies
+- Update literals
+
 ### v1.3.2 (2021-11-23)
 #### Bug fixes
 - Avoid duplicate comments in instance titles
