@@ -31,13 +31,12 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
     "fontfaceobserver": "^2.1.0",
-    "fuse.js": "^6.4.6",
+    "fuse.js": "^6.5.3",
     "json2csv": "^5.0.6",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.5.3",
     "mdi-material-ui": "^6.22.0",
     "proj4leaflet": "^1.0.2",
-    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
@@ -52,9 +51,9 @@
     "chalk": "^4.1.2",
     "csv": "^6.0.4",
     "dotenv-flow": "^3.2.0",
+    "react-scripts": "4.0.3",
     "workbox-build": "^6.4.1",
-    "xml": "^1.0.1",
-    "react-scripts": "4.0.3"
+    "xml": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

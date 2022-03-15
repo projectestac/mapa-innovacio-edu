@@ -130,9 +130,9 @@ function Cerca({ history, match: { params: { query = '' } } }) {
                       component="nav"
                       page={page}
                       rowsPerPage={itemsPerPage}
-                      onChangeRowsPerPage={ev => setItemsPerPage(ev.target.value)}
+                      onRowsPerPageChange={ev => setItemsPerPage(ev.target.value)}
                       count={queryResults.length}
-                      onChangePage={(ev, p) => setPage(p)}
+                      onPageChange={(ev, p) => setPage(p)}
                       labelDisplayedRows={({ from, to, count }) => `Resultats ${from} al ${to} de ${count}`}
                       labelRowsPerPage="Resultats per pàgina:"
                     />
