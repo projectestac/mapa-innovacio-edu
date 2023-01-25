@@ -13,9 +13,9 @@
     "AA03": "Curs preparació a la incorporació a FP grau superior",
     "CFPS": "Cicles formatius de grau superior",
     "PFI": "Programes de formació i inserció",
-    "PA01": "Cicles formatius d’arts de grau mitjà",
+    "PA01": "Cicles formatius d'arts de grau mitjà",
     "CFAM": "Cicles d'arts plàstiques i disseny grau mitjà",
-    "PA02": "Cicles formatius d’arts de grau superior",
+    "PA02": "Cicles formatius d'arts de grau superior",
     "CFAS": "Cicles d'arts plàstiques i disseny grau superior",
     "ESDI": "Ensenyaments superiors de disseny",
     "ADR": "Art dramàtic",
@@ -91,9 +91,9 @@
     "EFI": "Àmbit educació física"
   },
   "ambitsInn": {
-    "A1-MET": "Àmbit 1: metodologies i recursos per a la millora de l’ensenyament i aprenentatge",
+    "A1-MET": "Àmbit 1: metodologies i recursos per a la millora de l'ensenyament i aprenentatge",
     "A2-ORG": "Àmbit 2: organització i gestió educativa",
-    "A3-COM": "Àmbit 3: relació i cooperació amb la comunitat educativa i l’entorn"
+    "A3-COM": "Àmbit 3: relació i cooperació amb la comunitat educativa i l'entorn"
   },
   "cursos": [
     "2015-2016",
@@ -101,8 +101,10 @@
     "2017-2018",
     "2018-2019",
     "2019-2020",
-    "2020-2021"
+    "2020-2021",
+    "2021-2022",
+    "2022-2023"
   ],
   "cursMin": 2015,
-  "cursMax": 2021
+  "cursMax": 2023
 }

@@ -378,5 +378,41 @@
   "08036962": {
     "becomes": "08077162",
     "comment": "Participació com a \"Ateneu Igualadí\""
+  },
+  "08003087": {
+    "becomes": null,
+    "comment": "Centre tancat (antic Col·legi Sant Joan Baptista)"
+  },
+  "08005734": {
+    "becomes": null,
+    "comment": "Centre tancat (antiga Escola Griselda)"
+  },
+  "08003336": {
+    "becomes": "08077514",
+    "comment": "Participació com a \"Col·legi Sagrat Cor\""
+  },
+  "08009685": {
+    "becomes": "08077502",
+    "comment": "Participació com a \"Escola Sagrada Família\""
+  },
+  "08054149": {
+    "becomes": "08077447",
+    "comment": "Participació com a centre privat"
+  },
+  "25006471": {
+    "becomes": "25010383",
+    "comment": "Participació com a \"Institut Aubenç\""
+  },
+  "25005132": {
+    "becomes": "25010383",
+    "comment": "Participació com a \"Escola Sant Jordi\""
+  },
+  "08005643": {
+    "becomes": "08077484",
+    "comment": "Participació com a \"Escola Labouré\""
+  },
+  "08059275": {
+    "becomes": null,
+    "comment": "Centre tancat (antiga Escola d'Art Floral)"
   }
 }
