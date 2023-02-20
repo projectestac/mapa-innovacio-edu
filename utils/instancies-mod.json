@@ -414,5 +414,73 @@
   "08059275": {
     "becomes": null,
     "comment": "Centre tancat (antiga Escola d'Art Floral)"
+  },
+  "08002885": {
+    "becomes": "08077964",
+    "comment": "Participació com a Escola Prosperitat"
+  },
+  "08044065": {
+    "becomes": "08077964",
+    "comment": "Participació com a Institut Galileo Galilei"
+  },
+  "08021259": {
+    "becomes": "08077976",
+    "comment": "Participació com a centre municipal"
+  },
+  "08016069": {
+    "becomes": "08077988",
+    "comment": "Participació com a Escola Coll de Gossem (ZER Tres Branques)"
+  },
+  "08016070": {
+    "becomes": "08077988",
+    "comment": "Participació com a Escola de Maians (ZER Tres Branques)"
+  },
+  "08022872": {
+    "becomes": "08077939",
+    "comment": "Participació com a Escola Pere Calders"
+  },
+  "08072395": {
+    "becomes": "08077939",
+    "comment": "Participació com a Escola Polinyà"
+  },
+  "08030649": {
+    "becomes": "08077851",
+    "comment": "Participació com a Escola Sant Martí"
+  },
+  "08061622": {
+    "becomes": "08077851",
+    "comment": "Participació com a Escola Can Coll"
+  },
+  "08061361": {
+    "becomes": "08077851",
+    "comment": "Participació com a Institut Torrelles de llobregat"
+  },
+  "08037139": {
+    "becomes": "08077952",
+    "comment": "Participació com a Centre Educatiu Projecte"
+  },
+  "08055907": {
+    "becomes": "08077782",
+    "comment": "Participació com a Escola Miquel Martí i Pol"
+  },
+  "25002052": {
+    "becomes": "25010413",
+    "comment": "Participació com a Escola Balàfia"
+  },
+  "25009149": {
+    "becomes": "25010413",
+    "comment": "Participació com a Escola Pinyana"
+  },
+  "08073341": {
+    "becomes": null,
+    "comment": "Centre tancat (antic AESFORM)"
+  },
+  "08077150": {
+    "becomes": null,
+    "comment": "Centre tancat (antic CEES)"
+  },
+  "08077472": {
+    "becomes": "08045239",
+    "comment": "Participació com a centre municipal"
   }
 }
