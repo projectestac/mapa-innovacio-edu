@@ -51,7 +51,7 @@ const MARKERCLUSTER_PROPS = {
   chunkedLoading: false, // Default is `true`
 };
 
-export default function MainMap({ points = [], polygons = [], estudis = [], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap }) {
+export default function MainMap({ points = [], polygons = [], estudis = [], programa = null, poli = null, zoom = 8, maxZoom = 13, updateMap, updateXarxesMap }) {
 
   // Optional overlays
   const OVERLAYS = [
@@ -111,8 +111,10 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
     const layerIndex = polygons.findIndex(p => p.name === ev.name);
     if (layerIndex >= 0) {
       setVal('currentLayer', layerIndex);
-      if (getBool(OVERLAYS[0].flag))
+      if (getBool(OVERLAYS[0].flag)) {
         updateMap({}, false);
+        updateXarxesMap({}, false);
+      }
     }
   }
 
@@ -122,8 +124,10 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
     if (ov >= 0) {
       const overlayVisible = (type === 'add');
       OVERLAY_SETTINGS_STORAGE.setItem(OVERLAYS[ov].flag, overlayVisible);
-      if (ov === 0 && overlayVisible)
+      if (ov === 0 && overlayVisible) {
         updateMap({}, false, false);
+        updateXarxesMap({}, false, false);
+      }
     }
   }
 

@@ -55,7 +55,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, cursos, currentPrograms, polygons, mapChanged, updateMap,
+      {({ data, cursos, currentPrograms, currentXarxes, polygons, mapChanged, updateMap, updateXarxesMap,
         settings: { HASH, HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH } }) => {
 
         /**
@@ -118,7 +118,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
               <Button className="torna" aria-label="Torna" onClick={torna} >
                 <ArrowBack className="left-icon" />
                 Torna
-            </Button>
+              </Button>
             }
             {!EMBED_MAP &&
               <section className="seccio zona">
@@ -154,7 +154,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       >
                         <WebIcon className="left-icon" />
                         Web
-                    </Button>
+                      </Button>
                     }
                     {correu &&
                       <Button
@@ -167,7 +167,7 @@ function FitxaZona({ history, match: { params: { key } } }) {
                       >
                         <MailIcon className="left-icon" />
                         Contacte
-                    </Button>
+                      </Button>
                     }
                   </div>
                   <Typography variant="h6">Programes amb presència en aquest territori</Typography>
@@ -215,12 +215,12 @@ function FitxaZona({ history, match: { params: { key } } }) {
                   >
                     <DownloadIcon className="left-icon" />
                     CSV
-                </Button>
+                  </Button>
 
                 </Paper>
               </section>
             }
-            <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: null, zona: key, cursos, currentElements: [...currentPrograms, ...currentXarxes], polygons, mapChanged, updateMap, updateXarxesMap }} />
           </>
         );
       }}

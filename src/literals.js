@@ -68,3 +68,11 @@ export const progDesc = {
   link: 'http://xtec.gencat.cat/ca/innovacio/programes_innovacio/',
   contacte: 'innovacio@xtec.cat',
 };
+
+export const xarxesDesc = {
+  nom: 'Xarxes d\'innovacio',
+  descripcio: `S'ha de redactar la descripció de les Xarxes d'innovació, i preparar els logos "xarxes.png" i "xarxes.webp". També s'ha d'indicar un URL per a l'enllaç, i correu de contacte`,
+  simbol: 'xarxes.png',
+  link: 'http://xtec.gencat.cat/ca/innovacio/',
+  contacte: 'innovacio@xtec.cat',
+};

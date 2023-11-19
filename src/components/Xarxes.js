@@ -1,6 +1,6 @@
 /*!
- *  File    : components/Programes.js
- *  Created : 10/04/2019
+ *  File    : components/Xarxes.js
+ *  Created : 19/11/2023
  *  By      : Francesc Busquets <francesc@gmail.com>
  *
  *  Map of pedagogical innovation in Catalonia 
@@ -44,29 +44,29 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Switch from '@material-ui/core/Switch';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import SelectProgramsDlg from './SelectProgramsDlg';
+import SelectXarxesDlg from './SelectXarxesDlg';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import DownloadIcon from 'mdi-material-ui/FileDownload';
 import { getOptimalSrc, cursCurt, csvExportToFile } from '../utils/Utils';
-import { progDesc } from '../literals';
+import { xarxesDesc } from '../literals';
 
 
-function Programes({ history }) {
+function Xarxes({ history }) {
   return (
     <AppContext.Consumer>
-      {({ data, data: { onlyProgs: programes, ambitsCurr, ambitsInn, nivells },
-        cursos, currentPrograms, polygons, mapChanged, updateMap, updateXarxesMap, tabMode, currentTab, dlgOpen,
+      {({ data, data: { onlyXarxes: xarxes, ambitsCurr, ambitsInn, nivells },
+        cursos, currentXarxes, polygons, mapChanged, updateMap, updateXarxesMap, tabMode, currentTab, dlgXarxesOpen,
         settings: { HOMEPAGE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH, MD_OPTIONS } }) => {
 
-        const allSelected = currentPrograms.size === programes.size;
+        const allSelected = currentXarxes.size === xarxes.size;
 
         /**
          * Export the list of schools into a CSV spreadsheet
          */
-        function exportData(programesArray, cursos) {
+        function exportData(xarxesArray, cursos) {
 
           const fields = [
             { name: 'CODI', id: 'codi' },
@@ -78,8 +78,8 @@ function Programes({ history }) {
             { name: 'INFO', id: 'url' },
           ];
 
-          const csvData = programesArray.reduce((total, programa) => {
-            const { centres, info } = programa;
+          const csvData = xarxesArray.reduce((total, xarxa) => {
+            const { centres, info } = xarxa;
             return Object.keys(centres)
               .filter(curs => cursos.includes(curs))
               .reduce((result, curs) => {
@@ -90,9 +90,9 @@ function Programes({ history }) {
                     codi: centre.id,
                     sstt: centre.sstt,
                     curs,
-                    programa: programa.nom,
+                    xarxa: xarxa.nom,
                     titol: inf ? inf.titol : '',
-                    url: inf ? `${APP_BASE}projecte/${programa.id}|${centre.id}|${inf.num || 0}` : '',
+                    url: inf ? `${APP_BASE}projecte/${xarxa.id}|${centre.id}|${inf.num || 0}` : '',
                   });
                 });
                 return result;
@@ -100,7 +100,7 @@ function Programes({ history }) {
           }, []);
 
           return csvExportToFile(
-            `programes.csv`,
+            `xarxes.csv`,
             csvData,
             fields,
           );
@@ -111,26 +111,26 @@ function Programes({ history }) {
 
         // Select / Unselect program
         const handleProgSelect = id => ev => {
-          currentPrograms[currentPrograms.has(id) ? 'delete' : 'add'](id);
-          updateMap({ currentPrograms, ambitCurr: '', ambitInn: '', nivell: '' }, true, true);
+          currentXarxes[currentXarxes.has(id) ? 'delete' : 'add'](id);
+          updateXarxesMap({ currentXarxes, ambitCurr: '', ambitInn: '', nivell: '' }, true, true);
         };
 
         // Select / unselect all programs
         const handleSelectAll = ev => {
           if (ev.target.checked)
-            programes.forEach((_p, id) => currentPrograms.add(id));
+            xarxes.forEach((_p, id) => currentXarxes.add(id));
           else
-            currentPrograms.clear();
-          updateMap({ currentPrograms }, true, true);
+            currentXarxes.clear();
+          updateXarxesMap({ currentXarxes }, true, true);
         };
 
-        const tabSelected = (_ev, value) => updateMap({ currentTab: value });
+        const tabSelected = (_ev, value) => updateXarxesMap({ currentTab: value });
 
-        const { nom, descripcio, simbol, link, contacte } = progDesc;
+        const { nom, descripcio, simbol, link, contacte } = xarxesDesc;
 
         return (
           <>
-            <SelectProgramsDlg {...{ dlgOpen, data: { programes, ambitsCurr, ambitsInn, nivells }, updateMap }} />
+            <SelectXarxesDlg {...{ dlgXarxesOpen, data: { xarxes, ambitsCurr, ambitsInn, nivells }, updateXarxesMap }} />
             {!EMBED &&
               <Button className="torna" aria-label="Torna" onClick={() => history.goBack()} >
                 <ArrowBack className="left-icon" />
@@ -145,7 +145,7 @@ function Programes({ history }) {
                 variant="fullWidth"
               >
                 <Tab label="Mapa" />
-                <Tab label="Programes" />
+                <Tab label="Xarxes" />
               </Tabs>
             }
             {(!EMBED_MAP && (!tabMode || currentTab === 1)) &&
@@ -185,7 +185,7 @@ function Programes({ history }) {
                     </Button>
                   </div>
                   <div className="select-progs">
-                    {!EMBED && <Button variant="outlined" color="primary" onClick={() => updateMap({ dlgOpen: true })}>Selecciona per tipus</Button>}
+                    {!EMBED && <Button variant="outlined" color="primary" onClick={() => updateXarxesMap({ dlgXarxesOpen: true })}>Selecciona per tipus</Button>}
                     <FormControlLabel
                       className="select-all"
                       labelPlacement="start"
@@ -198,7 +198,7 @@ function Programes({ history }) {
                     />
                   </div>
                   <List className="prog-list">
-                    {Array.from(programes.values()).map(({ id, nom, simbol, centres }, n) => (
+                    {Array.from(xarxes.values()).map(({ id, nom, simbol, centres }, n) => (
                       <ListItem key={n} button className="list-button">
                         <ListItemAvatar>
                           <Avatar src={getOptimalSrc(`${PRJLOGOS_PATH}mini/${simbol}`)} alt={nom} />
@@ -208,7 +208,7 @@ function Programes({ history }) {
                           secondary={'Centres ' + Object.keys(centres).sort().map(k => `${cursCurt(k)}: ${centres[k].length}`).join(', ')}
                           onClick={handleProgClick(id)} />
                         <ListItemSecondaryAction>
-                          <Switch onChange={handleProgSelect(id)} checked={currentPrograms.has(id)} />
+                          <Switch onChange={handleProgSelect(id)} checked={currentXarxes.has(id)} />
                         </ListItemSecondaryAction>
                       </ListItem>
                     ))}
@@ -217,8 +217,8 @@ function Programes({ history }) {
                   <Button
                     variant="contained"
                     className="csv-btn"
-                    title='Relació de centres participants als programes i cursos seleccionats'
-                    onClick={() => exportData(Array.from(programes.values()).filter(p => currentPrograms.has(p.id)), cursos)}
+                    title='Relació de centres participants a les xarxes i cursos seleccionats'
+                    onClick={() => exportData(Array.from(xarxes.values()).filter(p => currentXarxes.has(p.id)), cursos)}
                   >
                     <DownloadIcon className="left-icon" />
                     CSV
@@ -227,7 +227,7 @@ function Programes({ history }) {
               </section>
             }
             {(EMBED_MAP || !tabMode || currentTab === 0) &&
-              <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentElements: currentPrograms, polygons, mapChanged, updateMap, updateXarxesMap }} />
+              <MapSection {...{ data, programa: null, centre: null, zona: null, cursos, currentElements: currentXarxes, polygons, mapChanged, updateMap, updateXarxesMap }} />
             }
           </>
         );
@@ -237,4 +237,4 @@ function Programes({ history }) {
   );
 }
 
-export default Programes;
+export default Xarxes;

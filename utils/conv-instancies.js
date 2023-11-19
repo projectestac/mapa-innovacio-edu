@@ -21,6 +21,9 @@ const DEBUG = process.argv.length > 2 && process.argv[2] === 'debug';
 const DUMP_INSTANCIES = process.argv.length > 2 && process.argv[2] === 'instancies';
 const DUMP_CENTRES = process.argv.length > 2 && process.argv[2] === 'centres';
 
+const TODAY = new Date();
+const DEFAULT_END_CURS = TODAY.getMonth() >= 8 ? `${TODAY.getFullYear()}-${TODAY.getFullYear() + 1}` : `${TODAY.getFullYear() - 1}-${TODAY.getFullYear()}`;
+
 // Array of warnings to be displayed at the end
 const warnings = [];
 
@@ -62,6 +65,8 @@ async function readMainCSV(file, programes, centresValids) {
     }
 
     // Build curs from Curs_ini and Curs_fin
+    if (reg.Curs_fin.trim() === '')
+      reg.Curs_fin = DEFAULT_END_CURS;
     reg.Curs = `${reg.Curs_ini.trim().substring(0, 4)}-${reg.Curs_fin.trim().substring(5, 9)}`;
 
     const zer = zers.find(z => z.codi === codiCentre);

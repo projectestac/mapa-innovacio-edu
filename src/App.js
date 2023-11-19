@@ -40,6 +40,7 @@ import { handleFetchErrors, loadGFont } from './utils/Utils';
 import Header from './components/Header';
 import Presentacio from './components/Presentacio';
 import Programes from './components/Programes';
+import Xarxes from './components/Xarxes';
 import FitxaPrograma from './components/FitxaPrograma';
 import FitxaCentre from './components/FitxaCentre';
 import FitxaZona from './components/FitxaZona';
@@ -158,6 +159,11 @@ class App extends Component {
         path: '/programes',
       },
       {
+        id: 'xarxes',
+        name: 'Xarxes',
+        path: '/xarxes',
+      },
+      {
         id: 'projectes',
         name: 'Projectes',
         path: '/programa/1001',
@@ -178,6 +184,7 @@ class App extends Component {
       error: false,
       polygons: [],
       currentPrograms: new Set(),
+      currentXarxes: new Set(),
       programa: null,
       cursos: [],
       mapChanged: false,
@@ -185,9 +192,11 @@ class App extends Component {
       currentTab: 0,
       currentPrjTab: 0,
       dlgOpen: false,
+      dlgXarxesOpen: false,
 
       // Inner references
       updateMap: this.updateMap.bind(this),
+      updateXarxesMap: this.updateXarxesMap.bind(this),
       fuseFuncs: [],
       menuItems: this.menuItems,
 
@@ -195,6 +204,7 @@ class App extends Component {
       data: {
         programes: new Map(),
         onlyProgs: new Map(),
+        onlyXarxes: new Map(),
         centres: new Map(),
         poligons: new Map(),
         estudis: new Map(),
@@ -293,12 +303,16 @@ class App extends Component {
 
         // Prepare sets for auto-detected data
         const currentPrograms = new Set();
+        const currentXarxes = new Set()
 
         // Initialize transient properties
         _programes.forEach(p => {
           // Set all programs initially selected, excluding `projectes` and `pràctiques`
           if (p.id.length < 4)
             currentPrograms.add(p.id);
+          // Set al networks initially selected
+          else if (p.id.length === 4 && p.id.startsWith('3'))
+            currentXarxes.add(p.id);
           // Initialize `centres` and `allCentres` (to be filled later)
           p.centres = {};
           p.allCentres = new Set();
@@ -310,6 +324,8 @@ class App extends Component {
         const programes = new Map(_programes.map(p => [p.id, p]));
         // 'onlyProgs' contains only 'programes' 
         const onlyProgs = new Map(_programes.filter(p => p.id.length < 4).map(p => [p.id, p]))
+        // 'onlyXarxes' contains only 'xarxes' 
+        const onlyXarxes = new Map(_programes.filter(p => p.id.length === 4 && p.id.startsWith('3')).map(p => [p.id, p]))
         const poligons = new Map(_poligons.map(p => [p.key, p]));
 
         // Initialize arrays of `centres` for each program, and `programa` for each centre, by `curs`
@@ -470,6 +486,7 @@ class App extends Component {
           ...this.state.data,
           programes,
           onlyProgs,
+          onlyXarxes,
           centres,
           poligons,
           estudis: new Map(Object.entries(_estudis.estudis)),
@@ -490,6 +507,7 @@ class App extends Component {
           cursos: [...cursosDisp],
           fuseFuncs,
           currentPrograms,
+          currentXarxes,
           loading: false,
           error: false,
         });
@@ -509,8 +527,10 @@ class App extends Component {
     const tabs = window.matchMedia('(max-width: 840px)').matches;
 
     // Update state and map when tabs mode changes
-    if (this.state.tabMode !== tabs)
+    if (this.state.tabMode !== tabs) {
       this.updateMap({ tabMode: tabs });
+      this.updateXarxesMap({ tabMode: tabs });
+    }
 
     return tabs;
   }
@@ -560,6 +580,27 @@ class App extends Component {
   }
 
   /**
+   * Updates state and maps for "xarxes"
+   * @param {object} [state={}] - The new settings for `state`
+   * @param {boolean} [mapChanged=true] - `true` when this change involves map points
+   * @param {boolean} [currentXarxesChanged=false] - `true` when the list of current networks has changed
+   * @param {function} [callback] - Optional function to be called after state is changed
+   */
+  updateXarxesMap(state = {}, mapChanged = true, currentXarxesChanged = false, callback = null) {
+    // Update state
+    // The `mapChanged` flag will prevent LeafLet to place popup points on the map
+    this.setStateMod({ ...state, mapChanged, currentXarxesChanged }, callback);
+    // Pseudo-asyncronously update layers and map
+    window.requestAnimationFrame(() => {
+      if (currentXarxesChanged)
+        this.updateLayersDensity(this.state.programa ? new Set([this.state.programa]) : this.state.currentXarxes, this.state.cursos);
+      if (mapChanged)
+        // After the repainting of all components (timeout zero), refresh the map leaving the restriction to place points on it
+        window.setTimeout(() => this.setStateMod({ mapChanged: false }), 0);
+    });
+  }
+
+  /**
    * Called from CheckRouteChanges when a new path is entered
    * @param {object} props - New properties used, including a react-route location object
    * @param {object} prevProps - Old properties, used for checking changes
@@ -591,6 +632,7 @@ class App extends Component {
       const check = /^\/programa\/(.*)$/.exec(pathname);
       const programa = check && check.length === 2 ? check[1] : null;
       this.updateMap({ programa }, true, true);
+      this.updateXarxesMap({ programa }, true, true);
     }
   };
 
@@ -599,11 +641,11 @@ class App extends Component {
    * the current programs among the total number of schools on the polygon having at least
    * one of the educational levels targeted by at least one of the current programs.
    * Values can also be filtered by school year.
-   * @param {Set} currentPrograms - Set with the `id`s of the programs to be included on the calculation
+   * @param {Set} selectedElements - Set with the `id`s of the programs or networks to be included on the calculation
    * @param {string[]=} cursos - School years to be considered. Defaults to _null_, meaning all available years.
    * @param {object=} data - Object containing the current datasets. Defaults to `data` in the current state.
    */
-  updateLayersDensity(currentPrograms, cursos = null, data = this.state.data) {
+  updateLayersDensity(selectedElements, cursos = null, data = this.state.data) {
 
     // De-structure the needed fields of `data`
     const { poligons, programes } = data;
@@ -634,7 +676,7 @@ class App extends Component {
     const currentCentres = {};
 
     // For each program, fill `estudisBase` and `currentCentres`
-    currentPrograms.forEach(pid => {
+    selectedElements.forEach(pid => {
       const program = programes.get(pid);
       if (program && program.tipus.length && Object.keys(program.centres).length) {
         program.tipus.forEach(t => {
@@ -734,6 +776,7 @@ class App extends Component {
                       <Switch>
                         <Route exact path="/" component={Presentacio} />
                         <Route path="/programes" component={Programes} />
+                        <Route path="/xarxes" component={Xarxes} />
                         <Route path="/centre/:codi" component={FitxaCentre} />
                         <Route path="/programa/:id" component={FitxaPrograma} />
                         <Route path="/projecte/:id" component={FitxaProjecte} />

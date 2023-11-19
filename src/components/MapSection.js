@@ -38,7 +38,7 @@ import { cursCurt } from '../utils/Utils';
 
 function MapSection({
   data: { programes, centres, poligons, estudis, cursosDisp },
-  programa, centre, zona, cursos, currentPrograms, polygons, mapChanged, updateMap }) {
+  programa, centre, zona, cursos, currentElements, polygons, mapChanged, updateMap, updateXarxesMap }) {
 
   const singleCentre = centre ? centres.get(centre) : null;
   const poli = zona ? poligons.get(zona) : null;
@@ -66,7 +66,7 @@ function MapSection({
     else if (programa)
       addSchoolsOfProgram(programa, points);
     else
-      currentPrograms.forEach(progId => addSchoolsOfProgram(progId, points));
+      currentElements.forEach(progId => addSchoolsOfProgram(progId, points));
   }
 
   const handleSelectCurs = curs => ev => {
@@ -76,6 +76,7 @@ function MapSection({
         result.push(c);
     });
     updateMap({ cursos: result }, true, true);
+    updateXarxesMap({ cursos: result }, true, true);
   }
 
   return (
@@ -115,7 +116,8 @@ function MapSection({
                 zoom,
                 maxZoom: 19,
                 estudis,
-                updateMap
+                updateMap,
+                updateXarxesMap
               }}
             />
           </>

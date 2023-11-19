@@ -85,7 +85,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
   return (
     <AppContext.Consumer>
       {({ data, data: { programes, estudis, ambitsCurr, ambitsInn },
-        cursos, currentPrograms, polygons, mapChanged, updateMap,
+        cursos, polygons, mapChanged, updateMap, updateXarxesMap,
         settings: { HASH, HOMEPAGE, FITXA_BASE, APP_BASE, EMBED, EMBED_MAP, PRJLOGOS_PATH, MD_OPTIONS } }) => {
 
         // Same as `createExpansionPanel`, but with Markdown content
@@ -311,7 +311,7 @@ function FitxaPrograma({ history, match: { params: { id } } }) {
                 </Paper>
               </section>
             }
-            <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentPrograms, polygons, mapChanged, updateMap }} />
+            <MapSection {...{ data, programa: id, centre: null, zona: null, cursos, currentElements: [], polygons, mapChanged, updateMap, updateXarxesMap }} />
           </>
         );
       }}

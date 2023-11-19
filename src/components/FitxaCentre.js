@@ -53,7 +53,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
 
   return (
     <AppContext.Consumer>
-      {({ data, data: { centres, poligons, estudis }, currentPrograms, polygons, mapChanged, updateMap,
+      {({ data, data: { centres, poligons, estudis }, polygons, mapChanged, updateMap, updateXarxesMap,
         settings: { HASH, HOMEPAGE, LOGO_BASE, APP_BASE, EMBED, PRJLOGOS_PATH } }) => {
 
         /**
@@ -187,7 +187,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                   {servei_educatiu && <li><Link to={`/zona/${se}`}>{servei_educatiu.nom}</Link></li>}
                 </ul>
                 <br />
-                <Typography variant="h6">Programes on participa</Typography>
+                <Typography variant="h6">Iniciatives d'innovació pedagògica on participa</Typography>
                 <List >
                   {plainArray(programes).map(({ id, nom, simbol, cursos }, n) => {
                     const link = `/${HASH}programa/${id}`;
@@ -229,7 +229,7 @@ function FitxaCentre({ history, match: { params: { codi } } }) {
                 </Button>
               </Paper>
             </section>
-            <MapSection {...{ data, programa: null, centre: codi, zona: null, currentPrograms, polygons, mapChanged, updateMap }} />
+            <MapSection {...{ data, programa: null, centre: codi, zona: null, currentElements: [], polygons, mapChanged, updateMap, updateXarxesMap }} />
           </>
         );
       }}
