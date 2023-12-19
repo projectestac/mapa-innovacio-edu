@@ -161,8 +161,11 @@ export default function MainMap({ points = [], polygons = [], estudis = [], prog
   const popupCentre = (centre) => (
     <Popup>
       <h4><Link to={`/centre/${centre.id}`} onClick={checkFullScreen}>{centre.nom}</Link></h4>
-      <p>{centre.adreca}<br />
-        <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a></p>
+      <p>
+        {centre.adreca}<br />
+        {centre.cp} {centre.municipi} {centre.municipi !== 'Barcelona' ? `(${centre.comarca})` : ''}<br />
+        {centre.web && <a href={centre.web} target="_blank" rel="noopener noreferrer">{centre.web}</a>}
+      </p>
       <p>{`${centre.estudis.map(e => estudis.get(e)).join(', ')}.`}</p>
     </Popup>
   );
