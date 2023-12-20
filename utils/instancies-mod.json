@@ -490,5 +490,81 @@
   "43010876": {
     "becomes": "43013191",
     "comment": "Participació com a \"Escola l'Arrabassada\""
+  },
+  "08064131": {
+    "becomes": "08077459",
+    "comment": "Participació com a \"Escola els Aigüerols\""
+  },
+  "08028916": {
+    "becomes": "08078336",
+    "comment": "Participació com a \"Escola Las Seguidillas\""
+  },
+  "08028941": {
+    "becomes": "08078336",
+    "comment": "Participació com a \"Escola La Sardana\""
+  },
+  "08041933": {
+    "becomes": "08078397",
+    "comment": "Participació com a \"Institut Rubió i Tudurí\""
+  },
+  "08037280": {
+    "becomes": "08078397",
+    "comment": "Participació com a \"Escola Viver Castell de Sant Foix\""
+  },
+  "17001115": {
+    "becomes": "17011066",
+    "comment": "Participació com a \"Escola Josep Pous i Pagès\""
+  },
+  "17000548": {
+    "becomes": "17011042",
+    "comment": "Participació com a \"Escola Mossèn Joan Batlle\""
+  },
+  "08028333": {
+    "becomes": "08078439",
+    "comment": "Participació com a \"Escola El Cabrerès\""
+  },
+  "08028928": {
+    "becomes": "08078294",
+    "comment": "Participació com a \"Escola La Jota\""
+  },
+  "08034485": {
+    "becomes": "08078312",
+    "comment": "Participació com a \"Escola Joan Marquès i Casals\""
+  },
+  "08020036": {
+    "becomes": "08078324",
+    "comment": "Participació com a \"Escola Joviat\""
+  },
+  "08003294": {
+    "becomes": "08078361",
+    "comment": "Participació com a \"Escola Sant Felip Neri\""
+  },
+  "08008516": {
+    "becomes": "08078373",
+    "comment": "Participació com a \"Escola Mare de Déu de la Soledat\""
+  },
+  "17003446": {
+    "becomes": "17011081",
+    "comment": "Participació com a \"Escola Sant Josep\""
+  },
+  "17006642": {
+    "becomes": "17011081",
+    "comment": "Participació com a \"Escola Les Cent Fonts\""
+  },
+  "08033882": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Institut Joan Coromines\")"
+  },
+  "25003822": {
+    "becomes": null,
+    "comment": "Centre tancat (antiga \"Escola Les Ventoses\")"
+  },
+  "25005909": {
+    "becomes": null,
+    "comment": "Centre tancat (antiga \"Escola Mossèn Ramon Muntanyola\")"
+  },
+  "43002260": {
+    "becomes": null,
+    "comment": "Centre tancat (antiga \"Escola Ciutat de Reus\")"
   }
 }
