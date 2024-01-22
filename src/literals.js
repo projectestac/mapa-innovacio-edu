@@ -70,7 +70,7 @@ export const progDesc = {
 };
 
 export const xarxesDesc = {
-  nom: 'Xarxes d\'innovacio',
+  nom: 'Xarxes educatives',
   descripcio: `
   El mapa de les xarxes educatives de Catalunya és un instrument que situa en el territori i visibilitza totes les xarxes educatives que estan
   reconegudes pel Departament d'Educació.
