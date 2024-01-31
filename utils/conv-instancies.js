@@ -51,7 +51,7 @@ async function readMainCSV(file, programes, centresValids) {
 
   // Procés principal
   data.forEach(reg => {
-    let codiCentre = reg.Codi_centre;
+    let codiCentre = reg.Codi_centre.trim();
     let comment = null;
 
     // Check if school id has been re-assigned
