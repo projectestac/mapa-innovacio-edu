@@ -16,9 +16,9 @@
     {
       "type": "chrome",
       "request": "launch",
+      // "runtimeExecutable": "/usr/bin/chromium-browser",
       "name": "Debug 'app' with Chromium",
       "url": "http://localhost:3000",
-      "runtimeExecutable": "/usr/bin/chromium-browser",
       "runtimeArgs": [
         "--incognito"
       ],
