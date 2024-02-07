@@ -31,18 +31,14 @@ $ ./update-data.sh
 
 Comprovar que no es mostrin errors i respondre 'y' a tot.
 
-
 # Configuració amb NGINX
 
 Quan s'utilitza BrowserRouter cal incloure aquesta directiva a `nginx.conf`:
 
 ```nginx
-location / {  
-  if (!-e $request_filename){
-    rewrite ^(.*)$ /index.html break;
-  }
+location / {
+  index  index.html;
+  try_files $uri $uri/ /index.html;
 }
 ```
-
-
 
