@@ -57,7 +57,7 @@ en l'èxit educatiu i la innovació per a la millora.
 `;
 
 export const progDesc = {
-  nom: 'Programes d\'innovacio',
+  nom: 'Programes d\'innovació',
   descripcio: `
   Els programes d'innovació consisteixen en plans d'acció que el Departament d'Educació prioritza i impulsa, i que tenen com a finalitat
   millorar els resultats del sistema educatiu adequant-lo al canvi i a l'evolució social.
