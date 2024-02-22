@@ -28,9 +28,9 @@
   "license": "EUPL-1.2",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@material-ui/icons": "^4.11.3",
     "@material-ui/styles": "^4.11.4",
-    "fontfaceobserver": "^2.1.0",
+    "fontfaceobserver": "^2.3.0",
     "fuse.js": "^6.5.3",
     "json2csv": "^5.0.7",
     "leaflet": "^1.7.1",
@@ -39,7 +39,7 @@
     "proj4leaflet": "^1.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-ga": "^3.3.0",
+    "react-ga": "^3.3.1",
     "react-helmet": "^6.1.0",
     "react-leaflet": "^2.8.0",
     "react-leaflet-fullscreen": "^1.0.1",
@@ -48,11 +48,11 @@
     "rehype-raw": "^6.1.1"
   },
   "devDependencies": {
-    "chalk": "^4.1.2",
-    "csv": "^6.0.5",
-    "dotenv-flow": "^3.2.0",
-    "react-scripts": "5.0.0",
-    "workbox-build": "^6.5.1",
+    "chalk": "^5.3.0",
+    "csv": "^6.3.6",
+    "dotenv-flow": "^4.1.0",
+    "react-scripts": "5.0.1",
+    "workbox-build": "^7.0.0",
     "xml": "^1.0.1"
   },
   "scripts": {
