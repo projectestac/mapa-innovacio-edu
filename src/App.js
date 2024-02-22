@@ -159,11 +159,6 @@ class App extends Component {
         path: '/programes',
       },
       {
-        id: 'xarxes',
-        name: 'Xarxes',
-        path: '/xarxes',
-      },
-      {
         id: 'projectes',
         name: 'Projectes',
         path: '/programa/1001',
@@ -172,6 +167,11 @@ class App extends Component {
         id: 'practiques',
         name: 'Pràctiques',
         path: '/programa/2001',
+      },
+      {
+        id: 'xarxes',
+        name: 'Xarxes',
+        path: '/xarxes',
       },
     ];
 
