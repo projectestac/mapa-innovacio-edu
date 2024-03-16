@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Explorador de dades del Mapa de la Innovació</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="./js/main.js"></script>
+</head>
+
+<body>
+  <div class="container py-4 px-3 mx-auto">
+    <h1>Explorador de dades del Mapa de la Innovació</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="media/icon32.png" alt="Inici" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Commuta el menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Centres</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Activitats
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Programes</a></li>
+                <li><a class="dropdown-item" href="#">Projectes</a></li>
+                <li><a class="dropdown-item" href="#">Pràctiques</a></li>
+                <li><a class="dropdown-item" href="#">Xarxes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Zones
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Serveis Territorials</a></li>
+                <li><a class="dropdown-item" href="#">Serveis Educatius</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Fitxes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vídeos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="loading-msg" class="alert alert-warning" role="alert">
+      S'estan carregant les dades...
+    </div>
+    <div id="error-msg" class="alert alert-danger hidden" role="alert">
+      ERROR: Error desconegut!
+    </div>
+    <div id="info-msg" class="alert alert-primary hidden" role="alert">
+      Info...
+    </div>
+    <table id="data"></table>
+  </div>
+
+</body>
+
+</html>
