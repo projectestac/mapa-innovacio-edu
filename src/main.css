@@ -1,0 +1,13 @@
+.root {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.error-panel {
+  .p-panel-header {
+    background-color: var(--red-100);
+    color: var(--red-800);
+  }
+}
