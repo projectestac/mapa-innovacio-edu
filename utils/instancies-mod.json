@@ -527,10 +527,6 @@
     "becomes": "08078294",
     "comment": "Participació com a \"Escola La Jota\""
   },
-  "08034485": {
-    "becomes": "08078312",
-    "comment": "Participació com a \"Escola Joan Marquès i Casals\""
-  },
   "08020036": {
     "becomes": "08078324",
     "comment": "Participació com a \"Escola Joviat\""
@@ -566,5 +562,13 @@
   "43002260": {
     "becomes": null,
     "comment": "Centre tancat (antiga \"Escola Ciutat de Reus\")"
+  },
+  "08076108": {
+    "becomes": "08078312",
+    "comment": "Participació com a \"Institut Jaume Cabré\""
+  },
+  "08034485": {
+    "becomes": "08078312",
+    "comment": "Participació com a \"Escola Joan Marquès i Casals\""
   }
 }
