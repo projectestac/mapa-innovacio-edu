@@ -5434,8 +5434,8 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 25010450,INS,Institut Nou Alcarràs,Alcarràs,Carrer Ausiàs March 40,25180,Segrià,,,ESO,LLE,25870608,,,,c5010450@xtec.cat,,TRUE
 17011054,ESC,Escola de Campllong,Campllong,"Carrer de l'Esglèsia, 26",17457,Gironès,,,EINF2C|EPRI,GIR,17870501,,,,b7011054@xtec.cat,,TRUE
 08078403,INS,Institut d'arts escèniques i audiovisuals de Barcelona,Barcelona,"Carrer Almogàvers, 131",08018,Barcelonès,,,CFPM|CFPS|ESCS|BATX,CEB,08870104,,,,a8078403@xtec.cat,,TRUE
-08078385,FP,Institut Digital de Barcelona,Barcelona,"Carrer de Roc Boronat, 117",08018,Barcelonès,,,CFPM|CFPS|PFI,CEB,08870104,,,,a8078385@xtec.cat,,TRUE
-08078397,FP,Institut de Sostenibilitat i Medi Ambient de Barcelona,Barcelona,"Pg Mollerussa, 71",08030,Barcelonès,"41,370258","2,149165",CFPM|CFPS|PFI|IFE,CEB,08870110,,,934243707,a8078397@xtec.cat,,TRUE
+08078385,FP,Institut TIC,Barcelona,"Carrer de Roc Boronat, 117",08018,Barcelonès,,,CFPM|CFPS|PFI,CEB,08870104,,,,a8078385@xtec.cat,,TRUE
+08078397,FP,Institut de Sostenibilitat i Medi Ambient de Barcelona,Barcelona,"Pg Mollerussa, 71",08030,Barcelonès,"41,439059","2,206987",CFPM|CFPS|PFI|IFE,CEB,08870110,,,934243707,a8078397@xtec.cat,,TRUE
 17011066,IE,Institut Escola Josep Pous i Pagès,Figueres,"Carrer Avinyonet, 201",17600,Alt Empordà,,,EINF2C|EPRI|ESO,GIR,17870505,,,,b7011066@xtec.cat,,TRUE
 17011042,IE,Institut Escola Mossèn Joan Batlle,Blanes,"Carrer Lope de Vega, 1",17300,Selva,"41,682291","2,781526",EINF2C|EPRI|ESO,GIR,17870502,,,972331087,b7011042@xtec.cat,,TRUE
 08078439,IE,Institut Escola El Cabrerès,L'Esquirol,"c. Pedró, 11",08511,Osona,"42,031159","2,368176",EINF2C|EPRI|ESO,CCE,08870208,,,938568080,a8078439@xtec.cat,,TRUE
