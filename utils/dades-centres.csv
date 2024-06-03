@@ -4831,8 +4831,8 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43002752,ESC,Escola Beat Bonaventura Gran,Riudoms,"c. Dr. Fleming, s/n",43330,Baix Camp,"41,141603","1,051015",EINF2C|EPRI,TAR,43870707,https://agora.xtec.cat/ceipbeatbonaventura/,43002752.png,977850414,e3002752@xtec.cat,,TRUE
 43002776,ESC,Escola Salvador Espriu,Roda de Berà,"c. de la Font, 3",43883,Tarragonès,"41,18395","1,4518",EINF2C|EPRI,TAR,43870705,https://agora.xtec.cat/ceip-salvador-espriu-roda/,43002776.png,977809924,e3002776@xtec.cat,,TRUE
 43002831,ESC,Escola Mestre Marcel·lí Domingo,Roquetes,"av. Pare Romanyà, s/n",43520,Baix Ebre,"40,821722",",49915",EINF2C|EPRI,TEB,43870801,https://agora.xtec.cat/ceipmarcelidomingo-roquetes/,43002831.png,977501139,e3002831@xtec.cat,,TRUE
-43002892,ESC,Escola Carles III,Sant Carles de la Ràpita,"av. de la Constitució, 64",43540,Montsià,"40,61938",",586362",EINF2C|EPRI,TEB,43870802,https://agora.xtec.cat/ceip-carlesiii/lescola/,43002892.png,977740015,e3002892@xtec.cat,,TRUE
-43002958,IE,Sagrada Família,Sant Carles de la Ràpita,"pl. Carles III, 9",43540,Montsià,"40,620661",",592753",EINF2C|EPRI|ESO,TEB,43870802,http://www.colegisagradafamilia.com,43002958.png,977740162,e3002958@xtec.cat,,FALSE
+43002892,ESC,Escola Carles III,La Ràpita,"av. de la Constitució, 64",43540,Montsià,"40,61938",",586362",EINF2C|EPRI,TEB,43870802,https://agora.xtec.cat/ceip-carlesiii/lescola/,43002892.png,977740015,e3002892@xtec.cat,,TRUE
+43002958,IE,Sagrada Família,La Ràpita,"pl. Carles III, 9",43540,Montsià,"40,620661",",592753",EINF2C|EPRI|ESO,TEB,43870802,http://www.colegisagradafamilia.com,43002958.png,977740162,e3002958@xtec.cat,,FALSE
 43003008,ESC,Escola Jaume Balmes,Santa Bàrbara,"c. Escoles, 7",43570,Montsià,"40,717225",",493515",EINF2C|EPRI,TEB,43870802,http://escolajaumebalmes.com,,977718029,e3003008@xtec.cat,,TRUE
 43003011,ESC,Escola Cor de Roure,Santa Coloma de Queralt,"pg. Mossèn Segura, s/n",43420,Conca de Barberà,"41,528239","1,386183",EINF2C|EPRI,TAR,43870701,https://agora.xtec.cat/ceipcorderoure/,43003011.png,977880533,e3003011@xtec.cat,,TRUE
 43003021,ESC,Vedruna Santa Coloma de Queralt,Santa Coloma de Queralt,"c. Mercè, 17",43420,Conca de Barberà,"41,530616","1,383058",EINF2C|EPRI,TAR,43870701,http://www.vedrunascq.org,43003021.png,977880222,e3003021@xtec.cat,,FALSE
@@ -5002,7 +5002,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43006459,LLA,LLI privada L'Avet,Reus,"c. Domènec Soberano, 6-8",43203,Baix Camp,"41,163055","1,109541",EINF1C,TAR,43870707,http://www.xtec.cat/centres/e3006459,,977319051,e3006459@xtec.cat,,FALSE
 43006496,INS,Institut Manuel Sales i Ferré,Ulldecona,"av. de les Escoles, 6",43550,Montsià,"40,599426",",441163",ESO|BATX|AA01|CFPM|PFI,TEB,43870802,https://agora.xtec.cat/ies-manuel-sales,43006496.png,977573365,e3006496@xtec.cat,,TRUE
 43006541,ESC,Escola Teresa Miquel i Pàmies,Reus,"pg. Misericòrdia, 9 A",43202,Baix Camp,"41,147981","1,104233",EINF2C|EPRI,TAR,43870707,https://agora.xtec.cat/escola-teresamiquelipamies/,43006541.png,977321766,e3006541@xtec.cat,,TRUE
-43006551,ESC,Escola Horta Vella,Sant Carles de la Ràpita,"c. de Mendez Núñez, s/n",43540,Montsià,"40,620969",",595761",EINF2C|EPRI,TEB,43870802,https://sites.google.com/a/xtec.cat/escolahortavella/,43006551.png,977741771,e3006551@xtec.cat,,TRUE
+43006551,ESC,Escola Horta Vella,La Ràpita,"c. de Mendez Núñez, s/n",43540,Montsià,"40,620969",",595761",EINF2C|EPRI,TEB,43870802,https://sites.google.com/a/xtec.cat/escolahortavella/,43006551.png,977741771,e3006551@xtec.cat,,TRUE
 43006563,ESC,Escola Marcel·lí Domingo,Tarragona,ctra. Pallaresos (Ub. S. Pere i S.Pau),43007,Tarragonès,"41,139012","1,247461",EINF2C|EPRI,TAR,43870705,http://blocs.xtec.cat/escolamdomingo,43006563.png,977225465,e3006563@xtec.cat,,TRUE
 43006575,ESC,Escola Eladi Homs,Valls,"ctra. del Pla, 145",43800,Alt Camp,"41,299015","1,258166",EINF2C|EPRI,TAR,43870702,http://www.xtec.cat/ceip-eladihoms-valls/,43006575.png,977604100,e3006575@xtec.cat,,TRUE
 43006587,ESC,Escola Àngels Garriga,El Vendrell,"av. Salvador Palau Rabassó, s/n",43700,Baix Penedès,"41,214294","1,524576",EINF2C|EPRI,PEN,43870703,https://agora.xtec.cat/ceip-angelsgarriga-elvendrell/,43006587.png,977663900,e3006587@xtec.cat,,TRUE
@@ -5040,7 +5040,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43007178,ESC,Escola Mowgli,Reus,"pg. Boca de la Mina, s/n",43206,Baix Camp,"41,165048","1,093802",EINF2C|EPRI,TAR,43870707,https://agora.xtec.cat/ceipmowgli,43007178.png,977312647,e3007178@xtec.cat,,TRUE
 43007181,ART,Esc. de Música Municipal,Riudoms,"c. de la Música, 4",43330,Baix Camp,"41,137386","1,051337",MUSE,TAR,43870707,,,977850287,e3007181@xtec.cat,,TRUE
 43007208,INS,Institut Berenguer d'Entença,L'Hospitalet de l'Infant (Vandellòs i l'Hospitalet de l'Infant),"c. Ramon Berenguer IV, 7",43890,Baix Camp,"40,991751",",918326",ESO|BATX|CFPM|CFPS,TAR,43870707,https://agora.xtec.cat/iesbde,43007208.png,977820427,e3007208@xtec.cat,,TRUE
-43007221,INS,Institut Els Alfacs,Sant Carles de la Ràpita,"c. Dr. Torné, s/n",43540,Montsià,"40,623022",",58744",ESO|BATX|AA01|CFPM|CFPS|PFI,TEB,43870802,https://agora.xtec.cat/iesalfacs,43007221.png,977746982,e3007221@xtec.cat,,TRUE
+43007221,INS,Institut Els Alfacs,La Ràpita,"c. Dr. Torné, s/n",43540,Montsià,"40,623022",",58744",ESO|BATX|AA01|CFPM|CFPS|PFI,TEB,43870802,https://agora.xtec.cat/iesalfacs,43007221.png,977746982,e3007221@xtec.cat,,TRUE
 43007233,INS,Institut de Flix,Flix,"c. Salvador Espriu, 1",43750,Ribera d'Ebre,"41,226614",",544189",ESO|BATX|AA01|CFPM|AA03|CFPS|PFI,TEB,43870803,http://WWW.iesflix.cat,43007233.png,977410459,e3007233@xtec.cat,,TRUE
 43007245,ART,Esc. de Música La Lira Ampostina,Amposta,"c. Mestre Casanoves, 44",43870,Montsià,"40,710982",",577684",MUSE,TEB,43870802,http://www.laliraampostina.com/escola/grauprofessional,,977701004,e3007245@xtec.cat,,FALSE
 43007257,INS,Institut Camí de Mar,Calafell,"c. Jaume Pallarès, s/n",43820,Baix Penedès,"41,195801","1,566746",ESO|BATX|AA01|CFPM|CFPS,PEN,43870703,http://www.inscamidemar.cat,43007257.png,977695711,e3007257@xtec.cat,,TRUE
@@ -5310,12 +5310,12 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43011698,ART,Esc. de Música de La Sénia,La Sénia,"c. del Bisbe Berenguer de Prats, 7",43560,Montsià,"40,634726",",282275",MUSE,TEB,43870802,,,,e3011698@xtec.cat,,FALSE
 43011704,LLA,Llar d'infants El Gat Galeret,La Galera,"c. Catalunya, 2-4",43515,Montsià,"40,68224",",465376",EINF1C,TEB,43870802,,,977718339,e3011704@xtec.cat,,TRUE
 43011716,LLA,Llar d'infants Les Marietes,Cunit,c. Rosselló / c. Progrés,43881,Baix Penedès,"41,203459","1,614764",EINF1C,PEN,43870703,,,,e3011716@xtec.cat,,TRUE
-43011741,LLA,Llar d'infants Xip-xap,Sant Carles de la Ràpita,"c. d'Aragó, 15",43540,Montsià,"40,613222",",584298",EINF1C,TEB,43870802,,,977743148,e3011741@xtec.cat,,TRUE
+43011741,LLA,Llar d'infants Xip-xap,La Ràpita,"c. d'Aragó, 15",43540,Montsià,"40,613222",",584298",EINF1C,TEB,43870802,,,977743148,e3011741@xtec.cat,,TRUE
 43011753,LLA,Llar d'infants El Cabirol,La Juncosa del Montmell (El Montmell),"c. de l'Esglèsia, s/n",43718,Baix Penedès,"41,316082","1,453324",EINF1C,PEN,43870703,,,,e3011753@xtec.cat,,TRUE
 43011765,CFA,CFA Àgora,Salou,"av. de Pau Casals, s/n",43840,Tarragonès,"41,084177","1,12639",ADULTS,TAR,43870705,https://agora.xtec.cat/cfaagorasalou/,43011765.png,977388851,e3011765@xtec.cat,,TRUE
 43011790,LLA,Llar d'infants Los Raïmets,Batea,"c. Major, 27",43786,Terra Alta,"41,095131",",309655",EINF1C,TEB,43870804,,,977430417,e3011790@xtec.cat,,TRUE
 43011807,LLA,Llar d'infants Picabruna,Picamoixons (Valls),"c. del Rosari, 25",43491,Alt Camp,"41,301564","1,202992",EINF1C,TAR,43870702,,,977600936,e3011807@xtec.cat,,TRUE
-43011819,ART,Esc. de Música de l'Agrupació Musical Rapitenca,Sant Carles de la Ràpita,"c. Sant Sebastià, 47",43540,Montsià,"40,621885",",59189",MUSE,TEB,43870802,https://agora.xtec.cat/esc-amrapitenca,43011819.png,,e3011819@xtec.cat,,FALSE
+43011819,ART,Esc. de Música de l'Agrupació Musical Rapitenca,La Ràpita,"c. Sant Sebastià, 47",43540,Montsià,"40,621885",",59189",MUSE,TEB,43870802,https://agora.xtec.cat/esc-amrapitenca,43011819.png,,e3011819@xtec.cat,,FALSE
 43011832,LLA,Llar d'infants El Marfull,Reus,"pl. de l'Abat Oliba, 35",43201,Baix Camp,"41,157277","1,115844",EINF1C,TAR,43870707,,,,e3011832@xtec.cat,,TRUE
 43011844,LLA,Escola Bressol L'Olivera,Reus,"c. Puig i Ferrater, 6",43201,Baix Camp,"41,14626","1,09767",EINF1C,TAR,43870707,,,,e3011844@xtec.cat,,TRUE
 43011856,LLA,Llar d'infants La Marinada,L'Ampolla,"Zona d'Equipaments, Unitat d'Acció 5",43895,Baix Ebre,"40,814475",",710088",EINF1C,TEB,43870801,,,977460765,e3011856@xtec.cat,,TRUE
@@ -5329,7 +5329,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43011960,ART,Esc. de Música Municipal del Perelló,El Perelló,"p. de l'U d'octubre de 2017, s/n",43519,Baix Ebre,"40,872983",",712849",MUSE,TEB,43870801,,,,e3011960@xtec.cat,,TRUE
 43011972,LLA,Llar d'infants La Torre de l'Espanyol,La Torre de l'Espanyol,"c. de l'Era, s/n",43792,Ribera d'Ebre,"41,191448",",628733",EINF1C,TEB,43870803,,,,e3011972@xtec.cat,,TRUE
 43011984,LLA,Llar d'infants Municipal de l'Aldea Bressol del Delta,L'Aldea,"c. Independència, 1",43896,Baix Ebre,"40,744618",",622407",EINF1C,TEB,43870801,,,610580715,e3011984@xtec.cat,,TRUE
-43012010,CFA,Pons,Sant Carles de la Ràpita,"av. Jacint Verdaguer, 12",43540,Montsià,"40,617763",",586542",AA01|PFI|ADULTS,TEB,43870802,,,,e3012010@xtec.cat,,FALSE
+43012010,CFA,Pons,La Ràpita,"av. Jacint Verdaguer, 12",43540,Montsià,"40,617763",",586542",AA01|PFI|ADULTS,TEB,43870802,,,,e3012010@xtec.cat,,FALSE
 43012022,LLA,Llar d'infants Cavallet de Mar,Salou,c. de Domènech Sugrañes i Gras,43840,Tarragonès,"41,083646","1,127901",EINF1C,TAR,43870705,,,,e3012022@xtec.cat,,TRUE
 43012034,LLA,Llar d'infants Ferrer i Guàrdia,Sant Jaume d'Enveja,"av. Mallorca, s/n",43877,Montsià,"40,700744",",71542",EINF1C,TEB,43870802,,,977468242,e3012034@xtec.cat,,TRUE
 43012061,LLA,Llar d'infants Els Pontarrinets,El Pont d'Armentera,"pg. de Sant Isidre, 3-5",43817,Alt Camp,"41,384048","1,361867",EINF1C,TAR,43870702,,,,e3012061@xtec.cat,,TRUE
@@ -5415,7 +5415,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 43013075,IE,Institut Escola Àngel de Tobies,El Vendrell,"Partida Botafoc, ctra. de Valls, s/n",43700,Baix Penedès,"41,225549","1,530263",EINF2C|EPRI|ESO,PEN,43870703,https://agora.xtec.cat/ieangeldetobies/,43013075.png,,e3013075@xtec.cat,,TRUE
 43013087,IE,Institut Escola Corbatera,Cornudella de Montsant,"c. Comte de Rius, s/n",43360,Priorat,"41,261236",",904166",EINF2C|EPRI|ESO,TAR,43870704,https://agora.xtec.cat/iemontsant/,,,e3013087@xtec.cat,,TRUE
 43013099,IE,Institut Escola Agustí Barberà,Amposta,"c. Madrid, 55",43870,Montsià,"40,70877",",583842",EINF2C|EPRI|ESO,TEB,43870802,,,977701137,e3013099@xtec.cat,,TRUE
-43013117,FP,Institut d'Est. Profes. Aqüícoles i Ambientals de Catalunya,Sant Carles de la Ràpita,"ctra. Poble Nou, km. 6,435",43540,Montsià,"40,629662","0,658753",AA01|CFPM|CFPS|PFI,TEB,43870802,http://iepaac.cat,,,e3013117@xtec.cat,,TRUE
+43013117,FP,Institut d'Est. Profes. Aqüícoles i Ambientals de Catalunya,La Ràpita,"ctra. Poble Nou, km. 6,435",43540,Montsià,"40,629662","0,658753",AA01|CFPM|CFPS|PFI,TEB,43870802,http://iepaac.cat,,,e3013117@xtec.cat,,TRUE
 43013129,IE,Institut Escola Coma-ruga,El Vendrell,c. dels Ocells,43700,Baix Penedès,"41,188415","1,524447",EINF2C|EPRI|ESO,PEN,43870703,https://agora.xtec.cat/iecomaruga,,,e3013129@xtec.cat,,TRUE
 43013130,IE,Institut Escola Joan Ardèvol,Cambrils,"c. Joan Ardèvol, 1",43850,Baix Camp,"41,075429","1,046662",EINF2C|EPRI|ESO,TAR,43870707,http://www.joanardevol.cat,,,e3013130@xtec.cat,,TRUE
 43013142,IE,Institut Escola El Temple,Tortosa,"pg. de Jaume I, 19",43500,Baix Ebre,"40,803353","0,522304",EINF2C|EPRI|ESO,TEB,43870801,https://agora.xtec.cat/ietemple,,,e3013142@xtec.cat,,TRUE
