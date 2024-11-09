@@ -944,11 +944,6 @@
         "localitat": "Preixens"
       },
       {
-        "codi": "25003822",
-        "centre": "Escola de Les Ventoses - ZER El Sió",
-        "localitat": "Les Ventoses"
-      },
-      {
         "codi": "25003858",
         "centre": "Escola de Puigverd d'Agramunt - ZER El Sió",
         "localitat": "Puigverd d'Agramunt"
@@ -1014,11 +1009,6 @@
         "codi": "25005892",
         "centre": "Escola Maldanell - ZER Riu Corb",
         "localitat": "Maldà"
-      },
-      {
-        "codi": "25005909",
-        "centre": "Escola Mossèn Ramon Muntanyola - ZER Riu Corb",
-        "localitat": "Els Omells de na Gaia"
       }
     ]
   },

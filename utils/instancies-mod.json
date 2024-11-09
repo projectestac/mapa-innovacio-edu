@@ -483,10 +483,6 @@
     "becomes": null,
     "comment": "Centre tancat (antic \"CEES\")"
   },
-  "08077472": {
-    "becomes": "08045239",
-    "comment": "Participació com a centre municipal"
-  },
   "43010876": {
     "becomes": "43013191",
     "comment": "Participació com a \"Escola l'Arrabassada\""
@@ -566,5 +562,297 @@
   "08034485": {
     "becomes": "08078312",
     "comment": "Participació com a \"Escola Joan Marquès i Casals\""
+  },
+  "08002320": {
+    "becomes": "08078762",
+    "comment": "Participació com a \"Escola Ciutat Comtal\""
+  },
+  "08002459": {
+    "becomes": "08078774",
+    "comment": "Participació com a \"Escola Elisenda de Montcada\""
+  },
+  "08002551": {
+    "becomes": "08078725",
+    "comment": "Participació com a \"Escola Molí de Finestrelles\""
+  },
+  "08002897": {
+    "becomes": "08078798",
+    "comment": "Participació com a \"Escola Mestre Morera\""
+  },
+  "08005151": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Sant Francesc Xavier\")"
+  },
+  "08009156": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Sagrado Corazón\")"
+  },
+  "08032634": {
+    "becomes": "08078786",
+    "comment": "Participació com a \"Escola Ferrer i Guàrdia\""
+  },
+  "08034205": {
+    "becomes": "08078816",
+    "comment": "Participació com a \"Institut La Guineueta\""
+  },
+  "08037097": {
+    "becomes": "08078853",
+    "comment": "Participació com a \"Crespinell\""
+  },
+  "08041520": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa Eulàlia Blasi\")"
+  },
+  "08045239": {
+    "becomes": "08077472",
+    "comment": "Participació com a \"Institut Escola Intermunicipal del Penedès\""
+  },
+  "08047649": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa Dolors Vilalta Lacruz\")"
+  },
+  "08048265": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada La Cuca Fera\")"
+  },
+  "08048514": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Bambi\")"
+  },
+  "08048666": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada El Cargolet\")"
+  },
+  "08048678": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"El Nieró\")"
+  },
+  "08048861": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Romany\")"
+  },
+  "08049452": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Donald\")"
+  },
+  "08050570": {
+    "becomes": "08051197",
+    "comment": "Participació com a \"Petit Món\""
+  },
+  "08050582": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Solana\")"
+  },
+  "08050594": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Virolai\")"
+  },
+  "08050791": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"El Pomer\")"
+  },
+  "08051185": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Quitxalla\")"
+  },
+  "08051513": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Barbabum\")"
+  },
+  "08051847": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"L'Espiga\")"
+  },
+  "08051938": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada La Cucafera\")"
+  },
+  "08054711": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Bambi\")"
+  },
+  "08056699": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa Joan Magriña\")"
+  },
+  "08058118": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"A. Hospitalària Hospital del Mar\")"
+  },
+  "08058891": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada La Baldufa\")"
+  },
+  "08059196": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Llar d'infants l'Estel\")"
+  },
+  "08059411": {
+    "becomes": "08006970",
+    "comment": "Participació com a \"Cintra\""
+  },
+  "08059536": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Núria Vilella\")"
+  },
+  "08061324": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada El Tren Groc\")"
+  },
+  "08062912": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Formapractic\")"
+  },
+  "08062951": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Sant Jordi\")"
+  },
+  "08063382": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Esc. de Música Centre Musical Diapasó\")"
+  },
+  "08064301": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"AIES\")"
+  },
+  "08064337": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Llar d'infants El Picarol\")"
+  },
+  "08065299": {
+    "becomes": "08077368",
+    "comment": "Participació com a \"Escola El Calderí\""
+  },
+  "08065408": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Institut Hipàtia d'Alexandria\")"
+  },
+  "08065603": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada La Baldufa\")"
+  },
+  "08065974": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Les Orenetes\")"
+  },
+  "08066152": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Quitxalla\")"
+  },
+  "08068094": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Una miqueta de joc\")"
+  },
+  "08068975": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Badiu\")"
+  },
+  "08069025": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Rialles\")"
+  },
+  "08069815": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Llar d'infants La Baldufa\")"
+  },
+  "08072206": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"EB privada La Rotllana\")"
+  },
+  "08073594": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"EB privada El Núvol\")"
+  },
+  "08073651": {
+    "becomes": "08077368",
+    "comment": "Participació com a \"Institut Pic del Vent\""
+  },
+  "08074227": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Somriures de Sant Cugat\")"
+  },
+  "08074239": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Evolució 98\")"
+  },
+  "08074461": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Llar d'infants El Petit Somni\")"
+  },
+  "08075347": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Kitty\")"
+  },
+  "08076807": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"GBSB Global Buiness School\")"
+  },
+  "08076856": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"St. Patrick's International School\")"
+  },
+  "08077083": {
+    "becomes": "08078725",
+    "comment": "Participació com a \"Institut Vapor del Fil\""
+  },
+  "08077927": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Synergy International Christian School\")"
+  },
+  "08078105": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa La Salle Bonanova\")"
+  },
+  "08078233": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Tracart\")"
+  },
+  "08078427": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Metal Academy School of Music\")"
+  },
+  "17006174": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa d'Anglès\")"
+  },
+  "17006472": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Querubí\")"
+  },
+  "17006630": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Kumbaià\")"
+  },
+  "17007257": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Petit Príncep\")"
+  },
+  "17007798": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Ralet-Ralet\")"
+  },
+  "17009977": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola Bressol El Riuet de Riumors\")"
+  },
+  "25007682": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola de Dansa de Mollerussa\")"
+  },
+  "25007736": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Nala\")"
+  },
+  "25009368": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Escola La Valira-ZER Urgellet\")"
+  },
+  "43007774": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"Llar d'infants Municipal\")"
+  },
+  "43009291": {
+    "becomes": null,
+    "comment": "Centre tancat (antic \"LLI privada Creu Roja\")"
   }
 }
