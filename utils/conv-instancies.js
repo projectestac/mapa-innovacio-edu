@@ -41,7 +41,15 @@ async function readMainCSV(file, programes, centresValids) {
   const data = await readCSVFile(file);
 
   // Ajustaments previs
+
+  // Adaptació dels nous noms de camp
+  const nousNoms = ['Id Programa', 'Codi Centre', 'Curs Inici', 'Curs Final', 'Certifica', 'Nom Fitxa', 'URL Video', 'URL Web']
+  const nomsOk = ['id_programa', 'Codi_centre', 'Curs_ini', 'Curs_fin', 'Certificat', 'Nom_Fitxa', 'URL_Video', 'URL_web']
   data.forEach(reg => {
+    // Corregeix noms de camp
+    for (let i = 0; i < nousNoms.length; i++)
+      reg[nomsOk[i]] = reg[nousNoms[i]] ?? null;
+
     // Conversió manual
     if (Number(reg.id_programa) === 46)
       reg.id_programa = 39;
@@ -176,6 +184,36 @@ async function readMainCSV(file, programes, centresValids) {
 
 }
 
+const joinMultipleComentaris = instancies => {
+  const vanParticipar = [];
+  instancies.forEach(({ centre, programa, curs, comentari }, i) => {
+    if (comentari?.startsWith('Va participar'))
+      vanParticipar.push({ i, centre, programa, curs, comentari });
+  });
+  const centresAmbComentari = [...new Set(vanParticipar.map(({ centre, programa }) => `${centre}|${programa}`))];
+  const indexsToDelete = [];
+  centresAmbComentari.forEach(c => {
+    const [centre, programa] = c.split('|');
+    const vp = vanParticipar.filter(v => v.centre === centre && v.programa === programa);
+    if (vp.length > 1) {
+      const first = instancies[vp[0].i];
+      for (let c = 1; c < vp.length; c++) {
+        first.comentari = `${first.comentari}, ${vp[c].comentari}`;
+        indexsToDelete.push(vp[c].i);
+      }
+    }
+    /*
+    const identicSenseComentari = instancies.findIndex(ins => ins.centre === centre && ins.programa === programa && ins.curs === vp[0].curs && !ins.comentari);
+    if (identicSenseComentari > 0) {
+      console.error(`Eliminant idèntic sense comentari per a: ${centre} - ${programa}`)
+      indexsToDelete.push(identicSenseComentari);
+    }
+    */
+
+  });
+  return instancies.filter((i, n) => !indexsToDelete.includes(n));
+}
+
 const getDuplicates = instancies =>
   instancies
     .map(({ centre, programa, curs, titol = '', comentari = '' }) => `${centre}|${programa}|${curs}|${titol}|${comentari}`)
@@ -214,6 +252,15 @@ const checkCursos = courseRange => {
 async function main() {
 
   const programes = await readCSVFile(PROGRAMES);
+
+  // Corregeix noms de camp
+  const prgNomsNous = ['Id', 'Nom Programa', 'Nom Curt', 'Enllaç', 'Ambits Curriculars', 'Ambits Innovacio', 'Etapes Objectiu', 'Enllaç Fitxa', 'Compromisos'];
+  const prgNomsOk = ['id_programa', 'Nom_programa', 'Nom_curt', 'Enllac', 'Ambits_curriculars', 'Ambits_innovacio', 'Etapes_objectiu', 'Enllaç_fitxa', 'Copromisos'];
+  programes.forEach(reg => {
+    for (let i = 0; i < prgNomsNous.length; i++)
+      reg[prgNomsOk[i]] = reg[prgNomsNous[i]] ?? '';
+  });
+
   const centresValids = await readDadesCentres(DADES_CENTRES);
   const { instancies, centres, certificats } = await readMainCSV(MAIN_CSV_FILE, programes, centresValids);
 
@@ -229,7 +276,7 @@ async function main() {
   }
   else if (DUMP_INSTANCIES)
     // Send the resulting JSON to the standard output (usually redirected to '../public/data/instancies.json' )
-    console.log(JSON.stringify(sortObjectArrayBy(filterDuplicates(instancies), ['programa', 'centre', 'curs']), 1));
+    console.log(JSON.stringify(sortObjectArrayBy(joinMultipleComentaris(filterDuplicates(instancies)), ['programa', 'centre', 'curs']), 1));
   else if (DUMP_CENTRES)
     // Send the resulting JSON to the standard output (usually redirected to '../public/data/centres.json' )
     console.log(JSON.stringify(sortObjectArrayBy(centres, ['sstt', 'municipi', 'nom']), 1));

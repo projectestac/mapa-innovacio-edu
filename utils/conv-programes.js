@@ -26,22 +26,33 @@ async function readCSV(file) {
   data.forEach(reg => {
     // Build a program object with each row
     const programa = {
-      id: reg.id_programa, // It's a string!
-      nom: reg.Nom_programa.trim(),
-      nomCurt: reg.Nom_curt || '',
+      // id: reg.id_programa, // It's a string!
+      id: reg['Id'], // It's a string!
+      // nom: reg.Nom_programa.trim(),
+      nom: reg['Nom Programa'].trim(),
+      // nomCurt: reg.Nom_curt || '',
+      nomCurt: reg['Nom Curt'] || '',
       descripcio: reg.Descripcio || '',
-      link: reg.Enllac || null,
-      ambCurr: reg.Ambits_curriculars ? reg.Ambits_curriculars.trim().split(',').map(t => t.trim()) : [],
-      ambInn: reg.Ambits_innovacio ? reg.Ambits_innovacio.trim().split(',').map(t => t.trim()) : [],
+      // link: reg.Enllac || null,
+      link: reg['Web Programa'] || null,
+      // ambCurr: reg.Ambits_curriculars ? reg.Ambits_curriculars.trim().split(',').map(t => t.trim()) : [],
+      ambCurr: reg['Ambits Curriculars'] ? reg['Ambits Curriculars'].trim().split(',').map(t => t.trim()) : [],
+      // ambInn: reg.Ambits_innovacio ? reg.Ambits_innovacio.trim().split(',').map(t => t.trim()) : [],
+      ambInn: reg['Ambits Innovacio'] ? reg['Ambits Innovacio'].trim().split(',').map(t => t.trim()) : [],
       arees: [],
       simbol: reg.Simbol || 'generic.png',
-      tipus: reg.Etapes_objectiu ? reg.Etapes_objectiu.trim().split(',').map(t => t.trim()) : [],
-      fitxa: reg['Enllaç_fitxa'] || null,
-      video: reg.Video || null,
+      // tipus: reg.Etapes_objectiu ? reg.Etapes_objectiu.trim().split(',').map(t => t.trim()) : [],
+      tipus: reg['Etapes Objectiu'] ? reg['Etapes Objectiu'].trim().split(',').map(t => t.trim()) : [],
+      // fitxa: reg['Enllaç_fitxa'] || null,
+      fitxa: reg['Enllaç Fitxa'] || null,
+      // video: reg.Video || null,
+      video: reg['Vídeo'] || null,
       objectius: reg.Objectius || null,
       requisits: reg.Requisits || null,
       compromisos: reg.Compromisos || null,
+      // contacte: reg.Contacte || null,
       contacte: reg.Contacte || null,
+      // ATENCIÓ: Aquest camp no existeix!
       normativa: reg.Normativa || null,
     };
 
@@ -79,7 +90,7 @@ async function readCSV(file) {
 
       const unknownAmbCurr = programa.ambCurr.filter(ac => !estudis.ambitsCurr[ac]);
       if (unknownAmbCurr.length > 0) {
-        warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) declara àmbits curriculars inexistents: ${unknownAmbCurr.join(', ')}`);
+        warnings.push(`${ch.bold.bgRed.white('ERROR:')} El programa ${programa.id} (${ch.italic(programa.nom)}) declara àmbits curriculars inexistents: "${unknownAmbCurr.join(', ')}"`);
       }
 
       if (programa.tipus.length === 0) {

@@ -1,0 +1,17 @@
+Base de centres:
+https://docs.google.com/spreadsheets/d/1NAXeQFOKS6V0aQlvLxVAdM1LpbQXXHcg5sLvPp2GIVU/edit?gid=1697751342#gid=1697751342
+
+Exportació de centres:
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRqkdR485O-c8wyVixpUxbFJu9bClQAN718xruXPNDUUGPBHB60k0NyNYF9Vt3QUd0cEIYXXi3QTAQD/pub?gid=1052887050&single=true&output=csv
+
+Nou full:
+https://docs.google.com/spreadsheets/d/1lX2QWyeaST7jhxgNCwxyxE6cG2_CV2ePF1Z2XsZoHng/edit?gid=1834253308
+
+Nou full instàncies:
+https://docs.google.com/spreadsheets/d/e/2PACX-1vT2V3_918AgY0kM5Su2WGEY287FljFhECKJWZW-R-64k8Ryaq8w3_w319XgcDFeWRVgth4TCycjyzqG/pub?gid=1834253308&single=true&output=csv
+
+Nou full programes:
+https://docs.google.com/spreadsheets/d/e/2PACX-1vT2V3_918AgY0kM5Su2WGEY287FljFhECKJWZW-R-64k8Ryaq8w3_w319XgcDFeWRVgth4TCycjyzqG/pub?gid=1423731379&single=true&output=csv
+
+Nou full de zones:
+https://docs.google.com/spreadsheets/d/e/2PACX-1vT2V3_918AgY0kM5Su2WGEY287FljFhECKJWZW-R-64k8Ryaq8w3_w319XgcDFeWRVgth4TCycjyzqG/pub?gid=1151284760&single=true&output=csv
