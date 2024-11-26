@@ -88,6 +88,15 @@ const LAYERS = {
     continuousWorld: true,
     wms: true,
   },
+  // ICGC Base
+  ICGCBase: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wms?',
+    layers: 'simplificat',
+    format: 'image/jpeg',
+    continuousWorld: true,
+    wms: true,
+  }
 };
 
 const BUILT_LAYERS = {};
