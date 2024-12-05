@@ -43,7 +43,7 @@ async function readMainCSV(file, programes, centresValids) {
   // Ajustaments previs
 
   // Adaptació dels nous noms de camp
-  const nousNoms = ['Id Programa', 'Codi Centre', 'Curs Inici', 'Curs Final', 'Certifica', 'Nom Fitxa', 'URL Video', 'URL Web']
+  const nousNoms = ['Id Programa', 'Codi Centre', 'Curs Inici', 'Curs Final', 'Certifica', 'Nom Fitxa', 'Url Video', 'Url Web']
   const nomsOk = ['id_programa', 'Codi_centre', 'Curs_ini', 'Curs_fin', 'Certificat', 'Nom_Fitxa', 'URL_Video', 'URL_web']
   data.forEach(reg => {
     // Corregeix noms de camp

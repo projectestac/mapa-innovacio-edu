@@ -46,7 +46,7 @@ async function readCSV(file) {
       // fitxa: reg['Enllaç_fitxa'] || null,
       fitxa: reg['Enllaç Fitxa'] || null,
       // video: reg.Video || null,
-      video: reg['Vídeo'] || null,
+      video: embedVideo(reg['Vídeo']) || null,
       objectius: reg.Objectius || null,
       requisits: reg.Requisits || null,
       compromisos: reg.Compromisos || null,
@@ -126,6 +126,15 @@ async function readCSV(file) {
   });
 
   return sortObjectArrayBy(programes, 'nom');
+}
+
+function embedVideo(url) {
+  if(!url)
+    return null;
+  else if(url.indexOf('youtube.com') >= 0 || url.indexOf('youtu.be') >= 0)
+    return `<iframe style="margin-top:-2rem" class="proj-video" title="Vídeo del projecte" src="${url.replace('watch', 'embed')}${url.indexOf('?') >=0 ? '&' : '?'}autoplay=0&cc_lang_pref=ca&hl=ca&fs=1&modestbranding=1&rel=0" width="500" height="375" type="text/html" allowfullscreen=""></iframe>`;
+  else
+    return `<p style="margin-top:-2rem">▶️ <a href="${url}">Vídeo del projecte</a></p>`;
 }
 
 async function main() {
