@@ -16,10 +16,3 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vT2V3_918AgY0kM5Su2WGEY287FljFhE
 Nou full de zones:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vT2V3_918AgY0kM5Su2WGEY287FljFhECKJWZW-R-64k8Ryaq8w3_w319XgcDFeWRVgth4TCycjyzqG/pub?gid=1151284760&single=true&output=csv
 
-
-URLs de vídeos que potser s'han d'editar manualment en l'exportació dels programes:
-77 - https://www.youtube.com/embed/XxTXeIv3kLU?si=fLQPLS3ABx9-Q2Ec
-64 - https://www.youtube.com/embed/2vTamla7i60?si=xwo-eXQqzQyZgR89
-
-Nom de programa a revisar:
-3024 - Xarxa d'Escoles per a la Sostenibilitat de Catalunya
