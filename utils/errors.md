@@ -40,7 +40,7 @@ Codi de centre desconegut
 ## Errors crítics en les dades d'alguns programes
 
 - **El programa 53 (_Xarxa de competències bàsiques_) serà exclòs per no tenir cap centre participant**
-- **El programa 79 (FAIG) no té definides les etapes objectiu**
+- **El programa 79 (FAIG) no té definides les etapes objectiu i, a més, serà exclòs per no tenir cap centre participant**
 
 ## Centres que participen en programes on no haurien de poder participar
 
@@ -78,3 +78,25 @@ centre: EINF2C, EPRI | programa: CFAS, CFPM, CFPS
 centre: ADULTS | programa: EINF1C, EINF2C, EPRI, ESO
 - **El centre amb codi "[08045768](https://innovacio.xtec.gencat.cat/centre/08045768)" participa al programa 3018 (Xarxa Educativa Santa Perpètua de Mogoda) sense tenir cap dels estudis requerits**\
 centre: EE, IFE | programa: ADULTS, EINF1C, EINF2C, EPRI, ESO
+- **El centre amb codi "[08014796](https://innovacio.xtec.gencat.cat/centre/08014796)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[08028151](https://innovacio.xtec.gencat.cat/centre/08028151)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[08031046](https://innovacio.xtec.gencat.cat/centre/08031046)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[08055713](https://innovacio.xtec.gencat.cat/centre/08055713)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: ADULTS | programa: PFI
+- **El centre amb codi "[25003032](https://innovacio.xtec.gencat.cat/centre/25003032)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[25003123](https://innovacio.xtec.gencat.cat/centre/25003123)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[25004981](https://innovacio.xtec.gencat.cat/centre/25004981)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[43000421](https://innovacio.xtec.gencat.cat/centre/43000421)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[43000950](https://innovacio.xtec.gencat.cat/centre/43000950)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[43001280](https://innovacio.xtec.gencat.cat/centre/43001280)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF1C, EINF2C, EPRI | programa: PFI
+- **El centre amb codi "[43005650](https://innovacio.xtec.gencat.cat/centre/43005650)" participa al programa 78 (Programa d’innovació pedagògica XarxaPFI) sense tenir cap dels estudis requerits**\
+centre: EINF2C, EPRI | programa: PFI
