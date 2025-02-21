@@ -1,0 +1,30 @@
+Vídeos amb URL basada en llista:
+- Programa 59 (Apadrinem el nostre patrimoni): https://www.youtube.com/watch?v=gJeeuhZPs3M&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=1
+- Programa 62 (#aquiproubullying): https://www.youtube.com/watch?v=dOP7NraKp-Q&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=2
+- Programa 55 (Avancem: aprenentatge integrat de les llengües): https://www.youtube.com/watch?v=zStOdtFCX4E&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=3
+- Programa 13 (Comunitats d'aprenentatge): https://www.youtube.com/watch?v=hHQdz4hsWZQ&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=4
+- Programa 20 (Generació plurilingüe (GEP)): https://www.youtube.com/watch?v=NyzzPVYdpf4&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=5
+- Programa 42 (Programa Magnet): https://www.youtube.com/watch?v=GaDR1WNMqJE&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=6
+- Programa 60 (Orientació educativa per a l’aprenentatge competencial orientador): https://www.youtube.com/watch?v=Z2dOm8AnJo0&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=7
+- Programa 61 (STEAMcat): https://www.youtube.com/watch?v=2MvJqnL2U7I&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=8
+- Programa 44 (Programa Tàndem): https://www.youtube.com/watch?v=ZzaPaaBum8E&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=9
+- Programa 3001 (Xarxa de competències): https://www.youtube.com/watch?v=sEy4HAzjr4Y&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=11
+- Programa 57 (Programa d'innovació de Tecnologies Digitals per a l'Aprenentatge): https://www.youtube.com/watch?v=Eu-TqNLn3tE&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=10
+- Programa 43 (Programa SI. Salut Integral): He eliminat el vídeo perquè ja no està disponible a YouTube, i no he trobat cap URL alternatiu
+- Programa 1001 (Reconeixement de projectes d'innovació pedagògica): https://www.youtube.com/watch?v=w6zMupgT7-8&list=PLHQ2RmbOIhEqjjKbhH-LTt_QgyUdD6IYY&index=12
+
+Vídeos amb URL directa: (sovint no funcionen!)
+- Programa 59 (Apadrinem el nostre patrimoni): https://www.youtube.com/watch?v=gJeeuhZPs3M
+- Programa 62 (#aquiproubullying): https://www.youtube.com/watch?v=dOP7NraKp-Q
+- Programa 55 (Avancem: aprenentatge integrat de les llengües): 
+- Programa 13 (Comunitats d'aprenentatge): https://www.youtube.com/watch?v=hHQdz4hsWZQ
+- Programa 20 (Generació plurilingüe (GEP)): https://www.youtube.com/watch?v=NyzzPVYdpf4
+- Programa 42 (Programa Magnet): https://www.youtube.com/watch?v=GaDR1WNMqJE
+- Programa 60 (Orientació educativa per a l’aprenentatge competencial orientador): https://www.youtube.com/watch?v=Z2dOm8AnJo0
+- Programa 61 (STEAMcat): https://www.youtube.com/watch?v=2MvJqnL2U7I
+- Programa 44 (Programa Tàndem): https://www.youtube.com/watch?v=ZzaPaaBum8E
+- Programa 3001 (Xarxa de competències): https://www.youtube.com/watch?v=sEy4HAzjr4Y
+- Programa 57 (Programa d'innovació de Tecnologies Digitals per a l'Aprenentatge): https://www.youtube.com/watch?v=Eu-TqNLn3tE
+- Programa 43 (Programa SI. Salut Integral): He eliminat el vídeo perquè ja no està disponible a YouTube, i no he trobat cap URL alternatiu
+- Programa 1001 (Reconeixement de projectes d'innovació pedagògica): https://www.youtube.com/watch?v=w6zMupgT7-8
+

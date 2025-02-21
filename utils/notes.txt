@@ -1,5 +1,5 @@
 Base de centres:
-https://docs.google.com/spreadsheets/d/1NAXeQFOKS6V0aQlvLxVAdM1LpbQXXHcg5sLvPp2GIVU/edit?gid=1697751342#gid=1697751342
+https://docs.google.com/spreadsheets/d/1ZKQpmFS1aJwCzWYDtS-bNvEkEGOXj9o15vUku1bW2lQ/edit
 
 Exportació de centres:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRqkdR485O-c8wyVixpUxbFJu9bClQAN718xruXPNDUUGPBHB60k0NyNYF9Vt3QUd0cEIYXXi3QTAQD/pub?gid=1052887050&single=true&output=csv
