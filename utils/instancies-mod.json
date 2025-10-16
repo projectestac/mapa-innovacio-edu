@@ -854,5 +854,13 @@
   "43009291": {
     "becomes": null,
     "comment": "Centre tancat (antic \"LLI privada Creu Roja\")"
+  },
+  "08005485": {
+    "becomes": "08077496",
+    "comment": "Va participar com a \"Escola Marillac\""
+  },
+  "43000482": {
+    "becomes": "43012113",
+    "comment": "Va participar com a \"Escola Mare de Déu del Portal\""
   }
 }

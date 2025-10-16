@@ -122,7 +122,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 124,20-08024871,Programes,20,08024871,Institut Pau Vila,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 125,9-43006125,Programes,9,43006125,Institut Campclar,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 126,9-08035805,Programes,9,08035805,Jaume Viladoms,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-127,20-08024972,Programes,20,08024972,Escola Torres Amat,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+127,20-08024972,Programes,20,08024972,Escola Torres Amat,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:28:57
 128,9-43006617,Programes,9,43006617,Institut Joan Amigó i Callau,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 129,9-43006630,Programes,9,43006630,Institut Pere Martell,2015-2016,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2025-09-08 08:15:21
 130,20-08025058,Programes,20,08025058,Escola Riu d'Or,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
@@ -134,7 +134,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 136,9-43008638,Programes,9,43008638,Institut Antoni Ballester,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 137,9-08037176,Programes,9,08037176,Institut La Bastida,2019-2020,2022-2023,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2022-2023"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 138,20-08025137,Programes,20,08025137,Túrbula,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-139,20-08025174,Programes,20,08025174,Sant Gabriel,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+139,20-08025174,Programes,20,08025174,Sant Gabriel,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:28:20
 140,9-08038533,Programes,9,08038533,EA Massana,2019-2020,2019-2020,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 141,9-43009187,Programes,9,43009187,Institut Martí l'Humà,2023-2024,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2025-09-08 08:15:21
 142,9-08038545,Programes,9,08038545,EA Municipal Arsenal,2019-2020,2019-2020,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
@@ -154,7 +154,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 156,20-08025654,Programes,20,08025654,Institut Joaquim Rubió i Ors,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 157,9-08042342,Programes,9,08042342,Institut de Badia del Vallès,2015-2016,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2025-09-08 08:15:21
 158,13-08002991,Programes,13,08002991,Escola Cascavell,2017-2018,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,2024-11-18 19:56:47
-159,20-08026075,Programes,20,08026075,El Pinar de Nuestra Señora,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+159,20-08026075,Programes,20,08026075,El Pinar de Nuestra Señora,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:25:14
 161,20-08026087,Programes,20,08026087,Escola Jaume Ferran i Clua,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 162,20-08026181,Programes,20,08026181,FEDAC-Sant Feliu,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 163,13-08017505,Programes,13,08017505,Escola Juan Salamero,2022-2023,2024-2025,N,,S,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": ""S"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
@@ -200,9 +200,9 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 205,20-08026749,Programes,20,08026749,Escola Pérez Sala,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 206,13-43006575,Programes,13,43006575,Escola Eladi Homs,2021-2022,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 207,20-08027225,Programes,20,08027225,Escola Sant Pau,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-208,20-08027559,Programes,20,08027559,Singuerlín,2013-2014,2014-2015,S,,,,,,,,,,Generació Plurilingüe (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2014-2015"", ""Curs_inici"": ""2013-2014""}}",2024-11-11 19:38:54,
+208,20-08027559,Programes,20,08027559,Singuerlín,2023-2024,2025-2026,,,,,,,,,,,Generació Plurilingüe (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2014-2015"", ""Curs_inici"": ""2013-2014""}}",2024-11-11 19:38:54,2025-10-14 16:49:33
 209,13-43007713,Programes,13,43007713,Llar d'infants El Ninot,2017-2018,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
-210,20-08027754,Programes,20,08027754,Virgen del Carmen,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+210,20-08027754,Programes,20,08027754,Virgen del Carmen,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:27:42
 211,9-08043671,Programes,9,08043671,Institut El Palau,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 212,20-08028047,Programes,20,08028047,Institut Puig Castellar,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 213,20-08028072,Programes,20,08028072,Escola El Roure Gros,2019-2020,2021-2022,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
@@ -219,19 +219,19 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 224,9-08044077,Programes,9,08044077,EA Josep Serra i Abella,2018-2019,2022-2023,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2022-2023"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 225,20-08000098,Programes,20,08000098,Escola Bertí,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 226,9-08044156,Programes,9,08044156,EA Deià,2018-2019,2021-2022,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-227,20-08000384,Programes,20,08000384,Escola Lola Anglada,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+227,20-08000384,Programes,20,08000384,Escola Lola Anglada,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:26:46
 228,20-08000578,Programes,20,08000578,Nen Jesús de Praga,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 229,20-08028485,Programes,20,08028485,Sagrada Família,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 230,20-08001391,Programes,20,08001391,Escola Planas i Casals,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 231,20-08001421,Programes,20,08001421,Institut La Pineda,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 232,20-08028515,Programes,20,08028515,Escola Santa Susanna,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 233,9-08044594,Programes,9,08044594,Institut Giola,2018-2019,2019-2020,S,,,Participació en el programa CatSkills,,,,,,08044594_participacio_programa_catskills.pdf,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-234,20-08001431,Programes,20,08001431,Institut Isaac Albéniz,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
+234,20-08001431,Programes,20,08001431,Institut Isaac Albéniz,2022-2023,2024-2025,,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,2025-10-14 16:39:08
 235,9-08044624,Programes,9,08044624,Institut Sabadell,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 236,20-08028588,Programes,20,08028588,Escola Sant Jordi,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 237,20-08001509,Programes,20,08001509,Escola Antoni Botey,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-18 12:58:31
 238,20-08028591,Programes,20,08028591,Escola La Vinyala,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
-239,20-08001649,Programes,20,08001649,Escola Mossèn Jacint Verdaguer,2019-2020,2021-2022,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
+239,20-08001649,Programes,20,08001649,Escola Mossèn Jacint Verdaguer,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-14 17:45:16
 240,20-08028783,Programes,20,08028783,Escola Serraparera,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 241,9-08044715,Programes,9,08044715,Institut Jaume Mimó,2018-2019,2019-2020,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 242,20-08001731,Programes,20,08001731,Escola Poeta Foix,2022-2023,2024-2025,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-13 10:08:25
@@ -261,7 +261,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 266,20-08002681,Programes,20,08002681,Escola Duran i Bas,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 267,20-08031711,Programes,20,08031711,Institut Manuel de Cabanyes,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 268,9-08046682,Programes,9,08046682,Institut de Castellar,2017-2018,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
-269,20-08002721,Programes,20,08002721,Escola Font d'en Fargas,2022-2023,2025-2026,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,2025-10-13 11:10:22
+269,20-08002721,Programes,20,08002721,Escola Font d'en Fargas,2023-2024,2025-2026,,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,2025-10-14 16:50:21
 270,20-08031873,Programes,20,08031873,Institut Arnau Cadell,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 271,20-08003294,Programes,20,08003294,Sant Felip Neri,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 272,20-08004389,Programes,20,08004389,Escola Reina Violant,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
@@ -325,7 +325,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 330,20-08034564,Programes,20,08034564,Institut Les Corts,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 331,20-08034591,Programes,20,08034591,Institut Joan Oliver,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 332,20-08017131,Programes,20,08017131,Institut Severo Ochoa,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-333,20-08017153,Programes,20,08017153,Institut Joanot Martorell,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
+333,20-08017153,Programes,20,08017153,Institut Joanot Martorell,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2025-10-14 16:41:22
 334,9-08061211,Programes,9,08061211,Centre de Formació Creatiu i Tècnic Sabadell,2018-2019,2018-2019,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 335,20-08017311,Programes,20,08017311,Escola Puiggraciós,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 337,20-08017359,Programes,20,08017359,Escola Salvador Lluch,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
@@ -353,7 +353,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 359,20-08019411,Programes,20,08019411,Institut Bellvitge,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 360,20-08035477,Programes,20,08035477,Escola Santiago Rusiñol,2023-2024,2025-2026,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2025-2026"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2025-10-13 11:04:45
 361,20-08054277,Programes,20,08054277,Institut de Tona,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-362,20-08019502,Programes,20,08019502,Escola Pia d'Igualada,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+362,20-08019502,Programes,20,08019502,Escola Pia d'Igualada,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:29:30
 363,20-08035684,Programes,20,08035684,Escola Marià Manent,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 364,20-08054873,Programes,20,08054873,Institut Joaquima Pla i Farreras,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 365,20-08035696,Programes,20,08035696,Escola Sant Julià,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
@@ -383,7 +383,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 389,20-08060484,Programes,20,08060484,Escola Taula Rodona,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 390,20-08021041,Programes,20,08021041,Escola Josep Montserrat,2023-2024,2025-2026,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2025-2026"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,
 391,20-08036391,Programes,20,08036391,Institut Arquitecte Manuel Raspall,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-392,20-08060514,Programes,20,08060514,Institut de Masquefa,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+392,20-08060514,Programes,20,08060514,Institut de Masquefa,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:27:26
 393,20-08060757,Programes,20,08060757,Escola Joan Torredemer Canela,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 394,20-08021260,Programes,20,08021260,Institut Alexandre Satorras,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 395,20-08060851,Programes,20,08060851,Escola L'Olivera,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
@@ -455,7 +455,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 465,20-08064945,Programes,20,08064945,Escola Mansuet,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 466,20-25009186,Programes,20,25009186,Institut La Valira,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 467,20-08039628,Programes,20,08039628,Escola Pompeu Fabra,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-468,20-08065354,Programes,20,08065354,Institut Baix a mar,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+468,20-08065354,Programes,20,08065354,Institut Baix a mar,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:28:37
 469,20-25009733,Programes,20,25009733,Institut Joan Solà,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 470,20-08040059,Programes,20,08040059,Escola Joan Salvat i Papasseit,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 471,20-25009836,Programes,20,25009836,Institut La Mitjana,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
@@ -497,7 +497,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 508,20-08071196,Programes,20,08071196,Institut Can Roca,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 509,20-43003021,Programes,20,43003021,Vedruna Santa Coloma de Queralt,2019-2020,2021-2022,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 510,20-08041611,Programes,20,08041611,Escola Joanot Alisanda,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
-511,20-08072255,Programes,20,08072255,Institut Premià de Mar,2013-2014,2014-2015,S,,,,,,,,,,Generació Plurilingüe (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2014-2015"", ""Curs_inici"": ""2013-2014""}}",2024-11-11 19:38:54,
+511,20-08072255,Programes,20,08072255,Institut Premià de Mar,2022-2023,2024-2025,,,,,,,,,,,Generació Plurilingüe (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2014-2015"", ""Curs_inici"": ""2013-2014""}}",2024-11-11 19:38:54,2025-10-14 16:41:50
 512,20-43003069,Programes,20,43003069,Escola Salvador Ninot,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 513,20-08041647,Programes,20,08041647,Escola Ponent,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 514,20-08072292,Programes,20,08072292,Institut Escola Turó de Roquetes,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
@@ -529,7 +529,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 541,20-43004554,Programes,20,43004554,Cor de Maria,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 542,20-08042895,Programes,20,08042895,Escola Schola,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 543,20-43004608,Programes,20,43004608,Institut Narcís Oller,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-544,20-08074380,Programes,20,08074380,Escola Castell de Dosrius,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+544,20-08074380,Programes,20,08074380,Escola Castell de Dosrius,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:24:50
 545,20-43004611,Programes,20,43004611,Institut Jaume Huguet,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 546,20-43004700,Programes,20,43004700,Escola Valdelors,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 547,20-43004979,Programes,20,43004979,Escola Torroja i Miret,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
@@ -562,7 +562,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 574,20-08076996,Programes,20,08076996,Institut Escola Mossen Cinto,2021-2022,2023-2024,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 575,20-08043863,Programes,20,08043863,Escola Orlandai,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 576,20-43006496,Programes,20,43006496,Institut Manuel Sales i Ferré,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
-577,20-08043875,Programes,20,08043875,Escola Pit-Roig,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+577,20-08043875,Programes,20,08043875,Escola Pit-Roig,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:29:17
 578,20-43006691,Programes,20,43006691,Institut Priorat,2022-2023,2024-2025,,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2024-2025"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,
 579,20-43006964,Programes,20,43006964,Institut de Deltebre,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
 580,20-43006976,Programes,20,43006976,Institut Candelera,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
@@ -574,8 +574,8 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 587,20-17000093,Programes,20,17000093,Escola Gaspar de Queralt,2017-2018,2019-2020,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 588,20-43007221,Programes,20,43007221,Institut Els Alfacs,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 589,20-08044016,Programes,20,08044016,Escola Flama,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
-590,20-43007257,Programes,20,43007257,Institut Camí de Mar,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
-591,20-43007543,Programes,20,43007543,Institut Jaume I,2014-2015,2015-2016,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
+590,20-43007257,Programes,20,43007257,Institut Camí de Mar,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:27:13
+591,20-43007543,Programes,20,43007543,Institut Jaume I,2022-2023,2024-2025,,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,2025-10-14 16:43:49
 592,20-17000299,Programes,20,17000299,Casa Nostra,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 593,20-43007658,Programes,20,43007658,Institut Joan Guinjoan i Gispert,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 594,20-43008390,Programes,20,43008390,Institut Torreforta,2015-2016,2016-2017,S,,,,,,,,,,Grup d Experimentació per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-28 13:30:56
@@ -688,7 +688,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 705,21-08027171,Programes,21,08027171,,2015-2016,2016-2017,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 706,20-08052827,Programes,20,08052827,Institut Lluís Domènech i Montaner,2017-2018,2019-2020,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 707,21-08002587,Programes,21,08002587,Escola Concepción Arenal,2015-2016,2015-2016,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-708,20-17003203,Programes,20,17003203,Institut Salvador Espriu,2016-2017,2018-2019,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2016-2017""}}",2024-11-11 19:38:54,
+708,20-17003203,Programes,20,17003203,Institut Salvador Espriu,2021-2022,2023-2024,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2016-2017""}}",2024-11-11 19:38:54,2025-10-14 17:47:23
 709,21-08027249,Programes,21,08027249,Escola Segimon Comas,2015-2016,2016-2017,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 710,20-08052876,Programes,20,08052876,Institut d'Argentona,2015-2016,2016-2017,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 711,20-17003264,Programes,20,17003264,Escola Gaziel,2014-2015,2015-2016,S,,,,,,,,,,Generació Plurilingüe (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
@@ -829,7 +829,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 846,20-17010414,Programes,20,17010414,Institut Ermessenda de Girona,2019-2020,2021-2022,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2021-2022"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,
 847,21-25000286,Programes,21,25000286,Escola Sant Blai - ZER Serra Llarga,2017-2018,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 848,21-08009685,Programes,21,08009685,,2015-2016,2015-2016,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-849,20-17010682,Programes,20,17010682,Institut de Sarrià de Ter,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+849,20-17010682,Programes,20,17010682,Institut de Sarrià de Ter,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:30:26
 850,21-25000468,Programes,21,25000468,Escola Doctor Serés,2015-2016,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 851,21-25000675,Programes,21,25000675,Escola Mare de Déu de la Guardiola - ZER El Romaní,2017-2018,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
 852,21-25000778,Programes,21,25000778,Escola Gaspar de Portolà,2015-2016,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
@@ -937,7 +937,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 954,21-25002431,Programes,21,25002431,Sagrada Família,2015-2016,2015-2016,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 955,21-08042792,Programes,21,08042792,Escola Damià Mateu,2016-2017,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2016-2017""}}",2024-11-11 19:38:54,
 956,21-08018157,Programes,21,08018157,Escola Santiago Ramon y Cajal,2015-2016,2015-2016,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
-957,20-25003299,Programes,20,25003299,Escola Rosa Campà,2021-2022,2023-2024,N,,N,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
+957,20-25003299,Programes,20,25003299,Escola Rosa Campà,2021-2022,2023-2024,,,S,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-14 17:26:30
 958,21-08042834,Programes,21,08042834,Escola Can Palmer,2018-2019,2020-2021,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
 959,21-25002957,Programes,21,25002957,Escola Estudi Alejandro Casona,2015-2016,2015-2016,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 960,20-25003688,Programes,20,25003688,Escola Els Raiers,2017-2018,2019-2020,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,
@@ -1023,7 +1023,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 1040,21-25006264,Programes,21,25006264,Escola Espiga,2015-2016,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 1041,21-25006409,Programes,21,25006409,Escola Joc de la Bola,2015-2016,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 1042,21-08056811,Programes,21,08056811,,2016-2017,2017-2018,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2017-2018"", ""Curs_inici"": ""2016-2017""}}",2024-11-11 19:38:54,
-1043,20-25006288,Programes,20,25006288,Institut de Tremp,2014-2015,2015-2016,N,,N,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,
+1043,20-25006288,Programes,20,25006288,Institut de Tremp,2023-2024,2025-2026,,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-11 19:38:54,2025-10-14 16:33:40
 1044,21-25006732,Programes,21,25006732,Institut Torrevicens,2015-2016,2016-2017,S,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2016-2017"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,
 1045,25-08017852,Programes,25,08017852,Institut Escola del Treball,2017-2018,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,2025-09-08 08:17:27
 1046,20-25006409,Programes,20,25006409,Escola Joc de la Bola,2018-2019,2020-2021,S,,,,,,,,,,Grup d'Experimentació per al Plurilinguïsme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2020-2021"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,
@@ -6159,7 +6159,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6516,3002-08058088,Xarxes,3002,08058088,,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6517,3003-08010006,Xarxes,3003,08010006,Nou Patufet,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6518,3002-08058362,Xarxes,3002,08058362,Escola Riera de Ribes,2019-2020,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-27 09:29:45
-6519,3003-08011941,Xarxes,3003,08011941,Escola Pia Balmes,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6519,3003-08011941,Xarxes,3003,08011941,Escola Pia Balmes,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6520,3002-08058416,Xarxes,3002,08058416,Escola L'Arenal de Llevant,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:45
 6521,3003-08013275,Xarxes,3003,08013275,Institut Escola del Treball,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6522,3002-08058465,Xarxes,3002,08058465,Escola Enxaneta,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:45
@@ -6176,7 +6176,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6533,3002-08060265,Xarxes,3002,08060265,CFA Premià de Mar,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6534,3002-08002733,Xarxes,3002,08002733,Escola Miralletes,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
 6535,3003-08015120,Xarxes,3003,08015120,Escola Pia de Calella,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
-6536,3003-08015867,Xarxes,3003,08015867,Frangoal,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6536,3003-08015867,Xarxes,3003,08015867,Frangoal,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6537,3002-08060605,Xarxes,3002,08060605,Escola Font del Roure,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6538,3002-08002745,Xarxes,3002,08002745,Escola El Carmel,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
 6539,3003-08016793,Xarxes,3003,08016793,Institut Francesc Macià,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6190,7 +6190,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6547,3002-08061063,Xarxes,3002,08061063,Escola La Serreta,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
 6548,3003-08019401,Xarxes,3003,08019401,Institut Provençana,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6549,3002-08061142,Xarxes,3002,08061142,Escola Miquel Martí i Pol,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
-6550,3003-08019502,Xarxes,3003,08019502,Escola Pia d'Igualada,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6550,3003-08019502,Xarxes,3003,08019502,Escola Pia d'Igualada,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6551,3002-08061610,Xarxes,3002,08061610,Escola La Sínia,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6552,3002-08002885,Xarxes,3002,08002885,,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
 6553,3003-08020474,Xarxes,3003,08020474,Institut Lluís de Peguera,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6199,13 +6199,13 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6556,3003-08024777,Xarxes,3003,08024777,Institut Egara,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6557,3003-08027559,Xarxes,3003,08027559,Singuerlín,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6558,3003-08027729,Xarxes,3003,08027729,FEDAC - Santa Coloma,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
-6559,3003-08028795,Xarxes,3003,08028795,FEDAC-Cerdanyola,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6559,3003-08028795,Xarxes,3003,08028795,FEDAC-Cerdanyola,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6560,3003-08030959,Xarxes,3003,08030959,Sant Miquel dels Sants,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6561,3003-08031022,Xarxes,3003,08031022,Institut de Vic,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6562,3003-08031228,Xarxes,3003,08031228,Institut Torre Roja,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6563,3003-08031459,Xarxes,3003,08031459,Institut Eugeni d'Ors,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6564,3002-08002915,Xarxes,3002,08002915,Escola Brasil,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
-6565,3003-08031538,Xarxes,3003,08031538,Escola Pia de Vilanova i la Geltrú,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6565,3003-08031538,Xarxes,3003,08031538,Escola Pia de Vilanova i la Geltrú,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6566,3002-08061932,Xarxes,3002,08061932,CFA Bon Pastor,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
 6567,3003-08031681,Xarxes,3003,08031681,Institut Francesc Xavier Lluch i Rafecas,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6568,3002-08002952,Xarxes,3002,08002952,Escola Enric Granados,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:46
@@ -6216,7 +6216,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6573,3003-08033869,Xarxes,3003,08033869,Institut Pau Casals,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6574,3002-08062729,Xarxes,3002,08062729,Institut Pla Marcell,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6575,3003-25002775,Xarxes,3003,25002775,Ilerna,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
-6576,3003-08034141,Xarxes,3003,08034141,Freta,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6576,3003-08034141,Xarxes,3003,08034141,Freta,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6577,3002-08002976,Xarxes,3002,08002976,Escola Ramon Casas,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-27 09:29:47
 6578,3002-08062742,Xarxes,3002,08062742,Escola Benviure,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-27 09:29:47
 6579,3003-25002787,Xarxes,3003,25002787,Institut Joan Oró,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6232,7 +6232,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6589,3003-08035155,Xarxes,3003,08035155,Institut Els Tres Turons,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6590,3003-25005454,Xarxes,3003,25005454,Institut Francesc Ribalta,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6591,3002-08003294,Xarxes,3002,08003294,Sant Felip Neri,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:47
-6592,3003-25006240,Xarxes,3003,25006240,Institut El Pont de Suert,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6592,3003-25006240,Xarxes,3003,25006240,Institut El Pont de Suert,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6593,3003-08035167,Xarxes,3003,08035167,Institut Barcelona-Congrés,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6594,3002-08003592,Xarxes,3002,08003592,Maria Auxiliadora,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:47
 6595,3003-25006291,Xarxes,3003,25006291,Institut Hug Roger III,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6259,7 +6259,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6616,3002-08004626,Xarxes,3002,08004626,Jesuïtes Sant Gervasi - Infant Jesús,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:48
 6617,3003-43004402,Xarxes,3003,43004402,Sagrada Família,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6618,3002-08004717,Xarxes,3002,08004717,Sagrat Cor-Sarrià,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:48
-6619,3003-43004554,Xarxes,3003,43004554,Cor de Maria,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6619,3003-43004554,Xarxes,3003,43004554,Cor de Maria,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6620,3003-08037152,Xarxes,3003,08037152,Institut Joan Oró,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6621,3002-08064635,Xarxes,3002,08064635,CFA Santiago Rusiñol,2021-2022,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6622,3003-43004608,Xarxes,3003,43004608,Institut Narcís Oller,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6388,7 +6388,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6745,3002-08011448,Xarxes,3002,08011448,Gravi,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:53
 6746,3004-17003628,Xarxes,3004,17003628,Escola Llagut,2022-2023,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-08 11:00:10
 6747,3002-08011451,Xarxes,3002,08011451,Aspasim,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-27 09:29:53
-6748,3003-08065421,Xarxes,3003,08065421,Institut Marta Mata,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6748,3003-08065421,Xarxes,3003,08065421,Institut Marta Mata,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6749,3004-25001606,Xarxes,3004,25001606,Escola Minyons d'Urgell,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:53:54
 6750,3003-08065433,Xarxes,3003,08065433,Institut La Sínia,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6751,3004-25004498,Xarxes,3004,25004498,Institut Manuel de Pedrolo,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:53:54
@@ -6434,7 +6434,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6791,3002-08013470,Xarxes,3002,08013470,Institut Barri Besòs,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:53
 6792,3005-08038314,Xarxes,3005,08038314,Escola Mare de Déu de Montserrat,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:55
 6793,3002-08013640,Xarxes,3002,08013640,Joan Pelegrí,2020-2021,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-27 09:29:54
-6794,3003-08075669,Xarxes,3003,08075669,Institut Escola El Til·ler,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6794,3003-08075669,Xarxes,3003,08075669,Institut Escola El Til·ler,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6795,3005-08039355,Xarxes,3005,08039355,Escola Ramon Llull,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:55
 6796,3005-08039367,Xarxes,3005,08039367,Escola Josep Pla,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:55
 6797,3003-08075712,Xarxes,3003,08075712,Institut Les Cinc Sénies,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
@@ -6493,10 +6493,10 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 6850,3003-17000330,Xarxes,3003,17000330,Institut Josep Brugulat,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
 6851,3005-17008006,Xarxes,3005,17008006,Escola Amistat,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:57
 6852,3002-08018157,Xarxes,3002,08018157,Escola Santiago Ramon y Cajal,2019-2020,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-27 09:29:54
-6853,3003-17000421,Xarxes,3003,17000421,Cor de Maria,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6853,3003-17000421,Xarxes,3003,17000421,Cor de Maria,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6854,3005-17008547,Xarxes,3005,17008547,Escola Les Arrels,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:57
 6855,3002-08018340,Xarxes,3002,08018340,Alegre,2021-2022,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
-6856,3003-17000512,Xarxes,3003,17000512,Santa Maria,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-28 12:45:43
+6856,3003-17000512,Xarxes,3003,17000512,Santa Maria,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-15 09:24:10
 6857,3005-25000730,Xarxes,3005,25000730,Escola Francesc Feliu,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:57
 6858,3002-08018406,Xarxes,3002,08018406,Canigó,2021-2022,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2024-11-29 08:56:05
 6859,3005-25002076,Xarxes,3005,25002076,Escola La Seu Vella,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-27 12:17:57
@@ -6822,7 +6822,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7184,3010-08030388,Xarxes,3010,08030388,Escola Lola Anglada,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:30:52
 7185,3009-08039291,Xarxes,3009,08039291,Escola Cristòfor Mestre,2021-2022,2022-2023,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2022-2023"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
 7186,3010-08030431,Xarxes,3010,08030431,Vedruna Tona,2012-2013,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2012-2013""}}",2024-11-11 19:38:54,2024-11-19 10:30:52
-7188,3010-08030479,Xarxes,3010,08030479,Brianxa,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:30:52
+7188,3010-08030479,Xarxes,3010,08030479,Brianxa,2020-2021,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7189,3010-08030509,Xarxes,3010,08030509,Vedruna Tordera,2018-2019,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2024-11-19 10:30:52
 7190,3010-08030510,Xarxes,3010,08030510,Escola Doctor Fortià i Solà,2003-2004,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2003-2004""}}",2024-11-11 19:38:54,2024-11-19 10:30:52
 7191,3006-08046670,Xarxes,3006,08046670,Institut Angeleta Ferrer i Sensat,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
@@ -6930,7 +6930,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7296,3010-08043395,Xarxes,3010,08043395,Institut Alexandre de Riquer,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:30:56
 7297,3010-08014590,Xarxes,3010,08014590,Sant Lluís de Pla i Amell Bosch,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:30:56
 7298,3006-08060952,Xarxes,3006,08060952,Escola Els Vinyals,2021-2022,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,
-7299,3010-08014620,Xarxes,3010,08014620,Escola Sant Joan,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:30:56
+7299,3010-08014620,Xarxes,3010,08014620,Escola Sant Joan,2010-2011,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7300,3006-08060976,Xarxes,3006,08060976,Institut del Voltreganès,2021-2022,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2021-2022""}}",2024-11-11 19:38:54,2025-10-13 09:53:01
 7301,3010-08043486,Xarxes,3010,08043486,Institut Manolo Hugué,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:30:57
 7302,3010-08014656,Xarxes,3010,08014656,Vedruna Berga,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:30:57
@@ -7031,7 +7031,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7397,3010-08069864,Xarxes,3010,08069864,Llar d'infants Sant Nicolau,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
 7398,3010-08070143,Xarxes,3010,08070143,Escola Riera Alta,2012-2013,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2012-2013""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
 7399,3010-08070520,Xarxes,3010,08070520,FEDAC-Xarxa,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
-7400,3010-08017979,Xarxes,3010,08017979,Escola Aqua Alba,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
+7400,3010-08017979,Xarxes,3010,08017979,Escola Aqua Alba,2010-2011,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7401,3010-08070908,Xarxes,3010,08070908,Institut Escola La Tordera,2003-2004,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2003-2004""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
 7402,3010-08018017,Xarxes,3010,08018017,Escola L'Albiol - ZER Alt Berguedà,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
 7403,3010-08071007,Xarxes,3010,08071007,Escola Bressol La Petjada,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-19 10:31:08
@@ -7161,7 +7161,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7527,3010-17001221,Xarxes,3010,17001221,Institut Narcís Monturiol,2016-2017,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2016-2017""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
 7528,3010-25005171,Xarxes,3010,25005171,Escola Mestre Ignasi Peraire,2015-2016,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
 7529,3010-17001292,Xarxes,3010,17001292,Escola Les Moreres,2002-2003,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2002-2003""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
-7530,3010-25005533,Xarxes,3010,25005533,Escola Pau Claris,2004-2005,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2004-2005""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
+7530,3010-25005533,Xarxes,3010,25005533,Escola Pau Claris,2004-2005,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2004-2005""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7531,3010-17001346,Xarxes,3010,17001346,Escola Forn d'Anells,2011-2012,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2011-2012""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
 7532,3010-25005545,Xarxes,3010,25005545,Escola Pompeu Fabra,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
 7533,3010-17001516,Xarxes,3010,17001516,Escola Pla de Girona,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:22
@@ -7202,7 +7202,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7568,3010-25009101,Xarxes,3010,25009101,Escola El Vinyet,2011-2012,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2011-2012""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
 7569,3010-17002259,Xarxes,3010,17002259,Escola Torres Jonama,2009-2010,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2009-2010""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
 7570,3010-25009113,Xarxes,3010,25009113,Escola Mestre Ramon Estadella i Torradeflot,2012-2013,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2012-2013""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
-7571,3010-25009186,Xarxes,3010,25009186,Institut La Valira,2019-2020,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
+7571,3010-25009186,Xarxes,3010,25009186,Institut La Valira,2019-2020,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2019-2020""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7572,3010-25009368,Xarxes,3010,25009368,,2015-2016,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
 7573,3010-25009472,Xarxes,3010,25009472,Llar d'infants de Fondarella,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
 7574,3010-17002326,Xarxes,3010,17002326,Escola Volcà Bisaroques,2002-2003,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2002-2003""}}",2024-11-11 19:38:54,2024-11-19 10:31:24
@@ -7359,7 +7359,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7725,3010-17008651,Xarxes,3010,17008651,Institut de Caldes de Malavella,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
 7726,3010-17008808,Xarxes,3010,17008808,Escola Carme Guasch i Darné,2010-2011,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
 7727,3010-17008882,Xarxes,3010,17008882,Escola La Bòbila,2018-2019,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
-7728,3010-43004487,Xarxes,3010,43004487,Escola Montsant - ZER Montsant-Serra de Prades,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
+7728,3010-43004487,Xarxes,3010,43004487,Escola Montsant - ZER Montsant-Serra de Prades,2020-2021,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7729,3010-43004505,Xarxes,3010,43004505,Escola Mare de Déu del Roser,2018-2019,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
 7730,3010-43004529,Xarxes,3010,43004529,Escola Mare de Déu de la Candela,2006-2007,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2006-2007""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
 7731,3010-43004530,Xarxes,3010,43004530,Escola Pública Baltis de Valls,2015-2016,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-19 10:31:37
@@ -7377,7 +7377,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7743,3010-43004888,Xarxes,3010,43004888,Escola Font de l'Arc - ZER Baix Camp Sud,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:38
 7744,3010-43004921,Xarxes,3010,43004921,Escola Bernardí Tolrà,2006-2007,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2006-2007""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
 7745,3010-43004979,Xarxes,3010,43004979,Escola Torroja i Miret,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
-7746,3010-43005005,Xarxes,3010,43005005,Escola Sant Bernat Calvó,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
+7746,3010-43005005,Xarxes,3010,43005005,Escola Sant Bernat Calvó,2020-2021,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7747,3010-43005121,Xarxes,3010,43005121,Escola Santa Caterina,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
 7748,3010-43005182,Xarxes,3010,43005182,Mercè Pla,2017-2018,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
 7749,3010-43005224,Xarxes,3010,43005224,,2002-2003,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2002-2003""}}",2024-11-11 19:38:54,2024-11-19 10:31:39
@@ -7413,7 +7413,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 7779,3010-17010271,Xarxes,3010,17010271,Llar d'infants Lilaina,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:41
 7780,3010-43005972,Xarxes,3010,43005972,Institut Ramon Barbat i Miracle,2015-2016,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
 7781,3010-43006101,Xarxes,3010,43006101,Institut Montsià,2002-2003,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2002-2003""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
-7782,3010-43006125,Xarxes,3010,43006125,Institut Campclar,2018-2019,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
+7782,3010-43006125,Xarxes,3010,43006125,Institut Campclar,2018-2019,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 7783,3010-43006186,Xarxes,3010,43006186,Escola Soriano Montagut,2006-2007,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2006-2007""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
 7784,3010-17010797,Xarxes,3010,17010797,Institut Escola Caritat Serinyana - Cap de Creus,2013-2014,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2013-2014""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
 7785,3010-43006332,Xarxes,3010,43006332,Escola Mestral,2020-2021,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2020-2021""}}",2024-11-11 19:38:54,2024-11-19 10:31:42
@@ -8680,7 +8680,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 9046,3010-43010189,Xarxes,3010,43010189,Institut Mediterrània,2012-2013,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2012-2013""}}",2024-11-11 19:38:54,2024-11-19 10:31:54
 9047,3022-08039306,Xarxes,3022,08039306,Escola Els Pins - ZER El Moianès Ponent,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:49
 9048,3022-08039653,Xarxes,3022,08039653,Escola Agustí Bartra,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:49
-9049,3010-43010271,Xarxes,3010,43010271,Llar d'infants Sol Solet,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:31:54
+9049,3010-43010271,Xarxes,3010,43010271,Llar d'infants Sol Solet,2022-2023,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 9050,3022-08040266,Xarxes,3022,08040266,Institució Igualada,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:49
 9051,3010-43010335,Xarxes,3010,43010335,Institut La Mar de la Frau,2012-2013,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2012-2013""}}",2024-11-11 19:38:54,2024-11-19 10:31:54
 9052,3022-08040400,Xarxes,3022,08040400,Escola Amadeu Vives,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:49
@@ -8695,7 +8695,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 9061,3022-08041751,Xarxes,3022,08041751,Escola La Caixa,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
 9062,3010-43010578,Xarxes,3010,43010578,Institut Fontanelles,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:31:55
 9063,3022-08042287,Xarxes,3022,08042287,Escola Salvador Espriu,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
-9064,3010-43010591,Xarxes,3010,43010591,Escola Arquitecte Jujol,2015-2016,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2024-11-19 10:31:55
+9064,3010-43010591,Xarxes,3010,43010591,Escola Arquitecte Jujol,2015-2016,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2015-2016""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 9065,3022-08042299,Xarxes,3022,08042299,Escola Sant Miquel,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
 9066,3022-08044971,Xarxes,3022,08044971,Institut Pere Fontdevila,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
 9067,3022-08045306,Xarxes,3022,08045306,Institut Ramon Casas i Carbó,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
@@ -8734,7 +8734,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 9100,3022-08056432,Xarxes,3022,08056432,Anoia,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
 9101,3010-43012903,Xarxes,3010,43012903,Escola El Bosc - ZER El Francolí,2018-2019,2023-2024,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2018-2019""}}",2024-11-11 19:38:54,2024-11-19 10:31:56
 9102,3022-08057096,Xarxes,3022,08057096,Escola Guillem de Mont-rodon,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:50
-9103,3010-43012976,Xarxes,3010,43012976,Institut Escola Mediterrani,2010-2011,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2024-11-19 10:31:56
+9103,3010-43012976,Xarxes,3010,43012976,Institut Escola Mediterrani,2010-2011,2024-2025,,,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2010-2011""}}",2024-11-11 19:38:54,2025-10-16 06:21:14
 9104,3022-08057102,Xarxes,3022,08057102,Escola Andersen,2023-2024,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2023-2024""}}",2024-11-11 19:38:54,2024-11-27 13:34:51
 9105,3010-43013117,Xarxes,3010,43013117,Institut d'Est. Profes. Aqüícoles i Ambientals de Catalunya,2022-2023,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2022-2023""}}",2024-11-11 19:38:54,2024-11-19 10:31:56
 9106,3010-43013130,Xarxes,3010,43013130,Institut Escola Joan Ardèvol,2017-2018,2024-2025,,S,,,,,,,,,,,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": ""S"", ""Certifica"": """", ""Curs_final"": ""2023-2024"", ""Curs_inici"": ""2017-2018""}}",2024-11-11 19:38:54,2024-11-19 10:31:56
@@ -10493,7 +10493,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 10994,20-17004487,Programes,20,17004487,Institut Rafael Campalans,2016-2017,2018-2019,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2016-2017""}}",2024-11-27 22:52:25,
 10995,20-43005303,Programes,20,43005303,Aldover,2014-2015,2015-2016,N,,N,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-27 22:52:25,
 10996,20-08018303,Programes,20,08018303,Alpes,2014-2015,2015-2016,N,,N,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-27 22:52:25,
-10997,20-25006275,Programes,20,25006275,Escola Sant Jordi,2017-2018,2019-2020,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-27 22:52:25,
+10997,20-25006276,Programes,20,25006276,Escola Sant Jordi,2017-2018,2019-2020,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2019-2020"", ""Curs_inici"": ""2017-2018""}}",2024-11-27 22:52:25,
 10998,20-08018029,Programes,20,08018029,Escola Les Escoles,2014-2015,2015-2016,N,,N,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": ""N"", ""Continua"": """", ""Certifica"": ""N"", ""Curs_final"": ""2015-2016"", ""Curs_inici"": ""2014-2015""}}",2024-11-27 22:52:25,
 10999,20-17006678,Programes,20,17006678,Institut Cap de Creus,2016-2017,2018-2019,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2016-2017""}}",2024-11-27 22:52:25,
 11000,20-17006691,Programes,20,17006691,Institut Riudaura,2016-2017,2018-2019,S,,,,,,,,,,Grup Experimental per al Plurilingüisme (GEP),,,,"{""04-12-2024 21:33"": {""Baixa"": """", ""Continua"": """", ""Certifica"": ""S"", ""Curs_final"": ""2018-2019"", ""Curs_inici"": ""2016-2017""}}",2024-11-27 22:52:25,
@@ -13354,7 +13354,7 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 14627,62-08052979,Programes,62,08052979,Institut Josep Puig i Cadafalch,2018-2019,2019-2020,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
 14628,62-17005893,Programes,62,17005893,Institut Bosc de la Coma,2018-2019,2019-2020,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
 14629,62-17003011,Programes,62,17003011,Salesians Ripoll,2018-2019,2019-2020,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
-14630,62-08013081,Programes,62,08013081,C. La Salle Bonanova,2017-2018,2018-2019,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
+14630,62-08003907,Programes,62,08003907,C. La Salle Bonanova,2017-2018,2018-2019,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
 14631,62-08004122,Programes,62,08004122,C. Sagrado Corazón,2017-2018,2018-2019,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
 14632,62-08033501,Programes,62,08033501,ESC Antoni Brusi,2017-2018,2018-2019,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
 14633,62-17003124,Programes,62,17003124,Centre Escolar Empordà,2018-2019,2019-2020,S,,,,,,,,,,,,,,,2025-06-02 11:38:17,
@@ -13940,7 +13940,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 15442,3001-25001084,Xarxes,3001,25001084,Escola Joaquim Palacín,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:04,
 15443,3001-25004723,Xarxes,3001,25004723,Escola La Bassa,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:04,
 15444,3001-25000730,Xarxes,3001,25000730,Escola Francesc Feliu,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
-15445,3001-17004293,Xarxes,3001,17004293,Escola Manuel de Pedrolo - ZER Les Salines,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
 15446,3001-17007907,Xarxes,3001,17007907,Escola Joana d'Empúries,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
 15447,3001-17000603,Xarxes,3001,17000603,Escola Santa Cecília - ZER Les Salines,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
 15448,3001-17002168,Xarxes,3001,17002168,Escola Les Salines - ZER Les Salines,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
@@ -13956,7 +13955,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 15458,3001-17004906,Xarxes,3001,17004906,Escola Salvador Espriu,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
 15459,3001-17011054,Xarxes,3001,17011054,Escola de Campllong,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
 15460,3001-43001796,Xarxes,3001,43001796,Escola Sant Sebastià,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:05,
-15461,3001-43005561,Xarxes,3001,43005561,Escola Mare de Déu del Roser,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:06,
 15462,3001-43005571,Xarxes,3001,43005571,Escola Les Comes,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:06,
 15463,3001-43006708,Xarxes,3001,43006708,Institut Joan Segura i Valls,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:06,
 15464,3001-43002235,Xarxes,3001,43002235,Escola Pompeu Fabra,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-09-01 10:10:06,
@@ -14002,7 +14000,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 15504,82-08011424,Programes,82,08011424,Sants Innocents,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-22 13:50:04,
 15505,82-25005557,Programes,82,25005557,CEE Siloé,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-22 13:50:04,
 15506,82-17004712,Programes,82,17004712,CEE Ventijol,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-22 13:50:04,
-15507,82-08077204,Programes,82,08077204,Les Girafes Blaves,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-22 13:50:04,
 15508,80-17010682,Programes,80,17010682,Institut de Sarrià de Ter,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-09-23 09:58:31,
 15509,81-17002880,Programes,81,17002880,Escola Alfons I,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-25 12:25:06,
 15510,81-25005533,Programes,81,25005533,Escola Pau Claris,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-09-25 12:25:06,
@@ -14312,8 +14309,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 15814,3011-08056572,Xarxes,3011,08056572,CFA Terra Baixa,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:31,
 15815,3011-17000573,Xarxes,3011,17000573,Escola Sant Andreu de Borrassà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
 15816,3011-08016781,Xarxes,3011,08016781,Institut Esteve Terradas i Illa,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
-15817,3011-25001229,Xarxes,3011,25001229,Escola Dos Rius - ZER El Jonc,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
-15818,3011-25003135,Xarxes,3011,25003135,Escola Joan Ros i Porta - ZER El Jonc,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
 15819,3011-25003135,Xarxes,3011,25003135,Escola Joan Ros i Porta - ZER El Jonc,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
 15820,3011-25001229,Xarxes,3011,25001229,Escola Dos Rius - ZER El Jonc,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
 15821,3011-25001281,Xarxes,3011,25001281,Escola El Terrall - ZER Espernallac,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:32,
@@ -14568,8 +14563,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16070,3011-08064982,Xarxes,3011,08064982,Escola de Sant Quirze Safaja - ZER El Moianès Llevant,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:44,
 16071,3011-08065482,Xarxes,3011,08065482,Escola Els Ventets - ZER El Moianès Llevant,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:02:44,
 16072,3012-25001266,Xarxes,3012,25001266,Escola L'Estel - ZER Vent Serè,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
-16073,3012-43004189,Xarxes,3012,43004189,Escola Sant Jaume,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
-16074,3012-43008419,Xarxes,3012,43008419,Institut Camarles,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
 16075,3012-08000189,Xarxes,3012,08000189,Escola Bernat de Riudemeia,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
 16076,3012-08039379,Xarxes,3012,08039379,Escola Rafael Casanova,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
 16077,3012-08026464,Xarxes,3012,08026464,Escola Monsenyor Gibert,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:50,
@@ -14602,7 +14595,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16104,3012-08055063,Xarxes,3012,08055063,CFA Canyelles,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:51,
 16105,3012-08036111,Xarxes,3012,08036111,Escola Mas i Perera,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:51,
 16106,3012-08037917,Xarxes,3012,08037917,Escola Joan Miró,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:51,
-16107,3012-43001310,Xarxes,3012,43001310,Escola Llicorella - ZER L'Aglà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:51,
 16108,3012-43001127,Xarxes,3012,43001127,Escola Enric Grau i Fontserè,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:52,
 16109,3012-43001051,Xarxes,3012,43001051,Escola Antoni Vilanova,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:52,
 16110,3012-43000263,Xarxes,3012,43000263,Escola Sant Jordi,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:29:52,
@@ -15059,13 +15051,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16561,3012-08052724,Xarxes,3012,08052724,Institut Francisco de Goya,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
 16562,3012-08001790,Xarxes,3012,08001790,Escola Pere Vila,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
 16563,3012-08001789,Xarxes,3012,08001789,Escola Cervantes,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16564,3012-08022719,Xarxes,3012,08022719,Nostra Senyora de Montserrat,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16565,3012-25001023,Xarxes,3012,25001023,Vedruna Bellpuig,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16566,3012-08045768,Xarxes,3012,08045768,Barcanova,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16567,3012-08017773,Xarxes,3012,08017773,Cervetó,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16568,3012-08017797,Xarxes,3012,08017797,Jardí,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16569,3012-43004402,Xarxes,3012,43004402,Sagrada Família,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
-16570,3012-08008191,Xarxes,3012,08008191,Santa Maria dels Apòstols,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:16,
 16571,3012-08038201,Xarxes,3012,08038201,Escola La Baumeta - ZER Els Castells,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:17,
 16572,3012-17004062,Xarxes,3012,17004062,Escola Santa Bàrbara - ZER Els Castells,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:17,
 16573,3012-08014796,Xarxes,3012,08014796,Escola de Borredà - ZER Berguedà Centre,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:17,
@@ -15090,9 +15075,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16592,3012-17003598,Xarxes,3012,17003598,Escola Vallgarriga,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
 16593,3012-17003422,Xarxes,3012,17003422,Escola Taialà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
 16594,3012-17003392,Xarxes,3012,17003392,Escola Agustí Gifre,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
-16595,3012-25004279,Xarxes,3012,25004279,Arrels I,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
-16596,3012-25004486,Xarxes,3012,25004486,Vedruna Tàrrega,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
-16597,3012-08034141,Xarxes,3012,08034141,Freta,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
 16598,3012-17003264,Xarxes,3012,17003264,Escola Gaziel,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
 16599,3012-17003215,Xarxes,3012,17003215,Escola La Farga,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
 16600,3012-17003321,Xarxes,3012,17003321,Escola Mossèn Baldiri Reixach,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:18,
@@ -15105,7 +15087,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16607,3012-17002892,Xarxes,3012,17002892,Vedruna Puigcerdà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
 16608,3012-17000998,Xarxes,3012,17000998,Escola El Rodonell,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
 16609,3012-17002107,Xarxes,3012,17002107,Escola Pere Torrent,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
-16610,3012-17002090,Xarxes,3012,17002090,Escola Jaume I - ZER Cerdanya,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
 16611,3012-17002031,Xarxes,3012,17002031,Escola Lacustària,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
 16612,3012-17001954,Xarxes,3012,17001954,Escola de Vila-roja,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
 16613,3012-17001887,Xarxes,3012,17001887,Escola Carme Auguet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:19,
@@ -15149,11 +15130,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16651,3012-17004530,Xarxes,3012,17004530,Institut Santiago Sobrequés i Vidal,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
 16652,3012-17004827,Xarxes,3012,17004827,Escola Alzina Reclamadora,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
 16653,3012-08016513,Xarxes,3012,08016513,Betània,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
-16654,3012-08021065,Xarxes,3012,08021065,Mare de Déu de Lourdes,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
-16655,3012-08017840,Xarxes,3012,08017840,Educem,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
-16656,3012-08017827,Xarxes,3012,08017827,Maria Anna Mogas,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
-16657,3012-43003112,Xarxes,3012,43003112,Sant Rafael,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
-16658,3012-08021557,Xarxes,3012,08021557,Mollet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
 16659,3012-08039057,Xarxes,3012,08039057,Institut L'Alzina,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
 16660,3012-08052700,Xarxes,3012,08052700,Institut Vall d'Hebron,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
 16661,3012-08002666,Xarxes,3012,08002666,CEE Concha Espina,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:21,
@@ -15215,7 +15191,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16717,3012-08002630,Xarxes,3012,08002630,Escola Els Porxos,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:24,
 16718,3012-08001923,Xarxes,3012,08001923,Escola Diputació,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:24,
 16719,3012-08017694,Xarxes,3012,08017694,Escola Pereanton,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:24,
-16720,3012-08021417,Xarxes,3012,08021417,Sant Miquel Arcàngel,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:24,
 16721,3012-08067090,Xarxes,3012,08067090,Escola Can Manent,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:25,
 16722,3012-43011200,Xarxes,3012,43011200,EOI de Salou,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:25,
 16723,3012-43011194,Xarxes,3012,43011194,Escola El Cucurull,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:25,
@@ -15245,15 +15220,12 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16747,3012-25003950,Xarxes,3012,25003950,Escola Arnau Mir - ZER Urgellet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16748,3012-25004826,Xarxes,3012,25004826,Escola de Tuixent - ZER Urgellet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16749,3012-25000122,Xarxes,3012,25000122,Escola Sant Esteve - ZER Urgellet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
-16750,3012-43001048,Xarxes,3012,43001048,Vedruna l'Espluga de Francolí,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
-16751,3012-43002375,Xarxes,3012,43002375,Maria Cortina,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16752,3012-43009850,Xarxes,3012,43009850,Institut Ernest Lluch i Martí,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16753,3012-17007981,Xarxes,3012,17007981,EOI d'Olot,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16754,3012-08009171,Xarxes,3012,08009171,Escola Casas,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16755,3012-08047431,Xarxes,3012,08047431,Institut XXV Olimpíada,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16756,3012-08001649,Xarxes,3012,08001649,Escola Mossèn Jacint Verdaguer,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16757,3012-25008212,Xarxes,3012,25008212,Escola Pràctiques II,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
-16758,3012-08021405,Xarxes,3012,08021405,Virolai,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16759,3012-08060873,Xarxes,3012,08060873,Escola Eulàlia Bota,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16760,3012-08054411,Xarxes,3012,08054411,Escola Vallgorguina,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
 16761,3012-08058519,Xarxes,3012,08058519,Escola Sinera,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:26,
@@ -15381,7 +15353,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16883,3012-17008882,Xarxes,3012,17008882,Escola La Bòbila,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
 16884,3012-08063229,Xarxes,3012,08063229,Institut Montpedrós,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
 16885,3012-08075700,Xarxes,3012,08075700,Escola Xirinacs,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
-16886,3012-08076194,Xarxes,3012,08076194,Institut Tecnològic de Barcelona,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
 16887,3012-08077010,Xarxes,3012,08077010,Institut Escola Coves d'en Cimany,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
 16888,3012-08077095,Xarxes,3012,08077095,Institut Escola Mirades,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
 16889,3012-08075645,Xarxes,3012,08075645,Escola La Flor de Maig,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:34,
@@ -15399,21 +15370,15 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16901,3012-17009710,Xarxes,3012,17009710,Escola Empordanet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16902,3012-08067132,Xarxes,3012,08067132,Escola Josefina Ibáñez,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16903,3012-08068331,Xarxes,3012,08068331,Escola Badalona Port,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16904,3012-43013191,Xarxes,3012,43013191,Institut Escola L'Arrabassada,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16905,3012-08077939,Xarxes,3012,08077939,Escola de la Vila,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16906,3012-08077034,Xarxes,3012,08077034,Institut Escola El Pi Gros,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16907,3012-25010085,Xarxes,3012,25010085,Escola Josep Mañé i Gavaldà - ZER Ponent,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16908,3012-08067740,Xarxes,3012,08067740,Institut Vallcarca,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16909,3012-08072401,Xarxes,3012,08072401,Institut Torrent dels Alous,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16910,3012-08078831,Xarxes,3012,08078831,Institut d'FP Sanitària Vall d'Hebron,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16911,3012-08078804,Xarxes,3012,08078804,Institut de Formació Empresarial de Barcelona,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16912,3012-08078798,Xarxes,3012,08078798,Institut Escola Mestre Morera,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16913,3012-08078786,Xarxes,3012,08078786,Institut Escola Ferrer i Guàrdia,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16914,3012-08078774,Xarxes,3012,08078774,Institut Escola Elisenda de Montcada,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16915,3012-08078762,Xarxes,3012,08078762,Institut Escola Ciutat Comtal,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16916,3012-08078725,Xarxes,3012,08078725,Institut Escola Vapor i Molí,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16917,3012-08077368,Xarxes,3012,08077368,Institut Escola de Caldes de Montbui,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
-16918,3012-17011078,Xarxes,3012,17011078,Escola Joan Domènech i Moner,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16919,3012-08078853,Xarxes,3012,08078853,CEE Crespinell,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:35,
 16920,3012-08037981,Xarxes,3012,08037981,Escola de L,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:36,
 16921,3012-08065482,Xarxes,3012,08065482,Escola Els Ventets - ZER El Moianès Llevant,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:30:36,
@@ -15459,7 +15424,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 16961,3004-43003100,Xarxes,3004,43003100,Escola Abel Ferrater,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:40,
 16962,3004-43010864,Xarxes,3004,43010864,Escola Isabel Besora,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:40,
 16963,3004-43001681,Xarxes,3004,43001681,Escola Lluís Viñas i Viñoles,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:40,
-16964,3004-43013099,Xarxes,3004,43013099,Institut Escola Agustí Barberà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:40,
 16965,3004-43003975,Xarxes,3004,43003975,Escola Sant Àngel,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:40,
 16966,3004-08047376,Xarxes,3004,08047376,Institut Llobregat,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:41,
 16967,3004-08056985,Xarxes,3004,08056985,Institut Ramon Berenguer IV,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-09 12:34:41,
@@ -15528,7 +15492,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17030,53-08042810,Programes,53,08042810,Escola Charles Darwin,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:07,
 17031,53-08022926,Programes,53,08022926,CEE Can Rigol,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
 17032,53-08017505,Programes,53,08017505,Escola Juan Salamero,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
-17033,53-08017360,Programes,53,08017360,Escola Jacme March,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
 17034,53-08034102,Programes,53,08034102,Escola Josep Maria Madorell,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
 17035,53-08035143,Programes,53,08035143,Institut Miquel Martí i Pol,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
 17036,53-08038223,Programes,53,08038223,Escola Benviure,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:08,
@@ -15548,7 +15511,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17050,53-08037930,Programes,53,08037930,Escola Margalló,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
 17051,53-08062948,Programes,53,08062948,Escola Miquel Martí i Pol,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
 17052,53-08059721,Programes,53,08059721,Escola Marta Mata,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
-17053,53-08016781,Programes,53,08016781,Institut Esteve Terradas i Illa,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
 17054,53-08037991,Programes,53,08037991,Escola Marcel·lí Moragas,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
 17055,53-08016173,Programes,53,08016173,Escola Mare de Déu de Montserrat,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
 17056,53-08031228,Programes,53,08031228,Institut Torre Roja,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:10,
@@ -15575,7 +15537,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17077,53-08063761,Programes,53,08063761,Escola Vicente Ferrer,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17078,53-08016941,Programes,53,08016941,Escola Isidre Martí,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17079,53-08017104,Programes,53,08017104,Escola Gras i Soler,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
-17080,53-08017131,Programes,53,08017131,Institut Severo Ochoa,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17081,53-08033973,Programes,53,08033973,Institut Jaume Salvador i Pedrol,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17082,53-08071691,Programes,53,08071691,Institut Escola del Prat,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17083,53-08061129,Programes,53,08061129,Institut Montserrat Colomer,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
@@ -15583,7 +15544,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17085,53-08035398,Programes,53,08035398,Escola Miguel Hernández,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:13,
 17086,53-08042101,Programes,53,08042101,Institut Manuel Vázquez Montalbán,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
 17087,53-08036378,Programes,53,08036378,Escola Charlie Rivel,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
-17088,53-08018145,Programes,53,08018145,Escola Pau Vila,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
 17089,53-08067016,Programes,53,08067016,Escola Ernest Lluch,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
 17090,53-08019320,Programes,53,08019320,Institut Torras i Bages,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
 17091,53-08076467,Programes,53,08076467,Institut Escola Pere Lliscart,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:14,
@@ -15628,7 +15588,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17130,53-08001595,Programes,53,08001595,Escola Baixeras,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
 17131,53-08001820,Programes,53,08001820,Escola Milà i Fontanals,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
 17132,53-08078361,Programes,53,08078361,Institut Escola Sant Felip Neri,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
-17133,53-08035167,Programes,53,08035167,Institut Barcelona-Congrés,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
 17134,53-08054903,Programes,53,08054903,Escola Mediterrània,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
 17135,53-08001856,Programes,53,08001856,Escola Drassanes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
 17136,53-08010146,Programes,53,08010146,Escola del Mar,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:19,
@@ -15706,7 +15665,6 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17208,53-25009733,Programes,53,25009733,Institut Joan Solà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
 17209,53-25010450,Programes,53,25010450,Institut Nou Alcarràs,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
 17210,53-08065007,Programes,53,08065007,Escola Poblenou,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
-17211,53-08017712,Programes,53,08017712,Escola Ferrer i Guàrdia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
 17212,53-08039604,Programes,53,08039604,Escola Francesc Ferrer i Guàrdia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
 17213,53-08041659,Programes,53,08041659,Escola Mestres Montaña,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:27,
 17214,53-08022574,Programes,53,08022574,Escola Òrrius,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-14 10:31:28,
@@ -15827,3 +15785,253 @@ Id Sql,Id,Bloc,Id Programa,Codi Centre,Nom Centre,Curs Inici,Curs Final,Certific
 17329,13-25002106,Programes,13,25002106,Escola Pardinyes,2017-2018,2019-2020,S,,,,,,,,,,,,,,,2025-10-14 12:37:08,2025-10-14 12:35:50
 17330,13-08059767,Programes,13,08059767,Escola Tanit,2017-2018,2019-2020,S,,,,,,,,,,,,,,,2025-10-14 12:37:57,2025-10-14 12:36:38
 17331,13-08063916,Programes,13,08063916,Escola Vila Parietes,2016-2017,2018-2019,S,,,,,,,,,,,,,,,2025-10-14 12:38:42,2025-10-14 12:37:24
+17332,3026-08045689,Xarxes,3026,08045689,Institut Voltrera,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17333,3026-08033900,Xarxes,3026,08033900,Institut Joan Miró,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17334,3026-08000396,Xarxes,3026,08000396,Escola Ventós i Mir,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17335,3026-08054277,Xarxes,3026,08054277,Institut de Tona,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17336,3026-08075256,Xarxes,3026,08075256,Institut Escola Marta Mata,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17337,3026-08046581,Xarxes,3026,08046581,Institut Lluís Vives,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17338,3026-08002010,Xarxes,3026,08002010,Escola Lluís Vives,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17339,3026-17004530,Xarxes,3026,17004530,Institut Santiago Sobrequés i Vidal,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17340,3026-17010700,Xarxes,3026,17010700,Institut Sant Quirze,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17341,3026-17004232,Xarxes,3026,17004232,Escola Josep de Ribot i Olivas,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17342,3026-25000833,Xarxes,3026,25000833,Institut Ciutat de Balaguer,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17343,3026-25006598,Xarxes,3026,25006598,Institut Lo Pla d'Urgell,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17344,3026-25006525,Xarxes,3026,25006525,Institut Josep Vallverdú,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17345,3026-25006732,Xarxes,3026,25006732,Institut Torrevicens,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:38,
+17346,3026-08000153,Xarxes,3026,08000153,Escola Joan Maragall,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17347,3026-08052876,Xarxes,3026,08052876,Institut d'Argentona,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17348,3026-08065421,Xarxes,3026,08065421,Institut Marta Mata,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17349,3026-08073843,Xarxes,3026,08073843,Institut Tordària,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17350,3026-08034667,Xarxes,3026,08034667,Escola Esteve Barrachina,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17351,3026-08039291,Xarxes,3026,08039291,Escola Cristòfor Mestre,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17352,3026-08031459,Xarxes,3026,08031459,Institut Eugeni d'Ors,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17353,3026-08043693,Xarxes,3026,08043693,Institut Joaquim Mir,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17354,3026-08031472,Xarxes,3026,08031472,Escola Pompeu Fabra,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17355,3026-08078336,Xarxes,3026,08078336,Escola L'Oreneta,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17356,3026-08053467,Xarxes,3026,08053467,Escola Palau,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17357,3026-08025927,Xarxes,3026,08025927,Escola Pi d'en Xandri,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 05:53:39,
+17358,3003-08076984,Xarxes,3003,08076984,Institut Escola Josep Maria Xandri,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17359,3003-08012714,Xarxes,3003,08012714,Institut Anna Gironella de Mundet,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17360,3003-08044958,Xarxes,3003,08044958,Institut Josep Pla,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17361,3003-08052608,Xarxes,3003,08052608,Institut Pau Claris,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17362,3003-17000706,Xarxes,3003,17000706,Institut Puig Cargol,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17363,3003-17004487,Xarxes,3003,17004487,Institut Rafael Campalans,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:18,
+17364,3003-17006691,Xarxes,3003,17006691,Institut Ridaura,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17365,3003-08020826,Xarxes,3003,08020826,Institut Maremar,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17366,3003-08065391,Xarxes,3003,08065391,Institut El Til·ler,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17367,3003-43005704,Xarxes,3003,43005704,Institut Francesc Vidal i Barraquer,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17368,3003-43007658,Xarxes,3003,43007658,Institut Joan Guinjoan i Gispert,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17369,3003-08075281,Xarxes,3003,08075281,Institut Bitàcola,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 08:10:19,
+17370,53-17001395,Programes,53,17001395,Escola Santa Coloma - ZER Cerdanya,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17371,53-25006239,Programes,53,25006239,Institut d'Aran,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17372,53-17004888,Programes,53,17004888,Escola Santa Cecília - ZER Cerdanya,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17373,53-25003056,Programes,53,25003056,Escola Portella Blanca - ZER Baridà-Batllia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17374,53-25003263,Programes,53,25003263,Escola Pere Sarret - ZER Baridà-Batllia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17375,53-25003846,Programes,53,25003846,Escola El Puig - ZER Baridà-Batllia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:01,
+17376,53-25005983,Programes,53,25005983,Escola Sant Serni - ZER Baridà-Batllia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17377,53-17002090,Programes,53,17002090,Escola Jaume I - ZER Cerdanya,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17379,53-08041866,Programes,53,08041866,Institut El Calamot,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17380,53-08062122,Programes,53,08062122,CFA Pedro Díaz,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17381,53-08053510,Programes,53,08053510,Escola Puig d'Agulles,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17382,53-08061610,Programes,53,08061610,Escola La Sínia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17383,53-08015961,Programes,53,08015961,Escola Jacint Verdaguer,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17384,53-08062471,Programes,53,08062471,CFA Gavà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17385,53-08031101,Programes,53,08031101,Escola Montserratina,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17387,53-08042809,Programes,53,08042809,Escola Galileo Galilei,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17388,53-08059354,Programes,53,08059354,Escola Les Roques Blaves,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17389,53-08037875,Programes,53,08037875,Escola Rafael Casanova,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17390,53-08059639,Programes,53,08059639,Escola Progrés,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17391,53-08068331,Programes,53,08068331,Escola Badalona Port,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17392,53-08076443,Programes,53,08076443,Institut Escola Rafael Alberti,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17394,53-08033912,Programes,53,08033912,Institut Mercè Rodoreda,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:02,
+17395,53-08055944,Programes,53,08055944,Institut Rubió i Ors,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17396,53-08018091,Programes,53,08018091,Escola Pep Ventura,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17397,53-08034242,Programes,53,08034242,Escola Pablo Neruda,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17398,53-08034850,Programes,53,08034850,Escola Pau Casals,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17399,53-08034862,Programes,53,08034862,Escola Ausiàs March,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17400,53-08053078,Programes,53,08053078,Institut Numància,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17401,53-08001443,Programes,53,08001443,Institut Eugeni d'Ors,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17402,53-08052888,Programes,53,08052888,Institut Júlia Minguell,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17403,53-25004243,Programes,53,25004243,Escola Setelsis,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17404,53-08076492,Programes,53,08076492,Institut Escola Pompeu Fabra,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:51:03,
+17405,53-08077401,Programes,53,08077401,Institut Escola Guillem de Balsareny,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17406,53-08038181,Programes,53,08038181,Escola Serra i Húnter,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17407,53-08018029,Programes,53,08018029,Escola Les Escoles,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17408,53-08075244,Programes,53,08075244,Escola Les Bases,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17409,53-25004607,Programes,53,25004607,Escola Sant Gil,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17410,53-08030510,Programes,53,08030510,Escola Doctor Fortià i Solà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17411,53-08063862,Programes,53,08063862,Escola L'Olivar,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17412,53-08029283,Programes,53,08029283,Escola El Gurri - ZER Guilleries,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17413,53-17004189,Programes,53,17004189,Escola Els Castanyers - ZER Guilleries,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17414,53-08076996,Programes,53,08076996,Institut Escola Mossen Cinto,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:36,
+17415,53-08069499,Programes,53,08069499,Escola Vic-centre,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17416,53-08030911,Programes,53,08030911,Sagrat Cor de Jesús,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17417,53-08000271,Programes,53,08000271,Escola Santa Maria d'Avià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17418,53-08052891,Programes,53,08052891,Institut L'Alt Berguedà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17419,53-08019976,Programes,53,08019976,Vedruna Manlleu,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17420,53-08005618,Programes,53,08005618,Vedruna Àngels Barcelona,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17421,53-08001868,Programes,53,08001868,Escola Rubén Darío,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17422,53-08001601,Programes,53,08001601,Escola Parc de la Ciutadella,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17423,53-08001789,Programes,53,08001789,Escola Cervantes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17424,53-08001790,Programes,53,08001790,Escola Pere Vila,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17425,53-08001819,Programes,53,08001819,Escola Collaso i Gil,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17426,53-08052581,Programes,53,08052581,Institut Miquel Tarradell,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17427,53-08002745,Programes,53,08002745,Escola El Carmel,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17428,53-08077484,Programes,53,08077484,Institut Escola Elisabets,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17429,53-08052700,Programes,53,08052700,Institut Vall d'Hebron,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17430,53-08002721,Programes,53,08002721,Escola Font d'en Fargas,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:37,
+17431,53-08078798,Programes,53,08078798,Institut Escola Mestre Morera,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17433,53-17008471,Programes,53,17008471,Escola Les Falgueres,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17434,53-17002557,Programes,53,17002557,Institut Baix Empordà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17435,53-17010840,Programes,53,17010840,Institut La Sureda,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17436,53-17008493,Programes,53,17008493,Escola Vall-llobrega,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17437,53-17003264,Programes,53,17003264,Escola Gaziel,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17438,53-17000925,Programes,53,17000925,Escola L'Aixart,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17439,53-17000846,Programes,53,17000846,Escola Puig d'Arques,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17440,53-17001450,Programes,53,17001450,Escola Joan Bruguera,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17441,53-17005042,Programes,53,17005042,Institut Carles Rahola i Llorens,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17442,53-17000913,Programes,53,17000913,Escola L'Aulet,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17443,53-17000779,Programes,53,17000779,Escola Doctor Robert,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17444,53-17005704,Programes,53,17005704,Institut Abat Oliba,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17445,53-17011042,Programes,53,17011042,Institut Escola Mossen Joan Batlle,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17446,53-17005017,Programes,53,17005017,Escola Quatre Vents,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17447,53-17010827,Programes,53,17010827,Institut Escola Greda,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 10:57:38,
+17449,53-17004153,Programes,53,17004153,Escola de Sant Esteve de Guialbes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17450,53-17008481,Programes,53,17008481,Escola L'Esculapi,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17452,53-17000241,Programes,53,17000241,Escola Fluvianets,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17453,53-17002077,Programes,53,17002077,Escola Pompeu Fabra,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17454,53-17000871,Programes,53,17000871,Escola Ruiz Amado,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17455,53-17000354,Programes,53,17000354,Escola Joan Reglà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17456,53-17008808,Programes,53,17008808,Escola Carme Guasch i Darné,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17457,53-17002740,Programes,53,17002740,Escola Ramon Muntaner,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17458,53-17007907,Programes,53,17007907,Escola Joana d'Empúries,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17459,53-17001048,Programes,53,17001048,Escola Empúries,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17460,53-17002089,Programes,53,17002089,Escola de Llers,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17461,53-25009113,Programes,53,25009113,Escola Mestre Ramon Estadella i Torradeflot,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17462,53-25007153,Programes,53,25007153,Institut d'Alcarràs,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17463,53-25001606,Programes,53,25001606,Escola Minyons d'Urgell,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17464,53-25005880,Programes,53,25005880,Escola Frederic Godas,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17465,53-08073843,Programes,53,08073843,Institut Tordària,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17466,53-08017694,Programes,53,08017694,Escola Pereanton,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:09,
+17467,53-08057266,Programes,53,08057266,Escola Els Cingles,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17468,53-08044594,Programes,53,08044594,Institut Giola,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17469,53-08017979,Programes,53,08017979,Escola Aqua Alba,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17470,53-08046785,Programes,53,08046785,Institut d'Alella,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17471,53-08077034,Programes,53,08077034,Institut Escola El Pi Gros,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17472,53-08060940,Programes,53,08060940,Escola Rosa Oriol Anguera,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17473,53-08063931,Programes,53,08063931,Escola Les Falgueres,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17474,53-08000153,Programes,53,08000153,Escola Joan Maragall,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17475,53-08053421,Programes,53,08053421,Escola Aloc,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17476,53-08076960,Programes,53,08076960,Institut Escola Renaixença,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17477,53-08053352,Programes,53,08053352,Institut Montbui,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17478,53-43004487,Programes,53,43004487,Escola Montsant - ZER Montsant-Serra de Prades,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17479,53-43005327,Programes,53,43005327,Escola Ramon Sugrañes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17480,53-43004633,Programes,53,43004633,Escola Eugeni d'Ors,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17481,53-43004530,Programes,53,43004530,Escola Pública Baltis de Valls,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17483,53-43010621,Programes,53,43010621,Escola Cingle Roig - ZER Baix Camp Nord,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17484,53-43009242,Programes,53,43009242,Escola L'Antina,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:10,
+17485,53-43009977,Programes,53,43009977,Institut d'Altafulla,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17486,53-43001796,Programes,53,43001796,Escola Sant Sebastià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17487,53-43005561,Programes,53,43005561,Escola Mare de Déu del Roser,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17488,53-43004921,Programes,53,43004921,Escola Bernardí Tolrà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17489,53-43005571,Programes,53,43005571,Escola Les Comes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17490,53-43001553,Programes,53,43001553,Escola Les Muralles,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17491,53-43006708,Programes,53,43006708,Institut Joan Segura i Valls,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17492,53-43010487,Programes,53,43010487,Escola Marcel·lí Esquius,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17493,53-43001051,Programes,53,43001051,Escola Antoni Vilanova,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17494,53-43011935,Programes,53,43011935,CFA M. Dolors Paul,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17495,53-43005297,Programes,53,43005297,Escola Joan Perucho,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17496,53-43005583,Programes,53,43005583,Escola Els Quatre Vents,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17497,53-43009898,Programes,53,43009898,Escola Castell de Calafell,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17498,53-43011121,Programes,53,43011121,Escola Vilamar,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17499,53-43007580,Programes,53,43007580,Institut de L'Arboç,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:11,
+17500,53-43010372,Programes,53,43010372,Institut La Talaia,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17501,53-43013181,Programes,53,43013181,CFA Cal Bolavà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17505,53-43001607,Programes,53,43001607,Escola Josep M. Soler i Gené,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17506,53-43000214,Programes,53,43000214,Escola Josep Fusté,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17507,53-43012083,Programes,53,43012083,Institut Escola Pi del Burgar,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17508,53-43005753,Programes,53,43005753,Escola Doctor Alberich i Casas,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17509,53-43001966,Programes,53,43001966,Escola Sant Ramon,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17511,53-43004050,Programes,53,43004050,Escola 21 d'Abril,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17512,53-43004037,Programes,53,43004037,Escola Maria García i Cabanes,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17513,53-43007087,Programes,53,43007087,Institut Sòl de Riu,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17514,53-43004074,Programes,53,43004074,Escola L'Assumpció,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17515,53-43006964,Programes,53,43006964,Institut de Deltebre,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:12,
+17516,53-43008389,Programes,53,43008389,Escola Sant Llatzer,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:13,
+17517,53-43010888,Programes,53,43010888,Institut de Tecnificació,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 11:00:13,
+17518,53-08064921,Programes,53,08064921,Institut de Sant Andreu,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:49,
+17519,53-17000603,Programes,53,17000603,Escola Santa Cecília - ZER Les Salines,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17520,53-17002168,Programes,53,17002168,Escola Les Salines - ZER Les Salines,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17521,53-17004293,Programes,53,17004293,Escola Manuel de Pedrolo - ZER Les Salines,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17522,53-17000822,Programes,53,17000822,Escola Els Dòlmens - ZER Requesens,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17523,53-17001036,Programes,53,17001036,Escola Mont-roig - ZER Requesens,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17524,53-17001085,Programes,53,17001085,Escola Antoni Balmanya - ZER Requesens,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17525,53-17003227,Programes,53,17003227,Escola Sant Sebastià - ZER Requesens,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17526,53-08038168,Programes,53,08038168,Escola La Torreta,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17527,53-08064817,Programes,53,08064817,Escola Camins,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17528,53-43000615,Programes,53,43000615,Escola L,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17529,53-43005421,Programes,53,43005421,Escola Berenguer de Montoliu - ZER Els Ceps,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17530,53-08065342,Programes,53,08065342,Institut Xaloc,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17531,53-08043929,Programes,53,08043929,Escola Llebetx,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17532,53-08040412,Programes,53,08040412,Escola El Margalló,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17533,53-08031484,Programes,53,08031484,Escola Ginesta,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17534,53-43001462,Programes,53,43001462,Escola Els Til·lers - ZER El Francolí,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17535,53-43004517,Programes,53,43004517,Escola Rocabruna - ZER El Francolí,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17536,53-43005546,Programes,53,43005546,Escola de La Riba - ZER El Francolí,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17537,53-43012903,Programes,53,43012903,Escola El Bosc - ZER El Francolí,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:50,
+17538,53-43006861,Programes,53,43006861,Escola Enxaneta,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17539,53-43000470,Programes,53,43000470,Escola Valldemur - ZER Conca de Barberà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17540,53-43001954,Programes,53,43001954,Escola Antoni Tous - ZER Conca de Barberà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17541,53-43003124,Programes,53,43003124,Escola Sagrat Cor - ZER Conca de Barberà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17542,53-43006371,Programes,53,43006371,Escola Sant Roc - ZER Conca de Barberà,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17543,53-43006216,Programes,53,43006216,Escola Cèlia Artiga,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17544,53-43005108,Programes,53,43005108,Escola Les Eres - ZER Ribera d,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17545,53-43005406,Programes,53,43005406,Escola El Verger - ZER Ribera d,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17546,53-43005601,Programes,53,43005601,Escola El Tormo - ZER Ribera d,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17547,53-43003987,Programes,53,43003987,Escola Port rodó - ZER Mestral,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17548,53-43004116,Programes,53,43004116,Escola del Lligallo del Gànguil - ZER Mestral,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17549,53-43006046,Programes,53,43006046,Escola Divina Pastora - ZER Mestral,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17550,53-43005315,Programes,53,43005315,Escola d,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17551,53-43005625,Programes,53,43005625,Escola Sant Antoni Abat - ZER Mont Caro,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17552,53-43005674,Programes,53,43005674,Escola Raval de Cristo - ZER Mont Caro,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17553,53-43001395,Programes,53,43001395,Escola Teresa Subirats i Mestre - ZER Montsià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17554,53-43001437,Programes,53,43001437,Escola Rosa Gisbert - ZER Montsià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17555,53-43005388,Programes,53,43005388,Escola Mestre Josep Roncero i Pallarès - ZER Montsià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17556,53-43005391,Programes,53,43005391,Escola Sant Llorenç - ZER Montsià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:51,
+17557,53-43005418,Programes,53,43005418,Escola Sant Salvador - ZER Montsià,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:52,
+17558,53-08024030,Programes,53,08024030,Escola Samuntada,2025-2026,2027-2028,,,,,,,,,,,,,,,,2025-10-15 12:12:52,
+17559,80-08045689,Programes,80,08045689,Institut Voltrera,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17560,80-08033900,Programes,80,08033900,Institut Joan Miró,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17561,80-08000396,Programes,80,08000396,Escola Ventós i Mir,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17562,80-08052891,Programes,80,08052891,Institut L'Alt Berguedà,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17563,80-08054277,Programes,80,08054277,Institut de Tona,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17564,80-08075256,Programes,80,08075256,Institut Escola Marta Mata,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17565,80-08075657,Programes,80,08075657,Institut Escola Antaviana,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17566,80-08046581,Programes,80,08046581,Institut Lluís Vives,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17567,80-08002010,Programes,80,08002010,Escola Lluís Vives,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17568,80-17004530,Programes,80,17004530,Institut Santiago Sobrequés i Vidal,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:33,
+17569,80-17010700,Programes,80,17010700,Institut Sant Quirze,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17570,80-17004232,Programes,80,17004232,Escola Josep de Ribot i Olivas,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17571,80-25000833,Programes,80,25000833,Institut Ciutat de Balaguer,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17572,80-25006598,Programes,80,25006598,Institut Lo Pla d'Urgell,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17573,80-25006525,Programes,80,25006525,Institut Josep Vallverdú,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17574,80-25006732,Programes,80,25006732,Institut Torrevicens,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17575,80-08000153,Programes,80,08000153,Escola Joan Maragall,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17576,80-08052876,Programes,80,08052876,Institut d'Argentona,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17577,80-08065421,Programes,80,08065421,Institut Marta Mata,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17578,80-08073843,Programes,80,08073843,Institut Tordària,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17579,80-08034667,Programes,80,08034667,Escola Esteve Barrachina,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17580,80-08039291,Programes,80,08039291,Escola Cristòfor Mestre,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17581,80-08031459,Programes,80,08031459,Institut Eugeni d'Ors,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17582,80-08043693,Programes,80,08043693,Institut Joaquim Mir,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17583,80-08031472,Programes,80,08031472,Escola Pompeu Fabra,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17584,80-43006691,Programes,80,43006691,Institut Priorat,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17585,80-43008432,Programes,80,43008432,Institut Sant Pere i Sant Pau,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17586,80-08078336,Programes,80,08078336,Escola L'Oreneta,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17587,80-08053467,Programes,80,08053467,Escola Palau,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17588,80-08025927,Programes,80,08025927,Escola Pi d'en Xandri,2025-2026,2026-2027,,,,,,,,,,,,,,,,2025-10-15 12:21:34,
+17589,3026-08052891,Xarxes,3026,08052891,Institut L'Alt Berguedà,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 12:30:38,
+17590,3026-08075657,Xarxes,3026,08075657,Institut Escola Antaviana,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 12:30:38,
+17591,3026-43006691,Xarxes,3026,43006691,Institut Priorat,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 12:30:38,
+17592,3026-43008432,Xarxes,3026,43008432,Institut Sant Pere i Sant Pau,2025-2026,2025-2026,,,,,,,,,,,,,,,,2025-10-15 12:30:38,
