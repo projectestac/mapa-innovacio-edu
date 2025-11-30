@@ -97,7 +97,6 @@
     "A3-COM": "Àmbit 3: relació i cooperació amb la comunitat educativa i l'entorn"
   },
   "cursos": [
-    "2015-2016",
     "2016-2017",
     "2017-2018",
     "2018-2019",
@@ -109,6 +108,6 @@
     "2024-2025",
     "2025-2026"
   ],
-  "cursMin": 2015,
+  "cursMin": 2016,
   "cursMax": 2026
 }
