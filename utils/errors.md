@@ -19,11 +19,11 @@ El centre 43000226 (Escola La Barquera - ZER Atzavara) consta 4 vegades com a pa
 
 ## Codis absolutament desconeguts (cal esborrar-los de la base de dades!)
 
-- **Instància del programa 59 (_Apadrinem el nostre patrimoni_) assignada a un centre inexistent: 08067087**\
-- **Instància del programa 60 (_Orientació educativa per a l’aprenentatge competencial orientador_) assignada a un centre inexistent: 08040522**\
-- **Instància del programa 65 (_araArt_) assignada a un centre inexistent: 08067015**\
-- **Instància del programa 68 (_EmpresaFP_) assignada a un centre inexistent: 00803176**\
-- **Instància del programa 69 (_OrientaFP_) assignada a un centre inexistent: 08035632**\
+- **Instància del programa 59 (_Apadrinem el nostre patrimoni_) assignada a un centre inexistent: 08067087**
+- **Instància del programa 60 (_Orientació educativa per a l’aprenentatge competencial orientador_) assignada a un centre inexistent: 08040522**
+- **Instància del programa 65 (_araArt_) assignada a un centre inexistent: 08067015**
+- **Instància del programa 68 (_EmpresaFP_) assignada a un centre inexistent: 00803176**
+- **Instància del programa 69 (_OrientaFP_) assignada a un centre inexistent: 08035632**
 
 ## Centres que participen en programes on no haurien de poder participar
 
