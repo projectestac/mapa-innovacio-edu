@@ -4208,7 +4208,7 @@ id,tipus,nom,municipi,adreca,cp,comarca,lat,lng,estudis,sstt,se,web,logo,tel,mai
 17011054,ESC,Escola de Campllong,Campllong,"c. de l'Església, 26",17459,Gironès,"41,89227","2,830903",EINF2C|EPRI,GIR,17870501,https://agora.xtec.cat/escdecampllong/,17011054.png,972527407,b7011054@xtec.cat,,TRUE
 17011066,IE,Institut Escola Josep Pous i Pagès,Figueres,"c. Avinyonet, 201",17600,Alt Empordà,"42,26714","2,944357",EINF2C|EPRI|ESO,GIR,17870505,https://agora.xtec.cat/escolapous/,17011066.png,972503970,b7011066@xtec.cat,,TRUE
 17011078,ESC,Escola Joan Domènech i Moner,Lloret de Mar,"av. Càndida Masgrau i Campeny, s/n",17310,Selva,"41,70533","2,832161",EINF2C|EPRI,GIR,17870502,,,972111150,b7011078@xtec.cat,,TRUE
-17011081,IE,Institut Escola Cent Fonts,Sant Hilari Sacalm,"c. Sant Benet, 25",17403,Selva,"41,87881","2,507505",EINF2C|EPRI|ESO,GIR,17870503,https://agora.xtec.cat/iecentfonts/,17011081.png,,b7011081@xtec.cat,,TRUE
+17011081,IE,Institut Escola de Sant Hilari,Sant Hilari Sacalm,"c. Joan Serras, 21",17403,Selva,"41,87881","2,507505",EINF2C|EPRI|ESO|BATX|PFI,GIR,17870503,https://agora.xtec.cat/iesanthilari/,17011081.png,,b7011081@xtec.cat,,TRUE
 17011091,AH,HDA Hospital de Dia de Figueres - HDA,Figueres,"c. Pi i Maragall, 5",17600,Alt Empordà,"42,26735","2,965316",EINF2C|EPRI|ESO,GIR,17870505,,,972182600,b7011091@xtec.cat,,FALSE
 17011108,AH,URPIJ Parc Hospitalari Martí Julià - URPIJ,Salt,"c. Ramón i Cajal, s/n (ed. La República)",17190,Gironès,"41,97116","2,795776",EINF2C|EPRI|ESO,GIR,17870501,,,972182530,b7011108@xtec.cat,,FALSE
 17011111,ART,Centre de Dansa de Girona,Girona,"c. del Mossèn Baldiri i Reixac, 14",17003,Gironès,"41,97318","2,823095",DANE,GIR,17870501,,,,b7011111@xtec.cat,,FALSE
