@@ -99,7 +99,7 @@ if ('function' === typeof importScripts) {
 
     // Cache for map tiles
     registerRoute(
-      /^https?:\/\/(?:\w+\.basemaps\.cartocdn\.com|maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|\w+\.tile\.openstreetmap\.org|mapcache\.icc\.cat)\//,
+      /^https?:\/\/(?:geoserveis\.icgc\.cat|\w+\.basemaps\.cartocdn\.com|maps\.wikimedia\.org\/osm-intl|api\.tiles\.mapbox\.com|\w+\.tile\.openstreetmap\.org)\//,
       new CacheFirst({
         cacheName: 'maps',
         plugins: [
