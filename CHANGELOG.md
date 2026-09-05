@@ -1,7 +1,9 @@
-### v1.3.3 (Not yet released)
+### v1.4.3 (2026-09-05)
 #### Improvements
 - Upgrade dependencies
 - Update literals
+- Upgrade school data
+- Use ICGC maps by default
 
 ### v1.3.2 (2021-11-23)
 #### Bug fixes

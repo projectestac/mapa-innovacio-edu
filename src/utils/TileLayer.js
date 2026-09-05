@@ -31,7 +31,7 @@ import React from 'react';
 import { TileLayer, WMSTileLayer } from 'react-leaflet';
 import 'proj4leaflet';
 
-const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'cartoDB';
+const TILE_LAYER = process.env.REACT_APP_TILE_LAYER || 'ICGCSimple';
 
 const LAYERS = {
   // Original OpenStreetMap
@@ -55,38 +55,12 @@ const LAYERS = {
   },
   // CartoDB
   cartoDB: {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key={accessToken}',
     subdomains: 'abcd',
     minZoom: 1,
     maxZoom: 19,
-  },
-  // ICGC Topo
-  ICGCTopo: {
-    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
-    url: "http://mapcache.icc.cat/map/bases/service?",
-    layers: 'topo',
-    format: 'image/jpeg',
-    continuousWorld: true,
-    wms: true,
-  },
-  // ICGC Orto
-  ICGCOrto: {
-    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
-    url: "http://mapcache.icc.cat/map/bases/service?",
-    layers: 'orto',
-    format: 'image/jpeg',
-    continuousWorld: true,
-    wms: true,
-  },
-  // ICGC Topo gris
-  ICGCTopoGris: {
-    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
-    url: "http://mapcache.icc.cat/map/bases/service?",
-    layers: 'topogris',
-    format: 'image/jpeg',
-    continuousWorld: true,
-    wms: true,
+    accessToken: process.env.REACT_APP_CARTO_TOKEN || '',
   },
   // ICGC Base
   ICGCBase: {
@@ -96,7 +70,39 @@ const LAYERS = {
     format: 'image/jpeg',
     continuousWorld: true,
     wms: true,
+  },
+  ICGCAdmin: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wmts/administratiu/MON3857NW/{z}/{x}/{y}.png',
+    minZoom: 1,
+    maxZoom: 19,
+  },
+  ICGCTopo: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wmts/topografic/MON3857NW/{z}/{x}/{y}.png',
+    minZoom: 1,
+    maxZoom: 19,
+  },
+  ICGCSimple: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wmts/simplificat/MON3857NW/{z}/{x}/{y}.png',
+    minZoom: 1,
+    maxZoom: 19,
+  },
+  ICGCFoto: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/orto/GRID3857/{z}/{x}/{y}.png',
+    minZoom: 1,
+    maxZoom: 19,
+  },
+  ICGCOrtoHibrida: {
+    attribution: 'Institut Cartogràfic i Geològic de Catalunya - ICGC',
+    url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wmts/orto-hibrida/MON3857NW/{z}/{x}/{y}.png',
+    minZoom: 1,
+    maxZoom: 19,
   }
+
+
 };
 
 const BUILT_LAYERS = {};
