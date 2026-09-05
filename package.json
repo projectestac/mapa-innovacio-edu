@@ -27,9 +27,9 @@
   ],
   "license": "EUPL-1.2",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@material-ui/styles": "^4.11.4",
+    "@material-ui/styles": "^4.11.5",
     "fontfaceobserver": "^2.3.0",
     "fuse.js": "^6.5.3",
     "json2csv": "^5.0.7",
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "chalk": "^4.1.2",
-    "csv": "^6.3.6",
+    "csv": "^6.6.3",
     "dotenv-flow": "^4.1.0",
     "react-scripts": "5.0.1",
     "workbox-build": "^7.0.0",
