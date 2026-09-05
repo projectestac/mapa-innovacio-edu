@@ -44,7 +44,7 @@
     "react-leaflet": "^2.8.0",
     "react-leaflet-fullscreen": "^1.0.1",
     "react-markdown": "^8.0.1",
-    "react-router-dom": "^7.18.2",
+    "react-router-dom": "classic",
     "rehype-raw": "^6.1.1"
   },
   "devDependencies": {
@@ -72,5 +72,9 @@
   "browserslist": [
     "defaults",
     ">0.5% in ES"
-  ]
+  ],
+  "allowScripts": {
+    "core-js@3.36.0": true,
+    "core-js-pure@3.36.0": true
+  }
 }
