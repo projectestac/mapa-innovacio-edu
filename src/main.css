@@ -248,6 +248,10 @@ header .top-bar, .nav-bar {
   padding: 1.5rem;
 }
 
+.seccio {
+  max-width: 100vw;
+}
+
 .seccio plain-ul {
   list-style-type: none;
   padding: 0;
@@ -556,6 +560,10 @@ header .top-bar, .nav-bar {
   height: 80vh;
 }
 
+.cursos {
+  overflow: auto clip;
+}
+
 .cursos svg text {
   display: none;
 }
@@ -611,8 +619,15 @@ footer .copyright {
   text-decoration: underline;
 }
 
-/* Small devices */
+/* Medium devices */
+@media (max-width: 1100px) {
+  .seccio-logo {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
 
+/* Small devices */
 @media (max-width: 600px) {
   #root {
     padding-bottom: 0;
@@ -653,7 +668,6 @@ footer .copyright {
 }
 
 /* Printed documents */
-
 @media print {
   #root header, .filler {
     display: none;
