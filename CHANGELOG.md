@@ -1,9 +1,13 @@
-### v1.4.3 (2026-09-05)
+### v1.4.4 (2026-09-08)
 #### Improvements
 - Upgrade dependencies
 - Update literals
 - Upgrade school data
 - Use ICGC maps by default
+- Improve CSS responsivity
+
+#### Bug fixes
+- Avoid horizontal overflow in the course switches list on medium resolutions
 
 ### v1.3.2 (2021-11-23)
 #### Bug fixes
